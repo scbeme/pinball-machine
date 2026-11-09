@@ -5,7 +5,7 @@
   "name": "scbeme/pinball-machine",
   "url": "https://github.com/scbeme/pinball-machine"
  },
- "updated": "2026-11-09 20:36",
+ "updated": "2026-11-09 20:39",
  "columns": [
   [
    "fdi",
@@ -819,9 +819,9 @@
    }
   },
   {
-   "name": "O-Ring Impact Switches",
+   "name": "Rebound Switches",
    "members": [
-    "DP-24 O-ring impact switch (leaf behind O-ring, 2)"
+    "DP-24 Rebound switch (leaf behind rubber ring, 2)"
    ],
    "cells": {
     "fdi": [
