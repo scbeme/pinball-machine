@@ -36,3 +36,9 @@ td.nacell{color:var(--na);text-align:left}
 .sum dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:3px 14px}
 .sum dt{color:#444}.sum dd{margin:0;font-weight:600}
 .sum a{display:inline-block;margin:2px 0}
+td.dev a,td.dev b a{color:var(--navy)}
+li a{text-decoration:underline}
+small.shared{color:#555;font-size:11px;font-style:italic}
+a.back{display:inline-block;margin:10px 0 4px;color:var(--navy);font-weight:600}
+h2.ptitle{margin:4px 0 10px;color:var(--navy);font-size:22px}
+.overview{background:#fff;border:1px solid var(--grid);border-radius:8px;padding:6px 16px;margin-bottom:10px}
