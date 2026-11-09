@@ -1,0 +1,771 @@
+{
+ "title": "Pinball Machine — Design Documentation",
+ "subtitle": "Engineering Design Dashboard",
+ "repo": {
+  "name": "scbeme/pinball-machine",
+  "url": "https://github.com/scbeme/pinball-machine"
+ },
+ "updated": "2026-11-09 20:17",
+ "columns": [
+  [
+   "fdi",
+   "Function & Design Inputs"
+  ],
+  [
+   "mech",
+   "Mechanical"
+  ],
+  [
+   "elec",
+   "Electrical"
+  ],
+  [
+   "fw",
+   "Firmware / Control"
+  ],
+  [
+   "it",
+   "Integration & Test"
+  ]
+ ],
+ "system": {
+  "name": "System",
+  "members": [
+   "Pinball Machine"
+  ],
+  "cells": {
+   "fdi": [
+    {
+     "name": "Description (bullet list)",
+     "status": "not_started",
+     "path": null
+    },
+    {
+     "name": "Functions, constraints, design parameters",
+     "status": "not_started",
+     "path": null
+    },
+    {
+     "name": "Architecture block diagram",
+     "status": "not_started",
+     "path": null
+    },
+    {
+     "name": "Game rules",
+     "status": "not_started",
+     "path": null
+    }
+   ],
+   "mech": [
+    {
+     "name": "Playfield layout with IDs",
+     "status": "not_started",
+     "path": null
+    },
+    {
+     "name": "Device registry table",
+     "status": "not_started",
+     "path": null
+    }
+   ],
+   "elec": [
+    {
+     "name": "Block diagram",
+     "status": "not_started",
+     "path": null
+    },
+    {
+     "name": "Schematic",
+     "status": "not_started",
+     "path": null
+    },
+    {
+     "name": "Cable + harness layout",
+     "status": "not_started",
+     "path": null
+    }
+   ],
+   "fw": [
+    {
+     "name": "State machine diagram",
+     "status": "not_started",
+     "path": null
+    },
+    {
+     "name": "Firmware code",
+     "status": "not_started",
+     "path": null
+    }
+   ],
+   "it": [
+    {
+     "name": "Drawings",
+     "status": "not_started",
+     "path": null
+    },
+    {
+     "name": "Tests + results table",
+     "status": "not_started",
+     "path": null
+    }
+   ]
+  }
+ },
+ "devices": [
+  {
+   "name": "Flippers",
+   "members": [
+    "DC-04 Flipper Assembly (L/R/Upper-L)",
+    "DP-09 Flipper buttons (L/R)"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "3D print files",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control logic",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Drop Targets",
+   "members": [
+    "DC-05 Drop target bank (7 side-by-side)",
+    "DC-06 Drop target (single)",
+    "DC-07 Drop target bank (4 inline)"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "3D print files",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "Board layout",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control logic",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Pop Bumpers",
+   "members": [
+    "DC-01 Pop bumpers",
+    "DP-24 O-ring impact switch"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "3D print files",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control logic",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Slingshots",
+   "members": [
+    "DC-02 Slingshots"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "3D print files",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control logic",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Standup Targets",
+   "members": [
+    "DP-01 Standup targets (6 side-by-side)",
+    "DP-19 Standup target (single)"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "3D print files",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Playfield Fixtures",
+   "members": [
+    "MD-01 Playfield post",
+    "MG-01 Ball guides",
+    "MG-02 Apron"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [],
+    "fw": [],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Lights",
+   "members": [
+    "DP-31 Bonus rack lights (15)",
+    "DP-32 Drop-target ball lamps (14)",
+    "DP-33 DELUXE letter lights (6)",
+    "DP-34 ABCD lane feature lights (7)",
+    "DP-35 Left-lane feature lights (7)",
+    "DP-36 Bank shot value lights (2)",
+    "DP-37 DELUXE value lights (2)",
+    "DP-38 8-ball saucer chain and outlane special lights (7)",
+    "DP-39 Bonus, multiplier and shoot-again lights (8)",
+    "DP-40 Pop bumper lights (3)",
+    "DP-41 General illumination lights (33)"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "3D print files",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control logic (per-group rule sets)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Controls & Tilt",
+   "members": [
+    "DP-04 Tilt sensor",
+    "DP-12 Game setup/start button",
+    "DP-20 Programmable button (L/R)",
+    "DP-21 Exit button",
+    "DP-22 Volume control",
+    "DP-23 Monitor menu joystick"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control logic",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Cabinet",
+   "members": [
+    "MC-01 Cabinet body",
+    "MC-02 Hinged playfield support",
+    "MC-03 Glass top and slide retention",
+    "MC-04 Bottom shelf",
+    "MC-05 Rubber feet"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "Fabrication drawings",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [],
+    "fw": [],
+    "it": [
+     {
+      "name": "Assembly drawing",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Ball Handling",
+   "members": [
+    "ML-01 Shooter plunger + spring",
+    "DB-01 Scoop/hole",
+    "DB-02 Ball lock",
+    "DB-03 Ball Trough",
+    "DB-04 Shooter lane ball-present sensor"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "3D print files",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control logic",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Ball-Path Sensing",
+   "members": [
+    "DC-03 Outlane save gate/deflector",
+    "DP-18 Rollover sensor",
+    "DP-03 Spinner",
+    "MD-02 Adjustable outlane pin"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "3D print files",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control logic",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Display, Audio & Host",
+   "members": [
+    "DP-25 Display monitor",
+    "DP-26 Speakers",
+    "DP-27 Host computer"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [],
+    "elec": [],
+    "fw": [
+     {
+      "name": "Display and audio map",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Controllers & Power",
+   "members": [
+    "DP-28 Topedal board",
+    "DP-29 24 V coil supply",
+    "DP-30 5 V supply",
+    "DP-13 Master power switch"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "Bottom shelf layout",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Power schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "Power budget",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O map (all boards)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control and timing table",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  }
+ ]
+}

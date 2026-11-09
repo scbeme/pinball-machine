@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pinball Machine — Design Documentation</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <svg viewBox="0 0 96 64" aria-hidden="true">
+    <defs><radialGradient id="b" cx="35%" cy="30%" r="70%"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#aeb8c4"/><stop offset="1" stop-color="#4d5a68"/></radialGradient></defs>
+    <path d="M4 40 L40 52 L44 44 L10 30 Z" fill="#d6332b"/><path d="M92 40 L56 52 L52 44 L86 30 Z" fill="#d6332b"/>
+    <circle cx="48" cy="28" r="18" fill="url(#b)"/>
+  </svg>
+  <div class="t"><h1 id="title"></h1><div class="sub" id="subtitle"></div></div>
+  <div class="meta">Repository: <span id="repo"></span><br>Last Updated: <span id="updated"></span></div>
+</header>
+<div class="legend">
+  <b>Status Legend:</b>
+  <span class="i"><span class="dot not_started"></span>Not Started</span>
+  <span class="i"><span class="dot in_progress"></span>In Progress</span>
+  <span class="i"><span class="dot complete"></span>Complete</span>
+  <span class="i"><span class="dot na"></span>Not Applicable</span>
+</div>
+<div class="scroll"><table><thead><tr id="head"></tr></thead><tbody id="body"></tbody></table></div>
+<div class="sum" id="sum"></div>
+</div>
+<script src="dashboard.js"></script>
+</body>
+</html>
