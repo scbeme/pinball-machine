@@ -5,7 +5,7 @@
   "name": "scbeme/pinball-machine",
   "url": "https://github.com/scbeme/pinball-machine"
  },
- "updated": "2026-11-09 20:17",
+ "updated": "2026-11-09 20:36",
  "columns": [
   [
    "fdi",
@@ -229,8 +229,7 @@
   {
    "name": "Pop Bumpers",
    "members": [
-    "DC-01 Pop bumpers",
-    "DP-24 O-ring impact switch"
+    "DC-01 Pop bumpers"
    ],
    "cells": {
     "fdi": [
@@ -627,7 +626,6 @@
    "members": [
     "DC-03 Outlane save gate/deflector",
     "DP-18 Rollover sensor",
-    "DP-03 Spinner",
     "MD-02 Adjustable outlane pin"
    ],
    "cells": {
@@ -754,6 +752,112 @@
     "fw": [
      {
       "name": "Control and timing table",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "Spinner",
+   "members": [
+    "DP-03 Spinner"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "3D print files",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control logic",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
+  },
+  {
+   "name": "O-Ring Impact Switches",
+   "members": [
+    "DP-24 O-ring impact switch (leaf behind O-ring, 2)"
+   ],
+   "cells": {
+    "fdi": [
+     {
+      "name": "Specs (functions, constraints, design parameters)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [
+     {
+      "name": "3D CAD model",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "3D print files",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "elec": [
+     {
+      "name": "Schematic",
+      "status": "not_started",
+      "path": null
+     },
+     {
+      "name": "I/O pin assignments",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "fw": [
+     {
+      "name": "Control logic",
       "status": "not_started",
       "path": null
      }
