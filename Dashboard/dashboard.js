@@ -163,7 +163,7 @@ function render(data) {
 }
 
 const inline = window.DASHBOARD_DATA;
-(inline ? Promise.resolve(inline) : fetch("data.json").then(r => r.json()))
-  .then(data => fetch("register.json").then(r => r.json()).then(r => { R = r; return data; }))
+(inline ? Promise.resolve(inline) : fetch("data.json?v=20261110-02", {cache: "no-store"}).then(r => r.json()))
+  .then(data => fetch("register.json?v=20261110-02", {cache: "no-store"}).then(r => r.json()).then(r => { R = r; return data; }))
   .then(render)
   .catch(e => { document.getElementById("view").innerHTML = `<p>Could not load data.json: ${esc(e.message)}</p>`; });
