@@ -1,0 +1,1480 @@
+{
+ "title": "Device Register",
+ "source": "Machine Master 20261110-01",
+ "svg": "registry.svg",
+ "notes": [
+  [
+   "Grid origin",
+   "Intersection of the playfield left-right centerline and the line through both flipper pivots (carried from PMDD Table 3-1). Drawn as the red crosshair on the playfield layout."
+  ],
+  [
+   "Grid axes",
+   "X in mm, right of the centerline is positive. Y in mm, up the playfield from the flipper pivot line is positive. Flipper pivots read Y 0, X -73 and +73."
+  ],
+  [
+   "Letter suffix",
+   "By position, top to bottom, then left to right, except the banks below."
+  ],
+  [
+   "DC-05 Drop target bank (side-by-side)",
+   "A to G = position 1 to 7. Position 1 is the top circle in the playfield SVG; positions count left to right facing the target perpendicular to its ball-impact face (slant ignored)."
+  ],
+  [
+   "DP-01 Standup targets (side-by-side)",
+   "A to F = position 1 to 6, same orientation and pitch as DC-05; each standup is centered between two drop targets."
+  ],
+  [
+   "DC-07 Drop target bank (inline)",
+   "A = front (nearest the player) to D = furthest from the shooter end."
+  ],
+  [
+   "DC-02 Slingshots leaf switches",
+   "Suffix sw1 (upper) and sw2 (lower) on the slingshot instance; they carry no Register ID of their own."
+  ],
+  [
+   "Lights DP-31 to DP-41",
+   "Instance ID DP-3x-nn, nn numbered within the group top to bottom, then left to right (rows grouped in 8 mm bins). The addressable RGB LED chain index is a wiring attribute in the Electrical Master I/O map, not part of the instance ID. The playfield layout shows light tags shortened (38-03 = DP-38-03)."
+  ],
+  [
+   "DP-27 to DP-30 (Internal Electronics)",
+   "One CAD symbol holds all six instances; coordinates are nominal, spaced inside the symbol, not measured."
+  ],
+  [
+   "Cabinet items",
+   "Cabinet grid with the same X/Y origin and a Z axis below the playfield; defined at T6."
+  ],
+  [
+   "Retired IDs",
+   "DP-02, DP-05, DP-07, DP-08 (never reused). DP-06, DP-14, DP-15 deleted (merged). DP-10 Flipper coil/driver removed from the Register: each DC-04 Flipper assembly includes its coil (proposed; Scott to confirm)."
+  ],
+  [
+   "Light quantities",
+   "Counted from the playfield SVG by the 11 light groups (DP-31 to DP-41, decided 2026-11-09): 68 recessed + 3 stars (DP-40, one in each pop bumper) + 32 post = 103 lights in the CAD today. CAD controls counts; update Qty if the CAD changes."
+  ],
+  [
+   "Electrical?",
+   "Y = has an electrical interface to a Topedal board, supply or host. N = mechanical only. TBD = undecided. Proposed; not yet reviewed by Scott."
+  ],
+  [
+   "Instance IDs",
+   "Tag on the playfield layout: device ID plus suffix (letters for most devices, numbers within the group for lights). Devices with no symbol on the playfield have none. DP-27 to DP-30 share one CAD symbol (Internal Electronics), so their tags are placed inside it."
+  ],
+  [
+   "Detail document",
+   "Stems of the controlling pmdd_<family> documents until the device cards replace them."
+  ],
+  [
+   "Source / revision",
+   "Moved from Machine Master 20261110-01 (Register, Instance table, Device Registry graphic). Built from playfield CAD export pf-playfield-20261009. CAD controls geometry and counts. Not tagged on the layout: DB-02, MC-01 to MC-05, MD-01, MG-01, MG-02. Flippers DC-04A to DC-04C are tagged at the pivot circles. ML-01 position assumed until the fuller CAD arrives."
+  ]
+ ],
+ "devices": [
+  {
+   "id": "DB-01",
+   "device": "Scoop/hole",
+   "tier": "Ball-State Device",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "kickout hole (with its inductive metal detector)",
+   "doc": "pmdd_ball-handling",
+   "instances": [
+    {
+     "id": "DB-01",
+     "x": 58.9,
+     "y": 621.4
+    }
+   ]
+  },
+  {
+   "id": "DB-02",
+   "device": "Ball lock",
+   "tier": "Ball-State Device",
+   "qty": "0–1 (desired)",
+   "electrical": "TBD",
+   "cad": "none",
+   "doc": "pmdd_ball-handling",
+   "instances": []
+  },
+  {
+   "id": "DB-03",
+   "device": "Ball Trough",
+   "tier": "Ball-State Device",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "ball trough / ball feed (with its inductive metal detector)",
+   "doc": "pmdd_ball-handling",
+   "instances": [
+    {
+     "id": "DB-03",
+     "x": 172.4,
+     "y": -36.4
+    }
+   ]
+  },
+  {
+   "id": "DB-04",
+   "device": "Shooter lane ball-present sensor",
+   "tier": "Ball-State Device",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "inductive metal detector (shooter lane)",
+   "doc": "pmdd_ball-handling",
+   "instances": [
+    {
+     "id": "DB-04",
+     "x": 206.9,
+     "y": -40.8
+    }
+   ]
+  },
+  {
+   "id": "DC-01",
+   "device": "Pop bumpers",
+   "tier": "Composite Mech",
+   "qty": "3",
+   "electrical": "Y",
+   "cad": "pop bumper",
+   "doc": "pmdd_pop-bumper",
+   "instances": [
+    {
+     "id": "DC-01A",
+     "x": -59.2,
+     "y": 485.2
+    },
+    {
+     "id": "DC-01B",
+     "x": 32.5,
+     "y": 485.2
+    },
+    {
+     "id": "DC-01C",
+     "x": -13.4,
+     "y": 396.5
+    }
+   ]
+  },
+  {
+   "id": "DC-02",
+   "device": "Slingshots",
+   "tier": "Composite Mech",
+   "qty": "2",
+   "electrical": "Y",
+   "cad": "sling shot (with 2 leaf switch symbols each)",
+   "doc": "pmdd_slingshot",
+   "instances": [
+    {
+     "id": "DC-02A",
+     "x": -97.0,
+     "y": 89.5
+    },
+    {
+     "id": "DC-02A-sw1",
+     "x": -103.8,
+     "y": 110.9
+    },
+    {
+     "id": "DC-02A-sw2",
+     "x": -84.7,
+     "y": 68.6
+    },
+    {
+     "id": "DC-02B",
+     "x": 97.0,
+     "y": 89.5
+    },
+    {
+     "id": "DC-02B-sw1",
+     "x": 103.7,
+     "y": 110.9
+    },
+    {
+     "id": "DC-02B-sw2",
+     "x": 84.6,
+     "y": 68.6
+    }
+   ]
+  },
+  {
+   "id": "DC-03",
+   "device": "Outlane save gate/deflector",
+   "tier": "Composite Mech",
+   "qty": "2",
+   "electrical": "Y",
+   "cad": "ball save",
+   "doc": "pmdd_ball-path-sensing",
+   "instances": [
+    {
+     "id": "DC-03A",
+     "x": -167.9,
+     "y": 4.8
+    },
+    {
+     "id": "DC-03B",
+     "x": 166.1,
+     "y": 4.8
+    }
+   ]
+  },
+  {
+   "id": "DC-04",
+   "device": "Flipper assembly",
+   "tier": "Composite Mech",
+   "qty": "3",
+   "electrical": "Y",
+   "cad": "Flipper",
+   "doc": "pmdd_flipper",
+   "instances": [
+    {
+     "id": "DC-04A",
+     "x": -149.8,
+     "y": 236.6
+    },
+    {
+     "id": "DC-04B",
+     "x": -73.0,
+     "y": 0.1
+    },
+    {
+     "id": "DC-04C",
+     "x": 73.0,
+     "y": 0.1
+    }
+   ]
+  },
+  {
+   "id": "DC-05",
+   "device": "Drop target bank (side-by-side)",
+   "tier": "Composite Mech",
+   "qty": "7",
+   "electrical": "Y",
+   "cad": "Drop target 7x",
+   "doc": "pmdd_drop-target",
+   "instances": [
+    {
+     "id": "DC-05A",
+     "x": 141.6,
+     "y": 389.6
+    },
+    {
+     "id": "DC-05B",
+     "x": 145.1,
+     "y": 364.4
+    },
+    {
+     "id": "DC-05C",
+     "x": 148.7,
+     "y": 339.3
+    },
+    {
+     "id": "DC-05D",
+     "x": 152.2,
+     "y": 314.1
+    },
+    {
+     "id": "DC-05E",
+     "x": 155.8,
+     "y": 289.0
+    },
+    {
+     "id": "DC-05F",
+     "x": 159.4,
+     "y": 263.8
+    },
+    {
+     "id": "DC-05G",
+     "x": 162.9,
+     "y": 238.7
+    }
+   ]
+  },
+  {
+   "id": "DC-06",
+   "device": "Drop target (single)",
+   "tier": "Composite Mech",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "drop target 1-blade",
+   "doc": "pmdd_drop-target",
+   "instances": [
+    {
+     "id": "DC-06",
+     "x": 140.9,
+     "y": 546.0
+    }
+   ]
+  },
+  {
+   "id": "DC-07",
+   "device": "Drop target bank (inline)",
+   "tier": "Composite Mech",
+   "qty": "4",
+   "electrical": "Y",
+   "cad": "drop target 4-blade inline",
+   "doc": "pmdd_drop-target",
+   "instances": [
+    {
+     "id": "DC-07A",
+     "x": -106.3,
+     "y": 413.2
+    },
+    {
+     "id": "DC-07B",
+     "x": -111.2,
+     "y": 445.9
+    },
+    {
+     "id": "DC-07C",
+     "x": -116.2,
+     "y": 478.5
+    },
+    {
+     "id": "DC-07D",
+     "x": -121.1,
+     "y": 511.2
+    }
+   ]
+  },
+  {
+   "id": "DP-01",
+   "device": "Standup targets (side-by-side)",
+   "tier": "Primitive",
+   "qty": "6",
+   "electrical": "Y",
+   "cad": "Standup targets x 6",
+   "doc": "pmdd_standup-target",
+   "instances": [
+    {
+     "id": "DP-01A",
+     "x": 154.8,
+     "y": 378.6
+    },
+    {
+     "id": "DP-01B",
+     "x": 158.4,
+     "y": 353.5
+    },
+    {
+     "id": "DP-01C",
+     "x": 161.9,
+     "y": 328.3
+    },
+    {
+     "id": "DP-01D",
+     "x": 165.5,
+     "y": 303.2
+    },
+    {
+     "id": "DP-01E",
+     "x": 169.1,
+     "y": 278.0
+    },
+    {
+     "id": "DP-01F",
+     "x": 172.6,
+     "y": 252.9
+    }
+   ]
+  },
+  {
+   "id": "DP-03",
+   "device": "Spinner",
+   "tier": "Primitive",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "spinner",
+   "doc": "pmdd_ball-path-sensing",
+   "instances": [
+    {
+     "id": "DP-03",
+     "x": -120.2,
+     "y": 261.5
+    }
+   ]
+  },
+  {
+   "id": "DP-04",
+   "device": "Tilt sensor",
+   "tier": "Primitive",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "tilt bob",
+   "doc": "pmdd_controls-tilt",
+   "instances": [
+    {
+     "id": "DP-04",
+     "x": 313.3,
+     "y": 463.2
+    }
+   ]
+  },
+  {
+   "id": "DP-09",
+   "device": "Flipper buttons",
+   "tier": "Primitive",
+   "qty": "2",
+   "electrical": "Y",
+   "cad": "flipper button",
+   "doc": "pmdd_flipper",
+   "instances": [
+    {
+     "id": "DP-09L",
+     "x": -204.2,
+     "y": -22.1
+    },
+    {
+     "id": "DP-09R",
+     "x": 235.0,
+     "y": -22.1
+    }
+   ]
+  },
+  {
+   "id": "DP-12",
+   "device": "Game setup/start button",
+   "tier": "Primitive",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "start",
+   "doc": "pmdd_controls-tilt",
+   "instances": [
+    {
+     "id": "DP-12",
+     "x": 89.9,
+     "y": -157.2
+    }
+   ]
+  },
+  {
+   "id": "DP-13",
+   "device": "Master power switch",
+   "tier": "Primitive",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "power on-off",
+   "doc": "PMDD Table 5.3-3 (Power Design), P-01 (Mains input)",
+   "instances": [
+    {
+     "id": "DP-13",
+     "x": 89.9,
+     "y": -139.1
+    }
+   ]
+  },
+  {
+   "id": "DP-18",
+   "device": "Rollover sensor",
+   "tier": "Primitive",
+   "qty": "7",
+   "electrical": "Y",
+   "cad": "inductive metal detector (the 7 on the playfield)",
+   "doc": "pmdd_ball-path-sensing",
+   "instances": [
+    {
+     "id": "DP-18A",
+     "x": -164.1,
+     "y": 575.7
+    },
+    {
+     "id": "DP-18B",
+     "x": -57.3,
+     "y": 575.7
+    },
+    {
+     "id": "DP-18C",
+     "x": -13.1,
+     "y": 575.7
+    },
+    {
+     "id": "DP-18D",
+     "x": -167.7,
+     "y": 104.7
+    },
+    {
+     "id": "DP-18E",
+     "x": -140.5,
+     "y": 104.7
+    },
+    {
+     "id": "DP-18F",
+     "x": 140.5,
+     "y": 104.2
+    },
+    {
+     "id": "DP-18G",
+     "x": 168.5,
+     "y": 104.7
+    }
+   ]
+  },
+  {
+   "id": "DP-19",
+   "device": "Standup target (single)",
+   "tier": "Primitive",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "standup target 1-blade",
+   "doc": "pmdd_standup-target",
+   "instances": [
+    {
+     "id": "DP-19",
+     "x": -100.6,
+     "y": 592.9
+    }
+   ]
+  },
+  {
+   "id": "DP-20",
+   "device": "Programmable button",
+   "tier": "Primitive",
+   "qty": "2",
+   "electrical": "Y",
+   "cad": "magna-save",
+   "doc": "pmdd_controls-tilt",
+   "instances": [
+    {
+     "id": "DP-20L",
+     "x": -204.2,
+     "y": 28.5
+    },
+    {
+     "id": "DP-20R",
+     "x": 235.0,
+     "y": 28.5
+    }
+   ]
+  },
+  {
+   "id": "DP-21",
+   "device": "Exit button",
+   "tier": "Primitive",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "exit",
+   "doc": "pmdd_controls-tilt",
+   "instances": [
+    {
+     "id": "DP-21",
+     "x": 89.9,
+     "y": -173.4
+    }
+   ]
+  },
+  {
+   "id": "DP-22",
+   "device": "Volume control",
+   "tier": "Primitive",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "volume control",
+   "doc": "pmdd_controls-tilt",
+   "instances": [
+    {
+     "id": "DP-22",
+     "x": 89.9,
+     "y": -190.5
+    }
+   ]
+  },
+  {
+   "id": "DP-23",
+   "device": "Monitor menu joystick",
+   "tier": "Primitive",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "monitor (video) menu interface/joystick",
+   "doc": "pmdd_controls-tilt",
+   "instances": [
+    {
+     "id": "DP-23",
+     "x": -135.8,
+     "y": -157.3
+    }
+   ]
+  },
+  {
+   "id": "DP-24",
+   "device": "Rebound switch (leaf behind rubber ring)",
+   "tier": "Primitive",
+   "qty": "2",
+   "electrical": "Y",
+   "cad": "leaf switch (the 2 near the pop bumpers)",
+   "doc": "pmdd_pop-bumper",
+   "instances": [
+    {
+     "id": "DP-24A",
+     "x": 58.0,
+     "y": 559.9
+    },
+    {
+     "id": "DP-24B",
+     "x": 98.0,
+     "y": 515.1
+    }
+   ]
+  },
+  {
+   "id": "DP-25",
+   "device": "Display monitor",
+   "tier": "System",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "display monitor + speakers (box)",
+   "doc": "PMDD Table 5.1-1 (System Components), item 1",
+   "instances": [
+    {
+     "id": "DP-25",
+     "x": 15.5,
+     "y": 733.8
+    }
+   ]
+  },
+  {
+   "id": "DP-26",
+   "device": "Speakers",
+   "tier": "System",
+   "qty": "2",
+   "electrical": "Y",
+   "cad": "display monitor + speakers (2 circles)",
+   "doc": "PMDD Table 5.1-1, item 7",
+   "instances": [
+    {
+     "id": "DP-26A",
+     "x": -151.3,
+     "y": 732.4
+    },
+    {
+     "id": "DP-26B",
+     "x": 182.0,
+     "y": 732.4
+    }
+   ]
+  },
+  {
+   "id": "DP-27",
+   "device": "Host computer",
+   "tier": "System",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "Internal Electronics (host computer)",
+   "doc": "PMDD Table 5.1-1, item 2",
+   "instances": [
+    {
+     "id": "DP-27",
+     "x": 278.3,
+     "y": 540.0
+    }
+   ]
+  },
+  {
+   "id": "DP-28",
+   "device": "Topedal board",
+   "tier": "System",
+   "qty": "3",
+   "electrical": "Y",
+   "cad": "Internal Electronics (Topedal control boards 3ea)",
+   "doc": "PMDD Table 5.1-1, item 5; Figure 5.3-2",
+   "instances": [
+    {
+     "id": "DP-28A",
+     "x": 308.3,
+     "y": 540.0
+    },
+    {
+     "id": "DP-28B",
+     "x": 338.3,
+     "y": 540.0
+    },
+    {
+     "id": "DP-28C",
+     "x": 278.3,
+     "y": 526.0
+    }
+   ]
+  },
+  {
+   "id": "DP-29",
+   "device": "24 V coil supply",
+   "tier": "System",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "Internal Electronics (power supply 24v)",
+   "doc": "PMDD Table 5.3-3, P-02",
+   "instances": [
+    {
+     "id": "DP-29",
+     "x": 308.3,
+     "y": 526.0
+    }
+   ]
+  },
+  {
+   "id": "DP-30",
+   "device": "5 V supply",
+   "tier": "System",
+   "qty": "1",
+   "electrical": "Y",
+   "cad": "Internal Electronics (power supply 5v)",
+   "doc": "PMDD Table 5.3-3, P-06",
+   "instances": [
+    {
+     "id": "DP-30",
+     "x": 338.3,
+     "y": 526.0
+    }
+   ]
+  },
+  {
+   "id": "DP-31",
+   "device": "Bonus rack lights",
+   "tier": "Primitive",
+   "qty": "15",
+   "electrical": "Y",
+   "cad": "lights",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-31-01",
+     "x": -49.8,
+     "y": 193.3
+    },
+    {
+     "id": "DP-31-02",
+     "x": -12.2,
+     "y": 189.0
+    },
+    {
+     "id": "DP-31-03",
+     "x": 26.7,
+     "y": 194.9
+    },
+    {
+     "id": "DP-31-04",
+     "x": 95.4,
+     "y": 185.3
+    },
+    {
+     "id": "DP-31-05",
+     "x": -82.0,
+     "y": 170.6
+    },
+    {
+     "id": "DP-31-06",
+     "x": 43.5,
+     "y": 171.6
+    },
+    {
+     "id": "DP-31-07",
+     "x": -13.2,
+     "y": 157.4
+    },
+    {
+     "id": "DP-31-08",
+     "x": 71.7,
+     "y": 156.1
+    },
+    {
+     "id": "DP-31-09",
+     "x": -58.5,
+     "y": 146.7
+    },
+    {
+     "id": "DP-31-10",
+     "x": 47.7,
+     "y": 134.8
+    },
+    {
+     "id": "DP-31-11",
+     "x": 11.4,
+     "y": 129.3
+    },
+    {
+     "id": "DP-31-12",
+     "x": -21.6,
+     "y": 114.1
+    },
+    {
+     "id": "DP-31-13",
+     "x": -33.9,
+     "y": 84.3
+    },
+    {
+     "id": "DP-31-14",
+     "x": 22.3,
+     "y": 86.7
+    },
+    {
+     "id": "DP-31-15",
+     "x": -6.3,
+     "y": 62.8
+    }
+   ]
+  },
+  {
+   "id": "DP-32",
+   "device": "Drop-target ball lamps",
+   "tier": "Primitive",
+   "qty": "14",
+   "electrical": "Y",
+   "cad": "pool ball light",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-32-01",
+     "x": 62.8,
+     "y": 374.8
+    },
+    {
+     "id": "DP-32-02",
+     "x": 38.3,
+     "y": 371.2
+    },
+    {
+     "id": "DP-32-03",
+     "x": 66.9,
+     "y": 348.2
+    },
+    {
+     "id": "DP-32-04",
+     "x": 42.1,
+     "y": 344.6
+    },
+    {
+     "id": "DP-32-05",
+     "x": 45.8,
+     "y": 318.5
+    },
+    {
+     "id": "DP-32-06",
+     "x": 70.9,
+     "y": 322.2
+    },
+    {
+     "id": "DP-32-07",
+     "x": 49.2,
+     "y": 294.1
+    },
+    {
+     "id": "DP-32-08",
+     "x": 74.6,
+     "y": 297.8
+    },
+    {
+     "id": "DP-32-09",
+     "x": 52.9,
+     "y": 268.2
+    },
+    {
+     "id": "DP-32-10",
+     "x": 78.6,
+     "y": 272.0
+    },
+    {
+     "id": "DP-32-11",
+     "x": 82.4,
+     "y": 246.9
+    },
+    {
+     "id": "DP-32-12",
+     "x": 56.4,
+     "y": 243.0
+    },
+    {
+     "id": "DP-32-13",
+     "x": 86.2,
+     "y": 221.7
+    },
+    {
+     "id": "DP-32-14",
+     "x": 60.0,
+     "y": 217.9
+    }
+   ]
+  },
+  {
+   "id": "DP-33",
+   "device": "DELUXE letter lights",
+   "tier": "Primitive",
+   "qty": "6",
+   "electrical": "Y",
+   "cad": "light",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-33-01",
+     "x": 15.3,
+     "y": 353.0
+    },
+    {
+     "id": "DP-33-02",
+     "x": 19.3,
+     "y": 327.6
+    },
+    {
+     "id": "DP-33-03",
+     "x": 23.3,
+     "y": 302.2
+    },
+    {
+     "id": "DP-33-04",
+     "x": 27.3,
+     "y": 276.8
+    },
+    {
+     "id": "DP-33-05",
+     "x": 31.3,
+     "y": 251.4
+    },
+    {
+     "id": "DP-33-06",
+     "x": 35.3,
+     "y": 226.0
+    }
+   ]
+  },
+  {
+   "id": "DP-34",
+   "device": "ABCD lane feature lights",
+   "tier": "Primitive",
+   "qty": "7",
+   "electrical": "Y",
+   "cad": "light",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-34-01",
+     "x": -75.8,
+     "y": 652.4
+    },
+    {
+     "id": "DP-34-02",
+     "x": -36.4,
+     "y": 654.7
+    },
+    {
+     "id": "DP-34-03",
+     "x": 2.9,
+     "y": 652.5
+    },
+    {
+     "id": "DP-34-04",
+     "x": -59.2,
+     "y": 622.4
+    },
+    {
+     "id": "DP-34-05",
+     "x": -13.6,
+     "y": 622.4
+    },
+    {
+     "id": "DP-34-06",
+     "x": -140.7,
+     "y": 149.8
+    },
+    {
+     "id": "DP-34-07",
+     "x": 140.6,
+     "y": 149.8
+    }
+   ]
+  },
+  {
+   "id": "DP-35",
+   "device": "Left-lane feature lights",
+   "tier": "Primitive",
+   "qty": "7",
+   "electrical": "Y",
+   "cad": "light",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-35-01",
+     "x": -168.7,
+     "y": 541.0
+    },
+    {
+     "id": "DP-35-02",
+     "x": -161.7,
+     "y": 421.1
+    },
+    {
+     "id": "DP-35-03",
+     "x": -153.9,
+     "y": 385.4
+    },
+    {
+     "id": "DP-35-04",
+     "x": -147.6,
+     "y": 359.0
+    },
+    {
+     "id": "DP-35-05",
+     "x": -140.1,
+     "y": 332.5
+    },
+    {
+     "id": "DP-35-06",
+     "x": -133.5,
+     "y": 305.8
+    },
+    {
+     "id": "DP-35-07",
+     "x": -125.9,
+     "y": 280.3
+    }
+   ]
+  },
+  {
+   "id": "DP-36",
+   "device": "Bank shot value lights",
+   "tier": "Primitive",
+   "qty": "2",
+   "electrical": "Y",
+   "cad": "light",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-36-01",
+     "x": -95.1,
+     "y": 357.4
+    },
+    {
+     "id": "DP-36-02",
+     "x": -89.0,
+     "y": 327.9
+    }
+   ]
+  },
+  {
+   "id": "DP-37",
+   "device": "DELUXE value lights",
+   "tier": "Primitive",
+   "qty": "2",
+   "electrical": "Y",
+   "cad": "light",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-37-01",
+     "x": -43.9,
+     "y": 278.7
+    },
+    {
+     "id": "DP-37-02",
+     "x": -10.7,
+     "y": 284.0
+    }
+   ]
+  },
+  {
+   "id": "DP-38",
+   "device": "8-ball saucer chain and outlane special lights",
+   "tier": "Primitive",
+   "qty": "7",
+   "electrical": "Y",
+   "cad": "light",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-38-01",
+     "x": 130.7,
+     "y": 570.7
+    },
+    {
+     "id": "DP-38-02",
+     "x": 150.3,
+     "y": 491.1
+    },
+    {
+     "id": "DP-38-03",
+     "x": 144.5,
+     "y": 458.7
+    },
+    {
+     "id": "DP-38-04",
+     "x": 133.4,
+     "y": 435.3
+    },
+    {
+     "id": "DP-38-05",
+     "x": 117.9,
+     "y": 414.8
+    },
+    {
+     "id": "DP-38-06",
+     "x": -168.4,
+     "y": 149.4
+    },
+    {
+     "id": "DP-38-07",
+     "x": 168.3,
+     "y": 149.4
+    }
+   ]
+  },
+  {
+   "id": "DP-39",
+   "device": "Bonus, multiplier and shoot-again lights",
+   "tier": "Primitive",
+   "qty": "8",
+   "electrical": "Y",
+   "cad": "light",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-39-01",
+     "x": -33.2,
+     "y": 33.8
+    },
+    {
+     "id": "DP-39-02",
+     "x": -0.0,
+     "y": 33.8
+    },
+    {
+     "id": "DP-39-03",
+     "x": 33.1,
+     "y": 33.8
+    },
+    {
+     "id": "DP-39-04",
+     "x": -40.9,
+     "y": 9.9
+    },
+    {
+     "id": "DP-39-05",
+     "x": 42.6,
+     "y": 9.9
+    },
+    {
+     "id": "DP-39-06",
+     "x": -12.8,
+     "y": -6.4
+    },
+    {
+     "id": "DP-39-07",
+     "x": 14.3,
+     "y": -6.4
+    },
+    {
+     "id": "DP-39-08",
+     "x": -0.0,
+     "y": -35.0
+    }
+   ]
+  },
+  {
+   "id": "DP-40",
+   "device": "Pop bumper lights",
+   "tier": "Primitive",
+   "qty": "3",
+   "electrical": "Y",
+   "cad": "star",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-40-01",
+     "x": -59.2,
+     "y": 485.2
+    },
+    {
+     "id": "DP-40-02",
+     "x": 32.5,
+     "y": 485.2
+    },
+    {
+     "id": "DP-40-03",
+     "x": -13.4,
+     "y": 396.5
+    }
+   ]
+  },
+  {
+   "id": "DP-41",
+   "device": "General illumination lights",
+   "tier": "Primitive",
+   "qty": "32",
+   "electrical": "Y",
+   "cad": "post light",
+   "doc": "pmdd_light",
+   "instances": [
+    {
+     "id": "DP-41-01",
+     "x": -161.1,
+     "y": 668.2
+    },
+    {
+     "id": "DP-41-02",
+     "x": 153.3,
+     "y": 673.6
+    },
+    {
+     "id": "DP-41-03",
+     "x": 186.1,
+     "y": 645.8
+    },
+    {
+     "id": "DP-41-04",
+     "x": -168.9,
+     "y": 629.5
+    },
+    {
+     "id": "DP-41-05",
+     "x": 93.4,
+     "y": 634.7
+    },
+    {
+     "id": "DP-41-06",
+     "x": -123.0,
+     "y": 600.7
+    },
+    {
+     "id": "DP-41-07",
+     "x": 144.6,
+     "y": 590.6
+    },
+    {
+     "id": "DP-41-08",
+     "x": 57.6,
+     "y": 580.6
+    },
+    {
+     "id": "DP-41-09",
+     "x": -79.3,
+     "y": 577.2
+    },
+    {
+     "id": "DP-41-10",
+     "x": -35.3,
+     "y": 577.2
+    },
+    {
+     "id": "DP-41-11",
+     "x": 9.2,
+     "y": 577.2
+    },
+    {
+     "id": "DP-41-12",
+     "x": 90.1,
+     "y": 576.7
+    },
+    {
+     "id": "DP-41-13",
+     "x": -98.7,
+     "y": 538.4
+    },
+    {
+     "id": "DP-41-14",
+     "x": 177.9,
+     "y": 518.4
+    },
+    {
+     "id": "DP-41-15",
+     "x": 121.8,
+     "y": 508.0
+    },
+    {
+     "id": "DP-41-16",
+     "x": -144.7,
+     "y": 479.5
+    },
+    {
+     "id": "DP-41-17",
+     "x": 107.3,
+     "y": 456.6
+    },
+    {
+     "id": "DP-41-18",
+     "x": 172.9,
+     "y": 448.1
+    },
+    {
+     "id": "DP-41-19",
+     "x": -76.9,
+     "y": 434.8
+    },
+    {
+     "id": "DP-41-20",
+     "x": -137.3,
+     "y": 425.3
+    },
+    {
+     "id": "DP-41-21",
+     "x": 172.9,
+     "y": 401.4
+    },
+    {
+     "id": "DP-41-22",
+     "x": 172.9,
+     "y": 366.9
+    },
+    {
+     "id": "DP-41-23",
+     "x": -169.1,
+     "y": 283.9
+    },
+    {
+     "id": "DP-41-24",
+     "x": -164.8,
+     "y": 197.2
+    },
+    {
+     "id": "DP-41-25",
+     "x": 170.6,
+     "y": 203.0
+    },
+    {
+     "id": "DP-41-26",
+     "x": -118.7,
+     "y": 116.6
+    },
+    {
+     "id": "DP-41-27",
+     "x": 118.6,
+     "y": 116.6
+    },
+    {
+     "id": "DP-41-28",
+     "x": -100.6,
+     "y": 59.9
+    },
+    {
+     "id": "DP-41-29",
+     "x": 100.6,
+     "y": 59.9
+    },
+    {
+     "id": "DP-41-30",
+     "x": -115.1,
+     "y": 24.4
+    },
+    {
+     "id": "DP-41-31",
+     "x": 113.3,
+     "y": 25.4
+    },
+    {
+     "id": "DP-41-32",
+     "x": -119.9,
+     "y": -39.2
+    }
+   ]
+  },
+  {
+   "id": "MC-01",
+   "device": "Cabinet body",
+   "tier": "Mechanical",
+   "qty": "Per CAD",
+   "electrical": "N",
+   "cad": "none",
+   "doc": "pmdd_cabinet",
+   "instances": []
+  },
+  {
+   "id": "MC-02",
+   "device": "Hinged playfield support",
+   "tier": "Mechanical",
+   "qty": "Per CAD",
+   "electrical": "N",
+   "cad": "none",
+   "doc": "pmdd_cabinet",
+   "instances": []
+  },
+  {
+   "id": "MC-03",
+   "device": "Glass top and slide retention",
+   "tier": "Mechanical",
+   "qty": "Per CAD",
+   "electrical": "N",
+   "cad": "none",
+   "doc": "pmdd_cabinet",
+   "instances": []
+  },
+  {
+   "id": "MC-04",
+   "device": "Bottom shelf",
+   "tier": "Mechanical",
+   "qty": "Per CAD",
+   "electrical": "N",
+   "cad": "none",
+   "doc": "pmdd_cabinet",
+   "instances": []
+  },
+  {
+   "id": "MC-05",
+   "device": "Rubber feet",
+   "tier": "Mechanical",
+   "qty": "Per CAD",
+   "electrical": "N",
+   "cad": "none",
+   "doc": "pmdd_cabinet",
+   "instances": []
+  },
+  {
+   "id": "MD-01",
+   "device": "Playfield post",
+   "tier": "Mechanical",
+   "qty": "Per CAD (not tracked)",
+   "electrical": "N",
+   "cad": "post tapered, post shaft",
+   "doc": "pmdd_playfield-fixtures",
+   "instances": []
+  },
+  {
+   "id": "MD-02",
+   "device": "Adjustable outlane pin",
+   "tier": "Mechanical",
+   "qty": "2",
+   "electrical": "N",
+   "cad": "adjustable outlane pin",
+   "doc": "pmdd_ball-path-sensing",
+   "instances": [
+    {
+     "id": "MD-02A",
+     "x": 176.0,
+     "y": 137.8
+    },
+    {
+     "id": "MD-02B",
+     "x": -178.7,
+     "y": 136.3
+    }
+   ]
+  },
+  {
+   "id": "MG-01",
+   "device": "Ball guides",
+   "tier": "Mechanical",
+   "qty": "Per CAD (not tracked)",
+   "electrical": "N",
+   "cad": "ball guide plexiglass standoff",
+   "doc": "pmdd_playfield-fixtures",
+   "instances": []
+  },
+  {
+   "id": "MG-02",
+   "device": "Apron",
+   "tier": "Mechanical",
+   "qty": "1",
+   "electrical": "N",
+   "cad": "none",
+   "doc": "pmdd_playfield-fixtures",
+   "instances": []
+  },
+  {
+   "id": "ML-01",
+   "device": "Shooter plunger + spring",
+   "tier": "Mechanical",
+   "qty": "1",
+   "electrical": "N",
+   "cad": "manual shooter plunger + spring",
+   "doc": "pmdd_ball-handling",
+   "instances": [
+    {
+     "id": "ML-01",
+     "x": 206.4,
+     "y": -105.5
+    }
+   ]
+  }
+ ]
+}

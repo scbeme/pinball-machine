@@ -22,6 +22,7 @@ function rollup(list) {
 const resolve = it => it.ref ? {...D.shared[it.ref], key: "ref:" + it.ref, shared: true, label: D.shared[it.ref].label} : {...it, key: null};
 
 function link(d, label) {
+  if (d.href && d.path) return `<a href="${esc(d.href)}">${esc(label || d.name)}</a>`;
   return d.path ? `<a href="${esc(D.repo.url + "/blob/main/" + d.path)}">${esc(label || d.name)}</a>` : esc(label || d.name);
 }
 function cell(items) {
@@ -108,12 +109,45 @@ function systemPage() {
   return v;
 }
 
+let R;
+function playfieldPage() {
+  const v = el("div");
+  v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#register">Device register table &rarr;</a><h2 class="ptitle">Playfield layout with IDs</h2>` +
+    `<p class="note">One tag per instance. Grid origin = playfield centerline x flipper pivot line (red crosshair). CAD controls geometry and counts. <a href="${esc(R.svg)}">Open full-size SVG</a></p>` +
+    `<div class="scroll"><img class="pf" src="${esc(R.svg)}" alt="Playfield layout with device instance IDs"></div>`;
+  return v;
+}
+function registerPage() {
+  const v = el("div"), n = R.devices.reduce((a, x) => a + x.instances.length, 0);
+  v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#playfield">Playfield layout &rarr;</a><h2 class="ptitle">Device Register</h2>` +
+    `<p class="note">${R.devices.length} devices, ${n} instances. Click a device row to show its instances (ID, X mm, Y mm). Source: ${esc(R.source)}.</p>` +
+    `<div class="btns"><button id="exp">Expand all</button> <button id="col">Collapse all</button></div>` +
+    `<details class="rules"><summary>Register rules and notes</summary><table class="mini"><tbody>${R.notes.map(r => `<tr><th>${esc(r[0])}</th><td>${esc(r[1])}</td></tr>`).join("")}</tbody></table></details>` +
+    `<div class="scroll"><table class="reg"><thead><tr><th></th><th>ID</th><th>Device</th><th>Tier</th><th>Qty</th><th>Electrical?</th><th>CAD legend symbol</th><th>Detail document</th></tr></thead><tbody></tbody></table></div>`;
+  const tb = v.querySelector("table.reg tbody");
+  for (const d of R.devices) {
+    const open = d.instances.length > 0;
+    const tr = el("tr", "parent" + (open ? "" : " leaf"), `<td class="tog">${open ? "&#9656;" : ""}</td><td>${esc(d.id)}</td><td>${esc(d.device)}</td><td>${esc(d.tier)}</td><td>${esc(d.qty)}</td><td>${esc(d.electrical)}</td><td>${esc(d.cad)}</td><td>${esc(d.doc)}</td>`);
+    tb.appendChild(tr);
+    const kids = d.instances.map(i => {
+      const k = el("tr", "child", `<td></td><td>${esc(i.id)}</td><td colspan="2">${esc(d.device)}</td><td colspan="2">X ${i.x.toFixed(1)} mm</td><td colspan="2">Y ${i.y.toFixed(1)} mm</td>`);
+      k.hidden = true; tb.appendChild(k); return k;
+    });
+    tr.toggle = on => { kids.forEach(k => k.hidden = !on); tr.classList.toggle("open", on); tr.firstChild.innerHTML = open ? (on ? "&#9662;" : "&#9656;") : ""; };
+    if (open) tr.addEventListener("click", () => tr.toggle(kids[0].hidden));
+  }
+  const all = on => tb.querySelectorAll("tr.parent:not(.leaf)").forEach(r => r.toggle(on));
+  v.querySelector("#exp").onclick = () => all(true);
+  v.querySelector("#col").onclick = () => all(false);
+  return v;
+}
+
 function route() {
   const h = decodeURIComponent(location.hash.replace(/^#/, ""));
   const view = document.getElementById("view");
   const g = D.groups.find(x => x.slug === h);
   view.innerHTML = "";
-  view.appendChild(h === "system" ? systemPage() : g ? devicePage(g) : mainPage());
+  view.appendChild(h === "playfield" ? playfieldPage() : h === "register" ? registerPage() : h === "system" ? systemPage() : g ? devicePage(g) : mainPage());
   document.title = (h === "system" ? D.system.name : g ? g.name : D.title);
   window.scrollTo(0, 0);
 }
@@ -130,5 +164,6 @@ function render(data) {
 
 const inline = window.DASHBOARD_DATA;
 (inline ? Promise.resolve(inline) : fetch("data.json").then(r => r.json()))
+  .then(data => fetch("register.json").then(r => r.json()).then(r => { R = r; return data; }))
   .then(render)
   .catch(e => { document.getElementById("view").innerHTML = `<p>Could not load data.json: ${esc(e.message)}</p>`; });
