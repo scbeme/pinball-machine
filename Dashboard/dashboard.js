@@ -177,7 +177,7 @@ function registerView(text, path) {
   for (const r0 of t.rows) {
     const r = r0.map(c => c.replace(/\*\*/g, ""));
     if (r[2]) devices.push({id: r[0], device: r[1], tier: r[2], qty: r[3], electrical: r[4], cad: r[5], instances: []});
-    else if (devices.length) devices[devices.length - 1].instances.push({id: r[0], x: parseFloat(r[6]), y: parseFloat(r[7])});
+    else if (devices.length) devices[devices.length - 1].instances.push({id: r[0], x: parseFloat(r[3].replace(/^X\s*/, "")), y: parseFloat(r[5].replace(/^Y\s*/, ""))});
   }
   const v = el("div"), n = devices.reduce((a, x) => a + x.instances.length, 0);
   v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#${esc(dirOf(path))}Device_Registry.svg::">Playfield layout &rarr;</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">Device Register</h2>` +
