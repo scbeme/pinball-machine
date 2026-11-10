@@ -123,14 +123,14 @@ function registerPage() {
     `<p class="note">${R.devices.length} devices, ${n} instances. Click a device row to show its instances (ID, X mm, Y mm). Source: ${esc(R.source)}.</p>` +
     `<div class="btns"><button id="exp">Expand all</button> <button id="col">Collapse all</button></div>` +
     `<details class="rules"><summary>Register rules and notes</summary><table class="mini"><tbody>${R.notes.map(r => `<tr><th>${esc(r[0])}</th><td>${esc(r[1])}</td></tr>`).join("")}</tbody></table></details>` +
-    `<div class="scroll"><table class="reg"><thead><tr><th></th><th>ID</th><th>Device</th><th>Tier</th><th>Qty</th><th>Electrical?</th><th>CAD legend symbol</th><th>Detail document</th></tr></thead><tbody></tbody></table></div>`;
+    `<div class="scroll"><table class="reg"><thead><tr><th></th><th>ID</th><th>Device</th><th>Tier</th><th>Qty</th><th>Electrical?</th><th>CAD legend symbol</th></tr></thead><tbody></tbody></table></div>`;
   const tb = v.querySelector("table.reg tbody");
   for (const d of R.devices) {
     const open = d.instances.length > 0;
-    const tr = el("tr", "parent" + (open ? "" : " leaf"), `<td class="tog">${open ? "&#9656;" : ""}</td><td>${esc(d.id)}</td><td>${esc(d.device)}</td><td>${esc(d.tier)}</td><td>${esc(d.qty)}</td><td>${esc(d.electrical)}</td><td>${esc(d.cad)}</td><td>${esc(d.doc)}</td>`);
+    const tr = el("tr", "parent" + (open ? "" : " leaf"), `<td class="tog">${open ? "&#9656;" : ""}</td><td>${esc(d.id)}</td><td>${esc(d.device)}</td><td>${esc(d.tier)}</td><td>${esc(d.qty)}</td><td>${esc(d.electrical)}</td><td>${esc(d.cad)}</td>`);
     tb.appendChild(tr);
     const kids = d.instances.map(i => {
-      const k = el("tr", "child", `<td></td><td>${esc(i.id)}</td><td colspan="2">${esc(d.device)}</td><td colspan="2">X ${i.x.toFixed(1)} mm</td><td colspan="2">Y ${i.y.toFixed(1)} mm</td>`);
+      const k = el("tr", "child", `<td></td><td>${esc(i.id)}</td><td colspan="2">${esc(d.device)}</td><td colspan="2">X ${i.x.toFixed(1)} mm</td><td>Y ${i.y.toFixed(1)} mm</td>`);
       k.hidden = true; tb.appendChild(k); return k;
     });
     tr.toggle = on => { kids.forEach(k => k.hidden = !on); tr.classList.toggle("open", on); tr.firstChild.innerHTML = open ? (on ? "&#9662;" : "&#9656;") : ""; };

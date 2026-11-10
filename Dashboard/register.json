@@ -60,10 +60,6 @@
    "Tag on the playfield layout: device ID plus suffix (letters for most devices, numbers within the group for lights). Devices with no symbol on the playfield have none. DP-27 to DP-30 share one CAD symbol (Internal Electronics), so their tags are placed inside it."
   ],
   [
-   "Detail document",
-   "Stems of the controlling pmdd_<family> documents until the device cards replace them."
-  ],
-  [
    "Source / revision",
    "Moved from Machine Master 20261110-01 (Register, Instance table, Device Registry graphic). Built from playfield CAD export pf-playfield-20261009. CAD controls geometry and counts. Not tagged on the layout: DB-02, MC-01 to MC-05, MD-01, MG-01, MG-02. Flippers DC-04A to DC-04C are tagged at the pivot circles. ML-01 position assumed until the fuller CAD arrives."
   ]
@@ -76,7 +72,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "kickout hole (with its inductive metal detector)",
-   "doc": "pmdd_ball-handling",
    "instances": [
     {
      "id": "DB-01",
@@ -92,7 +87,6 @@
    "qty": "0–1 (desired)",
    "electrical": "TBD",
    "cad": "none",
-   "doc": "pmdd_ball-handling",
    "instances": []
   },
   {
@@ -102,7 +96,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "ball trough / ball feed (with its inductive metal detector)",
-   "doc": "pmdd_ball-handling",
    "instances": [
     {
      "id": "DB-03",
@@ -118,7 +111,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "inductive metal detector (shooter lane)",
-   "doc": "pmdd_ball-handling",
    "instances": [
     {
      "id": "DB-04",
@@ -134,7 +126,6 @@
    "qty": "3",
    "electrical": "Y",
    "cad": "pop bumper",
-   "doc": "pmdd_pop-bumper",
    "instances": [
     {
      "id": "DC-01A",
@@ -160,7 +151,6 @@
    "qty": "2",
    "electrical": "Y",
    "cad": "sling shot (with 2 leaf switch symbols each)",
-   "doc": "pmdd_slingshot",
    "instances": [
     {
      "id": "DC-02A",
@@ -201,7 +191,6 @@
    "qty": "2",
    "electrical": "Y",
    "cad": "ball save",
-   "doc": "pmdd_ball-path-sensing",
    "instances": [
     {
      "id": "DC-03A",
@@ -222,7 +211,6 @@
    "qty": "3",
    "electrical": "Y",
    "cad": "Flipper",
-   "doc": "pmdd_flipper",
    "instances": [
     {
      "id": "DC-04A",
@@ -248,7 +236,6 @@
    "qty": "7",
    "electrical": "Y",
    "cad": "Drop target 7x",
-   "doc": "pmdd_drop-target",
    "instances": [
     {
      "id": "DC-05A",
@@ -294,7 +281,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "drop target 1-blade",
-   "doc": "pmdd_drop-target",
    "instances": [
     {
      "id": "DC-06",
@@ -310,7 +296,6 @@
    "qty": "4",
    "electrical": "Y",
    "cad": "drop target 4-blade inline",
-   "doc": "pmdd_drop-target",
    "instances": [
     {
      "id": "DC-07A",
@@ -341,7 +326,6 @@
    "qty": "6",
    "electrical": "Y",
    "cad": "Standup targets x 6",
-   "doc": "pmdd_standup-target",
    "instances": [
     {
      "id": "DP-01A",
@@ -382,7 +366,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "spinner",
-   "doc": "pmdd_ball-path-sensing",
    "instances": [
     {
      "id": "DP-03",
@@ -398,7 +381,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "tilt bob",
-   "doc": "pmdd_controls-tilt",
    "instances": [
     {
      "id": "DP-04",
@@ -414,7 +396,6 @@
    "qty": "2",
    "electrical": "Y",
    "cad": "flipper button",
-   "doc": "pmdd_flipper",
    "instances": [
     {
      "id": "DP-09L",
@@ -435,7 +416,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "start",
-   "doc": "pmdd_controls-tilt",
    "instances": [
     {
      "id": "DP-12",
@@ -451,7 +431,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "power on-off",
-   "doc": "PMDD Table 5.3-3 (Power Design), P-01 (Mains input)",
    "instances": [
     {
      "id": "DP-13",
@@ -467,7 +446,6 @@
    "qty": "7",
    "electrical": "Y",
    "cad": "inductive metal detector (the 7 on the playfield)",
-   "doc": "pmdd_ball-path-sensing",
    "instances": [
     {
      "id": "DP-18A",
@@ -513,7 +491,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "standup target 1-blade",
-   "doc": "pmdd_standup-target",
    "instances": [
     {
      "id": "DP-19",
@@ -529,7 +506,6 @@
    "qty": "2",
    "electrical": "Y",
    "cad": "magna-save",
-   "doc": "pmdd_controls-tilt",
    "instances": [
     {
      "id": "DP-20L",
@@ -550,7 +526,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "exit",
-   "doc": "pmdd_controls-tilt",
    "instances": [
     {
      "id": "DP-21",
@@ -566,7 +541,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "volume control",
-   "doc": "pmdd_controls-tilt",
    "instances": [
     {
      "id": "DP-22",
@@ -582,7 +556,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "monitor (video) menu interface/joystick",
-   "doc": "pmdd_controls-tilt",
    "instances": [
     {
      "id": "DP-23",
@@ -598,7 +571,6 @@
    "qty": "2",
    "electrical": "Y",
    "cad": "leaf switch (the 2 near the pop bumpers)",
-   "doc": "pmdd_pop-bumper",
    "instances": [
     {
      "id": "DP-24A",
@@ -619,7 +591,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "display monitor + speakers (box)",
-   "doc": "PMDD Table 5.1-1 (System Components), item 1",
    "instances": [
     {
      "id": "DP-25",
@@ -635,7 +606,6 @@
    "qty": "2",
    "electrical": "Y",
    "cad": "display monitor + speakers (2 circles)",
-   "doc": "PMDD Table 5.1-1, item 7",
    "instances": [
     {
      "id": "DP-26A",
@@ -656,7 +626,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "Internal Electronics (host computer)",
-   "doc": "PMDD Table 5.1-1, item 2",
    "instances": [
     {
      "id": "DP-27",
@@ -672,7 +641,6 @@
    "qty": "3",
    "electrical": "Y",
    "cad": "Internal Electronics (Topedal control boards 3ea)",
-   "doc": "PMDD Table 5.1-1, item 5; Figure 5.3-2",
    "instances": [
     {
      "id": "DP-28A",
@@ -698,7 +666,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "Internal Electronics (power supply 24v)",
-   "doc": "PMDD Table 5.3-3, P-02",
    "instances": [
     {
      "id": "DP-29",
@@ -714,7 +681,6 @@
    "qty": "1",
    "electrical": "Y",
    "cad": "Internal Electronics (power supply 5v)",
-   "doc": "PMDD Table 5.3-3, P-06",
    "instances": [
     {
      "id": "DP-30",
@@ -730,7 +696,6 @@
    "qty": "15",
    "electrical": "Y",
    "cad": "lights",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-31-01",
@@ -816,7 +781,6 @@
    "qty": "14",
    "electrical": "Y",
    "cad": "pool ball light",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-32-01",
@@ -897,7 +861,6 @@
    "qty": "6",
    "electrical": "Y",
    "cad": "light",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-33-01",
@@ -938,7 +901,6 @@
    "qty": "7",
    "electrical": "Y",
    "cad": "light",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-34-01",
@@ -984,7 +946,6 @@
    "qty": "7",
    "electrical": "Y",
    "cad": "light",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-35-01",
@@ -1030,7 +991,6 @@
    "qty": "2",
    "electrical": "Y",
    "cad": "light",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-36-01",
@@ -1051,7 +1011,6 @@
    "qty": "2",
    "electrical": "Y",
    "cad": "light",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-37-01",
@@ -1072,7 +1031,6 @@
    "qty": "7",
    "electrical": "Y",
    "cad": "light",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-38-01",
@@ -1118,7 +1076,6 @@
    "qty": "8",
    "electrical": "Y",
    "cad": "light",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-39-01",
@@ -1169,7 +1126,6 @@
    "qty": "3",
    "electrical": "Y",
    "cad": "star",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-40-01",
@@ -1195,7 +1151,6 @@
    "qty": "32",
    "electrical": "Y",
    "cad": "post light",
-   "doc": "pmdd_light",
    "instances": [
     {
      "id": "DP-41-01",
@@ -1366,7 +1321,6 @@
    "qty": "Per CAD",
    "electrical": "N",
    "cad": "none",
-   "doc": "pmdd_cabinet",
    "instances": []
   },
   {
@@ -1376,7 +1330,6 @@
    "qty": "Per CAD",
    "electrical": "N",
    "cad": "none",
-   "doc": "pmdd_cabinet",
    "instances": []
   },
   {
@@ -1386,7 +1339,6 @@
    "qty": "Per CAD",
    "electrical": "N",
    "cad": "none",
-   "doc": "pmdd_cabinet",
    "instances": []
   },
   {
@@ -1396,7 +1348,6 @@
    "qty": "Per CAD",
    "electrical": "N",
    "cad": "none",
-   "doc": "pmdd_cabinet",
    "instances": []
   },
   {
@@ -1406,7 +1357,6 @@
    "qty": "Per CAD",
    "electrical": "N",
    "cad": "none",
-   "doc": "pmdd_cabinet",
    "instances": []
   },
   {
@@ -1416,7 +1366,6 @@
    "qty": "Per CAD (not tracked)",
    "electrical": "N",
    "cad": "post tapered, post shaft",
-   "doc": "pmdd_playfield-fixtures",
    "instances": []
   },
   {
@@ -1426,7 +1375,6 @@
    "qty": "2",
    "electrical": "N",
    "cad": "adjustable outlane pin",
-   "doc": "pmdd_ball-path-sensing",
    "instances": [
     {
      "id": "MD-02A",
@@ -1447,7 +1395,6 @@
    "qty": "Per CAD (not tracked)",
    "electrical": "N",
    "cad": "ball guide plexiglass standoff",
-   "doc": "pmdd_playfield-fixtures",
    "instances": []
   },
   {
@@ -1457,7 +1404,6 @@
    "qty": "1",
    "electrical": "N",
    "cad": "none",
-   "doc": "pmdd_playfield-fixtures",
    "instances": []
   },
   {
@@ -1467,7 +1413,6 @@
    "qty": "1",
    "electrical": "N",
    "cad": "manual shooter plunger + spring",
-   "doc": "pmdd_ball-handling",
    "instances": [
     {
      "id": "ML-01",
