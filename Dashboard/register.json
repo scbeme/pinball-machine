@@ -5,7 +5,7 @@
  "notes": [
   [
    "Grid origin",
-   "Intersection of the playfield left-right centerline and the line through both flipper pivots (carried from PMDD Table 3-1). Drawn as the red crosshair on the playfield layout."
+   "Intersection of the playfield left-right centerline and the line through both flipper pivots. Drawn as the red crosshair on the playfield layout."
   ],
   [
    "Grid axes",
