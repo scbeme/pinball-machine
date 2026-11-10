@@ -111,8 +111,9 @@
     },
     {
      "name": "Architecture block diagram",
-     "status": "not_started",
-     "path": null
+     "status": "in_progress",
+     "path": "Dashboard/system_architecture.svg",
+     "href": "#architecture"
     },
     {
      "name": "Game rules",
