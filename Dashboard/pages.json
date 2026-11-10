@@ -29,6 +29,47 @@
     "note": null
    },
    {
+    "type": "svg",
+    "src": "system_architecture.svg",
+    "caption": "System Architecture"
+   },
+   {
+    "type": "table",
+    "id": "",
+    "title": "System Components",
+    "columns": [
+     "Item",
+     "Definition"
+    ],
+    "rows": [
+     [
+      "DP-25 Display monitor",
+      "22\"–24\" color LCD, 1920×1080 (16:9), HDMI input. Detached/standalone, tabletop-positioned."
+     ],
+     [
+      "DP-27 Host computer",
+      "x86_64 (Intel), 8GB RAM, SSD storage (128–256GB), graphics supporting Vulkan or OpenGL 3.3 Core.<br><b>Development:</b> existing Dell OptiPlex 7010 (i5-3470, HD Graphics 2500 — OpenGL only, no Vulkan; Godot renderer set to Compatibility).<br><b>Final:</b> TBD — Intel N100-class mini PC or used Intel NUC (5th gen+), purchased near build completion.<br>ARM single-board computers (including Raspberry Pi) are excluded: Godot 4 requires an x86_64 CPU with SSE4.2 and Vulkan or OpenGL 3.3 Core."
+     ],
+     [
+      "Computer OS",
+      "Linux (project preference). Specific distribution: TBD."
+     ],
+     [
+      "Pinball software platform",
+      "Mission Pinball Framework (MPF) v0.80+, running Godot Media Controller (GMC) — not legacy MPF-MC. Renderer: Compatibility (OpenGL) on the development host; Forward+/Mobile (Vulkan) available on the final host."
+     ],
+     [
+      "DP-28 Topedal board",
+      "Based on OPP (STM32/Blue Pill), consolidated single-PCB design: onboard solenoid drivers, direct/matrix switch inputs, Neopixel LED output. MOSFET IRLZ44NPbF (through-hole TO-220, logic-level, validated at 3.3V by hardware test). Board count follows the CAD solenoid total at 8 solenoid channels per board: 18 coils = 3 boards."
+     ],
+     [
+      "DP-26 Speakers",
+      "Internal monitor speakers preferred; powered external speakers if internal quality is poor. Part TBD."
+     ]
+    ],
+    "note": null
+   },
+   {
     "type": "table",
     "id": "",
     "title": "Mechanical",
