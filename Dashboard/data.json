@@ -121,13 +121,15 @@
    "mech": [
     {
      "name": "Playfield layout with IDs",
-     "status": "not_started",
-     "path": null
+     "status": "complete",
+     "path": "Dashboard/registry.svg",
+     "href": "#playfield"
     },
     {
      "name": "Device registry table",
-     "status": "not_started",
-     "path": null
+     "status": "complete",
+     "path": "Dashboard/register.json",
+     "href": "#register"
     }
    ],
    "elec": [

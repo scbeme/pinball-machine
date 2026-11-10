@@ -42,3 +42,17 @@ small.shared{color:#555;font-size:11px;font-style:italic}
 a.back{display:inline-block;margin:10px 0 4px;color:var(--navy);font-weight:600}
 h2.ptitle{margin:4px 0 10px;color:var(--navy);font-size:22px}
 .overview{background:#fff;border:1px solid var(--grid);border-radius:8px;padding:6px 16px;margin-bottom:10px}
+
+p.note{margin:4px 0 8px;color:#444}
+img.pf{max-width:100%;height:auto;background:#fff;border:1px solid var(--grid)}
+table.reg{min-width:900px}
+table.reg tr.parent{cursor:pointer;background:#f7f9fc;font-weight:600}
+table.reg tr.parent.leaf{cursor:default}
+table.reg tr.parent:hover:not(.leaf){background:var(--sys)}
+table.reg tr.child td{background:#fff;font-weight:400;padding:3px 10px;color:#333}
+table.reg td.tog{width:24px;text-align:center;color:var(--navy)}
+.btns{margin:6px 0}.btns button{padding:4px 12px;border:1px solid var(--navy);background:#fff;color:var(--navy);border-radius:5px;cursor:pointer}
+details.rules{background:#fff;border:1px solid var(--grid);border-radius:8px;padding:6px 14px;margin:8px 0}
+details.rules summary{cursor:pointer;font-weight:600;color:var(--navy)}
+table.mini{min-width:0;border:0;margin-top:6px}table.mini th{background:#f7f9fc;color:#111;text-align:left;font-size:13px;width:22%;border:1px solid var(--grid)}
+table.reg td:nth-child(2){white-space:nowrap}
