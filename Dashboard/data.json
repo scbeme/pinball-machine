@@ -5,7 +5,7 @@
   "name": "scbeme/pinball-machine",
   "url": "https://github.com/scbeme/pinball-machine"
  },
- "updated": "2026-11-10 (build 20261110-02)",
+ "updated": "2026-11-10 (build 20261110-03)",
  "columns": [
   [
    "fdi",
@@ -99,13 +99,15 @@
    "fdi": [
     {
      "name": "Description (bullet list)",
-     "status": "not_started",
-     "path": null
+     "status": "complete",
+     "path": "Dashboard/pages.json",
+     "href": "#description"
     },
     {
      "name": "Functions, constraints, design parameters",
-     "status": "not_started",
-     "path": null
+     "status": "complete",
+     "path": "Dashboard/pages.json",
+     "href": "#functions"
     },
     {
      "name": "Architecture block diagram",
@@ -135,13 +137,15 @@
    "elec": [
     {
      "name": "Block diagram",
-     "status": "not_started",
-     "path": null
+     "status": "in_progress",
+     "path": "Dashboard/electrical_block_diagram.svg",
+     "href": "#blockdiagram"
     },
     {
      "name": "Schematic",
-     "status": "not_started",
-     "path": null
+     "status": "in_progress",
+     "path": "Dashboard/topedal_schematic.svg",
+     "href": "#schematic"
     },
     {
      "name": "Cable + harness layout",

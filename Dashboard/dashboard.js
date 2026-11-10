@@ -109,7 +109,7 @@ function systemPage() {
   return v;
 }
 
-let R;
+let R, PG;
 function playfieldPage() {
   const v = el("div");
   v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#register">Device register table &rarr;</a><h2 class="ptitle">Playfield layout with IDs</h2>` +
@@ -142,12 +142,50 @@ function registerPage() {
   return v;
 }
 
+function docPage(p) {
+  const v = el("div");
+  v.innerHTML = `<a class="back" href="${esc(p.back)}">&larr; Back to Pinball Machine</a><h2 class="ptitle">${esc(p.title)}</h2><p class="note">${esc(p.note || "")}</p>`;
+  const cellh = s => esc(s).replace(/&lt;br&gt;/g, "<br>").replace(/&lt;b&gt;/g, "<b>").replace(/&lt;\/b&gt;/g, "</b>");
+  for (const b of p.blocks) {
+    const w = el("div", "blk");
+    if (b.type === "table") {
+      w.innerHTML = `<h3>${esc(b.id)}${b.title ? " — " + esc(b.title) : ""}</h3>${b.note ? `<p class="note">${esc(b.note)}</p>` : ""}<div class="scroll"><table class="doc"><thead><tr>${b.columns.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${cellh(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    } else if (b.type === "svg") {
+      w.innerHTML = `<p class="note">${esc(b.caption)} &mdash; <a href="${esc(b.src)}">open full size</a></p><div class="scroll"><img class="pf" src="${esc(b.src)}" alt="${esc(b.caption)}"></div>`;
+    } else if (b.type === "instruction") {
+      w.className = "blk instr";
+      w.innerHTML = `<h3>${esc(b.title)}</h3><ul>${b.lines.map(l => `<li>${esc(l)}</li>`).join("")}</ul>`;
+    }
+    v.appendChild(w);
+  }
+  return v;
+}
+
+function docPage(p) {
+  const v = el("div");
+  v.innerHTML = `<a class="back" href="${esc(p.back)}">&larr; Back to Pinball Machine</a><h2 class="ptitle">${esc(p.title)}</h2><p class="note">${esc(p.note || "")}</p>`;
+  const cellh = s => esc(s).replace(/&lt;br&gt;/g, "<br>").replace(/&lt;b&gt;/g, "<b>").replace(/&lt;\/b&gt;/g, "</b>");
+  for (const b of p.blocks) {
+    const w = el("div", "blk");
+    if (b.type === "table") {
+      w.innerHTML = `<h3>${esc(b.id)}${b.title ? " — " + esc(b.title) : ""}</h3>${b.note ? `<p class="note">${esc(b.note)}</p>` : ""}<div class="scroll"><table class="doc"><thead><tr>${b.columns.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${cellh(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+    } else if (b.type === "svg") {
+      w.innerHTML = `<p class="note">${esc(b.caption)} &mdash; <a href="${esc(b.src)}">open full size</a></p><div class="scroll"><img class="pf" src="${esc(b.src)}" alt="${esc(b.caption)}"></div>`;
+    } else if (b.type === "instruction") {
+      w.className = "blk instr";
+      w.innerHTML = `<h3>${esc(b.title)}</h3><ul>${b.lines.map(l => `<li>${esc(l)}</li>`).join("")}</ul>`;
+    }
+    v.appendChild(w);
+  }
+  return v;
+}
+
 function route() {
   const h = decodeURIComponent(location.hash.replace(/^#/, ""));
   const view = document.getElementById("view");
   const g = D.groups.find(x => x.slug === h);
   view.innerHTML = "";
-  view.appendChild(h === "playfield" ? playfieldPage() : h === "register" ? registerPage() : h === "system" ? systemPage() : g ? devicePage(g) : mainPage());
+  view.appendChild(PG[h] ? docPage(PG[h]) : h === "playfield" ? playfieldPage() : h === "register" ? registerPage() : h === "system" ? systemPage() : g ? devicePage(g) : mainPage());
   document.title = (h === "system" ? D.system.name : g ? g.name : D.title);
   window.scrollTo(0, 0);
 }
@@ -163,7 +201,9 @@ function render(data) {
 }
 
 const inline = window.DASHBOARD_DATA;
-(inline ? Promise.resolve(inline) : fetch("data.json?v=20261110-02", {cache: "no-store"}).then(r => r.json()))
-  .then(data => fetch("register.json?v=20261110-02", {cache: "no-store"}).then(r => r.json()).then(r => { R = r; return data; }))
+(inline ? Promise.resolve(inline) : fetch("data.json?v=20261110-03", {cache: "no-store"}).then(r => r.json()))
+  .then(data => fetch("pages.json?v=20261110-03", {cache: "no-store"}).then(r => r.json()).then(p => { PG = p; return data; }))
+  .then(data => fetch("pages.json?v=20261110-03", {cache: "no-store"}).then(r => r.json()).then(p => { PG = p; return data; }))
+  .then(data => fetch("register.json?v=20261110-03", {cache: "no-store"}).then(r => r.json()).then(r => { R = r; return data; }))
   .then(render)
   .catch(e => { document.getElementById("view").innerHTML = `<p>Could not load data.json: ${esc(e.message)}</p>`; });

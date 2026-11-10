@@ -1,0 +1,1146 @@
+{
+ "description": {
+  "title": "Description",
+  "back": "#system",
+  "note": "Migrated from PMDD pmdd_20261106-02. Section 1 and Sections 3.1 to 3.4; section numbers replaced by table IDs.",
+  "blocks": [
+   {
+    "type": "table",
+    "id": "Table 1-1",
+    "title": "System Overview",
+    "columns": [
+     "Topic",
+     "Definition"
+    ],
+    "rows": [
+     [
+      "Hybrid pinball",
+      "Typical pinball playing field used to accomplish game scenario objectives displayed real-time on monitor"
+     ],
+     [
+      "Physical machine",
+      "Portable, tabletop cabinet containing typical pinball devices controlled using modern day electronics + monitor for real-time graphics"
+     ],
+     [
+      "Game scenarios",
+      "Software defined theme packs played on generic playing field"
+     ]
+    ],
+    "note": null
+   },
+   {
+    "type": "table",
+    "id": "Table 3.1-1",
+    "title": "System",
+    "columns": [
+     "#",
+     "Item",
+     "Description"
+    ],
+    "rows": [
+     [
+      "1",
+      "Configuration",
+      "Rectangular cabinet plus detached monitor, positioned on a tabletop for play"
+     ],
+     [
+      "2",
+      "Playing field",
+      "Cabinet's sloped \"floor\" — hosts game play devices"
+     ],
+     [
+      "3",
+      "Electronics",
+      "Distributed: electronics mounted to both playfield underside and bottom shelf"
+     ]
+    ],
+    "note": null
+   },
+   {
+    "type": "table",
+    "id": "Table 3.2-1",
+    "title": "Mechanical",
+    "columns": [
+     "#",
+     "Item",
+     "Description"
+    ],
+    "rows": [
+     [
+      "1",
+      "Cabinet",
+      "Baltic birch plywood construction"
+     ],
+     [
+      "2",
+      "Materials",
+      "COTS materials and fasteners; 3D printed and laser cut custom parts"
+     ],
+     [
+      "3",
+      "Access",
+      "Hinged playfield (service access); fixed bottom shelf panel; no legs — rubber pads only"
+     ]
+    ],
+    "note": null
+   },
+   {
+    "type": "table",
+    "id": "Table 3.3-1",
+    "title": "Electrical",
+    "columns": [
+     "#",
+     "Item",
+     "Description"
+    ],
+    "rows": [
+     [
+      "1",
+      "Time-critical devices",
+      "All solenoid firing runs through the Topedal board's Blue Pill firmware (fire pulse, then PWM hold where used); no hardware autofire (safety). The switches for DC-01 Pop bumpers, DC-02 Slingshots and DC-04 Flipper Assembly are on the same Topedal board as their coils"
+     ],
+     [
+      "2",
+      "Non-time-critical devices",
+      "Digital switches connected via Topedal board's onboard direct/matrix switch inputs"
+     ],
+     [
+      "3",
+      "Rules engine & asset management",
+      "Computer supporting MPF + Godot Media Controller (GMC) running Mission Pinball Framework (MPF) — game logic, scoring, game scenarios; GMC for audio/video/monitor display"
+     ],
+     [
+      "4",
+      "Comm bus",
+      "USB serial between host and Topedal board(s)"
+     ]
+    ],
+    "note": null
+   },
+   {
+    "type": "table",
+    "id": "Table 3.4-1",
+    "title": "Software",
+    "columns": [
+     "#",
+     "Item",
+     "Description"
+    ],
+    "rows": [
+     [
+      "1",
+      "Firmware",
+      "Identical OPP firmware flashed to all Topedal boards (same STM32F103 processor as standard OPP), distinguished by board address; MPF config (not firmware) defines game scenario behavior"
+     ],
+     [
+      "2",
+      "Game scenarios",
+      "A game scenario is defined by populating a Game Scenario Framework — requires no firmware changes"
+     ],
+     [
+      "3",
+      "Playing field devices",
+      "<b>Primitive</b> — single physical switch/coil/sensor, no sub-components, assigned unique ID.<br><b>Composite</b> — 2 or more primitives combined to perform one coordinated physical action, e.g., button + coil + EOS sensor = flipper assembly.<br><b>Ball-state Device</b> — tracks ongoing ball location/count/presence as persistent state, e.g., scoop, ball lock, or trough"
+     ],
+     [
+      "4",
+      "Game setup",
+      "Players select game preferences before starting a game. Setup parameters include standard parameters applicable to all scenarios + scenario-specific parameters"
+     ]
+    ],
+    "note": null
+   }
+  ]
+ },
+ "functions": {
+  "title": "Function, constraints, design parameters",
+  "back": "#system",
+  "note": "Migrated from PMDD pmdd_20261106-02. Section 2, Table 2-0 and Table 2.3. Table 2.3 parameter IDs P-01 to P-10 renamed GP-01 to GP-10 (approved) to avoid collision with the Power Design IDs P-01 to P-10. The Category and Type codes in Table 2-0 are not defined in the PMDD.",
+  "blocks": [
+   {
+    "type": "table",
+    "id": "Table 2-0",
+    "title": "System-Level Requirements",
+    "columns": [
+     "ID",
+     "Title",
+     "Definition",
+     "Category",
+     "Type"
+    ],
+    "rows": [
+     [
+      "S-01",
+      "Game play",
+      "Playing field ball action and control will be similar to a traditional, full sized pinball machine (1 1/16\" dia balls, 40\" x 20.5\" playing field, 6.5-7 deg slope). Audio, graphics, and video are used to enhance the gaming experience including real-time game scenario progress",
+      "F",
+      "M"
+     ],
+     [
+      "S-02",
+      "Game scenarios",
+      "System supports user selectable game scenarios. Scenarios have unique themes that use the same generic playing field",
+      "F",
+      "M"
+     ],
+     [
+      "S-03",
+      "Game setup parameters",
+      "Game parameters will be selected by the player before each game is started. Example parameters include: game difficulty level, number of players, player names, scenario, scenario specific parameters",
+      "F",
+      "M"
+     ],
+     [
+      "G-01",
+      "Initialize game",
+      "Master power ON, monitor presents setup prompts which player selects",
+      "F",
+      "M"
+     ],
+     [
+      "G-02",
+      "Select scoring targets",
+      "Player uses onscreen game info to identify best scoring targets",
+      "F",
+      "M"
+     ],
+     [
+      "G-03",
+      "Shoot ball",
+      "Player launches ball onto playing field using shooter",
+      "F",
+      "M"
+     ],
+     [
+      "G-04",
+      "Playing field action",
+      "Player uses flippers and programmable buttons (DP-20 Programmable button) to keep ball in play and interact with the game to maximize score",
+      "F",
+      "M"
+     ],
+     [
+      "G-05",
+      "Repeat",
+      "Repeat steps G-02–G-04 until turn is over",
+      "F",
+      "M"
+     ],
+     [
+      "C-01",
+      "Physical",
+      "Portable system, played on tabletop, stored in typical household closet",
+      "C",
+      "M"
+     ],
+     [
+      "C-02",
+      "Components",
+      "Use COTS parts and materials including modern electronics to replace traditional electro-mechanical, analog devices. Fab and assembly using standard workshop equipment plus 3D printer and 40W laser (24\"x12\" bed)",
+      "C",
+      "M"
+     ],
+     [
+      "C-03",
+      "Safety",
+      "Electrical design will comply with industry-standard safety practices",
+      "C",
+      "M"
+     ]
+    ],
+    "note": null
+   },
+   {
+    "type": "table",
+    "id": "Table 2.3",
+    "title": "Software Requirements — Game Setup Parameters",
+    "columns": [
+     "ID",
+     "Parameter",
+     "Scope",
+     "Setting",
+     "Default",
+     "Applies To",
+     "Comments"
+    ],
+    "rows": [
+     [
+      "GP-01",
+      "Number of players",
+      "Global",
+      "1–4",
+      "1",
+      "All",
+      "—"
+     ],
+     [
+      "GP-02",
+      "Player name/initials",
+      "Per-player",
+      "Free text",
+      "—",
+      "All",
+      "Data structure defined in Detailed Design"
+     ],
+     [
+      "GP-03",
+      "Per-player difficulty tier",
+      "Per-player",
+      "1-Clueless<br>2-Beginner<br>3-Intermediate<br>4-Advanced<br>5-Champion",
+      "3",
+      "All",
+      "Data structure defined in Detailed Design"
+     ],
+     [
+      "GP-04",
+      "Balls per game",
+      "Global",
+      "1–10",
+      "3",
+      "All",
+      "—"
+     ],
+     [
+      "GP-05",
+      "Outlane save budget",
+      "Global",
+      "0–5",
+      "3",
+      "All",
+      "—"
+     ],
+     [
+      "GP-06",
+      "Outlane save time",
+      "Global",
+      "0–15 seconds",
+      "5",
+      "All",
+      "—"
+     ],
+     [
+      "GP-07",
+      "Tilt warning count",
+      "Global",
+      "0–5",
+      "3",
+      "All",
+      "0=Disabled"
+     ],
+     [
+      "GP-08",
+      "Tilt warning sensitivity",
+      "Global",
+      "1-Very low<br>2-Low<br>3-Medium<br>4-High<br>5-Very high",
+      "3",
+      "All",
+      "Requires ADC test values"
+     ],
+     [
+      "GP-09",
+      "Game scenario selection",
+      "Global",
+      "List of installed scenario IDs",
+      "—",
+      "All",
+      "—"
+     ],
+     [
+      "GP-10",
+      "Outlane width",
+      "TBD",
+      "1-Liberal<br>2-Normal<br>3-Difficult",
+      "2",
+      "All",
+      "Physical implementation: MD-02 Adjustable outlane pin. Scope TBD pending mechanism decision"
+     ]
+    ],
+    "note": null
+   }
+  ]
+ },
+ "blockdiagram": {
+  "title": "Electrical block diagram",
+  "back": "#system",
+  "note": "Migrated from PMDD pmdd_20261106-02. Replaces the narrative of Tables 5.3-3 and 5.3-4 with a block diagram; the design values are kept in the two tables below it, unchanged. Device-to-driver assignments are not decided, so the 3 Topedal boards are drawn as a group.",
+  "blocks": [
+   {
+    "type": "svg",
+    "src": "electrical_block_diagram.svg",
+    "caption": "System Electrical Block Diagram (open the SVG for full size)"
+   },
+   {
+    "type": "table",
+    "id": "Table 5.3-3",
+    "title": "Power Design",
+    "columns": [
+     "ID",
+     "Element",
+     "Design Solution"
+    ],
+    "rows": [
+     [
+      "P-01",
+      "Mains input",
+      "Fused mains input; DP-13 master power switch — mains-rated toggle, accessible, visible shutoff. Fuse rating TBD (pending supply AC rating)"
+     ],
+     [
+      "P-02",
+      "Coil supply",
+      "24V DC supply, current rating TBD, to all solenoid positive terminals through fused feeds F1–F7 and to the 24V inductive proximity sensors through fused feed F8 (Table 5.3-4). Topedal board provides low-side drivers only (no positive supply, filter, or fuse on board)"
+     ],
+     [
+      "P-03",
+      "Bulk filter",
+      "Capacitor bank across the 24V rail at the distribution point. Value TBD"
+     ],
+     [
+      "P-04",
+      "Discharge",
+      "Bleeder resistor across the bank; LED driven from capacitor voltage (on = charged); posted wait-time label. Discharge time TBD"
+     ],
+     [
+      "P-05",
+      "Coil fusing",
+      "Slow-blow fuse per feed F1–F8 (Table 5.3-4), rated above hold/operating current and below sustained-fault level. Ratings TBD"
+     ],
+     [
+      "P-06",
+      "5V supply",
+      "Separate fused 5V DC supply, regulated at 5.0V (WS2812B maximum 5.3V), to Topedal J4/J5 and J6 (level shifter, Neopixel strip) and the Hall sensor boards (DC-05/06/07). No series diodes on the rail. Rating TBD"
+     ],
+     [
+      "P-07",
+      "Logic power",
+      "Blue Pill powered over its USB link to the host; board 3.3V from the Blue Pill regulator"
+     ],
+     [
+      "P-08",
+      "Grounds",
+      "GND (coil supply return) and GNDREF (3V3/5V return) are separate nets on the Topedal board; tied at one point externally, at the GND bar (Table 5.3-4); tie verified before coil power is applied. GND bar location TBD"
+     ],
+     [
+      "P-09",
+      "Board addressing",
+      "Each Topedal board has a unique, verified chain address before coil power is connected"
+     ],
+     [
+      "P-10",
+      "Wiring",
+      "Solenoid feed and return wire 18 AWG (Table 5.3-4). Supply-to-bus-bar trunk and F8 sensor feed gauge TBD. Connectors TBD"
+     ]
+    ],
+    "note": null
+   },
+   {
+    "type": "table",
+    "id": "Table 5.3-4",
+    "title": "Power Distribution",
+    "columns": [
+     "Feed",
+     "Fuse",
+     "Devices",
+     "Coils",
+     "Feed wire",
+     "Coil return"
+    ],
+    "rows": [
+     [
+      "F1",
+      "TBD",
+      "DC-05 Drop target bank (side-by-side)",
+      "3",
+      "18 AWG",
+      "18 AWG per coil to its own Topedal J2 drive pin"
+     ],
+     [
+      "F2",
+      "TBD",
+      "DC-07 Drop target bank (inline)",
+      "2",
+      "18 AWG",
+      "18 AWG per coil to its own Topedal J2 drive pin"
+     ],
+     [
+      "F3",
+      "TBD",
+      "DC-06 Drop target (single)",
+      "1",
+      "18 AWG",
+      "18 AWG to its Topedal J2 drive pin"
+     ],
+     [
+      "F4",
+      "TBD",
+      "DC-04 Flipper assembly",
+      "3",
+      "18 AWG",
+      "18 AWG per coil to its own Topedal J2 drive pin"
+     ],
+     [
+      "F5",
+      "TBD",
+      "DC-02 Slingshots",
+      "2",
+      "18 AWG",
+      "18 AWG per coil to its own Topedal J2 drive pin"
+     ],
+     [
+      "F6",
+      "TBD",
+      "DC-01 Pop bumpers",
+      "3",
+      "18 AWG",
+      "18 AWG per coil to its own Topedal J2 drive pin"
+     ],
+     [
+      "F7",
+      "TBD",
+      "DC-03 Outlane save gate/deflector kickbacks, DB-01 Scoop/hole and DB-03 Ball Trough ejects",
+      "4",
+      "18 AWG",
+      "18 AWG per coil to its own Topedal J2 drive pin"
+     ],
+     [
+      "F8",
+      "TBD",
+      "24V inductive proximity sensors, 10 (DP-18 Rollover sensor x7, DB-01 Scoop/hole, DB-03 Ball Trough, DB-04 Shooter lane ball-present sensor; DC-03 Outlane save gate/deflector uses the outlane DP-18 sensors)",
+      "—",
+      "TBD",
+      "Sensor ground per the ball-path-sensing doc"
+     ]
+    ],
+    "note": "Coils = power-budget counts accepted 2026-11-02; CAD controls device counts."
+   },
+   {
+    "type": "table",
+    "id": "Table 5.3-4a",
+    "title": "Power Distribution — items",
+    "columns": [
+     "Item",
+     "Definition"
+    ],
+    "rows": [
+     [
+      "Distribution point",
+      "24V bus bar and fuse block fed by the P-02 supply; feeds F1–F8 originate here"
+     ],
+     [
+      "Feed separation",
+      "Each device group has its own fused feed; flippers, slingshots and pop bumpers each have their own feed; F8 sensor feed is separate from all coil feeds"
+     ],
+     [
+      "Board ground return",
+      "3 wires of 18 AWG per Topedal board, from J3 pins to the GND bar"
+     ],
+     [
+      "GND bar",
+      "Single point where GND and GNDREF are tied (P-08)"
+     ]
+    ],
+    "note": null
+   }
+  ]
+ },
+ "schematic": {
+  "title": "Electrical schematic",
+  "back": "#system",
+  "note": "Migrated from PMDD pmdd_20261106-02. Topedal board schematic (Figure 5.3-2, Rev 1.1) with the Table 5.3-5 pin map merged into the drawing. The system-level schematic is not created yet; its request is recorded below.",
+  "blocks": [
+   {
+    "type": "instruction",
+    "title": "Requested: system-level schematic (not yet created)",
+    "lines": [
+     "Create a system-level schematic that includes the pin assignments.",
+     "Merge/replace PMDD Table 5.3-5 (Topedal pin assignments) into the schematic. Done for the Topedal board below: the pin map is now carried on the drawing (GPIO, LQFP48 pin, timer output and 5 V tolerance on each J100 pin, with the J1/J2/J7/J8 connector pins).",
+     "The current design uses 3 Topedal boards (DP-28A, DP-28B, DP-28C); all three are identical hardware, so one board schematic and pin map applies to each.",
+     "Blocked until the device-to-driver and device-to-input assignments are decided (the PMDD Device OPP Board/Wing/Position Assignment Table is empty). Each device pin cannot be assigned until Scott decides them."
+    ]
+   },
+   {
+    "type": "svg",
+    "src": "topedal_schematic.svg",
+    "caption": "Topedal OPP Solenoid, Neopixel & Switches Board, Rev 1.1, as used, with pin map (open the SVG for full size)"
+   },
+   {
+    "type": "table",
+    "id": "Driver channel map",
+    "title": "one drawing, eight instances",
+    "columns": [
+     "Q",
+     "Gate net",
+     "J100 pin",
+     "GPIO",
+     "Rg 100 Ω",
+     "Rp 10 kΩ",
+     "Rd 1 kΩ",
+     "Dd white LED",
+     "Drain net",
+     "J2 pin"
+    ],
+    "rows": [
+     [
+      "Q7",
+      "sol7",
+      "17",
+      "PB9",
+      "R21",
+      "R20",
+      "R19",
+      "D7",
+      "Drv1",
+      "1"
+     ],
+     [
+      "Q8",
+      "sol6",
+      "16",
+      "PB8",
+      "R24",
+      "R23",
+      "R22",
+      "D8",
+      "Drv2",
+      "2"
+     ],
+     [
+      "Q5",
+      "sol5",
+      "15",
+      "PB7",
+      "R15",
+      "R14",
+      "R13",
+      "D5",
+      "Drv3",
+      "3"
+     ],
+     [
+      "Q6",
+      "sol4",
+      "14",
+      "PB6",
+      "R18",
+      "R17",
+      "R16",
+      "D6",
+      "Drv4",
+      "4"
+     ],
+     [
+      "Q3",
+      "sol3",
+      "7",
+      "PA10",
+      "R9",
+      "R8",
+      "R7",
+      "D3",
+      "Drv5",
+      "6"
+     ],
+     [
+      "Q4",
+      "sol2",
+      "6",
+      "PA9",
+      "R12",
+      "R11",
+      "R10",
+      "D4",
+      "Drv6",
+      "7"
+     ],
+     [
+      "Q1",
+      "sol1",
+      "5",
+      "PA8",
+      "R3",
+      "R2",
+      "R1",
+      "D1",
+      "Drv7",
+      "8"
+     ],
+     [
+      "Q2",
+      "sol0",
+      "43",
+      "PA13",
+      "R6",
+      "R5",
+      "R4",
+      "D2",
+      "Drv8",
+      "9"
+     ]
+    ],
+    "note": null
+   },
+   {
+    "type": "table",
+    "id": "Parts table",
+    "title": "",
+    "columns": [
+     "Ref",
+     "Part",
+     "Note"
+    ],
+    "rows": [
+     [
+      "Q1–Q8",
+      "IRLZ44NPbF, TO-220",
+      "Rev 1.1 (was IRL540); sources on GND"
+     ],
+     [
+      "Rg (R3, R6, R9, R12, R15, R18, R21, R24)",
+      "100 Ω",
+      "Between gate net and MOSFET gate"
+     ],
+     [
+      "Rp (R2, R5, R8, R11, R14, R17, R20, R23)",
+      "10 kΩ",
+      "Gate net to GND, GPIO side of Rg"
+     ],
+     [
+      "Rd (R1, R4, R7, R10, R13, R16, R19, R22) and Dd (D1–D8)",
+      "1 kΩ + 3 mm white LED",
+      "Gate net to GND, GPIO side of Rg"
+     ],
+     [
+      "R25, D9",
+      "1 kΩ, 3 mm green LED",
+      "+5 V to GNDREF power indicator at J4"
+     ],
+     [
+      "U2",
+      "3.3 V / 5 V IIC logic level converter module",
+      "Pinout must match the drawing"
+     ],
+     [
+      "J100",
+      "20-pin and 4-pin 2.54 mm female headers (Blue Pill)",
+      "Pins 41–44 physically reversed"
+     ],
+     [
+      "J1, J2, J3, J7, J8",
+      "9-pin 3.96 mm headers",
+      "Key/unused pins as drawn"
+     ],
+     [
+      "J4, J5 / J6 / J9",
+      "2-pin / 3-pin / 4-pin",
+      "J9 4-pin is GNDREF only"
+     ]
+    ],
+    "note": null
+   },
+   {
+    "type": "table",
+    "id": "Net table",
+    "title": "",
+    "columns": [
+     "Net",
+     "Connections"
+    ],
+    "rows": [
+     [
+      "GND",
+      "MOSFET sources, J3 pins 1–9, Rp/Rd return"
+     ],
+     [
+      "GNDREF",
+      "J100 pins 19, 39, 40, 41; J4/J5/J6 ground pins; U2 4a/4b; J9; R25/D9 return"
+     ],
+     [
+      "+3.3V",
+      "J100 pins 20, 38, 44; U2 1a"
+     ],
+     [
+      "+5V",
+      "J4 pin 1, J5 pin 1, J6 pin 3, U2 1b, R25"
+     ],
+     [
+      "Unconnected",
+      "J100 pins 8, 9, 18, 21, 37; J1 pin 2; U2 3a/3b"
+     ],
+     [
+      "GND–GNDREF",
+      "Separate nets on the board; tied externally (P-08, Table 5.3-3)"
+     ]
+    ],
+    "note": null
+   },
+   {
+    "type": "table",
+    "id": "Table 5.3-5 Topedal Pin Map",
+    "title": "Rev 1.1; verified against the V02 Gerber nets and the board photos. Data is carried on the drawing; this table is the net-by-net list of the same data.",
+    "columns": [
+     "Net",
+     "Board pin",
+     "J100 pin",
+     "Blue Pill GPIO",
+     "LQFP48 pin",
+     "Timer output",
+     "5 V tolerance",
+     "Note"
+    ],
+    "rows": [
+     [
+      "Drv1",
+      "J2-1",
+      "17",
+      "PB9",
+      "46",
+      "TIM4_CH4",
+      "5 V tol.",
+      "sol7 / Q7"
+     ],
+     [
+      "Drv2",
+      "J2-2",
+      "16",
+      "PB8",
+      "45",
+      "TIM4_CH3",
+      "5 V tol.",
+      "sol6 / Q8"
+     ],
+     [
+      "Drv3",
+      "J2-3",
+      "15",
+      "PB7",
+      "43",
+      "TIM4_CH2",
+      "5 V tol.",
+      "sol5 / Q5"
+     ],
+     [
+      "Drv4",
+      "J2-4",
+      "14",
+      "PB6",
+      "42",
+      "TIM4_CH1",
+      "5 V tol.",
+      "sol4 / Q6"
+     ],
+     [
+      "Drv5",
+      "J2-6",
+      "7",
+      "PA10",
+      "31",
+      "TIM1_CH3",
+      "5 V tol.",
+      "sol3 / Q3; USART1_RX pin"
+     ],
+     [
+      "Drv6",
+      "J2-7",
+      "6",
+      "PA9",
+      "30",
+      "TIM1_CH2",
+      "5 V tol.",
+      "sol2 / Q4; USART1_TX pin"
+     ],
+     [
+      "Drv7",
+      "J2-8",
+      "5",
+      "PA8",
+      "29",
+      "TIM1_CH1",
+      "5 V tol.",
+      "sol1 / Q1"
+     ],
+     [
+      "Drv8",
+      "J2-9",
+      "43",
+      "PA13",
+      "34",
+      "",
+      "5 V tol.",
+      "sol0 / Q2; SWDIO pin"
+     ],
+     [
+      "Sw1",
+      "J1-3",
+      "1",
+      "PB12",
+      "25",
+      "",
+      "5 V tol.",
+      ""
+     ],
+     [
+      "Sw2",
+      "J1-4",
+      "2",
+      "PB13",
+      "26",
+      "",
+      "5 V tol.",
+      ""
+     ],
+     [
+      "Sw3",
+      "J1-5",
+      "3",
+      "PB14",
+      "27",
+      "",
+      "5 V tol.",
+      ""
+     ],
+     [
+      "Sw4",
+      "J1-6",
+      "10",
+      "PA15",
+      "38",
+      "",
+      "5 V tol.",
+      "JTDI pin"
+     ],
+     [
+      "Sw5",
+      "J1-7",
+      "11",
+      "PB3",
+      "39",
+      "",
+      "5 V tol.",
+      "JTDO pin"
+     ],
+     [
+      "Sw6",
+      "J1-8",
+      "12",
+      "PB4",
+      "40",
+      "",
+      "5 V tol.",
+      "JNTRST pin"
+     ],
+     [
+      "Sw7",
+      "J1-9",
+      "13",
+      "PB5",
+      "41",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "Neo3",
+      "level shifter 2a",
+      "4",
+      "PB15",
+      "28",
+      "",
+      "5 V tol.",
+      "to Neo5 at J6-2"
+     ],
+     [
+      "C0",
+      "J7-9",
+      "42",
+      "PA14",
+      "37",
+      "",
+      "5 V tol.",
+      "SWCLK pin"
+     ],
+     [
+      "C1",
+      "J7-8",
+      "22",
+      "PC13",
+      "2",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "C2",
+      "J7-7",
+      "23",
+      "PC14",
+      "3",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "C3",
+      "J7-6",
+      "24",
+      "PC15",
+      "4",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "C4",
+      "J7-5",
+      "25",
+      "PA0",
+      "10",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "C5",
+      "J7-3",
+      "26",
+      "PA1",
+      "11",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "C6",
+      "J7-2",
+      "27",
+      "PA2",
+      "12",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "C7",
+      "J7-1",
+      "28",
+      "PA3",
+      "13",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "R0",
+      "J8-9",
+      "29",
+      "PA4",
+      "14",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "R1",
+      "J8-8",
+      "30",
+      "PA5",
+      "15",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "R2",
+      "J8-7",
+      "31",
+      "PA6",
+      "16",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "R3",
+      "J8-6",
+      "32",
+      "PA7",
+      "17",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "R4",
+      "J8-5",
+      "33",
+      "PB0",
+      "18",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "R5",
+      "J8-4",
+      "34",
+      "PB1",
+      "19",
+      "",
+      "3.3 V only",
+      ""
+     ],
+     [
+      "R6",
+      "J8-3",
+      "35",
+      "PB10",
+      "21",
+      "",
+      "5 V tol.",
+      ""
+     ],
+     [
+      "R7",
+      "J8-1",
+      "36",
+      "PB11",
+      "22",
+      "",
+      "5 V tol.",
+      ""
+     ]
+    ],
+    "note": null
+   },
+   {
+    "type": "table",
+    "id": "Table 5.3-5 notes",
+    "title": "",
+    "columns": [
+     "Item",
+     "Definition"
+    ],
+    "rows": [
+     [
+      "Source",
+      "Topedal Rev 1.1 schematic (Figure 5.3-2) and Blue Pill data (Figure 5.3-3); LQFP48 pins, timers and 5 V tolerance from ST DS5319 Rev 20 Table 5. Pin-to-GPIO mapping is the symbol pin order against the verified header order"
+     ],
+     [
+      "Powered sensors on direct inputs",
+      "Direct inputs are Sw1–Sw7 and, by repurposing the matrix header, C0–C7 and R0–R7. Sw7 (PB5), C1–C7 (PC13–PC15, PA0–PA3) and R0–R5 (PA4–PA7, PB0, PB1) are 3.3 V only and are not 5 V tolerant"
+     ],
+     [
+      "Debug and USART pins",
+      "Drv8 (PA13) and C0 (PA14) are the SWD pins; Sw4–Sw6 (PA15, PB3, PB4) are JTAG pins at reset; Drv5 and Drv6 (PA10, PA9) are USART1 pins. OPP firmware behaviour on these pins is not verified"
+     ],
+     [
+      "Hold-PWM channels",
+      "Only Drv1–Drv7 have a timer output; Drv8 (PA13) has none"
+     ],
+     [
+      "Unconnected",
+      "J100 pins 8, 9, 18, 21, 37"
+     ]
+    ],
+    "note": null
+   }
+  ]
+ }
+}
