@@ -92,9 +92,7 @@
  },
  "system": {
   "name": "Pinball Machine",
-  "overview": [
-   "Overview: to be written (no design information migrated yet)."
-  ],
+  "overview": [],
   "cells": {
    "fdi": [
     {
@@ -112,8 +110,8 @@
     {
      "name": "Architecture block diagram",
      "status": "in_progress",
-     "path": "System/Machine_Master.md",
-     "href": "#System/Machine_Master.md::system-architecture"
+     "path": "System/System_Architecture.svg",
+     "href": "#System/System_Architecture.svg::"
     },
     {
      "name": "Game rules",
@@ -125,8 +123,8 @@
     {
      "name": "Playfield layout with IDs",
      "status": "complete",
-     "path": "System/Machine_Master.md",
-     "href": "#System/Machine_Master.md::device-registry-graphic"
+     "path": "System/Device_Registry.svg",
+     "href": "#System/Device_Registry.svg::"
     },
     {
      "name": "Device registry table",
@@ -139,14 +137,14 @@
     {
      "name": "Block diagram",
      "status": "in_progress",
-     "path": "System/Electrical_Master.md",
-     "href": "#System/Electrical_Master.md::block-diagram"
+     "path": "System/Electrical_Block_Diagram.svg",
+     "href": "#System/Electrical_Block_Diagram.svg::"
     },
     {
      "name": "Schematic",
      "status": "in_progress",
-     "path": "System/Electrical_Master.md",
-     "href": "#System/Electrical_Master.md::system-schematic"
+     "path": "Devices/Controllers_Power/DP-28_Topedal_Board/Topedal_Schematic.svg",
+     "href": "#Devices/Controllers_Power/DP-28_Topedal_Board/Topedal_Schematic.svg::"
     },
     {
      "name": "Cable + harness layout",
