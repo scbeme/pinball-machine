@@ -144,12 +144,12 @@ function registerPage() {
 
 function docPage(p) {
   const v = el("div");
-  v.innerHTML = `<a class="back" href="${esc(p.back)}">&larr; Back to Pinball Machine</a><h2 class="ptitle">${esc(p.title)}</h2><p class="note">${esc(p.note || "")}</p>`;
+  v.innerHTML = `<a class="back" href="${esc(p.back)}">&larr; Back to Pinball Machine</a><h2 class="ptitle">${esc(p.title)}</h2>${p.note ? `<p class="note">${esc(p.note)}</p>` : ""}`;
   const cellh = s => esc(s).replace(/&lt;br&gt;/g, "<br>").replace(/&lt;b&gt;/g, "<b>").replace(/&lt;\/b&gt;/g, "</b>");
   for (const b of p.blocks) {
     const w = el("div", "blk");
     if (b.type === "table") {
-      w.innerHTML = `<h3>${esc(b.id)}${b.title ? " — " + esc(b.title) : ""}</h3>${b.note ? `<p class="note">${esc(b.note)}</p>` : ""}<div class="scroll"><table class="doc"><thead><tr>${b.columns.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${cellh(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      w.innerHTML = `<h3>${[b.id, b.title].filter(Boolean).map(esc).join(" — ")}</h3>${b.note ? `<p class="note">${esc(b.note)}</p>` : ""}<div class="scroll"><table class="doc"><thead><tr>${b.columns.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${cellh(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     } else if (b.type === "svg") {
       w.innerHTML = `<p class="note">${esc(b.caption)} &mdash; <a href="${esc(b.src)}">open full size</a></p><div class="scroll"><img class="pf" src="${esc(b.src)}" alt="${esc(b.caption)}"></div>`;
     } else if (b.type === "instruction") {
@@ -163,12 +163,12 @@ function docPage(p) {
 
 function docPage(p) {
   const v = el("div");
-  v.innerHTML = `<a class="back" href="${esc(p.back)}">&larr; Back to Pinball Machine</a><h2 class="ptitle">${esc(p.title)}</h2><p class="note">${esc(p.note || "")}</p>`;
+  v.innerHTML = `<a class="back" href="${esc(p.back)}">&larr; Back to Pinball Machine</a><h2 class="ptitle">${esc(p.title)}</h2>${p.note ? `<p class="note">${esc(p.note)}</p>` : ""}`;
   const cellh = s => esc(s).replace(/&lt;br&gt;/g, "<br>").replace(/&lt;b&gt;/g, "<b>").replace(/&lt;\/b&gt;/g, "</b>");
   for (const b of p.blocks) {
     const w = el("div", "blk");
     if (b.type === "table") {
-      w.innerHTML = `<h3>${esc(b.id)}${b.title ? " — " + esc(b.title) : ""}</h3>${b.note ? `<p class="note">${esc(b.note)}</p>` : ""}<div class="scroll"><table class="doc"><thead><tr>${b.columns.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${cellh(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      w.innerHTML = `<h3>${[b.id, b.title].filter(Boolean).map(esc).join(" — ")}</h3>${b.note ? `<p class="note">${esc(b.note)}</p>` : ""}<div class="scroll"><table class="doc"><thead><tr>${b.columns.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${cellh(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     } else if (b.type === "svg") {
       w.innerHTML = `<p class="note">${esc(b.caption)} &mdash; <a href="${esc(b.src)}">open full size</a></p><div class="scroll"><img class="pf" src="${esc(b.src)}" alt="${esc(b.caption)}"></div>`;
     } else if (b.type === "instruction") {

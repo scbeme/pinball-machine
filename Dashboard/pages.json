@@ -2,11 +2,11 @@
  "description": {
   "title": "Description",
   "back": "#system",
-  "note": "Migrated from PMDD pmdd_20261106-02. Section 1 and Sections 3.1 to 3.4; section numbers replaced by table IDs.",
+  "note": "",
   "blocks": [
    {
     "type": "table",
-    "id": "Table 1-1",
+    "id": "",
     "title": "System Overview",
     "columns": [
      "Topic",
@@ -30,35 +30,7 @@
    },
    {
     "type": "table",
-    "id": "Table 3.1-1",
-    "title": "System",
-    "columns": [
-     "#",
-     "Item",
-     "Description"
-    ],
-    "rows": [
-     [
-      "1",
-      "Configuration",
-      "Rectangular cabinet plus detached monitor, positioned on a tabletop for play"
-     ],
-     [
-      "2",
-      "Playing field",
-      "Cabinet's sloped \"floor\" — hosts game play devices"
-     ],
-     [
-      "3",
-      "Electronics",
-      "Distributed: electronics mounted to both playfield underside and bottom shelf"
-     ]
-    ],
-    "note": null
-   },
-   {
-    "type": "table",
-    "id": "Table 3.2-1",
+    "id": "",
     "title": "Mechanical",
     "columns": [
      "#",
@@ -86,7 +58,7 @@
    },
    {
     "type": "table",
-    "id": "Table 3.3-1",
+    "id": "",
     "title": "Electrical",
     "columns": [
      "#",
@@ -119,7 +91,7 @@
    },
    {
     "type": "table",
-    "id": "Table 3.4-1",
+    "id": "",
     "title": "Software",
     "columns": [
      "#",
