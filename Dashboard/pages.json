@@ -333,16 +333,16 @@
  "blockdiagram": {
   "title": "Electrical block diagram",
   "back": "#system",
-  "note": "Migrated from PMDD pmdd_20261106-02. Replaces the narrative of Tables 5.3-3 and 5.3-4 with a block diagram; the design values are kept in the two tables below it, unchanged. Device-to-driver assignments are not decided, so the 3 Topedal boards are drawn as a group.",
+  "note": "Device-to-driver assignments are not decided, so the 3 Topedal boards are drawn as a group.",
   "blocks": [
    {
     "type": "svg",
     "src": "electrical_block_diagram.svg",
-    "caption": "System Electrical Block Diagram (open the SVG for full size)"
+    "caption": "System Electrical Block Diagram"
    },
    {
     "type": "table",
-    "id": "Table 5.3-3",
+    "id": "",
     "title": "Power Design",
     "columns": [
      "ID",
@@ -358,7 +358,7 @@
      [
       "P-02",
       "Coil supply",
-      "24V DC supply, current rating TBD, to all solenoid positive terminals through fused feeds F1–F7 and to the 24V inductive proximity sensors through fused feed F8 (Table 5.3-4). Topedal board provides low-side drivers only (no positive supply, filter, or fuse on board)"
+      "24V DC supply, current rating TBD, to all solenoid positive terminals through fused feeds F1–F7 and to the 24V inductive proximity sensors through fused feed F8 (Power Distribution). Topedal board provides low-side drivers only (no positive supply, filter, or fuse on board)"
      ],
      [
       "P-03",
@@ -373,7 +373,7 @@
      [
       "P-05",
       "Coil fusing",
-      "Slow-blow fuse per feed F1–F8 (Table 5.3-4), rated above hold/operating current and below sustained-fault level. Ratings TBD"
+      "Slow-blow fuse per feed F1–F8 (Power Distribution), rated above hold/operating current and below sustained-fault level. Ratings TBD"
      ],
      [
       "P-06",
@@ -388,7 +388,7 @@
      [
       "P-08",
       "Grounds",
-      "GND (coil supply return) and GNDREF (3V3/5V return) are separate nets on the Topedal board; tied at one point externally, at the GND bar (Table 5.3-4); tie verified before coil power is applied. GND bar location TBD"
+      "GND (coil supply return) and GNDREF (3V3/5V return) are separate nets on the Topedal board; tied at one point externally, at the GND bar (Power Distribution); tie verified before coil power is applied. GND bar location TBD"
      ],
      [
       "P-09",
@@ -398,14 +398,14 @@
      [
       "P-10",
       "Wiring",
-      "Solenoid feed and return wire 18 AWG (Table 5.3-4). Supply-to-bus-bar trunk and F8 sensor feed gauge TBD. Connectors TBD"
+      "Solenoid feed and return wire 18 AWG (Power Distribution). Supply-to-bus-bar trunk and F8 sensor feed gauge TBD. Connectors TBD"
      ]
     ],
     "note": null
    },
    {
     "type": "table",
-    "id": "Table 5.3-4",
+    "id": "",
     "title": "Power Distribution",
     "columns": [
      "Feed",
@@ -485,8 +485,8 @@
    },
    {
     "type": "table",
-    "id": "Table 5.3-4a",
-    "title": "Power Distribution — items",
+    "id": "",
+    "title": "Power Distribution items",
     "columns": [
      "Item",
      "Definition"
@@ -516,27 +516,27 @@
  "schematic": {
   "title": "Electrical schematic",
   "back": "#system",
-  "note": "Migrated from PMDD pmdd_20261106-02. Topedal board schematic (Figure 5.3-2, Rev 1.1) with the Table 5.3-5 pin map merged into the drawing. The system-level schematic is not created yet; its request is recorded below.",
+  "note": "Topedal board schematic with the pin map merged into the drawing. The system-level schematic is not created yet; its request is recorded below.",
   "blocks": [
    {
     "type": "instruction",
     "title": "Requested: system-level schematic (not yet created)",
     "lines": [
      "Create a system-level schematic that includes the pin assignments.",
-     "Merge/replace PMDD Table 5.3-5 (Topedal pin assignments) into the schematic. Done for the Topedal board below: the pin map is now carried on the drawing (GPIO, LQFP48 pin, timer output and 5 V tolerance on each J100 pin, with the J1/J2/J7/J8 connector pins).",
+     "Merge/replace the Topedal pin assignments table into the schematic. Done for the Topedal board below: the pin map is now carried on the drawing (GPIO, LQFP48 pin, timer output and 5 V tolerance on each J100 pin, with the J1/J2/J7/J8 connector pins).",
      "The current design uses 3 Topedal boards (DP-28A, DP-28B, DP-28C); all three are identical hardware, so one board schematic and pin map applies to each.",
-     "Blocked until the device-to-driver and device-to-input assignments are decided (the PMDD Device OPP Board/Wing/Position Assignment Table is empty). Each device pin cannot be assigned until Scott decides them."
+     "Blocked until the device-to-driver and device-to-input assignments are decided; each device pin cannot be assigned until then."
     ]
    },
    {
     "type": "svg",
     "src": "topedal_schematic.svg",
-    "caption": "Topedal OPP Solenoid, Neopixel & Switches Board, Rev 1.1, as used, with pin map (open the SVG for full size)"
+    "caption": "Topedal OPP Solenoid, Neopixel & Switches Board, Rev 1.1, as used, with pin map"
    },
    {
     "type": "table",
     "id": "Driver channel map",
-    "title": "one drawing, eight instances",
+    "title": "",
     "columns": [
      "Q",
      "Gate net",
@@ -738,15 +738,15 @@
      ],
      [
       "GND–GNDREF",
-      "Separate nets on the board; tied externally (P-08, Table 5.3-3)"
+      "Separate nets on the board; tied externally (P-08)"
      ]
     ],
     "note": null
    },
    {
     "type": "table",
-    "id": "Table 5.3-5 Topedal Pin Map",
-    "title": "Rev 1.1; verified against the V02 Gerber nets and the board photos. Data is carried on the drawing; this table is the net-by-net list of the same data.",
+    "id": "",
+    "title": "Topedal Pin Map",
     "columns": [
      "Net",
      "Board pin",
@@ -1079,12 +1079,12 @@
       ""
      ]
     ],
-    "note": null
+    "note": "Rev 1.1; verified against the V02 Gerber nets and the board photos. Data is carried on the drawing; this table is the net-by-net list of the same data."
    },
    {
     "type": "table",
-    "id": "Table 5.3-5 notes",
-    "title": "",
+    "id": "",
+    "title": "Topedal Pin Map notes",
     "columns": [
      "Item",
      "Definition"
@@ -1092,7 +1092,7 @@
     "rows": [
      [
       "Source",
-      "Topedal Rev 1.1 schematic (Figure 5.3-2) and Blue Pill data (Figure 5.3-3); LQFP48 pins, timers and 5 V tolerance from ST DS5319 Rev 20 Table 5. Pin-to-GPIO mapping is the symbol pin order against the verified header order"
+      "Topedal Rev 1.1 schematic and Blue Pill data; LQFP48 pins, timers and 5 V tolerance from ST DS5319 Rev 20 Table 5. Pin-to-GPIO mapping is the symbol pin order against the verified header order"
      ],
      [
       "Powered sensors on direct inputs",

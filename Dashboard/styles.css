@@ -65,3 +65,5 @@ table.doc{min-width:0}table.doc td,table.doc th{font-size:13px}table.doc th{text
 table.doc{min-width:0}table.doc td,table.doc th{font-size:13px}table.doc th{text-align:left;padding:6px 8px}
 .instr{background:#fff8e1;border:1px solid #e0c36a;border-radius:8px;padding:8px 16px}.instr ul{list-style:disc;padding-left:20px}.instr li{display:list-item}
 table.doc td:first-child{white-space:nowrap}
+
+img.zoom{cursor:zoom-in}img.zoom.full{max-width:none;cursor:zoom-out}

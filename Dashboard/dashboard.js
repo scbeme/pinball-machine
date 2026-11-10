@@ -113,8 +113,8 @@ let R, PG;
 function playfieldPage() {
   const v = el("div");
   v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#register">Device register table &rarr;</a><h2 class="ptitle">Playfield layout with IDs</h2>` +
-    `<p class="note">One tag per instance. Grid origin = playfield centerline x flipper pivot line (red crosshair). CAD controls geometry and counts. <a href="${esc(R.svg)}">Open full-size SVG</a></p>` +
-    `<div class="scroll"><img class="pf" src="${esc(R.svg)}" alt="Playfield layout with device instance IDs"></div>`;
+    `<p class="note">Click the image to switch between fit-to-width and full size. One tag per instance. Grid origin = playfield centerline x flipper pivot line (red crosshair). CAD controls geometry and counts.</p>` +
+    `<div class="scroll"><img class="pf zoom" src="${esc(R.svg)}" alt="Playfield layout with device instance IDs"></div>`;
   return v;
 }
 function registerPage() {
@@ -151,7 +151,7 @@ function docPage(p) {
     if (b.type === "table") {
       w.innerHTML = `<h3>${[b.id, b.title].filter(Boolean).map(esc).join(" — ")}</h3>${b.note ? `<p class="note">${esc(b.note)}</p>` : ""}<div class="scroll"><table class="doc"><thead><tr>${b.columns.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${cellh(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     } else if (b.type === "svg") {
-      w.innerHTML = `<p class="note">${esc(b.caption)} &mdash; <a href="${esc(b.src)}">open full size</a></p><div class="scroll"><img class="pf" src="${esc(b.src)}" alt="${esc(b.caption)}"></div>`;
+      w.innerHTML = `<p class="note">${esc(b.caption)}. Click the image to switch between fit-to-width and full size.</p><div class="scroll"><img class="pf zoom" src="${esc(b.src)}" alt="${esc(b.caption)}"></div>`;
     } else if (b.type === "instruction") {
       w.className = "blk instr";
       w.innerHTML = `<h3>${esc(b.title)}</h3><ul>${b.lines.map(l => `<li>${esc(l)}</li>`).join("")}</ul>`;
@@ -170,7 +170,7 @@ function docPage(p) {
     if (b.type === "table") {
       w.innerHTML = `<h3>${[b.id, b.title].filter(Boolean).map(esc).join(" — ")}</h3>${b.note ? `<p class="note">${esc(b.note)}</p>` : ""}<div class="scroll"><table class="doc"><thead><tr>${b.columns.map(c => `<th>${esc(c)}</th>`).join("")}</tr></thead><tbody>${b.rows.map(r => `<tr>${r.map(c => `<td>${cellh(c)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
     } else if (b.type === "svg") {
-      w.innerHTML = `<p class="note">${esc(b.caption)} &mdash; <a href="${esc(b.src)}">open full size</a></p><div class="scroll"><img class="pf" src="${esc(b.src)}" alt="${esc(b.caption)}"></div>`;
+      w.innerHTML = `<p class="note">${esc(b.caption)}. Click the image to switch between fit-to-width and full size.</p><div class="scroll"><img class="pf zoom" src="${esc(b.src)}" alt="${esc(b.caption)}"></div>`;
     } else if (b.type === "instruction") {
       w.className = "blk instr";
       w.innerHTML = `<h3>${esc(b.title)}</h3><ul>${b.lines.map(l => `<li>${esc(l)}</li>`).join("")}</ul>`;
@@ -179,6 +179,8 @@ function docPage(p) {
   }
   return v;
 }
+
+document.addEventListener("click", e => { const i = e.target; if (i.tagName === "IMG" && i.classList.contains("zoom")) i.classList.toggle("full"); });
 
 function route() {
   const h = decodeURIComponent(location.hash.replace(/^#/, ""));
