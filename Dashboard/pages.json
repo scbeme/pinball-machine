@@ -127,11 +127,11 @@
  "functions": {
   "title": "Function, constraints, design parameters",
   "back": "#system",
-  "note": "Migrated from PMDD pmdd_20261106-02. Section 2, Table 2-0 and Table 2.3. Table 2.3 parameter IDs P-01 to P-10 renamed GP-01 to GP-10 (approved) to avoid collision with the Power Design IDs P-01 to P-10. The Category and Type codes in Table 2-0 are not defined in the PMDD.",
+  "note": "",
   "blocks": [
    {
     "type": "table",
-    "id": "Table 2-0",
+    "id": "",
     "title": "System-Level Requirements",
     "columns": [
      "ID",
@@ -145,85 +145,85 @@
       "S-01",
       "Game play",
       "Playing field ball action and control will be similar to a traditional, full sized pinball machine (1 1/16\" dia balls, 40\" x 20.5\" playing field, 6.5-7 deg slope). Audio, graphics, and video are used to enhance the gaming experience including real-time game scenario progress",
-      "F",
-      "M"
+      "Functional",
+      "Mandatory"
      ],
      [
       "S-02",
       "Game scenarios",
       "System supports user selectable game scenarios. Scenarios have unique themes that use the same generic playing field",
-      "F",
-      "M"
+      "Functional",
+      "Mandatory"
      ],
      [
       "S-03",
       "Game setup parameters",
       "Game parameters will be selected by the player before each game is started. Example parameters include: game difficulty level, number of players, player names, scenario, scenario specific parameters",
-      "F",
-      "M"
+      "Functional",
+      "Mandatory"
      ],
      [
       "G-01",
       "Initialize game",
       "Master power ON, monitor presents setup prompts which player selects",
-      "F",
-      "M"
+      "Functional",
+      "Mandatory"
      ],
      [
       "G-02",
       "Select scoring targets",
       "Player uses onscreen game info to identify best scoring targets",
-      "F",
-      "M"
+      "Functional",
+      "Mandatory"
      ],
      [
       "G-03",
       "Shoot ball",
       "Player launches ball onto playing field using shooter",
-      "F",
-      "M"
+      "Functional",
+      "Mandatory"
      ],
      [
       "G-04",
       "Playing field action",
       "Player uses flippers and programmable buttons (DP-20 Programmable button) to keep ball in play and interact with the game to maximize score",
-      "F",
-      "M"
+      "Functional",
+      "Mandatory"
      ],
      [
       "G-05",
       "Repeat",
       "Repeat steps G-02–G-04 until turn is over",
-      "F",
-      "M"
+      "Functional",
+      "Mandatory"
      ],
      [
       "C-01",
       "Physical",
       "Portable system, played on tabletop, stored in typical household closet",
-      "C",
-      "M"
+      "Constraint",
+      "Mandatory"
      ],
      [
       "C-02",
       "Components",
       "Use COTS parts and materials including modern electronics to replace traditional electro-mechanical, analog devices. Fab and assembly using standard workshop equipment plus 3D printer and 40W laser (24\"x12\" bed)",
-      "C",
-      "M"
+      "Constraint",
+      "Mandatory"
      ],
      [
       "C-03",
       "Safety",
       "Electrical design will comply with industry-standard safety practices",
-      "C",
-      "M"
+      "Constraint",
+      "Mandatory"
      ]
     ],
     "note": null
    },
    {
     "type": "table",
-    "id": "Table 2.3",
+    "id": "",
     "title": "Software Requirements — Game Setup Parameters",
     "columns": [
      "ID",
