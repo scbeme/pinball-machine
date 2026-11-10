@@ -64,3 +64,4 @@ table.doc{min-width:0}table.doc td,table.doc th{font-size:13px}table.doc th{text
 .blk{margin:14px 0}.blk h3{margin:0 0 4px;color:var(--navy);font-size:16px}
 table.doc{min-width:0}table.doc td,table.doc th{font-size:13px}table.doc th{text-align:left;padding:6px 8px}
 .instr{background:#fff8e1;border:1px solid #e0c36a;border-radius:8px;padding:8px 16px}.instr ul{list-style:disc;padding-left:20px}.instr li{display:list-item}
+table.doc td:first-child{white-space:nowrap}
