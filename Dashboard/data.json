@@ -5,7 +5,7 @@
   "name": "scbeme/pinball-machine",
   "url": "https://github.com/scbeme/pinball-machine"
  },
- "updated": "2026-11-10 (build 20261110-03)",
+ "updated": "2026-11-10 (build 20261110-04)",
  "columns": [
   [
    "fdi",
@@ -100,20 +100,20 @@
     {
      "name": "Description (bullet list)",
      "status": "complete",
-     "path": "Dashboard/pages.json",
-     "href": "#description"
+     "path": "System/Machine_Master.md",
+     "href": "#System/Machine_Master.md::system-overview"
     },
     {
      "name": "Functions, constraints, design parameters",
      "status": "complete",
-     "path": "Dashboard/pages.json",
-     "href": "#functions"
+     "path": "System/Machine_Master.md",
+     "href": "#System/Machine_Master.md::requirements"
     },
     {
      "name": "Architecture block diagram",
      "status": "in_progress",
-     "path": "Dashboard/system_architecture.svg",
-     "href": "#architecture"
+     "path": "System/Machine_Master.md",
+     "href": "#System/Machine_Master.md::system-architecture"
     },
     {
      "name": "Game rules",
@@ -125,28 +125,28 @@
     {
      "name": "Playfield layout with IDs",
      "status": "complete",
-     "path": "Dashboard/registry.svg",
-     "href": "#playfield"
+     "path": "System/Machine_Master.md",
+     "href": "#System/Machine_Master.md::device-registry-graphic"
     },
     {
      "name": "Device registry table",
      "status": "complete",
-     "path": "Dashboard/register.json",
-     "href": "#register"
+     "path": "System/Machine_Master.md",
+     "href": "#System/Machine_Master.md::device-register"
     }
    ],
    "elec": [
     {
      "name": "Block diagram",
      "status": "in_progress",
-     "path": "Dashboard/electrical_block_diagram.svg",
-     "href": "#blockdiagram"
+     "path": "System/Electrical_Master.md",
+     "href": "#System/Electrical_Master.md::block-diagram"
     },
     {
      "name": "Schematic",
      "status": "in_progress",
-     "path": "Dashboard/topedal_schematic.svg",
-     "href": "#schematic"
+     "path": "System/Electrical_Master.md",
+     "href": "#System/Electrical_Master.md::system-schematic"
     },
     {
      "name": "Cable + harness layout",
