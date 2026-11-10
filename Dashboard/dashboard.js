@@ -57,7 +57,7 @@ function groupCells(g) {
 
 function l1cell(items, slug) {
   const td = cell(items.map(i => ({name: i.name, status: i.status, path: null, rolled: true})));
-  td.querySelectorAll("li span:last-child").forEach(sp => { sp.innerHTML = `<a href="#${slug}">${sp.innerHTML}</a>`; });
+  td.querySelectorAll("li span:last-child").forEach((sp, n) => { sp.innerHTML = `<a href="${items[n].href ? esc(items[n].href) : "#" + slug}">${sp.innerHTML}</a>`; });
   return td;
 }
 
