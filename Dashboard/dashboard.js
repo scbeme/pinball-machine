@@ -176,21 +176,21 @@ function registerView(text, path) {
   const devices = [];
   for (const r0 of t.rows) {
     const r = r0.map(c => c.replace(/\*\*/g, ""));
-    if (r[2]) devices.push({id: r[0], device: r[1], tier: r[2], qty: r[3], electrical: r[4], cad: r[5], instances: []});
-    else if (devices.length) devices[devices.length - 1].instances.push({id: r[0], x: parseFloat(r[3].replace(/^X\s*/, "")), y: parseFloat(r[5].replace(/^Y\s*/, ""))});
+    if (r[2]) devices.push({id: r[0], device: r[1], tier: r[2], qty: r[3], electrical: r[4], instances: []});
+    else if (devices.length) devices[devices.length - 1].instances.push({id: r[0], x: parseFloat(r[3].replace(/^X\s*/, "")), y: parseFloat(r[4].replace(/^Y\s*/, ""))});
   }
   const v = el("div"), n = devices.reduce((a, x) => a + x.instances.length, 0);
   v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#${esc(dirOf(path))}Device_Registry.svg::">Playfield layout &rarr;</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">Device Register</h2>` +
-    `<p class="note">${devices.length} devices, ${n} instances. Click a device row to show its instances (ID, X mm, Y mm).</p>` +
+    `<p class="note">${devices.length} devices. Click a device row to show its instances (ID, X mm, Y mm).</p>` +
     `<div class="btns"><button id="exp">Expand all</button> <button id="col">Collapse all</button></div>` +
-    `<div class="scroll"><table class="reg"><thead><tr><th></th><th>ID</th><th>Device</th><th>Tier</th><th>Qty</th><th>Electrical?</th><th>CAD legend symbol</th></tr></thead><tbody></tbody></table></div>`;
+    `<div class="scroll"><table class="reg"><thead><tr><th></th><th>ID</th><th>Device</th><th>Tier</th><th>Qty</th><th>Electrical?</th></tr></thead><tbody></tbody></table></div>`;
   const tb = v.querySelector("table.reg tbody");
   for (const d of devices) {
     const open = d.instances.length > 0;
-    const tr = el("tr", "parent" + (open ? "" : " leaf"), `<td class="tog">${open ? "&#9656;" : ""}</td><td>${esc(d.id)}</td><td>${esc(d.device)}</td><td>${esc(d.tier)}</td><td>${esc(d.qty)}</td><td>${esc(d.electrical)}</td><td>${esc(d.cad)}</td>`);
+    const tr = el("tr", "parent" + (open ? "" : " leaf"), `<td class="tog">${open ? "&#9656;" : ""}</td><td>${esc(d.id)}</td><td>${esc(d.device)}</td><td>${esc(d.tier)}</td><td>${esc(d.qty)}</td><td>${esc(d.electrical)}</td>`);
     tb.appendChild(tr);
     const kids = d.instances.map(i => {
-      const k = el("tr", "child", `<td></td><td>${esc(i.id)}</td><td colspan="2">${esc(d.device)}</td><td colspan="2">X ${i.x.toFixed(1)} mm</td><td>Y ${i.y.toFixed(1)} mm</td>`);
+      const k = el("tr", "child", `<td></td><td>${esc(i.id)}</td><td colspan="2">${esc(d.device)}</td><td>X ${i.x.toFixed(1)} mm</td><td>Y ${i.y.toFixed(1)} mm</td>`);
       k.hidden = true; tb.appendChild(k); return k;
     });
     tr.toggle = on => { kids.forEach(k => k.hidden = !on); tr.classList.toggle("open", on); tr.firstChild.innerHTML = open ? (on ? "&#9662;" : "&#9656;") : ""; };
