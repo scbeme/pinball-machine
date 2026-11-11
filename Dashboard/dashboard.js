@@ -100,7 +100,7 @@ function devicePage(g) {
 function systemPage() {
   const v = el("div");
   v.innerHTML = `<a class="back" href="#">&larr; Back to dashboard</a><h2 class="ptitle">${esc(D.system.name)}</h2>` +
-    `<div class="overview">${D.system.overview.map(p => `<p>${esc(p)}</p>`).join("")}</div>` +
+    (D.system.overview.length ? `<div class="overview">${D.system.overview.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : "") +
     `<div class="scroll"><table><thead>${headRow("System")}</thead><tbody></tbody></table></div>`;
   const tr = el("tr", "system");
   tr.appendChild(el("td", "dev", `<b>${esc(D.system.name)}</b>`));
@@ -109,28 +109,88 @@ function systemPage() {
   return v;
 }
 
-let R;
-function playfieldPage() {
-  const v = el("div");
-  v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#register">Device register table &rarr;</a><h2 class="ptitle">Playfield layout with IDs</h2>` +
-    `<p class="note">One tag per instance. Grid origin = playfield centerline x flipper pivot line (red crosshair). CAD controls geometry and counts. <a href="${esc(R.svg)}">Open full-size SVG</a></p>` +
-    `<div class="scroll"><img class="pf" src="${esc(R.svg)}" alt="Playfield layout with device instance IDs"></div>`;
-  return v;
+const VER = "20261110-04";
+const slug = t => t.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/ /g, "-");
+const norm = p => { const o = []; for (const x of p.split("/")) { if (x === "..") o.pop(); else if (x && x !== ".") o.push(x); } return o.join("/"); };
+const dirOf = p => p.includes("/") ? p.slice(0, p.lastIndexOf("/") + 1) : "";
+const keep = u => /^(data:|https?:|#)/.test(u);
+
+// Small markdown renderer: headings, tables, images, links, lists, blockquotes, bold, code, <br>/<b>.
+function inl(s, base) {
+  s = esc(s).replace(/&lt;(\/?)(br|b)&gt;/g, "<$1$2>");
+  s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, src) => `<img class="pf zoom" src="${keep(src) ? src : norm(base + src)}" alt="${alt}">`);
+  s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, t, u) => {
+    const [p, f] = u.split("#");
+    return `<a href="${keep(u) ? u : /\.md$/.test(p) ? "#" + norm(base + p) + "::" + (f || "") : norm(base + u)}">${t}</a>`;
+  });
+  return s.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`([^`]+)`/g, "<code>$1</code>");
 }
-function registerPage() {
-  const v = el("div"), n = R.devices.reduce((a, x) => a + x.instances.length, 0);
-  v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#playfield">Playfield layout &rarr;</a><h2 class="ptitle">Device Register</h2>` +
-    `<p class="note">${R.devices.length} devices, ${n} instances. Click a device row to show its instances (ID, X mm, Y mm). Source: ${esc(R.source)}.</p>` +
+function renderMd(lines, base) {
+  let h = "", i = 0;
+  const special = l => /^(#{1,6}\s|\||>|\s*-\s)/.test(l);
+  while (i < lines.length) {
+    const l = lines[i];
+    let m;
+    if (!l.trim()) { i++; continue; }
+    if ((m = l.match(/^(#{1,6})\s+(.*)/))) { h += `<h${m[1].length + 1} id="${slug(m[2])}">${inl(m[2], base)}</h${m[1].length + 1}>`; i++; continue; }
+    if (l.startsWith("|")) {
+      const rows = [];
+      while (i < lines.length && lines[i].startsWith("|")) { rows.push(lines[i].trim().replace(/^\||\|$/g, "").split("|").map(c => c.trim())); i++; }
+      const head = rows[0], body = rows.slice(2);
+      h += `<div class="scroll"><table class="doc"><thead><tr>${head.map(c => `<th>${inl(c, base)}</th>`).join("")}</tr></thead><tbody>${body.map(r => `<tr>${r.map(c => `<td>${inl(c, base)}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
+      continue;
+    }
+    if (l.startsWith(">")) {
+      const q = [];
+      while (i < lines.length && lines[i].startsWith(">")) { q.push(lines[i].replace(/^>\s?/, "")); i++; }
+      h += `<div class="instr">${renderMd(q, base)}</div>`;
+      continue;
+    }
+    if (/^\s*-\s/.test(l)) {
+      const it = [];
+      while (i < lines.length && /^\s*-\s/.test(lines[i])) { it.push(lines[i].replace(/^\s*-\s/, "")); i++; }
+      h += `<ul>${it.map(x => `<li>${inl(x, base)}</li>`).join("")}</ul>`;
+      continue;
+    }
+    const p = [];
+    while (i < lines.length && lines[i].trim() && !special(lines[i])) { p.push(lines[i]); i++; }
+    const t = p.join(" ");
+    h += /^\*[^*].*\*$/.test(t) ? `<p class="note"><i>${inl(t.slice(1, -1), base)}</i></p>` : `<p>${inl(t, base)}</p>`;
+  }
+  return h;
+}
+// Returns the lines of the "## heading" section whose slug matches (to the next ## or #); null if absent.
+function section(text, sel) {
+  const L = text.split("\n");
+  let a = -1;
+  for (let k = 0; k < L.length; k++) { const m = L[k].match(/^(#{1,2})\s+(.*)/); if (m && slug(m[2]) === sel) { a = k; break; } }
+  if (a < 0) return null;
+  let e = L.length;
+  for (let k = a + 1; k < L.length; k++) if (/^#{1,2}\s/.test(L[k])) { e = k; break; }
+  return {title: L[a].replace(/^#+\s+/, ""), lines: L.slice(a + 1, e)};
+}
+const firstTable = lines => { const t = lines.filter(l => l.startsWith("|")).map(l => l.trim().replace(/^\||\|$/g, "").split("|").map(c => c.trim())); return t.length > 2 ? {head: t[0], rows: t.slice(2)} : {head: [], rows: []}; };
+
+function registerView(text, path) {
+  const t = firstTable((section(text, "device-register") || {lines: []}).lines);
+  const devices = [];
+  for (const r0 of t.rows) {
+    const r = r0.map(c => c.replace(/\*\*/g, ""));
+    if (r[2]) devices.push({id: r[0], device: r[1], tier: r[2], qty: r[3], electrical: r[4], instances: []});
+    else if (devices.length) devices[devices.length - 1].instances.push({id: r[0]});
+  }
+  const v = el("div"), n = devices.reduce((a, x) => a + x.instances.length, 0);
+  v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#${esc(dirOf(path))}Device_Registry.svg::">Playfield layout &rarr;</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">Device Register</h2>` +
+    `<p class="note">${devices.length} devices. Click a device row to show its instances.</p>` +
     `<div class="btns"><button id="exp">Expand all</button> <button id="col">Collapse all</button></div>` +
-    `<details class="rules"><summary>Register rules and notes</summary><table class="mini"><tbody>${R.notes.map(r => `<tr><th>${esc(r[0])}</th><td>${esc(r[1])}</td></tr>`).join("")}</tbody></table></details>` +
-    `<div class="scroll"><table class="reg"><thead><tr><th></th><th>ID</th><th>Device</th><th>Tier</th><th>Qty</th><th>Electrical?</th><th>CAD legend symbol</th><th>Detail document</th></tr></thead><tbody></tbody></table></div>`;
+    `<div class="scroll"><table class="reg"><thead><tr><th></th><th>ID</th><th>Device</th><th>Tier</th><th>Qty</th><th>Electrical?</th></tr></thead><tbody></tbody></table></div>`;
   const tb = v.querySelector("table.reg tbody");
-  for (const d of R.devices) {
+  for (const d of devices) {
     const open = d.instances.length > 0;
-    const tr = el("tr", "parent" + (open ? "" : " leaf"), `<td class="tog">${open ? "&#9656;" : ""}</td><td>${esc(d.id)}</td><td>${esc(d.device)}</td><td>${esc(d.tier)}</td><td>${esc(d.qty)}</td><td>${esc(d.electrical)}</td><td>${esc(d.cad)}</td><td>${esc(d.doc)}</td>`);
+    const tr = el("tr", "parent" + (open ? "" : " leaf"), `<td class="tog">${open ? "&#9656;" : ""}</td><td>${esc(d.id)}</td><td>${esc(d.device)}</td><td>${esc(d.tier)}</td><td>${esc(d.qty)}</td><td>${esc(d.electrical)}</td>`);
     tb.appendChild(tr);
     const kids = d.instances.map(i => {
-      const k = el("tr", "child", `<td></td><td>${esc(i.id)}</td><td colspan="2">${esc(d.device)}</td><td colspan="2">X ${i.x.toFixed(1)} mm</td><td colspan="2">Y ${i.y.toFixed(1)} mm</td>`);
+      const k = el("tr", "child", `<td></td><td>${esc(i.id)}</td><td colspan="4"></td>`);
       k.hidden = true; tb.appendChild(k); return k;
     });
     tr.toggle = on => { kids.forEach(k => k.hidden = !on); tr.classList.toggle("open", on); tr.firstChild.innerHTML = open ? (on ? "&#9662;" : "&#9656;") : ""; };
@@ -142,12 +202,33 @@ function registerPage() {
   return v;
 }
 
+function imgPage(path) {
+  const v = el("div"), name = path.split("/").pop().replace(/\.svg$/, "").replace(/_/g, " ");
+  v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${esc(name)}</h2>` +
+    `<p class="note">Click the image to switch between fit-to-width and full size.</p><div class="scroll"><img class="pf zoom" src="${esc(path)}?v=${VER}" alt="${esc(name)}"></div>`;
+  return v;
+}
+
+// Route "#<repo path>.md::<section slug>": the dashboard renders that section of the document in the repository.
+function mdPage(path, sel) {
+  const v = el("div");
+  v.innerHTML = `<p class="note">Loading ${esc(path)}&hellip;</p>`;
+  fetch(path + "?v=" + VER, {cache: "no-store"}).then(r => { if (!r.ok) throw new Error(r.status); return r.text(); }).then(text => {
+    if (sel === "device-register") { v.replaceWith(registerView(text, path)); return; }
+    const sec = sel ? section(text, sel) : {title: text.split("\n")[0].replace(/^#+\s+/, ""), lines: text.split("\n").slice(1)};
+    if (!sec) throw new Error("section not found: " + sel);
+    v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${inl(sec.title, "")}</h2><div class="mdv">${renderMd(sec.lines, dirOf(path))}</div>`;
+  }).catch(e => { v.innerHTML = `<a class="back" href="#system">&larr; Back</a><p>Could not load ${esc(path)}: ${esc(e.message)}</p>`; });
+  return v;
+}
+
 function route() {
   const h = decodeURIComponent(location.hash.replace(/^#/, ""));
   const view = document.getElementById("view");
   const g = D.groups.find(x => x.slug === h);
   view.innerHTML = "";
-  view.appendChild(h === "playfield" ? playfieldPage() : h === "register" ? registerPage() : h === "system" ? systemPage() : g ? devicePage(g) : mainPage());
+  const [mp, ms] = h.split("::");
+  view.appendChild(/\.svg$/.test(mp) && h.includes("::") ? imgPage(mp) : /\.md$/.test(mp) && h.includes("::") ? mdPage(mp, ms) : h === "system" ? systemPage() : g ? devicePage(g) : mainPage());
   document.title = (h === "system" ? D.system.name : g ? g.name : D.title);
   window.scrollTo(0, 0);
 }
@@ -163,7 +244,6 @@ function render(data) {
 }
 
 const inline = window.DASHBOARD_DATA;
-(inline ? Promise.resolve(inline) : fetch("data.json?v=20261110-02", {cache: "no-store"}).then(r => r.json()))
-  .then(data => fetch("register.json?v=20261110-02", {cache: "no-store"}).then(r => r.json()).then(r => { R = r; return data; }))
+(inline ? Promise.resolve(inline) : fetch("data.json?v=" + VER, {cache: "no-store"}).then(r => r.json()))
   .then(render)
   .catch(e => { document.getElementById("view").innerHTML = `<p>Could not load data.json: ${esc(e.message)}</p>`; });

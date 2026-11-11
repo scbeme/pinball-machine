@@ -6188,4 +6188,14 @@
 <rect x="1009" y="458" width="22" height="18" rx="4" fill="none" stroke="#666" stroke-dasharray="3 2"/>
 <text x="1044" y="473" font-size="15" fill="#111"><tspan font-weight="700">MG-02</tspan>  Apron: mechanical, no playfield symbol</text>
 </g>
+<g id="grid-origin">
+<line x1="316" y1="1078" x2="456" y2="1078" stroke="#e00000" stroke-width="2"/>
+<line x1="386" y1="1008" x2="386" y2="1148" stroke="#e00000" stroke-width="2"/>
+<circle cx="386" cy="1078" r="6" fill="none" stroke="#e00000" stroke-width="2"/>
+<text x="398" y="1066" font-size="16" font-weight="700" fill="#e00000">0, 0</text>
+<text x="1720" y="690" font-size="19" font-weight="700" fill="#111">Grid (X, Y in mm)</text>
+<text x="1720" y="718" font-size="16" fill="#333">Origin (0, 0): playfield centerline x flipper pivot line (red cross)</text>
+<text x="1720" y="742" font-size="16" fill="#333">+X right of the centerline, +Y up the playfield</text>
+<text x="1720" y="766" font-size="16" fill="#333">Flipper pivots: Y 0, X -73 and +73</text>
+</g>
 </svg>

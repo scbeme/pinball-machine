@@ -1,0 +1,96 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 740" width="1500" height="740" font-family="Arial, Helvetica, sans-serif" font-size="12"><rect width="1500" height="740" fill="#fff"/>
+<defs><marker id="m7a3fb0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7a3fb0"/></marker><marker id="mc0392b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#c0392b"/></marker><marker id="m555555" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#555555"/></marker><marker id="m1a1a1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1a1a1a"/></marker></defs>
+<text x="20" y="24" font-size="15" fill="#111" text-anchor="start" font-weight="bold">System Architecture — controls, playfield devices, Topedal boards, host computer, monitor</text>
+<text x="20" y="48" font-size="11" fill="#111" text-anchor="start" font-weight="bold">Legend:</text>
+<line x1="75" y1="44" x2="115" y2="44" stroke="#7a3fb0" stroke-width="2" marker-end="url(#m7a3fb0)"/>
+<text x="120" y="48" font-size="11" fill="#333" text-anchor="start">signal / data</text>
+<line x1="215" y1="44" x2="255" y2="44" stroke="#c0392b" stroke-width="2" marker-end="url(#mc0392b)"/>
+<text x="260" y="48" font-size="11" fill="#333" text-anchor="start">coil drive (24 V coils)</text>
+<line x1="420" y1="44" x2="460" y2="44" stroke="#555555" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#m555555)"/>
+<text x="465" y="48" font-size="11" fill="#333" text-anchor="start">not defined (TBD)</text>
+<rect x="20" y="70" width="330" height="120" rx="4" fill="#eaf0fa" stroke="#2b4b7a" stroke-width="1.5"/>
+<text x="28" y="87" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Player controls</text>
+<text x="28" y="104" font-size="11" fill="#333" text-anchor="start">DP-09 Flipper buttons, DP-12 Game setup/start button,</text>
+<text x="28" y="118" font-size="11" fill="#333" text-anchor="start">DP-20 Programmable button, DP-21 Exit button,</text>
+<text x="28" y="132" font-size="11" fill="#333" text-anchor="start">DP-22 Volume control, DP-23 Monitor menu joystick</text>
+<rect x="20" y="210" width="330" height="150" rx="4" fill="#eaf0fa" stroke="#2b4b7a" stroke-width="1.5"/>
+<text x="28" y="227" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Playfield switches and sensors</text>
+<text x="28" y="244" font-size="11" fill="#333" text-anchor="start">DP-01 / DP-19 Standup targets, DP-03 Spinner,</text>
+<text x="28" y="258" font-size="11" fill="#333" text-anchor="start">DP-18 Rollover sensor, DP-24 Rebound switch,</text>
+<text x="28" y="272" font-size="11" fill="#333" text-anchor="start">DP-04 Tilt sensor, DB-01/03/04 ball sensors,</text>
+<text x="28" y="286" font-size="11" fill="#333" text-anchor="start">DC-05/06/07 drop target Hall sensors,</text>
+<text x="28" y="300" font-size="11" fill="#333" text-anchor="start">DC-01 / DC-02 / DC-04 device switches</text>
+<rect x="20" y="380" width="330" height="140" rx="4" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="28" y="397" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Playfield coils (18)</text>
+<text x="28" y="414" font-size="11" fill="#333" text-anchor="start">DC-01 Pop bumpers, DC-02 Slingshots,</text>
+<text x="28" y="428" font-size="11" fill="#333" text-anchor="start">DC-03 Outlane save gate/deflector,</text>
+<text x="28" y="442" font-size="11" fill="#333" text-anchor="start">DC-04 Flipper assembly, DC-05/06/07 Drop targets,</text>
+<text x="28" y="456" font-size="11" fill="#333" text-anchor="start">DB-01 Scoop/hole and DB-03 Ball Trough ejects</text>
+<rect x="20" y="540" width="330" height="70" rx="4" fill="#eaf0fa" stroke="#2b4b7a" stroke-width="1.5"/>
+<text x="28" y="557" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Lights</text>
+<text x="28" y="574" font-size="11" fill="#333" text-anchor="start">DP-31 to DP-41 light groups,</text>
+<text x="28" y="588" font-size="11" fill="#333" text-anchor="start">WS2812B addressable RGB LEDs</text>
+<rect x="470" y="70" width="340" height="640" rx="6" fill="#f6f8fc" stroke="#2b4b7a" stroke-width="2"/>
+<text x="480" y="90" font-size="12" fill="#111" text-anchor="start" font-weight="bold">DP-28A/B/C Topedal boards (3 identical)</text>
+<rect x="490" y="110" width="300" height="210" rx="4" fill="#eaf0fa" stroke="#2b4b7a" stroke-width="1.5"/>
+<text x="498" y="127" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Switch inputs</text>
+<text x="498" y="144" font-size="11" fill="#333" text-anchor="start">7 direct inputs per board; the matrix header can</text>
+<text x="498" y="158" font-size="11" fill="#333" text-anchor="start">add 16 more direct inputs (23 direct), or be used</text>
+<text x="498" y="172" font-size="11" fill="#333" text-anchor="start">as an 8x8 matrix</text>
+<text x="498" y="186" font-size="11" fill="#333" text-anchor="start"></text>
+<text x="498" y="200" font-size="11" fill="#333" text-anchor="start">Input assignments are not decided (TBD)</text>
+<rect x="490" y="350" width="300" height="160" rx="4" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="498" y="367" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Solenoid drivers</text>
+<text x="498" y="384" font-size="11" fill="#333" text-anchor="start">8 low-side MOSFET coil drivers per board</text>
+<text x="498" y="398" font-size="11" fill="#333" text-anchor="start">(IRLZ44NPbF)</text>
+<text x="498" y="412" font-size="11" fill="#333" text-anchor="start"></text>
+<text x="498" y="426" font-size="11" fill="#333" text-anchor="start">18 coils = 3 boards</text>
+<text x="498" y="440" font-size="11" fill="#333" text-anchor="start">Device-to-driver assignments not decided (TBD)</text>
+<rect x="490" y="540" width="300" height="70" rx="4" fill="#eaf0fa" stroke="#2b4b7a" stroke-width="1.5"/>
+<text x="498" y="557" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Neopixel output</text>
+<text x="498" y="574" font-size="11" fill="#333" text-anchor="start">Via level shifter; up to 256 LEDs per board</text>
+<rect x="490" y="630" width="300" height="64" rx="4" fill="#ffffff" stroke="#2b4b7a" stroke-width="1.5"/>
+<text x="498" y="647" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Blue Pill STM32F103C8T6</text>
+<text x="498" y="664" font-size="11" fill="#333" text-anchor="start">Identical OPP firmware on all boards;</text>
+<text x="498" y="678" font-size="11" fill="#333" text-anchor="start">unique chain address per board</text>
+<line x1="350" y1="130" x2="490" y2="130" stroke="#7a3fb0" stroke-width="2" marker-end="url(#m7a3fb0)"/>
+<text x="420" y="122" font-size="10" fill="#7a3fb0" text-anchor="middle">switch inputs</text>
+<line x1="350" y1="285" x2="490" y2="285" stroke="#7a3fb0" stroke-width="2" marker-end="url(#m7a3fb0)"/>
+<text x="420" y="277" font-size="10" fill="#7a3fb0" text-anchor="middle">switch inputs</text>
+<line x1="490" y1="450" x2="350" y2="450" stroke="#c0392b" stroke-width="2" marker-end="url(#mc0392b)"/>
+<text x="420" y="442" font-size="10" fill="#c0392b" text-anchor="middle">low-side drive</text>
+<line x1="490" y1="575" x2="350" y2="575" stroke="#7a3fb0" stroke-width="2" marker-end="url(#m7a3fb0)"/>
+<text x="420" y="567" font-size="10" fill="#7a3fb0" text-anchor="middle">Neopixel data</text>
+<rect x="1000" y="70" width="480" height="285" rx="6" fill="#f6f1fb" stroke="#7a3fb0" stroke-width="2"/>
+<text x="1010" y="90" font-size="12" fill="#111" text-anchor="start" font-weight="bold">DP-27 Host computer (x86_64, Linux)</text>
+<rect x="1020" y="110" width="440" height="100" rx="4" fill="#efe6f8" stroke="#7a3fb0" stroke-width="1.5"/>
+<text x="1028" y="127" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Mission Pinball Framework (MPF) v0.80+</text>
+<text x="1028" y="144" font-size="11" fill="#333" text-anchor="start">Rules engine: game logic, scoring, game scenarios,</text>
+<text x="1028" y="158" font-size="11" fill="#333" text-anchor="start">game setup parameters; MPF config (not firmware)</text>
+<text x="1028" y="172" font-size="11" fill="#333" text-anchor="start">defines game scenario behavior</text>
+<rect x="1020" y="255" width="440" height="80" rx="4" fill="#efe6f8" stroke="#7a3fb0" stroke-width="1.5"/>
+<text x="1028" y="272" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Godot Media Controller (GMC)</text>
+<text x="1028" y="289" font-size="11" fill="#333" text-anchor="start">Audio, video and monitor display</text>
+<text x="1028" y="303" font-size="11" fill="#333" text-anchor="start">(asset management for game scenarios)</text>
+<line x1="1240.0" y1="210" x2="1240.0" y2="255" stroke="#7a3fb0" stroke-width="2" marker-end="url(#m7a3fb0)" marker-start="url(#m7a3fb0)"/>
+<line x1="810" y1="200" x2="1000" y2="200" stroke="#7a3fb0" stroke-width="2" marker-end="url(#m7a3fb0)" marker-start="url(#m7a3fb0)"/>
+<text x="905" y="190" font-size="10" fill="#7a3fb0" text-anchor="middle">USB serial</text>
+<text x="905" y="215" font-size="10" fill="#7a3fb0" text-anchor="middle">(OPP protocol)</text>
+<rect x="1000" y="380" width="480" height="80" rx="4" fill="#efe6f8" stroke="#7a3fb0" stroke-width="1.5"/>
+<text x="1008" y="397" font-size="12" fill="#111" text-anchor="start" font-weight="bold">DP-25 Display monitor</text>
+<text x="1008" y="414" font-size="11" fill="#333" text-anchor="start">22–24 in color LCD, 1920x1080 (16:9), HDMI input;</text>
+<text x="1008" y="428" font-size="11" fill="#333" text-anchor="start">detached, tabletop-positioned</text>
+<line x1="1240.0" y1="355" x2="1240.0" y2="380" stroke="#7a3fb0" stroke-width="2" marker-end="url(#m7a3fb0)"/>
+<text x="1248.0" y="372" font-size="10" fill="#7a3fb0" text-anchor="start">HDMI video</text>
+<rect x="1000" y="500" width="480" height="80" rx="4" fill="#f2f2f2" stroke="#555555" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="1008" y="517" font-size="12" fill="#111" text-anchor="start" font-weight="bold">DP-26 Speakers</text>
+<text x="1008" y="534" font-size="11" fill="#333" text-anchor="start">Internal monitor speakers preferred; powered external</text>
+<text x="1008" y="548" font-size="11" fill="#333" text-anchor="start">speakers if internal quality is poor. Part TBD</text>
+<line x1="1240.0" y1="460" x2="1240.0" y2="500" stroke="#555555" stroke-width="2" stroke-dasharray="6 4" marker-end="url(#m555555)"/>
+<text x="1248.0" y="485" font-size="10" fill="#555555" text-anchor="start">audio path TBD</text>
+<rect x="1000" y="620" width="480" height="90" rx="4" fill="#f2f2f2" stroke="#555555" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="1008" y="637" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Power</text>
+<text x="1008" y="654" font-size="11" fill="#333" text-anchor="start">DP-13 Master power switch -&gt; DP-29 24 V coil supply and DP-30 5 V supply:</text>
+<text x="1008" y="668" font-size="11" fill="#333" text-anchor="start">see Electrical block diagram.</text>
+<text x="1008" y="682" font-size="11" fill="#333" text-anchor="start">Mains supply to DP-27 and DP-25: not defined (TBD)</text>
+</svg>

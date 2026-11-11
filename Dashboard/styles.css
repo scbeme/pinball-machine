@@ -56,3 +56,13 @@ details.rules{background:#fff;border:1px solid var(--grid);border-radius:8px;pad
 details.rules summary{cursor:pointer;font-weight:600;color:var(--navy)}
 table.mini{min-width:0;border:0;margin-top:6px}table.mini th{background:#f7f9fc;color:#111;text-align:left;font-size:13px;width:22%;border:1px solid var(--grid)}
 table.reg td:nth-child(2){white-space:nowrap}
+
+.blk{margin:14px 0}.blk h3{margin:0 0 4px;color:var(--navy);font-size:16px}
+table.doc{min-width:0}table.doc td,table.doc th{font-size:13px}table.doc th{text-align:left;padding:6px 8px}
+.instr{background:#fff8e1;border:1px solid #e0c36a;border-radius:8px;padding:8px 16px}.instr ul{list-style:disc;padding-left:20px}.instr li{display:list-item}
+
+table.doc td:first-child{white-space:nowrap}
+
+img.zoom{cursor:zoom-in}img.zoom.full{max-width:none;cursor:zoom-out}
+
+.mdv h3,.mdv h4{margin:14px 0 4px;color:var(--navy);font-size:16px}.mdv h4{font-size:14px}.mdv p{margin:6px 0}.mdv ul{list-style:disc;padding-left:20px}.mdv li{display:list-item}.mdv .instr{margin:10px 0}.mdv .scroll{margin:4px 0 10px}.mdv code{background:#eef2f7;padding:0 3px;border-radius:3px}
