@@ -1,7 +1,7 @@
 # Drop Targets — Common Components
 
 **Applies to:** DC-05 Drop target bank (side-by-side), DC-06 Drop target (single), DC-07 Drop target bank (inline)
-**Source:** `pmdd_drop-target_20261103-01` (Claude Project), migrated 2026-11-11
+
 **Rule:** Parameters shared by all three devices are held here once. Each device README holds only its differences.
 
 ## Functions, constraints, parameters
