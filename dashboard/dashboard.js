@@ -1,5 +1,6 @@
 "use strict";
-// Hash-routed dashboard. Edit data.json only.  Routes: #  (main)  #system  #<group slug>
+// Hash-routed dashboard. data.json holds the structure only; status.json (built at deploy by scan.py) holds status, paths and folders.
+// Routes: #  (main)  #system  #<group slug>  #<repo path>.md::<section>  #<repo path>.svg::
 const STATUS = {not_started: "Not Started", in_progress: "In Progress", complete: "Complete", na: "N/A"};
 const el = (tag, cls, html) => { const e = document.createElement(tag); if (cls) e.className = cls; if (html != null) e.innerHTML = html; return e; };
 const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
@@ -23,16 +24,19 @@ const resolve = it => it.ref ? {...D.shared[it.ref], key: "ref:" + it.ref, share
 
 function link(d, label) {
   if (d.href && d.path) return `<a href="${esc(d.href)}">${esc(label || d.name)}</a>`;
-  return d.path ? `<a href="${esc(D.repo.url + "/blob/main/" + d.path)}">${esc(label || d.name)}</a>` : esc(label || d.name);
+  if (d.path) return `<a href="${esc(D.repo.url + (d.kind === "dir" ? "/tree/main/" : "/blob/main/") + d.path)}">${esc(label || d.name)}</a>`;
+  return esc(label || d.name);
 }
-function cell(items) {
+// Folder link: only when the folder exists in the repository (status.json), so a link can never be dead.
+const folderLink = (name, folder) => folder ? `<a href="${esc(D.repo.url + "/tree/main/" + folder)}">${esc(name)}</a>` : esc(name);
+function cell(items, nolink) {
   const td = el("td");
   if (!items.length) { td.className = "nacell"; td.innerHTML = '<span class="dot na"></span> N/A'; return td; }
   const ul = el("ul");
   for (const d of items) {
     const s = d.status === "na" ? "na" : effective(d);
     const note = d.shared ? ` <small class="shared">shared: ${esc(d.label)}</small>` : "";
-    ul.appendChild(el("li", s, `<span class="dot ${s}" title="${STATUS[s]}"></span><span>${link(d)}${note}</span>`));
+    ul.appendChild(el("li", s, `<span class="dot ${s}" title="${STATUS[s]}"></span><span>${nolink ? esc(d.name) : link(d)}${note}</span>`));
   }
   td.appendChild(ul);
   return td;
@@ -101,8 +105,8 @@ function devicePage(g) {
   const tb = v.querySelector("tbody");
   for (const d of g.devices) {
     const tr = el("tr");
-    tr.appendChild(el("td", "dev", `<b>${esc(d.name)}</b>${d.family ? "" : `<small>${esc(d.id)}</small>`}`));
-    for (const [col] of D.columns) tr.appendChild(cell((d.cells[col] || []).map(resolve)));
+    tr.appendChild(el("td", "dev", `<b>${folderLink(d.name, d.folder)}</b>${d.family ? "" : `<small>${esc(d.id)}</small>`}`));
+    for (const [col] of D.columns) tr.appendChild(cell((d.cells[col] || []).map(resolve), true));
     tb.appendChild(tr);
   }
   return v;
@@ -119,8 +123,8 @@ function systemPage() {
   v.querySelector("tbody").appendChild(tr);
   if (D.system.family) {
     const f = D.system.family, fr = el("tr");
-    fr.appendChild(el("td", "dev", `<b>${esc(f.name)}</b>`));
-    for (const [col] of D.columns) fr.appendChild(cell((f.cells[col] || []).map(resolve)));
+    fr.appendChild(el("td", "dev", `<b>${folderLink(f.name, f.folder)}</b>`));
+    for (const [col] of D.columns) fr.appendChild(cell((f.cells[col] || []).map(resolve), true));
     v.querySelector("tbody").appendChild(fr);
   }
   return v;
@@ -221,7 +225,7 @@ function registerView(text, path) {
 
 function imgPage(path) {
   const tc = s => s.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
-  const parts = path.split("/"), file = tc(parts.pop().replace(/\.svg$/, "")), m = parts[0] === "devices" && parts[parts.length - 1].match(/^([a-z]{2}-\d+)_(.*)$/);
+  const parts = path.split("/"), fn = parts.pop(), draft = fn.startsWith("draft_"), file = tc(fn.replace(/^draft_/, "").replace(/\.svg$/, "")) + (draft ? " (draft)" : ""), m = parts[0] === "devices" && parts[parts.length - 1].match(/^([a-z]{2}-\d+)_(.*)$/);
   const v = el("div"), name = m ? m[1].toUpperCase() + " " + tc(m[2]) + " \u2014 " + file : file;
   v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${esc(name)}</h2>` +
     `<p class="note">Click the image to switch between fit-to-width and full size.</p><div class="scroll"><img class="pf zoom" src="${esc(path)}?v=${VER}" alt="${esc(name)}"></div>`;
@@ -252,8 +256,29 @@ function route() {
   window.scrollTo(0, 0);
 }
 
-function render(data) {
+// Merge the deploy-time status (status.json) into the structure from data.json.
+function applyStatus(S) {
+  S = S || {items: {}, shared: {}, folders: {}};
+  const put = (it, key) => {
+    if (it.status === "na") return;
+    const x = S.items[key] || {};
+    it.status = x.status || "not_started"; it.path = x.path || null; it.kind = x.kind || null; it.href = x.href || null;
+  };
+  for (const [col, lst] of Object.entries(D.system.cells)) lst.forEach(it => put(it, `system|${col}|${it.name}`));
+  if (D.system.family) {
+    D.system.family.folder = S.folders.system || null;
+    for (const [col, lst] of Object.entries(D.system.family.cells)) lst.forEach(it => put(it, `system-common|${col}|${it.name}`));
+  }
+  for (const [k, sh] of Object.entries(D.shared)) { const x = S.shared[k] || {}; sh.status = x.status || "not_started"; sh.path = x.path || null; sh.kind = x.kind || null; }
+  for (const g of D.groups) for (const d of g.devices) {
+    d.folder = S.folders[`${g.slug}/${d.id}`] || null;
+    for (const [col, lst] of Object.entries(d.cells)) lst.forEach(it => { if (!it.ref) put(it, `${g.slug}/${d.id}|${col}|${it.name}`); });
+  }
+}
+
+function render(data, status) {
   D = data;
+  applyStatus(status);
   document.getElementById("title").textContent = D.title;
   document.getElementById("subtitle").textContent = D.subtitle;
   document.getElementById("repo").innerHTML = `<a href="${esc(D.repo.url)}">${esc(D.repo.name)}</a>`;
@@ -263,6 +288,7 @@ function render(data) {
 }
 
 const inline = window.DASHBOARD_DATA;
-(inline ? Promise.resolve(inline) : fetch("data.json?v=" + VER, {cache: "no-store"}).then(r => r.json()))
-  .then(render)
+const getJson = u => fetch(u + "?v=" + VER, {cache: "no-store"}).then(r => { if (!r.ok) throw new Error(u + " " + r.status); return r.json(); });
+Promise.all([inline ? Promise.resolve(inline) : getJson("data.json"), getJson("status.json").catch(e => { console.warn("No status.json; all deliverables shown Not Started.", e.message); return null; })])
+  .then(([data, status]) => render(data, status))
   .catch(e => { document.getElementById("view").innerHTML = `<p>Could not load data.json: ${esc(e.message)}</p>`; });

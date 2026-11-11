@@ -31,62 +31,42 @@
  "shared": {
   "sw-schematic": {
    "name": "Schematic",
-   "status": "not_started",
-   "path": null,
    "label": "Generic switch input: DP-09, DP-12, DP-20, DP-21, DP-24"
   },
   "led-schematic": {
    "name": "Schematic",
-   "status": "not_started",
-   "path": null,
    "label": "LED data line: DP-31 to DP-41"
   },
   "led-cad-recessed": {
    "name": "3D CAD model",
-   "status": "not_started",
-   "path": null,
    "label": "Recessed LED: DP-31 to DP-39"
   },
   "led-print-recessed": {
    "name": "3D print files",
-   "status": "not_started",
-   "path": null,
    "label": "Recessed LED: DP-31 to DP-39"
   },
   "display-audio-map": {
    "name": "Display and audio map",
-   "status": "not_started",
-   "path": null,
    "label": "DP-25 and DP-26"
   },
   "pwr-shelf": {
    "name": "Bottom shelf layout",
-   "status": "not_started",
-   "path": null,
    "label": "Controllers & Power: DP-28, DP-29, DP-30, DP-13"
   },
   "pwr-schematic": {
    "name": "Power schematic",
-   "status": "not_started",
-   "path": null,
    "label": "Controllers & Power: DP-28, DP-29, DP-30, DP-13"
   },
   "pwr-budget": {
    "name": "Power budget",
-   "status": "not_started",
-   "path": null,
    "label": "Controllers & Power: DP-28, DP-29, DP-30, DP-13"
   },
   "pwr-iomap": {
    "name": "I/O map (all boards)",
-   "status": "not_started",
-   "path": null,
    "label": "Controllers & Power: DP-28, DP-29, DP-30, DP-13"
   },
   "pwr-timing": {
    "name": "Control and timing table",
-   "status": "not_started",
-   "path": null,
    "label": "Controllers & Power: DP-28, DP-29, DP-30, DP-13"
   }
  },
@@ -96,84 +76,54 @@
   "cells": {
    "fdi": [
     {
-     "name": "Description (bullet list)",
-     "status": "complete",
-     "path": "system/machine_master.md",
-     "href": "#system/machine_master.md::system-overview"
+     "name": "Description (bullet list)"
     },
     {
-     "name": "Functions, constraints, parameters",
-     "status": "complete",
-     "path": "system/machine_master.md",
-     "href": "#system/machine_master.md::requirements"
+     "name": "Functions, constraints, parameters"
     },
     {
-     "name": "Architecture block diagram",
-     "status": "in_progress",
-     "path": "system/drawings/system_architecture.svg",
-     "href": "#system/drawings/system_architecture.svg::"
+     "name": "Architecture block diagram"
     },
     {
-     "name": "Game rules",
-     "status": "not_started",
-     "path": null
+     "name": "Game rules"
     }
    ],
    "mech": [
     {
-     "name": "Playfield layout with IDs",
-     "status": "complete",
-     "path": "system/drawings/device_registry.svg",
-     "href": "#system/drawings/device_registry.svg::"
+     "name": "Playfield layout with IDs"
     },
     {
-     "name": "Device registry table",
-     "status": "complete",
-     "path": "system/machine_master.md",
-     "href": "#system/machine_master.md::device-register"
+     "name": "Device registry table"
     }
    ],
    "elec": [
     {
-     "name": "Block diagram",
-     "status": "in_progress",
-     "path": "system/drawings/electrical_block_diagram.svg",
-     "href": "#system/drawings/electrical_block_diagram.svg::"
+     "name": "Block diagram"
     },
     {
-     "name": "Schematic",
-     "status": "in_progress",
-     "path": "devices/controllers_power/dp-28_topedal_board/schematic.svg",
-     "href": "#devices/controllers_power/dp-28_topedal_board/schematic.svg::"
+     "name": "Schematic"
     },
     {
-     "name": "Cable + harness layout",
-     "status": "not_started",
-     "path": null
+     "name": "I/O map"
+    },
+    {
+     "name": "Cable + harness layout"
     }
    ],
    "fw": [
     {
-     "name": "State machine diagram",
-     "status": "not_started",
-     "path": null
+     "name": "State machine diagram"
     },
     {
-     "name": "Firmware code",
-     "status": "not_started",
-     "path": null
+     "name": "Firmware code"
     }
    ],
    "it": [
     {
-     "name": "Drawings",
-     "status": "not_started",
-     "path": null
+     "name": "Drawings"
     },
     {
-     "name": "Tests + results table",
-     "status": "not_started",
-     "path": null
+     "name": "Tests + results table"
     }
    ]
   },
@@ -183,9 +133,7 @@
    "cells": {
     "fdi": [
      {
-      "name": "Functions, constraints, parameters",
-      "status": "not_started",
-      "path": null
+      "name": "Functions, constraints, parameters"
      }
     ],
     "mech": [],
@@ -193,9 +141,7 @@
     "fw": [],
     "it": [
      {
-      "name": "Tests + results table",
-      "status": "not_started",
-      "path": null
+      "name": "Tests + results table"
      }
     ]
    }
@@ -212,47 +158,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -263,45 +192,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
         "ref": "sw-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -319,25 +233,19 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [],
       "elec": [
        {
-        "name": "Schematic (Hall channel)",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic (Hall channel)"
        }
       ],
       "fw": [],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -348,52 +256,33 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        },
        {
-        "name": "Board layout",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Board layout"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -404,52 +293,33 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        },
        {
-        "name": "Board layout",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Board layout"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -460,52 +330,33 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        },
        {
-        "name": "Board layout",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Board layout"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -522,47 +373,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -579,47 +413,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -636,36 +453,22 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
-      "elec": [
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
-       }
-      ],
+      "elec": [],
       "fw": [],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -676,36 +479,22 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
-      "elec": [
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
-       }
-      ],
+      "elec": [],
       "fw": [],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -722,25 +511,19 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        }
       ],
       "elec": [],
       "fw": [],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -751,25 +534,19 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        }
       ],
       "elec": [],
       "fw": [],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -780,25 +557,19 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        }
       ],
       "elec": [],
       "fw": [],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -815,9 +586,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -831,25 +600,16 @@
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -860,9 +620,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -876,25 +634,16 @@
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -905,9 +654,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -921,25 +668,16 @@
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -950,9 +688,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -966,25 +702,16 @@
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -995,9 +722,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -1011,25 +736,16 @@
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1040,9 +756,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -1056,25 +770,16 @@
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1085,9 +790,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -1101,25 +804,16 @@
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1130,9 +824,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -1146,25 +838,16 @@
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1175,9 +858,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -1191,25 +872,16 @@
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1220,45 +892,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1269,45 +926,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
         "ref": "led-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic (per-group rule sets)",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic (per-group rule sets)"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1324,42 +966,27 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1370,40 +997,27 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        }
       ],
       "elec": [
        {
         "ref": "sw-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1414,40 +1028,27 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        }
       ],
       "elec": [
        {
         "ref": "sw-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1458,40 +1059,27 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        }
       ],
       "elec": [
        {
         "ref": "sw-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1502,42 +1090,27 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1548,42 +1121,27 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1600,30 +1158,22 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "Fabrication drawings",
-        "status": "not_started",
-        "path": null
+        "name": "Fabrication drawings"
        }
       ],
       "elec": [],
       "fw": [],
       "it": [
        {
-        "name": "Assembly drawing",
-        "status": "not_started",
-        "path": null
+        "name": "Assembly drawing"
        }
       ]
      }
@@ -1634,21 +1184,15 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "Fabrication drawings",
-        "status": "not_started",
-        "path": null
+        "name": "Fabrication drawings"
        }
       ],
       "elec": [],
@@ -1662,21 +1206,15 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "Fabrication drawings",
-        "status": "not_started",
-        "path": null
+        "name": "Fabrication drawings"
        }
       ],
       "elec": [],
@@ -1690,21 +1228,15 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "Fabrication drawings",
-        "status": "not_started",
-        "path": null
+        "name": "Fabrication drawings"
        }
       ],
       "elec": [],
@@ -1718,21 +1250,15 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "Fabrication drawings",
-        "status": "not_started",
-        "path": null
+        "name": "Fabrication drawings"
        }
       ],
       "elec": [],
@@ -1752,47 +1278,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1803,47 +1312,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1854,47 +1346,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1905,47 +1380,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -1956,47 +1414,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2013,47 +1454,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2064,47 +1488,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2115,47 +1522,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2172,9 +1562,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [],
@@ -2186,9 +1574,7 @@
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2199,9 +1585,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [],
@@ -2213,9 +1597,7 @@
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2226,9 +1608,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [],
@@ -2236,9 +1616,7 @@
       "fw": [],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2255,9 +1633,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -2283,9 +1659,7 @@
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2296,9 +1670,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -2324,9 +1696,7 @@
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2337,9 +1707,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -2365,9 +1733,7 @@
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2378,9 +1744,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
@@ -2406,9 +1770,7 @@
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2425,47 +1787,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
-        "name": "Schematic",
-        "status": "not_started",
-        "path": null
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
+        "name": "Schematic"
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }
@@ -2482,45 +1827,30 @@
      "cells": {
       "fdi": [
        {
-        "name": "Functions, constraints, parameters",
-        "status": "not_started",
-        "path": null
+        "name": "Functions, constraints, parameters"
        }
       ],
       "mech": [
        {
-        "name": "3D CAD model",
-        "status": "not_started",
-        "path": null
+        "name": "3D CAD model"
        },
        {
-        "name": "3D print files",
-        "status": "not_started",
-        "path": null
+        "name": "3D print files"
        }
       ],
       "elec": [
        {
         "ref": "sw-schematic"
-       },
-       {
-        "name": "I/O pin assignments",
-        "status": "not_started",
-        "path": null
        }
       ],
       "fw": [
        {
-        "name": "Control logic",
-        "status": "not_started",
-        "path": null
+        "name": "Control logic"
        }
       ],
       "it": [
        {
-        "name": "Tests + results table",
-        "status": "not_started",
-        "path": null
+        "name": "Tests + results table"
        }
       ]
      }

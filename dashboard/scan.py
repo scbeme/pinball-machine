@@ -44,12 +44,33 @@ SHARED_RULES = {
     "pwr-iomap": ("system", ("section", "electrical_master.md", "I/O map")),
     "pwr-timing": ("system", ("file", "control_timing_table.md")),
 }
-# System-row items without a path in data.json.
-SYSTEM_RULES = {
-    "Cable + harness layout": ("system", ("file", "interface_harness_list.md")),
-    "Firmware code": ("system", ("dir", "software")),
+# System-row deliverable -> rule. "section" = a heading inside a document. None = no rule yet (Not Started).
+SYSTEM_ITEMS = {
+    "Description (bullet list)": ("section", "system/machine_master.md", "System overview"),
+    "Functions, constraints, parameters": ("section", "system/machine_master.md", "Requirements"),
+    "Architecture block diagram": ("file", "system/drawings/system_architecture.svg"),
+    "Game rules": ("section", "system/machine_master.md", "Game rules"),
+    "Playfield layout with IDs": ("file", "system/drawings/device_registry.svg"),
+    "Device registry table": ("section", "system/machine_master.md", "Device Register"),
+    "Block diagram": ("file", "system/drawings/electrical_block_diagram.svg"),
+    "Schematic": ("file", "devices/controllers_power/dp-28_topedal_board/schematic.svg"),
+    "I/O map": ("section", "system/electrical_master.md", "I/O map"),
+    "Cable + harness layout": ("file", "system/interface_harness_list.md"),
+    "State machine diagram": ("file", "system/drawings/state_machine_diagram.svg"),
+    "Firmware code": ("dir", "system/software"),
+    "Drawings": None,
+    "Tests + results table": ("dir", "system/tests"),
 }
 DEVICE_ITEMS_OK = {"readme.md", "schematic.svg", "control_logic.md", "cad", "print", "drawings", "tests"}
+
+def href_for(path, kind, section=None):
+    """Dashboard route for a derived item: .md and .svg open in the dashboard viewer; folders and others link to GitHub."""
+    if not path or kind == "dir":
+        return None
+    if path.endswith(".md"):
+        return f"#{path}::{slug(section) if section else ''}"
+    return f"#{path}::" if path.endswith(".svg") else None
+
 
 slug = lambda t: re.sub(r" ", "-", re.sub(r"[^\w\s-]", "", t.lower().strip()))
 
@@ -103,7 +124,6 @@ def main():
     ap.add_argument("--root", default=".")
     ap.add_argument("--site", help="assemble the site here")
     ap.add_argument("--sha", default="local")
-    ap.add_argument("--report", action="store_true", help="print hand-set vs derived differences")
     a = ap.parse_args()
 
     R = Repo(a.root)
@@ -151,19 +171,15 @@ def main():
                     warns.append(f"unrecognised item in device folder: {p}/{c}")
 
     # 3. Derive status
-    items, shared, diffs = {}, {}, []
+    items, shared = {}, {}
 
     def put(key, it, st, path, kind):
-        items[key] = {"status": st, "path": path, "kind": kind}
-        if it.get("status") not in (None, st) and it.get("status") != "na":
-            diffs.append(f"{key}: hand-set {it.get('status')} -> derived {st}")
+        items[key] = {"status": st, "path": path, "kind": kind, "href": None}
 
     for ref, (base, rule) in SHARED_RULES.items():
         if ref in D["shared"]:
             st, p, k = R.derive(base, rule)
-            shared[ref] = {"status": st, "path": p, "kind": k}
-            if D["shared"][ref].get("status") not in (None, st):
-                diffs.append(f"shared {ref}: hand-set {D['shared'][ref]['status']} -> derived {st}")
+            shared[ref] = {"status": st, "path": p, "kind": k, "href": None}
     for ref in D["shared"]:
         if ref not in SHARED_RULES:
             warns.append(f"shared item has no rule: {ref}")
@@ -172,22 +188,27 @@ def main():
         for it in lst:
             key = f"system|{col}|{it['name']}"
             if it.get("status") == "na":
-                items[key] = {"status": "na", "path": None, "kind": None}
-            elif it.get("path"):
-                if it["path"] not in R.files and not os.path.exists(os.path.join(a.root, it["path"])):
-                    errors.append(f"broken path in data.json: {it['path']} ({key})")
-                    continue
-                base, name = it["path"].rsplit("/", 1)
-                st, p, k = R.derive(base, ("file", name))
-                put(key, it, st, p, "file")
-            elif it["name"] in SYSTEM_RULES:
-                base, rule = SYSTEM_RULES[it["name"]]
-                st, p, k = R.derive(base, rule)
-                put(key, it, st, p, k)
+                items[key] = {"status": "na", "path": None, "kind": None, "href": None}
+                continue
+            if it["name"] not in SYSTEM_ITEMS:
+                warns.append(f"no rule for system item (shown Not Started): {key}")
+            rule = SYSTEM_ITEMS.get(it["name"])
+            if not rule:
+                items[key] = {"status": "not_started", "path": None, "kind": None, "href": None}
+                continue
+            if rule[0] == "section":
+                base, name = rule[1].rsplit("/", 1)
+                st, p, k = R.derive(base, ("section", name, rule[2]))
+                sec = rule[2]
+            elif rule[0] == "dir":
+                base, name = rule[1].rsplit("/", 1)
+                st, p, k = R.derive(base, ("dir", name))
+                sec = None
             else:
-                items[key] = {"status": it.get("status", "not_started"), "path": None, "kind": None}
-                if it.get("status") not in (None, "not_started", "na"):
-                    warns.append(f"no rule for system item (kept hand-set): {key}")
+                base, name = rule[1].rsplit("/", 1)
+                st, p, k = R.derive(base, ("file", name))
+                sec = None
+            items[key] = {"status": st, "path": p, "kind": k, "href": href_for(p, k, sec)}
 
     def device_items(key, base, cells):
         for col, lst in cells.items():
@@ -196,14 +217,14 @@ def main():
                 if "ref" in it:
                     continue  # resolved through the shared table
                 if it.get("status") == "na":
-                    items[k2] = {"status": "na", "path": None, "kind": None}
+                    items[k2] = {"status": "na", "path": None, "kind": None, "href": None}
                     continue
                 rule = DEVICE_RULES.get(it["name"])
                 if not rule:
-                    items[k2] = {"status": it.get("status", "not_started"), "path": None, "kind": None}
+                    items[k2] = {"status": "not_started", "path": None, "kind": None, "href": None}
                     continue
                 if base is None:
-                    items[k2] = {"status": "not_started", "path": None, "kind": rule[0]}
+                    items[k2] = {"status": "not_started", "path": None, "kind": rule[0], "href": None}
                     continue
                 st, p, kd = R.derive(base, rule)
                 put(k2, it, st, p, kd)
@@ -214,7 +235,7 @@ def main():
         for dv in g["devices"]:
             device_items(f"{g['slug']}/{dv['id']}", folders[f"{g['slug']}/{dv['id']}"], dv["cells"])
 
-    # 4. Link check: every hand-set path and hash link in data.json must exist
+    # 4. Link check: every path or hash link written in data.json must exist
     def walk(o):
         if isinstance(o, dict):
             if o.get("path") and o["path"] not in R.files and o["path"] not in R.dirs:
@@ -229,11 +250,26 @@ def main():
                 walk(v)
     walk(D)
 
+    # 4b. Relative links and images inside published .md files must resolve
+    for f in sorted(R.files):
+        if f.split("/")[0] in ("system", "devices") and f.endswith(".md"):
+            text = open(os.path.join(a.root, f), encoding="utf-8").read()
+            for m in re.finditer(r"!?\[[^\]]*\]\(([^)\s]+)\)", text):
+                u = m.group(1).split("#")[0]
+                if not u or re.match(r"^(https?:|data:|mailto:)", u):
+                    continue
+                parts = []
+                for seg in (os.path.dirname(f) + "/" + u).split("/"):
+                    if seg == "..":
+                        parts and parts.pop()
+                    elif seg and seg != ".":
+                        parts.append(seg)
+                t = "/".join(parts)
+                if t not in R.files and t not in R.dirs:
+                    errors.append(f"broken link in {f}: {u}")
+
     for w in warns:
         print("WARN:", w)
-    if a.report:
-        for d in diffs:
-            print("DIFF:", d)
     for e in sorted(set(errors)):
         print("ERROR:", e)
     if errors:
