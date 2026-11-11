@@ -1,7 +1,6 @@
 # DC-06 Drop target (single)
 
 **Common design:** see [Drop Targets — Common Components](../common_components/README.md) (supply, sensor, actuator, drive, lifter, blade, mounting, spring attachment, forward bias, protection, coil termination, schematics).
-**Source:** `pmdd_drop-target_20261103-01` (Claude Project), migrated 2026-11-11
 
 ## Functions, constraints, parameters
 
