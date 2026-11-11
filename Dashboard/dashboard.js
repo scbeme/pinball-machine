@@ -101,7 +101,7 @@ function devicePage(g) {
   const tb = v.querySelector("tbody");
   for (const d of g.devices) {
     const tr = el("tr");
-    tr.appendChild(el("td", "dev", `<b>${esc(d.name)}</b><small>${esc(d.id)}</small>`));
+    tr.appendChild(el("td", "dev", `<b>${esc(d.name)}</b>${d.family ? "" : `<small>${esc(d.id)}</small>`}`));
     for (const [col] of D.columns) tr.appendChild(cell((d.cells[col] || []).map(resolve)));
     tb.appendChild(tr);
   }
@@ -119,7 +119,7 @@ function systemPage() {
   v.querySelector("tbody").appendChild(tr);
   if (D.system.family) {
     const f = D.system.family, fr = el("tr");
-    fr.appendChild(el("td", "dev", `<b>${esc(f.name)}</b><small>${esc(f.id)}</small>`));
+    fr.appendChild(el("td", "dev", `<b>${esc(f.name)}</b>`));
     for (const [col] of D.columns) fr.appendChild(cell((f.cells[col] || []).map(resolve)));
     v.querySelector("tbody").appendChild(fr);
   }
