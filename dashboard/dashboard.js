@@ -81,7 +81,7 @@ function sysCol(col) {
 
 function mainPage() {
   const v = el("div");
-  v.innerHTML = '<div class="scroll"><table><thead></thead><tbody></tbody></table></div><div class="sum"></div>';
+  v.innerHTML = '<div class="scroll"><table><thead></thead><tbody></tbody></table></div>';
   v.querySelector("thead").innerHTML = headRow("Device");
   const tb = v.querySelector("tbody");
   const sys = el("tr", "system");
@@ -94,17 +94,23 @@ function mainPage() {
     for (const [col] of D.columns) tr.appendChild(l1cell(gc[col], g.slug));
     tb.appendChild(tr);
   });
+  return v;
+}
+
+// Project Summary + Quick Links: shown at the bottom of every dashboard page.
+function footer() {
+  const s = el("div", "sum");
   const all = [...[...Object.values(D.system.cells).flat(), ...(D.system.family ? Object.values(D.system.family.cells).flat() : [])].map(i => i.status), ...D.groups.flatMap(g => Object.values(groupCells(g)).flat().map(i => i.status))];
   const names = {not_started: "Not Started", in_progress: "In Progress", complete: "Complete"};
-  v.querySelector(".sum").innerHTML =
+  s.innerHTML =
     `<div><h2>Project Summary</h2><dl><dt>Overall status</dt><dd>${names[rollup(all)] || "N/A"}</dd><dt>Device groups</dt><dd>${D.groups.length}</dd><dt>Devices tracked</dt><dd>${D.groups.reduce((n, g) => n + g.devices.filter(d => !d.family).length, 0)}</dd><dt>Last updated</dt><dd>${esc(D.updated)}</dd></dl></div>` +
     `<div><h2>Quick Links</h2><a href="${esc(D.repo.url)}">Repository home</a><br><a href="${esc(D.repo.url + "/archive/refs/heads/main.zip")}">Download ALL repository documents (.zip)</a></div>`;
-  return v;
+  return s;
 }
 
 function devicePage(g) {
   const v = el("div");
-  v.innerHTML = `<a class="back" href="#">&larr; Back to dashboard</a><h2 class="ptitle">${esc(g.name)}</h2><div class="scroll"><table><thead>${headRow("Device")}</thead><tbody></tbody></table></div>`;
+  v.innerHTML = `${crumbs([["Dashboard", "#"], [g.name]])}<h2 class="ptitle">${esc(g.name)}</h2><div class="scroll"><table><thead>${headRow("Device")}</thead><tbody></tbody></table></div>`;
   const tb = v.querySelector("tbody");
   for (const d of g.devices) {
     const tr = el("tr");
@@ -117,7 +123,7 @@ function devicePage(g) {
 
 function systemPage() {
   const v = el("div");
-  v.innerHTML = `<a class="back" href="#">&larr; Back to dashboard</a><h2 class="ptitle">${esc(D.system.name)}</h2>` +
+  v.innerHTML = `${crumbs([["Dashboard", "#"], [D.system.name]])}<h2 class="ptitle">${esc(D.system.name)}</h2>` +
     (D.system.overview.length ? `<div class="overview">${D.system.overview.map(p => `<p>${esc(p)}</p>`).join("")}</div>` : "") +
     `<div class="scroll"><table><thead>${headRow("System")}</thead><tbody></tbody></table></div>`;
   const tr = el("tr", "system");
@@ -210,7 +216,7 @@ function registerView(text, path) {
     else if (devices.length) devices[devices.length - 1].instances.push({id: r[0]});
   }
   const v = el("div"), n = devices.reduce((a, x) => a + x.instances.length, 0);
-  v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#${esc(dirOf(path))}drawings/device_registry.svg::">Playfield layout &rarr;</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">Device Register</h2>` +
+  v.innerHTML = `${crumbs([["Dashboard", "#"], [D.system.name, "#system"], ["Device Register"]])}<a class="back" href="#${esc(dirOf(path))}drawings/device_registry.svg::">Playfield layout &rarr;</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">Device Register</h2>` +
     `<p class="note">${devices.length} devices. Click a device row to show its instances.</p>` +
     `<div class="btns"><button id="exp">Expand all</button> <button id="col">Collapse all</button></div>` +
     `<div class="scroll"><table class="reg"><thead><tr><th></th><th>ID</th><th>Device</th><th>Tier</th><th>Qty</th><th>Electrical?</th></tr></thead><tbody></tbody></table></div>`;
@@ -232,17 +238,19 @@ function registerView(text, path) {
   return v;
 }
 
-// Back link for a viewer page: the Level 2 page of the group that owns the path, else the System page.
-function backLink(path) {
+// Breadcrumb trail: [[label, href], ..., [label]] (last item is the current page).
+const crumbs = parts => `<nav class="crumbs">${parts.map(([t, h]) => h ? `<a href="${esc(h)}">${esc(t)}</a>` : `<span>${esc(t)}</span>`).join(" &rsaquo; ")}</nav>`;
+// Breadcrumbs for a viewer page: Dashboard > owning group (or System) > this page.
+function backLink(path, title) {
   const m = path.match(/^devices\/([^/]+)\//), g = m && D.groups.find(x => x.slug === m[1].replace(/_/g, "-"));
-  return `<a class="back" href="#${g ? esc(g.slug) : "system"}">&larr; Back to ${g ? esc(g.name) : "Pinball Machine"}</a>`;
+  return crumbs([["Dashboard", "#"], g ? [g.name, "#" + g.slug] : [D.system.name, "#system"], [title]]);
 }
 
 function imgPage(path) {
   const tc = s => s.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
   const parts = path.split("/"), fn = parts.pop(), draft = fn.startsWith("draft_"), file = tc(fn.replace(/^draft_/, "").replace(/\.svg$/, "")) + (draft ? " (draft)" : ""), m = parts[0] === "devices" && parts[parts.length - 1].match(/^([a-z]{2}-\d+)_(.*)$/);
   const v = el("div"), name = m ? m[1].toUpperCase() + " " + tc(m[2]) + " \u2014 " + file : file;
-  v.innerHTML = `${backLink(path)} &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${esc(name)}</h2>` +
+  v.innerHTML = `${backLink(path, name)}<a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${esc(name)}</h2>` +
     `<p class="note">Click the image to switch between fit-to-width and full size.</p><div class="scroll"><img class="pf zoom" src="${esc(path)}?v=${VER}" alt="${esc(name)}"></div>`;
   return v;
 }
@@ -255,7 +263,7 @@ function mdPage(path, sel) {
     if (sel === "device-register") { v.replaceWith(registerView(text, path)); return; }
     const sec = sel ? section(text, sel) : {title: text.split("\n")[0].replace(/^#+\s+/, ""), lines: text.split("\n").slice(1)};
     if (!sec) throw new Error("section not found: " + sel);
-    v.innerHTML = `${backLink(path)} &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${inl(sec.title, "")}</h2><div class="mdv">${renderMd(sec.lines, dirOf(path))}</div>`;
+    v.innerHTML = `${backLink(path, sec.title.replace(/[*`]/g, ""))}<a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${inl(sec.title, "")}</h2><div class="mdv">${renderMd(sec.lines, dirOf(path))}</div>`;
     // Same-page #anchor links scroll to the heading instead of changing the dashboard route.
     v.querySelector(".mdv").addEventListener("click", e => {
       const a = e.target.closest("a"), h = a && a.getAttribute("href");
@@ -263,7 +271,7 @@ function mdPage(path, sel) {
       e.preventDefault();
       const t = document.getElementById(h.slice(1)); if (t) t.scrollIntoView();
     });
-  }).catch(e => { v.innerHTML = `${backLink(path)}<p>Could not load ${esc(path)}: ${esc(e.message)}</p>`; });
+  }).catch(e => { v.innerHTML = `${backLink(path, path)}<p>Could not load ${esc(path)}: ${esc(e.message)}</p>`; });
   return v;
 }
 
@@ -274,6 +282,7 @@ function route() {
   view.innerHTML = "";
   const [mp, ms] = h.split("::");
   view.appendChild(/\.svg$/.test(mp) && h.includes("::") ? imgPage(mp) : /\.md$/.test(mp) && h.includes("::") ? mdPage(mp, ms) : h === "system" ? systemPage() : g ? devicePage(g) : mainPage());
+  view.appendChild(footer());
   document.title = (h === "system" ? D.system.name : g ? g.name : D.title);
   window.scrollTo(0, 0);
 }
