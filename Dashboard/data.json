@@ -179,7 +179,7 @@
   },
   "family": {
    "id": "FAMILY",
-   "name": "Common components (used by 2+ device families)",
+   "name": "Common Components",
    "cells": {
     "fdi": [
      {
@@ -314,7 +314,7 @@
    "devices": [
     {
      "id": "FAMILY",
-     "name": "Drop target family (common to all)",
+     "name": "Common Components",
      "family": true,
      "cells": {
       "fdi": [
