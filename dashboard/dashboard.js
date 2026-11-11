@@ -126,7 +126,7 @@ function systemPage() {
   return v;
 }
 
-const VER = "20261111-03";
+const VER = "20261111-04";
 const slug = t => t.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/ /g, "-");
 const norm = p => { const o = []; for (const x of p.split("/")) { if (x === "..") o.pop(); else if (x && x !== ".") o.push(x); } return o.join("/"); };
 const dirOf = p => p.includes("/") ? p.slice(0, p.lastIndexOf("/") + 1) : "";
@@ -197,7 +197,7 @@ function registerView(text, path) {
     else if (devices.length) devices[devices.length - 1].instances.push({id: r[0]});
   }
   const v = el("div"), n = devices.reduce((a, x) => a + x.instances.length, 0);
-  v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#${esc(dirOf(path))}Device_Registry.svg::">Playfield layout &rarr;</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">Device Register</h2>` +
+  v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="#${esc(dirOf(path))}drawings/device_registry.svg::">Playfield layout &rarr;</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">Device Register</h2>` +
     `<p class="note">${devices.length} devices. Click a device row to show its instances.</p>` +
     `<div class="btns"><button id="exp">Expand all</button> <button id="col">Collapse all</button></div>` +
     `<div class="scroll"><table class="reg"><thead><tr><th></th><th>ID</th><th>Device</th><th>Tier</th><th>Qty</th><th>Electrical?</th></tr></thead><tbody></tbody></table></div>`;
@@ -220,7 +220,9 @@ function registerView(text, path) {
 }
 
 function imgPage(path) {
-  const v = el("div"), name = path.split("/").pop().replace(/\.svg$/, "").replace(/_/g, " ");
+  const tc = s => s.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
+  const parts = path.split("/"), file = tc(parts.pop().replace(/\.svg$/, "")), m = parts[0] === "devices" && parts[parts.length - 1].match(/^([a-z]{2}-\d+)_(.*)$/);
+  const v = el("div"), name = m ? m[1].toUpperCase() + " " + tc(m[2]) + " \u2014 " + file : file;
   v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${esc(name)}</h2>` +
     `<p class="note">Click the image to switch between fit-to-width and full size.</p><div class="scroll"><img class="pf zoom" src="${esc(path)}?v=${VER}" alt="${esc(name)}"></div>`;
   return v;

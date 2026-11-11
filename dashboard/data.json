@@ -5,7 +5,7 @@
   "name": "scbeme/pinball-machine",
   "url": "https://github.com/scbeme/pinball-machine"
  },
- "updated": "2026-11-11 (build 20261111-03)",
+ "updated": "2026-11-11 (build 20261111-04)",
  "columns": [
   [
    "fdi",
@@ -98,20 +98,20 @@
     {
      "name": "Description (bullet list)",
      "status": "complete",
-     "path": "System/Machine_Master.md",
-     "href": "#System/Machine_Master.md::system-overview"
+     "path": "system/machine_master.md",
+     "href": "#system/machine_master.md::system-overview"
     },
     {
      "name": "Functions, constraints, parameters",
      "status": "complete",
-     "path": "System/Machine_Master.md",
-     "href": "#System/Machine_Master.md::requirements"
+     "path": "system/machine_master.md",
+     "href": "#system/machine_master.md::requirements"
     },
     {
      "name": "Architecture block diagram",
      "status": "in_progress",
-     "path": "System/System_Architecture.svg",
-     "href": "#System/System_Architecture.svg::"
+     "path": "system/drawings/system_architecture.svg",
+     "href": "#system/drawings/system_architecture.svg::"
     },
     {
      "name": "Game rules",
@@ -123,28 +123,28 @@
     {
      "name": "Playfield layout with IDs",
      "status": "complete",
-     "path": "System/Device_Registry.svg",
-     "href": "#System/Device_Registry.svg::"
+     "path": "system/drawings/device_registry.svg",
+     "href": "#system/drawings/device_registry.svg::"
     },
     {
      "name": "Device registry table",
      "status": "complete",
-     "path": "System/Machine_Master.md",
-     "href": "#System/Machine_Master.md::device-register"
+     "path": "system/machine_master.md",
+     "href": "#system/machine_master.md::device-register"
     }
    ],
    "elec": [
     {
      "name": "Block diagram",
      "status": "in_progress",
-     "path": "System/Electrical_Block_Diagram.svg",
-     "href": "#System/Electrical_Block_Diagram.svg::"
+     "path": "system/drawings/electrical_block_diagram.svg",
+     "href": "#system/drawings/electrical_block_diagram.svg::"
     },
     {
      "name": "Schematic",
      "status": "in_progress",
-     "path": "Devices/Controllers_Power/DP-28_Topedal_Board/Topedal_Schematic.svg",
-     "href": "#Devices/Controllers_Power/DP-28_Topedal_Board/Topedal_Schematic.svg::"
+     "path": "devices/controllers_power/dp-28_topedal_board/schematic.svg",
+     "href": "#devices/controllers_power/dp-28_topedal_board/schematic.svg::"
     },
     {
      "name": "Cable + harness layout",
