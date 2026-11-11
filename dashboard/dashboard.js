@@ -126,7 +126,7 @@ function systemPage() {
   return v;
 }
 
-const VER = "20261111-04";
+const VER = "__BUILD__";
 const slug = t => t.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/ /g, "-");
 const norm = p => { const o = []; for (const x of p.split("/")) { if (x === "..") o.pop(); else if (x && x !== ".") o.push(x); } return o.join("/"); };
 const dirOf = p => p.includes("/") ? p.slice(0, p.lastIndexOf("/") + 1) : "";
