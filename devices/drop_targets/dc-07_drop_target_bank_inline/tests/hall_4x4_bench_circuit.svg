@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 420" width="1200" height="420" font-family="Helvetica, Arial, sans-serif" font-size="13"><rect width="1200" height="420" fill="#ffffff"/><text x="600" y="24" text-anchor="middle" font-size="16" font-weight="bold" fill="#111">Bench circuit: US5781 Hall switch, 4 blades, 5 V supply</text>
+<text x="28" y="62" text-anchor="start" font-size="13" font-weight="bold" fill="#b00020">+5 V supply</text>
+<circle cx="40" cy="80" r="6" fill="#fff" stroke="#b00020" stroke-width="2"/>
+<line x1="46" y1="80" x2="130" y2="80" stroke="#b00020" stroke-width="2.5"/>
+<polygon points="130,66 130,94 160,80" fill="#fff" stroke="#111" stroke-width="2"/><line x1="160" y1="64" x2="160" y2="96" stroke="#111" stroke-width="4"/>
+<line x1="160" y1="80" x2="990" y2="80" stroke="#b00020" stroke-width="2.5"/>
+<text x="122" y="42" text-anchor="start" font-size="13" font-weight="bold" fill="#111">D1  1N4007</text>
+<text x="122" y="56" text-anchor="start" font-size="11" fill="#555">band = cathode</text>
+<text x="104" y="110" text-anchor="start" font-size="11" fill="#555">anode</text>
+<text x="450" y="68" text-anchor="start" font-size="13" font-weight="bold" fill="#b00020">VDD bus (4 channels)</text>
+<circle cx="200" cy="80" r="3.5" fill="#b00020"/>
+<line x1="200" y1="80" x2="200" y2="115" stroke="#b00020" stroke-width="2"/>
+<line x1="200" y1="115" x2="200" y2="130" stroke="#111" stroke-width="2"/><rect x="191" y="130" width="18" height="40" fill="#fff" stroke="#111" stroke-width="2"/><line x1="200" y1="170" x2="200" y2="185" stroke="#111" stroke-width="2"/>
+<text x="220" y="132" text-anchor="start" font-size="13" font-weight="bold" fill="#111">R1</text>
+<text x="220" y="148" text-anchor="start" font-size="13" fill="#111">330 Ω, 1/4 W</text>
+<polygon points="186,185 214,185 200,215" fill="#fff" stroke="#111" stroke-width="2"/><line x1="186" y1="215" x2="214" y2="215" stroke="#111" stroke-width="4"/><line x1="216" y1="195" x2="224" y2="188" stroke="#111" stroke-width="1.5"/><line x1="220" y1="201" x2="228" y2="194" stroke="#111" stroke-width="1.5"/>
+<text x="236" y="203" text-anchor="start" font-size="13" font-weight="bold" fill="#111">LED1 green</text>
+<text x="236" y="217" text-anchor="start" font-size="11" fill="#555">anode up</text>
+<line x1="200" y1="215" x2="200" y2="340" stroke="#0b4f9c" stroke-width="2"/>
+<circle cx="200" cy="340" r="3.5" fill="#0b4f9c"/>
+<circle cx="350" cy="80" r="3.5" fill="#b00020"/>
+<line x1="350" y1="80" x2="350" y2="204" stroke="#b00020" stroke-width="2"/><line x1="336" y1="204" x2="364" y2="204" stroke="#111" stroke-width="3"/><line x1="336" y1="216" x2="364" y2="216" stroke="#111" stroke-width="3"/><line x1="350" y1="216" x2="350" y2="340" stroke="#0b4f9c" stroke-width="2"/>
+<circle cx="350" cy="340" r="3.5" fill="#0b4f9c"/>
+<text x="368" y="208" text-anchor="start" font-size="13" font-weight="bold" fill="#111">C1</text>
+<text x="368" y="222" text-anchor="start" font-size="11" fill="#111">100 nF</text>
+<circle cx="380" cy="80" r="3.5" fill="#b00020"/>
+<polyline points="380,80 380,190 410,190" fill="none" stroke="#b00020" stroke-width="2"/>
+<circle cx="380" cy="340" r="3.5" fill="#0b4f9c"/>
+<polyline points="380,340 380,240 410,240" fill="none" stroke="#0b4f9c" stroke-width="2"/>
+<rect x="410" y="150" width="80" height="140" fill="#fff" stroke="#111" stroke-width="2" rx="4"/>
+<text x="450" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="#111">U1</text>
+<text x="450" y="182" text-anchor="middle" font-size="10" fill="#111">US5781LUA</text>
+<text x="416" y="194" text-anchor="start" font-size="12" fill="#111">1 VDD</text>
+<text x="484" y="219" text-anchor="end" font-size="12" fill="#111">3 OUT</text>
+<text x="416" y="244" text-anchor="start" font-size="12" fill="#111">2 GND</text>
+<text x="450" y="280" text-anchor="middle" font-size="10" fill="#555">TO-92 flat</text>
+<line x1="490" y1="215" x2="515" y2="215" stroke="#1b7f3b" stroke-width="2"/>
+<circle cx="521" cy="215" r="6" fill="#fff" stroke="#1b7f3b" stroke-width="2"/>
+<text x="521" y="240" text-anchor="middle" font-size="12" font-weight="bold" fill="#1b7f3b">OUT1</text>
+<circle cx="550" cy="80" r="3.5" fill="#b00020"/>
+<line x1="550" y1="80" x2="550" y2="204" stroke="#b00020" stroke-width="2"/><line x1="536" y1="204" x2="564" y2="204" stroke="#111" stroke-width="3"/><line x1="536" y1="216" x2="564" y2="216" stroke="#111" stroke-width="3"/><line x1="550" y1="216" x2="550" y2="340" stroke="#0b4f9c" stroke-width="2"/>
+<circle cx="550" cy="340" r="3.5" fill="#0b4f9c"/>
+<text x="568" y="208" text-anchor="start" font-size="13" font-weight="bold" fill="#111">C2</text>
+<text x="568" y="222" text-anchor="start" font-size="11" fill="#111">100 nF</text>
+<circle cx="580" cy="80" r="3.5" fill="#b00020"/>
+<polyline points="580,80 580,190 610,190" fill="none" stroke="#b00020" stroke-width="2"/>
+<circle cx="580" cy="340" r="3.5" fill="#0b4f9c"/>
+<polyline points="580,340 580,240 610,240" fill="none" stroke="#0b4f9c" stroke-width="2"/>
+<rect x="610" y="150" width="80" height="140" fill="#fff" stroke="#111" stroke-width="2" rx="4"/>
+<text x="650" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="#111">U2</text>
+<text x="650" y="182" text-anchor="middle" font-size="10" fill="#111">US5781LUA</text>
+<text x="616" y="194" text-anchor="start" font-size="12" fill="#111">1 VDD</text>
+<text x="684" y="219" text-anchor="end" font-size="12" fill="#111">3 OUT</text>
+<text x="616" y="244" text-anchor="start" font-size="12" fill="#111">2 GND</text>
+<text x="650" y="280" text-anchor="middle" font-size="10" fill="#555">TO-92 flat</text>
+<line x1="690" y1="215" x2="715" y2="215" stroke="#1b7f3b" stroke-width="2"/>
+<circle cx="721" cy="215" r="6" fill="#fff" stroke="#1b7f3b" stroke-width="2"/>
+<text x="721" y="240" text-anchor="middle" font-size="12" font-weight="bold" fill="#1b7f3b">OUT2</text>
+<circle cx="750" cy="80" r="3.5" fill="#b00020"/>
+<line x1="750" y1="80" x2="750" y2="204" stroke="#b00020" stroke-width="2"/><line x1="736" y1="204" x2="764" y2="204" stroke="#111" stroke-width="3"/><line x1="736" y1="216" x2="764" y2="216" stroke="#111" stroke-width="3"/><line x1="750" y1="216" x2="750" y2="340" stroke="#0b4f9c" stroke-width="2"/>
+<circle cx="750" cy="340" r="3.5" fill="#0b4f9c"/>
+<text x="768" y="208" text-anchor="start" font-size="13" font-weight="bold" fill="#111">C3</text>
+<text x="768" y="222" text-anchor="start" font-size="11" fill="#111">100 nF</text>
+<circle cx="780" cy="80" r="3.5" fill="#b00020"/>
+<polyline points="780,80 780,190 810,190" fill="none" stroke="#b00020" stroke-width="2"/>
+<circle cx="780" cy="340" r="3.5" fill="#0b4f9c"/>
+<polyline points="780,340 780,240 810,240" fill="none" stroke="#0b4f9c" stroke-width="2"/>
+<rect x="810" y="150" width="80" height="140" fill="#fff" stroke="#111" stroke-width="2" rx="4"/>
+<text x="850" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="#111">U3</text>
+<text x="850" y="182" text-anchor="middle" font-size="10" fill="#111">US5781LUA</text>
+<text x="816" y="194" text-anchor="start" font-size="12" fill="#111">1 VDD</text>
+<text x="884" y="219" text-anchor="end" font-size="12" fill="#111">3 OUT</text>
+<text x="816" y="244" text-anchor="start" font-size="12" fill="#111">2 GND</text>
+<text x="850" y="280" text-anchor="middle" font-size="10" fill="#555">TO-92 flat</text>
+<line x1="890" y1="215" x2="915" y2="215" stroke="#1b7f3b" stroke-width="2"/>
+<circle cx="921" cy="215" r="6" fill="#fff" stroke="#1b7f3b" stroke-width="2"/>
+<text x="921" y="240" text-anchor="middle" font-size="12" font-weight="bold" fill="#1b7f3b">OUT3</text>
+<circle cx="950" cy="80" r="3.5" fill="#b00020"/>
+<line x1="950" y1="80" x2="950" y2="204" stroke="#b00020" stroke-width="2"/><line x1="936" y1="204" x2="964" y2="204" stroke="#111" stroke-width="3"/><line x1="936" y1="216" x2="964" y2="216" stroke="#111" stroke-width="3"/><line x1="950" y1="216" x2="950" y2="340" stroke="#0b4f9c" stroke-width="2"/>
+<circle cx="950" cy="340" r="3.5" fill="#0b4f9c"/>
+<text x="968" y="208" text-anchor="start" font-size="13" font-weight="bold" fill="#111">C4</text>
+<text x="968" y="222" text-anchor="start" font-size="11" fill="#111">100 nF</text>
+<circle cx="980" cy="80" r="3.5" fill="#b00020"/>
+<polyline points="980,80 980,190 1010,190" fill="none" stroke="#b00020" stroke-width="2"/>
+<circle cx="980" cy="340" r="3.5" fill="#0b4f9c"/>
+<polyline points="980,340 980,240 1010,240" fill="none" stroke="#0b4f9c" stroke-width="2"/>
+<rect x="1010" y="150" width="80" height="140" fill="#fff" stroke="#111" stroke-width="2" rx="4"/>
+<text x="1050" y="168" text-anchor="middle" font-size="13" font-weight="bold" fill="#111">U4</text>
+<text x="1050" y="182" text-anchor="middle" font-size="10" fill="#111">US5781LUA</text>
+<text x="1016" y="194" text-anchor="start" font-size="12" fill="#111">1 VDD</text>
+<text x="1084" y="219" text-anchor="end" font-size="12" fill="#111">3 OUT</text>
+<text x="1016" y="244" text-anchor="start" font-size="12" fill="#111">2 GND</text>
+<text x="1050" y="280" text-anchor="middle" font-size="10" fill="#555">TO-92 flat</text>
+<line x1="1090" y1="215" x2="1115" y2="215" stroke="#1b7f3b" stroke-width="2"/>
+<circle cx="1121" cy="215" r="6" fill="#fff" stroke="#1b7f3b" stroke-width="2"/>
+<text x="1121" y="240" text-anchor="middle" font-size="12" font-weight="bold" fill="#1b7f3b">OUT4</text>
+<text x="28" y="322" text-anchor="start" font-size="13" font-weight="bold" fill="#0b4f9c">GND (supply −)</text>
+<circle cx="40" cy="340" r="6" fill="#fff" stroke="#0b4f9c" stroke-width="2"/>
+<line x1="46" y1="340" x2="990" y2="340" stroke="#0b4f9c" stroke-width="2.5"/>
+<text x="560" y="360" text-anchor="start" font-size="13" font-weight="bold" fill="#0b4f9c">GND bus</text>
+<text x="40" y="386" text-anchor="start" font-size="12" fill="#111">Pins viewed from the branded face: 1 = VDD, 2 = GND, 3 = OUT (open drain). Pin positions on the drawing do not follow the package order.</text>
+<text x="40" y="402" text-anchor="start" font-size="12" fill="#111">LED1 is the power-on indicator. OUT1 to OUT4 are open-drain outputs.</text>
+</svg>
