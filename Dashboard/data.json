@@ -179,7 +179,7 @@
   },
   "family": {
    "id": "FAMILY",
-   "name": "Common Components",
+   "name": "Common components",
    "cells": {
     "fdi": [
      {
@@ -314,7 +314,7 @@
    "devices": [
     {
      "id": "FAMILY",
-     "name": "Common Components",
+     "name": "Common components",
      "family": true,
      "cells": {
       "fdi": [
