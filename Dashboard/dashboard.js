@@ -78,12 +78,12 @@ function mainPage() {
   v.querySelector("thead").innerHTML = headRow("Device");
   const tb = v.querySelector("tbody");
   const sys = el("tr", "system");
-  sys.appendChild(el("td", "dev", `<b><a href="#system">System</a></b><small>${esc(D.system.name)}</small>`));
+  sys.appendChild(el("td", "dev", `<b><a href="#system">System</a></b><small>${esc(D.system.name)}${D.system.family ? "<br>" + esc(D.system.family.name) : ""}</small>`));
   for (const [col] of D.columns) sys.appendChild(l1cell(sysCol(col), "system"));
   tb.appendChild(sys);
   [...D.groups].sort((a, b) => a.name.localeCompare(b.name)).forEach(g => {
     const tr = el("tr"), gc = groupCells(g);
-    tr.appendChild(el("td", "dev", `<b><a href="#${g.slug}">${esc(g.name)}</a></b><small>${g.devices.filter(d => !d.family).map(d => esc(d.id + " " + d.name)).join("<br>")}</small>`));
+    tr.appendChild(el("td", "dev", `<b><a href="#${g.slug}">${esc(g.name)}</a></b><small>${g.devices.map(d => esc(d.family ? d.name : d.id + " " + d.name)).join("<br>")}</small>`));
     for (const [col] of D.columns) tr.appendChild(l1cell(gc[col], g.slug));
     tb.appendChild(tr);
   });
@@ -126,7 +126,7 @@ function systemPage() {
   return v;
 }
 
-const VER = "20261111-01";
+const VER = "20261111-02";
 const slug = t => t.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/ /g, "-");
 const norm = p => { const o = []; for (const x of p.split("/")) { if (x === "..") o.pop(); else if (x && x !== ".") o.push(x); } return o.join("/"); };
 const dirOf = p => p.includes("/") ? p.slice(0, p.lastIndexOf("/") + 1) : "";
