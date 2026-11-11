@@ -167,7 +167,7 @@ def main():
         if p and key != "system":
             for c in R.children(p):
                 lc = c.lower().replace("draft_", "", 1)
-                if lc not in DEVICE_ITEMS_OK and not lc.startswith("board_layout."):
+                if lc not in DEVICE_ITEMS_OK and not lc.startswith(("board_layout", "interim_")):
                     warns.append(f"unrecognised item in device folder: {p}/{c}")
 
     # 3. Derive status

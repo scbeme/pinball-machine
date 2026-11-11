@@ -57,13 +57,13 @@
 
 ## Schematics
 
-Interim drawings; to be replaced by KiCad eCAD schematics.
+Interim drawings, not deliverables. Each of DC-05, DC-06 and DC-07 gets its own KiCad schematic (Hall and solenoid circuits, connector pin assignments); KiCad work not started.
 
 ### Hall board (5 V, 7 channels)
 
 One board design serves DC-05 (7 channels), DC-06 (1) and DC-07 (up to 4). Channels CH2–CH7 are identical to CH1 (U2–U7, C2–C7, OUT2–OUT7).
 
-![Hall board schematic](schematic.svg)
+![Hall board schematic](interim_hall_board_schematic.svg)
 
 | Net | Connects |
 |---|---|
@@ -86,7 +86,7 @@ One board design serves DC-05 (7 channels), DC-06 (1) and DC-07 (up to 4). Chann
 
 One drawing serves all three drop targets; the number of solenoid circuits is set per device. Three solenoid circuits are shown.
 
-![Coil board schematic](coil_board_schematic.svg)
+![Coil board schematic](interim_coil_board_schematic.svg)
 
 | Net | Connects |
 |---|---|
