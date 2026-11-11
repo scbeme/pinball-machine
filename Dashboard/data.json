@@ -5,7 +5,7 @@
   "name": "scbeme/pinball-machine",
   "url": "https://github.com/scbeme/pinball-machine"
  },
- "updated": "2026-11-10 (build 20261110-04)",
+ "updated": "2026-11-11 (build 20261111-01)",
  "columns": [
   [
    "fdi",
@@ -176,6 +176,29 @@
      "path": null
     }
    ]
+  },
+  "family": {
+   "id": "FAMILY",
+   "name": "Common components",
+   "cells": {
+    "fdi": [
+     {
+      "name": "Common components card (parameters, part numbers)",
+      "status": "not_started",
+      "path": null
+     }
+    ],
+    "mech": [],
+    "elec": [],
+    "fw": [],
+    "it": [
+     {
+      "name": "Tests + results table",
+      "status": "not_started",
+      "path": null
+     }
+    ]
+   }
   }
  },
  "groups": [
@@ -289,6 +312,36 @@
    "slug": "drop-targets",
    "name": "Drop Targets",
    "devices": [
+    {
+     "id": "FAMILY",
+     "name": "Common components",
+     "family": true,
+     "cells": {
+      "fdi": [
+       {
+        "name": "Specs (functions, constraints, design parameters)",
+        "status": "not_started",
+        "path": null
+       }
+      ],
+      "mech": [],
+      "elec": [
+       {
+        "name": "Schematic (Hall channel)",
+        "status": "not_started",
+        "path": null
+       }
+      ],
+      "fw": [],
+      "it": [
+       {
+        "name": "Tests + results table",
+        "status": "not_started",
+        "path": null
+       }
+      ]
+     }
+    },
     {
      "id": "DC-05",
      "name": "Drop target bank (side-by-side)",

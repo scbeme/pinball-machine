@@ -61,6 +61,17 @@ function l1cell(items, slug) {
   return td;
 }
 
+// Level 1 System row: system items plus FAMILY items; same-name items merge and roll up.
+function sysCol(col) {
+  const out = [], idx = new Map();
+  for (const i of [...D.system.cells[col], ...(D.system.family ? D.system.family.cells[col] || [] : [])]) {
+    const st = effective(i);
+    if (!idx.has(i.name)) { idx.set(i.name, out.length); out.push({...i, status: st, all: [st]}); }
+    else { const o = out[idx.get(i.name)]; o.all.push(st); o.status = rollup(o.all); }
+  }
+  return out.map(({all, ...x}) => x);
+}
+
 function mainPage() {
   const v = el("div");
   v.innerHTML = '<div class="scroll"><table><thead></thead><tbody></tbody></table></div><div class="sum"></div>';
@@ -68,18 +79,18 @@ function mainPage() {
   const tb = v.querySelector("tbody");
   const sys = el("tr", "system");
   sys.appendChild(el("td", "dev", `<b><a href="#system">System</a></b><small>${esc(D.system.name)}</small>`));
-  for (const [col] of D.columns) sys.appendChild(l1cell(D.system.cells[col].map(i => ({...i, status: effective(i)})), "system"));
+  for (const [col] of D.columns) sys.appendChild(l1cell(sysCol(col), "system"));
   tb.appendChild(sys);
   [...D.groups].sort((a, b) => a.name.localeCompare(b.name)).forEach(g => {
     const tr = el("tr"), gc = groupCells(g);
-    tr.appendChild(el("td", "dev", `<b><a href="#${g.slug}">${esc(g.name)}</a></b><small>${g.devices.map(d => esc(d.id + " " + d.name)).join("<br>")}</small>`));
+    tr.appendChild(el("td", "dev", `<b><a href="#${g.slug}">${esc(g.name)}</a></b><small>${g.devices.filter(d => !d.family).map(d => esc(d.id + " " + d.name)).join("<br>")}</small>`));
     for (const [col] of D.columns) tr.appendChild(l1cell(gc[col], g.slug));
     tb.appendChild(tr);
   });
-  const all = [...Object.values(D.system.cells).flat().map(i => i.status), ...D.groups.flatMap(g => Object.values(groupCells(g)).flat().map(i => i.status))];
+  const all = [...[...Object.values(D.system.cells).flat(), ...(D.system.family ? Object.values(D.system.family.cells).flat() : [])].map(i => i.status), ...D.groups.flatMap(g => Object.values(groupCells(g)).flat().map(i => i.status))];
   const names = {not_started: "Not Started", in_progress: "In Progress", complete: "Complete"};
   v.querySelector(".sum").innerHTML =
-    `<div><h2>Project Summary</h2><dl><dt>Overall status</dt><dd>${names[rollup(all)] || "N/A"}</dd><dt>Device groups</dt><dd>${D.groups.length}</dd><dt>Devices tracked</dt><dd>${D.groups.reduce((n, g) => n + g.devices.length, 0)}</dd><dt>Last updated</dt><dd>${esc(D.updated)}</dd></dl></div>` +
+    `<div><h2>Project Summary</h2><dl><dt>Overall status</dt><dd>${names[rollup(all)] || "N/A"}</dd><dt>Device groups</dt><dd>${D.groups.length}</dd><dt>Devices tracked</dt><dd>${D.groups.reduce((n, g) => n + g.devices.filter(d => !d.family).length, 0)}</dd><dt>Last updated</dt><dd>${esc(D.updated)}</dd></dl></div>` +
     `<div><h2>Quick Links</h2><a href="${esc(D.repo.url)}">Repository home</a><br><a href="${esc(D.repo.url + "/archive/refs/heads/main.zip")}">Download ALL repository documents (.zip)</a></div>`;
   return v;
 }
@@ -90,7 +101,7 @@ function devicePage(g) {
   const tb = v.querySelector("tbody");
   for (const d of g.devices) {
     const tr = el("tr");
-    tr.appendChild(el("td", "dev", `<b>${esc(d.name)}</b><small>${esc(d.id)}</small>`));
+    tr.appendChild(el("td", "dev", `<b>${esc(d.name)}</b>${d.family ? "" : `<small>${esc(d.id)}</small>`}`));
     for (const [col] of D.columns) tr.appendChild(cell((d.cells[col] || []).map(resolve)));
     tb.appendChild(tr);
   }
@@ -106,10 +117,16 @@ function systemPage() {
   tr.appendChild(el("td", "dev", `<b>${esc(D.system.name)}</b>`));
   for (const [col] of D.columns) tr.appendChild(cell(D.system.cells[col].map(resolve)));
   v.querySelector("tbody").appendChild(tr);
+  if (D.system.family) {
+    const f = D.system.family, fr = el("tr");
+    fr.appendChild(el("td", "dev", `<b>${esc(f.name)}</b>`));
+    for (const [col] of D.columns) fr.appendChild(cell((f.cells[col] || []).map(resolve)));
+    v.querySelector("tbody").appendChild(fr);
+  }
   return v;
 }
 
-const VER = "20261110-04";
+const VER = "20261111-01";
 const slug = t => t.toLowerCase().trim().replace(/[^\w\s-]/g, "").replace(/ /g, "-");
 const norm = p => { const o = []; for (const x of p.split("/")) { if (x === "..") o.pop(); else if (x && x !== ".") o.push(x); } return o.join("/"); };
 const dirOf = p => p.includes("/") ? p.slice(0, p.lastIndexOf("/") + 1) : "";
