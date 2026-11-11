@@ -22,8 +22,11 @@ function rollup(list) {
 }
 const resolve = it => it.ref ? {...D.shared[it.ref], key: "ref:" + it.ref, shared: true, label: D.shared[it.ref].label} : {...it, key: null};
 
+// Built-in viewer switch: true = .md and .svg deliverables open in this dashboard; false = they open on GitHub.
+const VIEWER = true;
 function link(d, label) {
-  if (d.href && d.path) return `<a href="${esc(d.href)}">${esc(label || d.name)}</a>`;
+  const h = d.href || (VIEWER && d.path && d.kind !== "dir" && /\.(md|svg)$/.test(d.path) ? "#" + d.path + "::" : null);
+  if (h && d.path) return `<a href="${esc(h)}">${esc(label || d.name)}</a>`;
   if (d.path) return `<a href="${esc(D.repo.url + (d.kind === "dir" ? "/tree/main/" : "/blob/main/") + d.path)}">${esc(label || d.name)}</a>`;
   return esc(label || d.name);
 }
@@ -142,7 +145,13 @@ function inl(s, base) {
   s = s.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, (m, alt, src) => `<img class="pf zoom" src="${keep(src) ? src : norm(base + src)}" alt="${alt}">`);
   s = s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, t, u) => {
     const [p, f] = u.split("#");
-    return `<a href="${keep(u) ? u : /\.md$/.test(p) ? "#" + norm(base + p) + "::" + (f || "") : norm(base + u)}">${t}</a>`;
+    let h;
+    if (keep(u)) h = u;
+    else if (/\.md$/.test(p)) h = "#" + norm(base + p) + "::" + (f || "");
+    else if (/\.svg$/.test(p)) h = "#" + norm(base + p) + "::";
+    else if (/\.png$/.test(p)) h = norm(base + p);
+    else h = D.repo.url + (/\.[A-Za-z0-9]+$/.test(p) ? "/blob/main/" : "/tree/main/") + norm(base + p); // not published on Pages: open on GitHub
+    return `<a href="${esc(h)}">${t}</a>`;
   });
   return s.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>").replace(/`([^`]+)`/g, "<code>$1</code>");
 }
@@ -223,11 +232,17 @@ function registerView(text, path) {
   return v;
 }
 
+// Back link for a viewer page: the Level 2 page of the group that owns the path, else the System page.
+function backLink(path) {
+  const m = path.match(/^devices\/([^/]+)\//), g = m && D.groups.find(x => x.slug === m[1].replace(/_/g, "-"));
+  return `<a class="back" href="#${g ? esc(g.slug) : "system"}">&larr; Back to ${g ? esc(g.name) : "Pinball Machine"}</a>`;
+}
+
 function imgPage(path) {
   const tc = s => s.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase());
   const parts = path.split("/"), fn = parts.pop(), draft = fn.startsWith("draft_"), file = tc(fn.replace(/^draft_/, "").replace(/\.svg$/, "")) + (draft ? " (draft)" : ""), m = parts[0] === "devices" && parts[parts.length - 1].match(/^([a-z]{2}-\d+)_(.*)$/);
   const v = el("div"), name = m ? m[1].toUpperCase() + " " + tc(m[2]) + " \u2014 " + file : file;
-  v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${esc(name)}</h2>` +
+  v.innerHTML = `${backLink(path)} &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${esc(name)}</h2>` +
     `<p class="note">Click the image to switch between fit-to-width and full size.</p><div class="scroll"><img class="pf zoom" src="${esc(path)}?v=${VER}" alt="${esc(name)}"></div>`;
   return v;
 }
@@ -240,8 +255,15 @@ function mdPage(path, sel) {
     if (sel === "device-register") { v.replaceWith(registerView(text, path)); return; }
     const sec = sel ? section(text, sel) : {title: text.split("\n")[0].replace(/^#+\s+/, ""), lines: text.split("\n").slice(1)};
     if (!sec) throw new Error("section not found: " + sel);
-    v.innerHTML = `<a class="back" href="#system">&larr; Back to Pinball Machine</a> &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${inl(sec.title, "")}</h2><div class="mdv">${renderMd(sec.lines, dirOf(path))}</div>`;
-  }).catch(e => { v.innerHTML = `<a class="back" href="#system">&larr; Back</a><p>Could not load ${esc(path)}: ${esc(e.message)}</p>`; });
+    v.innerHTML = `${backLink(path)} &nbsp; <a class="back" href="${esc(D.repo.url + "/blob/main/" + path)}">View in GitHub</a><h2 class="ptitle">${inl(sec.title, "")}</h2><div class="mdv">${renderMd(sec.lines, dirOf(path))}</div>`;
+    // Same-page #anchor links scroll to the heading instead of changing the dashboard route.
+    v.querySelector(".mdv").addEventListener("click", e => {
+      const a = e.target.closest("a"), h = a && a.getAttribute("href");
+      if (!h || !h.startsWith("#") || h.includes("/") || h.includes("::")) return;
+      e.preventDefault();
+      const t = document.getElementById(h.slice(1)); if (t) t.scrollIntoView();
+    });
+  }).catch(e => { v.innerHTML = `${backLink(path)}<p>Could not load ${esc(path)}: ${esc(e.message)}</p>`; });
   return v;
 }
 
