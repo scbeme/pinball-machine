@@ -106,7 +106,7 @@ function devicePage(g) {
   for (const d of g.devices) {
     const tr = el("tr");
     tr.appendChild(el("td", "dev", `<b>${folderLink(d.name, d.folder)}</b>${d.family ? "" : `<small>${esc(d.id)}</small>`}`));
-    for (const [col] of D.columns) tr.appendChild(cell((d.cells[col] || []).map(resolve), true));
+    for (const [col] of D.columns) tr.appendChild(cell((d.cells[col] || []).map(resolve)));
     tb.appendChild(tr);
   }
   return v;
@@ -124,7 +124,7 @@ function systemPage() {
   if (D.system.family) {
     const f = D.system.family, fr = el("tr");
     fr.appendChild(el("td", "dev", `<b>${folderLink(f.name, f.folder)}</b>`));
-    for (const [col] of D.columns) fr.appendChild(cell((f.cells[col] || []).map(resolve), true));
+    for (const [col] of D.columns) fr.appendChild(cell((f.cells[col] || []).map(resolve)));
     v.querySelector("tbody").appendChild(fr);
   }
   return v;
