@@ -79,7 +79,7 @@
 
 ## System architecture
 
-![System architecture](System_Architecture.svg)
+![System architecture](drawings/draft_system_architecture.svg)
 
 ## Device Register
 

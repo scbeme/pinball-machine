@@ -1,0 +1,1857 @@
+{
+ "title": "Pinball Machine — Design Documentation",
+ "subtitle": "Engineering Design Dashboard",
+ "repo": {
+  "name": "scbeme/pinball-machine",
+  "url": "https://github.com/scbeme/pinball-machine"
+ },
+ "updated": "__UPDATED__",
+ "columns": [
+  [
+   "fdi",
+   "Function & Design Inputs"
+  ],
+  [
+   "mech",
+   "Mechanical"
+  ],
+  [
+   "elec",
+   "Electrical"
+  ],
+  [
+   "fw",
+   "Firmware / Control"
+  ],
+  [
+   "it",
+   "Integration & Test"
+  ]
+ ],
+ "shared": {
+  "sw-schematic": {
+   "name": "Schematic",
+   "label": "Generic switch input: DP-09, DP-12, DP-20, DP-21, DP-24"
+  },
+  "led-schematic": {
+   "name": "Schematic",
+   "label": "LED data line: DP-31 to DP-41"
+  },
+  "led-cad-recessed": {
+   "name": "3D CAD model",
+   "label": "Recessed LED: DP-31 to DP-39"
+  },
+  "led-print-recessed": {
+   "name": "3D print files",
+   "label": "Recessed LED: DP-31 to DP-39"
+  },
+  "display-audio-map": {
+   "name": "Display and audio map",
+   "label": "DP-25 and DP-26"
+  },
+  "pwr-shelf": {
+   "name": "Bottom shelf layout",
+   "label": "Controllers & Power: DP-28, DP-29, DP-30, DP-13"
+  },
+  "pwr-schematic": {
+   "name": "Power schematic",
+   "label": "Controllers & Power: DP-28, DP-29, DP-30, DP-13"
+  },
+  "pwr-budget": {
+   "name": "Power budget",
+   "label": "Controllers & Power: DP-28, DP-29, DP-30, DP-13"
+  },
+  "pwr-iomap": {
+   "name": "I/O map (all boards)",
+   "label": "Controllers & Power: DP-28, DP-29, DP-30, DP-13"
+  },
+  "pwr-timing": {
+   "name": "Control and timing table",
+   "label": "Controllers & Power: DP-28, DP-29, DP-30, DP-13"
+  }
+ },
+ "system": {
+  "name": "Pinball Machine",
+  "overview": [],
+  "cells": {
+   "fdi": [
+    {
+     "name": "Description (bullet list)"
+    },
+    {
+     "name": "Functions, constraints, parameters"
+    },
+    {
+     "name": "Architecture block diagram"
+    },
+    {
+     "name": "Game rules"
+    }
+   ],
+   "mech": [
+    {
+     "name": "Playfield layout with IDs"
+    },
+    {
+     "name": "Device registry table"
+    }
+   ],
+   "elec": [
+    {
+     "name": "Block diagram"
+    },
+    {
+     "name": "Schematic"
+    },
+    {
+     "name": "I/O map"
+    },
+    {
+     "name": "Cable + harness layout"
+    }
+   ],
+   "fw": [
+    {
+     "name": "State machine diagram"
+    },
+    {
+     "name": "Firmware code"
+    }
+   ],
+   "it": [
+    {
+     "name": "Drawings"
+    },
+    {
+     "name": "Tests + results table"
+    }
+   ]
+  },
+  "family": {
+   "id": "FAMILY",
+   "name": "Common components",
+   "cells": {
+    "fdi": [
+     {
+      "name": "Functions, constraints, parameters"
+     }
+    ],
+    "mech": [],
+    "elec": [],
+    "fw": [],
+    "it": [
+     {
+      "name": "Tests + results table"
+     }
+    ]
+   }
+  }
+ },
+ "groups": [
+  {
+   "slug": "flippers",
+   "name": "Flippers",
+   "devices": [
+    {
+     "id": "DC-04",
+     "name": "Flipper assembly",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-09",
+     "name": "Flipper buttons",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "sw-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "drop-targets",
+   "name": "Drop Targets",
+   "devices": [
+    {
+     "id": "FAMILY",
+     "name": "Common components",
+     "family": true,
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [],
+      "elec": [],
+      "fw": [],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DC-05",
+     "name": "Drop target bank (side-by-side)",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       },
+       {
+        "name": "Board layout"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DC-06",
+     "name": "Drop target (single)",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       },
+       {
+        "name": "Board layout"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DC-07",
+     "name": "Drop target bank (inline)",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       },
+       {
+        "name": "Board layout"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "pop-bumpers",
+   "name": "Pop Bumpers",
+   "devices": [
+    {
+     "id": "DC-01",
+     "name": "Pop bumpers",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "slingshots",
+   "name": "Slingshots",
+   "devices": [
+    {
+     "id": "DC-02",
+     "name": "Slingshots",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "standup-targets",
+   "name": "Standup Targets",
+   "devices": [
+    {
+     "id": "DP-01",
+     "name": "Standup targets (side-by-side)",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [],
+      "fw": [],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-19",
+     "name": "Standup target (single)",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [],
+      "fw": [],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "playfield-fixtures",
+   "name": "Playfield Fixtures",
+   "devices": [
+    {
+     "id": "MD-01",
+     "name": "Playfield post",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       }
+      ],
+      "elec": [],
+      "fw": [],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "MG-01",
+     "name": "Ball guides",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       }
+      ],
+      "elec": [],
+      "fw": [],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "MG-02",
+     "name": "Apron",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       }
+      ],
+      "elec": [],
+      "fw": [],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "lights",
+   "name": "Lights",
+   "devices": [
+    {
+     "id": "DP-31",
+     "name": "Bonus rack lights",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "led-cad-recessed"
+       },
+       {
+        "ref": "led-print-recessed"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-32",
+     "name": "Drop-target ball lamps",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "led-cad-recessed"
+       },
+       {
+        "ref": "led-print-recessed"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-33",
+     "name": "DELUXE letter lights",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "led-cad-recessed"
+       },
+       {
+        "ref": "led-print-recessed"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-34",
+     "name": "ABCD lane feature lights",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "led-cad-recessed"
+       },
+       {
+        "ref": "led-print-recessed"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-35",
+     "name": "Left-lane feature lights",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "led-cad-recessed"
+       },
+       {
+        "ref": "led-print-recessed"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-36",
+     "name": "Bank shot value lights",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "led-cad-recessed"
+       },
+       {
+        "ref": "led-print-recessed"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-37",
+     "name": "DELUXE value lights",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "led-cad-recessed"
+       },
+       {
+        "ref": "led-print-recessed"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-38",
+     "name": "8-ball saucer chain and outlane special lights",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "led-cad-recessed"
+       },
+       {
+        "ref": "led-print-recessed"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-39",
+     "name": "Bonus, multiplier and shoot-again lights",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "led-cad-recessed"
+       },
+       {
+        "ref": "led-print-recessed"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-40",
+     "name": "Pop bumper lights",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-41",
+     "name": "General illumination lights",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "led-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic (per-group rule sets)"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "controls-tilt",
+   "name": "Controls & Tilt",
+   "devices": [
+    {
+     "id": "DP-04",
+     "name": "Tilt sensor",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-12",
+     "name": "Game setup/start button",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "sw-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-20",
+     "name": "Programmable button",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "sw-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-21",
+     "name": "Exit button",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "sw-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-22",
+     "name": "Volume control",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-23",
+     "name": "Monitor menu joystick",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "cabinet",
+   "name": "Cabinet",
+   "devices": [
+    {
+     "id": "MC-01",
+     "name": "Cabinet body",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "Fabrication drawings"
+       }
+      ],
+      "elec": [],
+      "fw": [],
+      "it": [
+       {
+        "name": "Assembly drawing"
+       }
+      ]
+     }
+    },
+    {
+     "id": "MC-02",
+     "name": "Hinged playfield support",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "Fabrication drawings"
+       }
+      ],
+      "elec": [],
+      "fw": [],
+      "it": []
+     }
+    },
+    {
+     "id": "MC-03",
+     "name": "Glass top and slide retention",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "Fabrication drawings"
+       }
+      ],
+      "elec": [],
+      "fw": [],
+      "it": []
+     }
+    },
+    {
+     "id": "MC-04",
+     "name": "Bottom shelf",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "Fabrication drawings"
+       }
+      ],
+      "elec": [],
+      "fw": [],
+      "it": []
+     }
+    },
+    {
+     "id": "MC-05",
+     "name": "Rubber feet",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "Fabrication drawings"
+       }
+      ],
+      "elec": [],
+      "fw": [],
+      "it": []
+     }
+    }
+   ]
+  },
+  {
+   "slug": "ball-handling",
+   "name": "Ball Handling",
+   "devices": [
+    {
+     "id": "ML-01",
+     "name": "Shooter plunger + spring",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DB-01",
+     "name": "Scoop/hole",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DB-02",
+     "name": "Ball lock",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DB-03",
+     "name": "Ball Trough",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DB-04",
+     "name": "Shooter lane ball-present sensor",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "ball-path-sensing",
+   "name": "Ball-Path Sensing",
+   "devices": [
+    {
+     "id": "DC-03",
+     "name": "Outlane save gate/deflector",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-18",
+     "name": "Rollover sensor",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "MD-02",
+     "name": "Adjustable outlane pin",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "display-audio-host",
+   "name": "Display, Audio & Host",
+   "devices": [
+    {
+     "id": "DP-25",
+     "name": "Display monitor",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [],
+      "elec": [],
+      "fw": [
+       {
+        "ref": "display-audio-map"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-26",
+     "name": "Speakers",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [],
+      "elec": [],
+      "fw": [
+       {
+        "ref": "display-audio-map"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-27",
+     "name": "Host computer",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [],
+      "elec": [],
+      "fw": [],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "controllers-power",
+   "name": "Controllers & Power",
+   "devices": [
+    {
+     "id": "DP-28",
+     "name": "Topedal board",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "pwr-shelf"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "pwr-schematic"
+       },
+       {
+        "ref": "pwr-budget"
+       },
+       {
+        "ref": "pwr-iomap"
+       }
+      ],
+      "fw": [
+       {
+        "ref": "pwr-timing"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-29",
+     "name": "24 V coil supply",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "pwr-shelf"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "pwr-schematic"
+       },
+       {
+        "ref": "pwr-budget"
+       },
+       {
+        "ref": "pwr-iomap"
+       }
+      ],
+      "fw": [
+       {
+        "ref": "pwr-timing"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-30",
+     "name": "5 V supply",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "pwr-shelf"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "pwr-schematic"
+       },
+       {
+        "ref": "pwr-budget"
+       },
+       {
+        "ref": "pwr-iomap"
+       }
+      ],
+      "fw": [
+       {
+        "ref": "pwr-timing"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    },
+    {
+     "id": "DP-13",
+     "name": "Master power switch",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "ref": "pwr-shelf"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "pwr-schematic"
+       },
+       {
+        "ref": "pwr-budget"
+       },
+       {
+        "ref": "pwr-iomap"
+       }
+      ],
+      "fw": [
+       {
+        "ref": "pwr-timing"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "spinner",
+   "name": "Spinner",
+   "devices": [
+    {
+     "id": "DP-03",
+     "name": "Spinner",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "name": "Schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  },
+  {
+   "slug": "rebound-switches",
+   "name": "Rebound Switches",
+   "devices": [
+    {
+     "id": "DP-24",
+     "name": "Rebound switch (leaf behind rubber ring)",
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [
+       {
+        "name": "3D CAD model"
+       },
+       {
+        "name": "3D print files"
+       }
+      ],
+      "elec": [
+       {
+        "ref": "sw-schematic"
+       }
+      ],
+      "fw": [
+       {
+        "name": "Control logic"
+       }
+      ],
+      "it": [
+       {
+        "name": "Tests + results table"
+       }
+      ]
+     }
+    }
+   ]
+  }
+ ]
+}
