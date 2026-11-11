@@ -237,11 +237,7 @@
        }
       ],
       "mech": [],
-      "elec": [
-       {
-        "name": "Schematic (Hall channel)"
-       }
-      ],
+      "elec": [],
       "fw": [],
       "it": [
        {
