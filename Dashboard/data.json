@@ -5,7 +5,7 @@
   "name": "scbeme/pinball-machine",
   "url": "https://github.com/scbeme/pinball-machine"
  },
- "updated": "2026-11-11 (build 20261111-02)",
+ "updated": "2026-11-11 (build 20261111-03)",
  "columns": [
   [
    "fdi",
@@ -102,7 +102,7 @@
      "href": "#System/Machine_Master.md::system-overview"
     },
     {
-     "name": "Functions, constraints, design parameters",
+     "name": "Functions, constraints, parameters",
      "status": "complete",
      "path": "System/Machine_Master.md",
      "href": "#System/Machine_Master.md::requirements"
@@ -183,7 +183,7 @@
    "cells": {
     "fdi": [
      {
-      "name": "Common components card (parameters, part numbers)",
+      "name": "Functions, constraints, parameters",
       "status": "not_started",
       "path": null
      }
@@ -212,7 +212,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -263,7 +263,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -319,7 +319,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -348,7 +348,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -404,7 +404,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -460,7 +460,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -522,7 +522,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -579,7 +579,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -636,7 +636,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -676,7 +676,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -722,7 +722,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -751,7 +751,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -780,7 +780,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -815,7 +815,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -860,7 +860,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -905,7 +905,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -950,7 +950,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -995,7 +995,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1040,7 +1040,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1085,7 +1085,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1130,7 +1130,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1175,7 +1175,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1220,7 +1220,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1269,7 +1269,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1324,7 +1324,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1370,7 +1370,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1414,7 +1414,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1458,7 +1458,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1502,7 +1502,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1548,7 +1548,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1600,7 +1600,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1634,7 +1634,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1662,7 +1662,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1690,7 +1690,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1718,7 +1718,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1752,7 +1752,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1803,7 +1803,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1854,7 +1854,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1905,7 +1905,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -1956,7 +1956,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2013,7 +2013,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2064,7 +2064,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2115,7 +2115,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2172,7 +2172,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2199,7 +2199,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2226,7 +2226,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2255,7 +2255,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2296,7 +2296,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2337,7 +2337,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2378,7 +2378,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2425,7 +2425,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
@@ -2482,7 +2482,7 @@
      "cells": {
       "fdi": [
        {
-        "name": "Specs (functions, constraints, design parameters)",
+        "name": "Functions, constraints, parameters",
         "status": "not_started",
         "path": null
        }
