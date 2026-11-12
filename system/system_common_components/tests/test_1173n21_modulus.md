@@ -1,6 +1,6 @@
 # Test — 1173N21 O-Ring Young's Modulus (Force-vs-Stretch)
 
-**Test doc:** pmdd_test_20261018-02_1173N21_modulus
+**Test doc:** test_1173n21_modulus
 
 ## Header
 
@@ -58,4 +58,4 @@ None — first revision of this test.
 - Model assumes two-strand hairpin geometry (ring hung from thin hooks). Thick-hook variants would reduce effective strand length and alter back-calculation.
 - Measurement precision: ΔH measured with ruler (~±1 mm); modulus uncertainty ±10–15% per point.
 - Strain-stiffening expected above ~50% strain (silicone non-linear); test shows modest effect — modulus relatively flat 0.79–0.89 across 34–96% strain range.
-- Rebound resilience is a separate material property not derived from this test — see companion test pmdd_test_20261018-01_1173N223_resilience.
+- Rebound resilience is a separate material property not derived from this test — see companion test test_1173n223_resilience.md.

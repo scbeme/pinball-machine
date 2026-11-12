@@ -4,7 +4,6 @@
 
 | Field | Value |
 |---|---|
-| File | pmdd_test_20261023-01_drop_target_solenoid_voltage.md |
 | Date | 2026-10-20 |
 | Tester | Scott |
 | Devices | DC-06 (single-blade prototype) |

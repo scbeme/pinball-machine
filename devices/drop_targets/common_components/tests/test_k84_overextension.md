@@ -4,7 +4,6 @@
 
 | Field | Value |
 |---|---|
-| File | pmdd_test_20261023-02_k84_overextension.md |
 | Date | 2026-10-20 |
 | Tester | Scott |
 | Devices | DC-05, DC-06, DC-07 (return spring) |
