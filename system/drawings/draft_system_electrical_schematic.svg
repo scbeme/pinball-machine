@@ -1,0 +1,675 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2150 1650" width="2150" height="1650" font-family="Arial, Helvetica, sans-serif" font-size="11">
+<rect width="2150" height="1650" fill="#fff"/>
+<defs><marker id="mc0392b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c0392b"/></marker><marker id="m1e7a34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1e7a34"/></marker><marker id="m1a1a1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1a1a1a"/></marker><marker id="m7b3fb0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7b3fb0"/></marker></defs>
+<text x="20" y="26" font-size="16" font-weight="bold" fill="#111" text-anchor="start">System Electrical Schematic - DRAFT (first draft, not reviewed)</text>
+<text x="20" y="44" font-size="11" font-weight="normal" fill="#555" text-anchor="start">Power distribution, coil feeds, Topedal boards and device blocks. Nothing here is a new design decision: values marked TBD are TBD in the source documents.</text>
+<line x1="20" y1="66" x2="60" y2="66" stroke="#c0392b" stroke-width="2.2"/>
+<text x="68" y="70" font-size="11" font-weight="normal" fill="#111" text-anchor="start">24 V power</text>
+<line x1="156.0" y1="66" x2="196.0" y2="66" stroke="#1e7a34" stroke-width="2.2"/>
+<text x="204.0" y="70" font-size="11" font-weight="normal" fill="#111" text-anchor="start">5 V power</text>
+<line x1="285.6" y1="66" x2="325.6" y2="66" stroke="#1a1a1a" stroke-width="2.2"/>
+<text x="333.6" y="70" font-size="11" font-weight="normal" fill="#111" text-anchor="start">GND / GNDREF / mains</text>
+<line x1="485.6" y1="66" x2="525.6" y2="66" stroke="#7b3fb0" stroke-width="2.2"/>
+<text x="533.6" y="70" font-size="11" font-weight="normal" fill="#111" text-anchor="start">signal / data</text>
+<line x1="640.8" y1="66" x2="680.8" y2="66" stroke="#555" stroke-width="2.2" stroke-dasharray="6 4"/>
+<text x="688.8" y="70" font-size="11" font-weight="normal" fill="#111" text-anchor="start">not defined (TBD)</text>
+<text x="821.5999999999999" y="70" font-size="11" font-weight="normal" fill="#555" text-anchor="start">Net flags with the same name are the same net. Crossing lines are not connected unless a dot is shown.</text>
+<text x="22" y="126" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Mains AC</text>
+<circle cx="40" cy="140" r="4" fill="#fff" stroke="#1a1a1a" stroke-width="1.6"/>
+<line x1="44" y1="140" x2="110" y2="140" stroke="#1a1a1a" stroke-width="1.8"/>
+<rect x="110" y="133" width="44" height="14" rx="2" fill="#fff" stroke="#1a1a1a" stroke-width="1.6"/>
+<line x1="110" y1="140" x2="154" y2="140" stroke="#1a1a1a" stroke-width="1.6"/>
+<text x="106" y="126" font-size="11" font-weight="bold" fill="#111" text-anchor="start">P-01 mains fuse</text>
+<text x="110" y="162" font-size="10" font-weight="normal" fill="#555" text-anchor="start">rating TBD</text>
+<line x1="154" y1="140" x2="230" y2="140" stroke="#1a1a1a" stroke-width="1.8"/>
+<circle cx="230" cy="140" r="3.6" fill="#fff" stroke="#1a1a1a" stroke-width="1.6"/><circle cx="280" cy="140" r="3.6" fill="#fff" stroke="#1a1a1a" stroke-width="1.6"/>
+<line x1="230" y1="140" x2="276" y2="120" stroke="#1a1a1a" stroke-width="1.8"/>
+<text x="200" y="106" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DP-13 Master power switch</text>
+<text x="222" y="162" font-size="10" font-weight="normal" fill="#555" text-anchor="start">mains-rated toggle</text>
+<line x1="284" y1="140" x2="340" y2="140" stroke="#1a1a1a" stroke-width="1.8"/>
+<circle cx="340" cy="140" r="3.6" fill="#1a1a1a"/>
+<line x1="340" y1="140" x2="340" y2="830" stroke="#1a1a1a" stroke-width="1.8"/>
+<text x="348" y="134" font-size="10" font-weight="bold" fill="#111" text-anchor="start">AC_SW</text>
+<rect x="380" y="190" width="230" height="130" rx="4" fill="#fdecea" stroke="#c0392b" stroke-width="1.6"/>
+<text x="388" y="207" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-29 24 V coil supply</text>
+<text x="388" y="223" font-size="11" font-weight="normal" fill="#222" text-anchor="start">P-02: 24 V DC, rating TBD</text>
+<text x="388" y="237" font-size="11" font-weight="normal" fill="#222" text-anchor="start">to all coil + (F1-F7) and</text>
+<text x="388" y="251" font-size="11" font-weight="normal" fill="#222" text-anchor="start">24 V sensors (F8)</text>
+<line x1="340" y1="240" x2="380" y2="240" stroke="#1a1a1a" stroke-width="1.8"/>
+<circle cx="340" cy="240" r="3.6" fill="#1a1a1a"/>
+<text x="566" y="236" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">+24 V</text>
+<text x="572" y="310" font-size="10" font-weight="bold" fill="#111" text-anchor="start">RTN</text>
+<line x1="610" y1="232" x2="770" y2="232" stroke="#c0392b" stroke-width="2.4"/>
+<line x1="610" y1="306" x2="630" y2="306" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="630" y1="306" x2="630" y2="335" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="630" y1="335" x2="760" y2="335" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="630" y1="335" x2="620" y2="335" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="620,335 613,326 589,326 589,344 613,344" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="597" y="339" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GND</text>
+<circle cx="660" cy="232" r="3.6" fill="#c0392b"/>
+<line x1="660" y1="232" x2="660" y2="268" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="645" y1="268" x2="675" y2="268" stroke="#c0392b" stroke-width="2"/>
+<line x1="645" y1="275" x2="675" y2="275" stroke="#c0392b" stroke-width="2"/>
+<line x1="660" y1="275" x2="660" y2="335" stroke="#c0392b" stroke-width="1.8"/>
+<circle cx="660" cy="335" r="3.6" fill="#1a1a1a"/>
+<text x="646" y="222" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">P-03</text>
+<circle cx="710" cy="232" r="3.6" fill="#c0392b"/>
+<line x1="710" y1="232" x2="710" y2="250" stroke="#c0392b" stroke-width="1.8"/>
+<rect x="703" y="250" width="14" height="36" rx="2" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="710" y1="286" x2="710" y2="335" stroke="#c0392b" stroke-width="1.8"/>
+<circle cx="710" cy="335" r="3.6" fill="#1a1a1a"/>
+<text x="696" y="222" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">P-04</text>
+<circle cx="750" cy="232" r="3.6" fill="#c0392b"/>
+<line x1="750" y1="232" x2="750" y2="296" stroke="#555" stroke-width="1.6" stroke-dasharray="5 3"/>
+<polygon points="742,296 758,296 750,310" fill="#fff" stroke="#555" stroke-width="1.4"/>
+<line x1="742" y1="311" x2="758" y2="311" stroke="#555" stroke-width="1.6"/>
+<line x1="750" y1="311" x2="750" y2="335" stroke="#555" stroke-width="1.6" stroke-dasharray="5 3"/>
+<circle cx="750" cy="335" r="3.6" fill="#1a1a1a"/>
+<text x="738" y="222" font-size="10" font-weight="bold" fill="#555" text-anchor="start">LED</text>
+<text x="380" y="362" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">P-03 bulk filter capacitor bank across the 24 V rail: value TBD</text>
+<text x="380" y="376" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">P-04 bleeder resistor: value TBD</text>
+<text x="380" y="390" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Charge LED (on = charged), posted wait-time label: drive circuit and</text>
+<text x="380" y="402" font-size="10" font-weight="normal" fill="#555" text-anchor="start">discharge time TBD</text>
+<rect x="380" y="470" width="230" height="130" rx="4" fill="#f2f2f2" stroke="#1a1a1a" stroke-width="1.6"/>
+<text x="388" y="487" font-size="12" font-weight="bold" fill="#111" text-anchor="start">GND bar</text>
+<text x="388" y="503" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Single tie point of GND (24 V</text>
+<text x="388" y="517" font-size="11" font-weight="normal" fill="#222" text-anchor="start">return) and GNDREF (3V3/5 V</text>
+<text x="388" y="531" font-size="11" font-weight="normal" fill="#222" text-anchor="start">return), P-08. Location TBD.</text>
+<text x="388" y="545" font-size="11" font-weight="normal" fill="#222" text-anchor="start">3 x 18 AWG per Topedal board</text>
+<line x1="610" y1="575" x2="620" y2="575" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="620,575 627,566 651,566 651,584 627,584" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="630" y="579" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GND</text>
+<line x1="610" y1="600" x2="620" y2="600" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="620,600 627,591 670,591 670,609 627,609" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="630" y="604" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GNDREF</text>
+<text x="380" y="622" font-size="10" font-weight="normal" fill="#555" text-anchor="start">GND and GNDREF are separate nets, tied only here.</text>
+<rect x="380" y="770" width="230" height="120" rx="4" fill="#e8f5e9" stroke="#1e7a34" stroke-width="1.6"/>
+<text x="388" y="787" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-30 5 V supply</text>
+<text x="388" y="803" font-size="11" font-weight="normal" fill="#222" text-anchor="start">P-06: separate fused 5 V DC,</text>
+<text x="388" y="817" font-size="11" font-weight="normal" fill="#222" text-anchor="start">regulated 5.0 V (WS2812B max 5.3 V),</text>
+<text x="388" y="831" font-size="11" font-weight="normal" fill="#222" text-anchor="start">no series diodes, rating TBD</text>
+<line x1="340" y1="820" x2="380" y2="820" stroke="#1a1a1a" stroke-width="1.8"/>
+<circle cx="340" cy="820" r="3.6" fill="#1a1a1a"/>
+<line x1="610" y1="790" x2="620" y2="790" stroke="#1e7a34" stroke-width="1.6"/>
+<polygon points="620,790 627,781 651,781 651,799 627,799" fill="#fff" stroke="#1e7a34" stroke-width="1.4"/>
+<text x="630" y="794" font-size="11" font-weight="bold" fill="#1e7a34" text-anchor="start">+5V</text>
+<line x1="610" y1="870" x2="620" y2="870" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="620,870 627,861 670,861 670,879 627,879" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="630" y="874" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GNDREF</text>
+<rect x="770" y="105" width="12" height="1030" rx="2" fill="#c0392b" stroke="#c0392b" stroke-width="1"/>
+<text x="700" y="1158" font-size="11" font-weight="bold" fill="#c0392b" text-anchor="start">24 V bus bar + fuse block</text>
+<text x="700" y="1172" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">(distribution point)</text>
+<line x1="782" y1="130" x2="830" y2="130" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="782" cy="130" r="3.6" fill="#c0392b"/>
+<rect x="830" y="123" width="44" height="14" rx="2" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="830" y1="130" x2="874" y2="130" stroke="#c0392b" stroke-width="1.6"/>
+<text x="830" y="116" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">F1 slow-blow TBD, 18 AWG</text>
+<line x1="874" y1="130" x2="960" y2="130" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="960" cy="130" r="3.6" fill="#c0392b"/>
+<text x="892" y="146" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">+24V_F1</text>
+<line x1="960" y1="130" x2="960" y2="136" stroke="#c0392b" stroke-width="1.8"/>
+<path d="M 960 136 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16" stroke="#c0392b" stroke-width="1.8" fill="none"/>
+<line x1="960" y1="184" x2="960" y2="190" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="960" y1="130" x2="1010" y2="130" stroke="#c0392b" stroke-width="2.2"/>
+<line x1="1010" y1="130" x2="1010" y2="150" stroke="#c0392b" stroke-width="1.8"/>
+<polygon points="1002,170 1018,170 1010,152" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="1002" y1="151" x2="1018" y2="151" stroke="#c0392b" stroke-width="2.4"/>
+<line x1="1010" y1="170" x2="1010" y2="190" stroke="#c0392b" stroke-width="1.8"/>
+<circle cx="1010" cy="130" r="3.6" fill="#c0392b"/>
+<text x="1030" y="136" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DC-05 Drop target bank (side-by-side)</text>
+<text x="1030" y="150" font-size="10" font-weight="normal" fill="#222" text-anchor="start">3 coils, one flyback diode per coil</text>
+<text x="1030" y="163" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one coil shown; band to +24 V)</text>
+<line x1="960" y1="190" x2="1010" y2="190" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="1010" cy="190" r="3.6" fill="#c0392b"/>
+<line x1="1010" y1="190" x2="1262" y2="190" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1262" cy="190" r="3.6" fill="#555"/>
+<line x1="782" y1="255" x2="830" y2="255" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="782" cy="255" r="3.6" fill="#c0392b"/>
+<rect x="830" y="248" width="44" height="14" rx="2" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="830" y1="255" x2="874" y2="255" stroke="#c0392b" stroke-width="1.6"/>
+<text x="830" y="241" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">F2 slow-blow TBD, 18 AWG</text>
+<line x1="874" y1="255" x2="960" y2="255" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="960" cy="255" r="3.6" fill="#c0392b"/>
+<text x="892" y="271" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">+24V_F2</text>
+<line x1="960" y1="255" x2="960" y2="261" stroke="#c0392b" stroke-width="1.8"/>
+<path d="M 960 261 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16" stroke="#c0392b" stroke-width="1.8" fill="none"/>
+<line x1="960" y1="309" x2="960" y2="315" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="960" y1="255" x2="1010" y2="255" stroke="#c0392b" stroke-width="2.2"/>
+<line x1="1010" y1="255" x2="1010" y2="275" stroke="#c0392b" stroke-width="1.8"/>
+<polygon points="1002,295 1018,295 1010,277" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="1002" y1="276" x2="1018" y2="276" stroke="#c0392b" stroke-width="2.4"/>
+<line x1="1010" y1="295" x2="1010" y2="315" stroke="#c0392b" stroke-width="1.8"/>
+<circle cx="1010" cy="255" r="3.6" fill="#c0392b"/>
+<text x="1030" y="261" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DC-07 Drop target bank (inline)</text>
+<text x="1030" y="275" font-size="10" font-weight="normal" fill="#222" text-anchor="start">2 coils, one flyback diode per coil</text>
+<text x="1030" y="288" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one coil shown; band to +24 V)</text>
+<line x1="960" y1="315" x2="1010" y2="315" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="1010" cy="315" r="3.6" fill="#c0392b"/>
+<line x1="1010" y1="315" x2="1262" y2="315" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1262" cy="315" r="3.6" fill="#555"/>
+<line x1="782" y1="380" x2="830" y2="380" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="782" cy="380" r="3.6" fill="#c0392b"/>
+<rect x="830" y="373" width="44" height="14" rx="2" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="830" y1="380" x2="874" y2="380" stroke="#c0392b" stroke-width="1.6"/>
+<text x="830" y="366" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">F3 slow-blow TBD, 18 AWG</text>
+<line x1="874" y1="380" x2="960" y2="380" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="960" cy="380" r="3.6" fill="#c0392b"/>
+<text x="892" y="396" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">+24V_F3</text>
+<line x1="960" y1="380" x2="960" y2="386" stroke="#c0392b" stroke-width="1.8"/>
+<path d="M 960 386 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16" stroke="#c0392b" stroke-width="1.8" fill="none"/>
+<line x1="960" y1="434" x2="960" y2="440" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="960" y1="380" x2="1010" y2="380" stroke="#c0392b" stroke-width="2.2"/>
+<line x1="1010" y1="380" x2="1010" y2="400" stroke="#c0392b" stroke-width="1.8"/>
+<polygon points="1002,420 1018,420 1010,402" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="1002" y1="401" x2="1018" y2="401" stroke="#c0392b" stroke-width="2.4"/>
+<line x1="1010" y1="420" x2="1010" y2="440" stroke="#c0392b" stroke-width="1.8"/>
+<circle cx="1010" cy="380" r="3.6" fill="#c0392b"/>
+<text x="1030" y="386" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DC-06 Drop target (single)</text>
+<text x="1030" y="400" font-size="10" font-weight="normal" fill="#222" text-anchor="start">1 coil, one flyback diode per coil</text>
+<text x="1030" y="413" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one coil shown; band to +24 V)</text>
+<line x1="960" y1="440" x2="1010" y2="440" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="1010" cy="440" r="3.6" fill="#c0392b"/>
+<line x1="1010" y1="440" x2="1262" y2="440" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1262" cy="440" r="3.6" fill="#555"/>
+<line x1="782" y1="505" x2="830" y2="505" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="782" cy="505" r="3.6" fill="#c0392b"/>
+<rect x="830" y="498" width="44" height="14" rx="2" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="830" y1="505" x2="874" y2="505" stroke="#c0392b" stroke-width="1.6"/>
+<text x="830" y="491" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">F4 slow-blow TBD, 18 AWG</text>
+<line x1="874" y1="505" x2="960" y2="505" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="960" cy="505" r="3.6" fill="#c0392b"/>
+<text x="892" y="521" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">+24V_F4</text>
+<line x1="960" y1="505" x2="960" y2="511" stroke="#c0392b" stroke-width="1.8"/>
+<path d="M 960 511 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16" stroke="#c0392b" stroke-width="1.8" fill="none"/>
+<line x1="960" y1="559" x2="960" y2="565" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="960" y1="505" x2="1010" y2="505" stroke="#c0392b" stroke-width="2.2"/>
+<line x1="1010" y1="505" x2="1010" y2="525" stroke="#c0392b" stroke-width="1.8"/>
+<polygon points="1002,545 1018,545 1010,527" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="1002" y1="526" x2="1018" y2="526" stroke="#c0392b" stroke-width="2.4"/>
+<line x1="1010" y1="545" x2="1010" y2="565" stroke="#c0392b" stroke-width="1.8"/>
+<circle cx="1010" cy="505" r="3.6" fill="#c0392b"/>
+<text x="1030" y="511" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DC-04 Flipper assembly</text>
+<text x="1030" y="525" font-size="10" font-weight="normal" fill="#222" text-anchor="start">3 coils, one flyback diode per coil</text>
+<text x="1030" y="538" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one coil shown; band to +24 V)</text>
+<line x1="960" y1="565" x2="1010" y2="565" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="1010" cy="565" r="3.6" fill="#c0392b"/>
+<line x1="1010" y1="565" x2="1262" y2="565" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1262" cy="565" r="3.6" fill="#555"/>
+<line x1="782" y1="630" x2="830" y2="630" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="782" cy="630" r="3.6" fill="#c0392b"/>
+<rect x="830" y="623" width="44" height="14" rx="2" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="830" y1="630" x2="874" y2="630" stroke="#c0392b" stroke-width="1.6"/>
+<text x="830" y="616" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">F5 slow-blow TBD, 18 AWG</text>
+<line x1="874" y1="630" x2="960" y2="630" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="960" cy="630" r="3.6" fill="#c0392b"/>
+<text x="892" y="646" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">+24V_F5</text>
+<line x1="960" y1="630" x2="960" y2="636" stroke="#c0392b" stroke-width="1.8"/>
+<path d="M 960 636 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16" stroke="#c0392b" stroke-width="1.8" fill="none"/>
+<line x1="960" y1="684" x2="960" y2="690" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="960" y1="630" x2="1010" y2="630" stroke="#c0392b" stroke-width="2.2"/>
+<line x1="1010" y1="630" x2="1010" y2="650" stroke="#c0392b" stroke-width="1.8"/>
+<polygon points="1002,670 1018,670 1010,652" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="1002" y1="651" x2="1018" y2="651" stroke="#c0392b" stroke-width="2.4"/>
+<line x1="1010" y1="670" x2="1010" y2="690" stroke="#c0392b" stroke-width="1.8"/>
+<circle cx="1010" cy="630" r="3.6" fill="#c0392b"/>
+<text x="1030" y="636" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DC-02 Slingshots</text>
+<text x="1030" y="650" font-size="10" font-weight="normal" fill="#222" text-anchor="start">2 coils, one flyback diode per coil</text>
+<text x="1030" y="663" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one coil shown; band to +24 V)</text>
+<line x1="960" y1="690" x2="1010" y2="690" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="1010" cy="690" r="3.6" fill="#c0392b"/>
+<line x1="1010" y1="690" x2="1262" y2="690" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1262" cy="690" r="3.6" fill="#555"/>
+<line x1="782" y1="755" x2="830" y2="755" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="782" cy="755" r="3.6" fill="#c0392b"/>
+<rect x="830" y="748" width="44" height="14" rx="2" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="830" y1="755" x2="874" y2="755" stroke="#c0392b" stroke-width="1.6"/>
+<text x="830" y="741" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">F6 slow-blow TBD, 18 AWG</text>
+<line x1="874" y1="755" x2="960" y2="755" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="960" cy="755" r="3.6" fill="#c0392b"/>
+<text x="892" y="771" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">+24V_F6</text>
+<line x1="960" y1="755" x2="960" y2="761" stroke="#c0392b" stroke-width="1.8"/>
+<path d="M 960 761 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16" stroke="#c0392b" stroke-width="1.8" fill="none"/>
+<line x1="960" y1="809" x2="960" y2="815" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="960" y1="755" x2="1010" y2="755" stroke="#c0392b" stroke-width="2.2"/>
+<line x1="1010" y1="755" x2="1010" y2="775" stroke="#c0392b" stroke-width="1.8"/>
+<polygon points="1002,795 1018,795 1010,777" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="1002" y1="776" x2="1018" y2="776" stroke="#c0392b" stroke-width="2.4"/>
+<line x1="1010" y1="795" x2="1010" y2="815" stroke="#c0392b" stroke-width="1.8"/>
+<circle cx="1010" cy="755" r="3.6" fill="#c0392b"/>
+<text x="1030" y="761" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DC-01 Pop bumpers</text>
+<text x="1030" y="775" font-size="10" font-weight="normal" fill="#222" text-anchor="start">3 coils, one flyback diode per coil</text>
+<text x="1030" y="788" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one coil shown; band to +24 V)</text>
+<line x1="960" y1="815" x2="1010" y2="815" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="1010" cy="815" r="3.6" fill="#c0392b"/>
+<line x1="1010" y1="815" x2="1262" y2="815" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1262" cy="815" r="3.6" fill="#555"/>
+<line x1="782" y1="880" x2="830" y2="880" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="782" cy="880" r="3.6" fill="#c0392b"/>
+<rect x="830" y="873" width="44" height="14" rx="2" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="830" y1="880" x2="874" y2="880" stroke="#c0392b" stroke-width="1.6"/>
+<text x="830" y="866" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">F7 slow-blow TBD, 18 AWG</text>
+<line x1="874" y1="880" x2="960" y2="880" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="960" cy="880" r="3.6" fill="#c0392b"/>
+<text x="892" y="896" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">+24V_F7</text>
+<line x1="960" y1="880" x2="960" y2="886" stroke="#c0392b" stroke-width="1.8"/>
+<path d="M 960 886 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16 a 8 8 0 0 1 0 16" stroke="#c0392b" stroke-width="1.8" fill="none"/>
+<line x1="960" y1="934" x2="960" y2="940" stroke="#c0392b" stroke-width="1.8"/>
+<line x1="960" y1="880" x2="1010" y2="880" stroke="#c0392b" stroke-width="2.2"/>
+<line x1="1010" y1="880" x2="1010" y2="900" stroke="#c0392b" stroke-width="1.8"/>
+<polygon points="1002,920 1018,920 1010,902" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="1002" y1="901" x2="1018" y2="901" stroke="#c0392b" stroke-width="2.4"/>
+<line x1="1010" y1="920" x2="1010" y2="940" stroke="#c0392b" stroke-width="1.8"/>
+<circle cx="1010" cy="880" r="3.6" fill="#c0392b"/>
+<text x="1030" y="886" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DC-03 Outlane save gate/deflector,</text>
+<text x="1030" y="900" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DB-01 Scoop/hole, DB-03 Ball Trough ejects</text>
+<text x="1030" y="914" font-size="10" font-weight="normal" fill="#222" text-anchor="start">4 coils, one flyback diode per coil</text>
+<text x="1030" y="927" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one coil shown; band to +24 V)</text>
+<line x1="960" y1="940" x2="1010" y2="940" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="1010" cy="940" r="3.6" fill="#c0392b"/>
+<line x1="1010" y1="940" x2="1262" y2="940" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1262" cy="940" r="3.6" fill="#555"/>
+<line x1="782" y1="1005" x2="830" y2="1005" stroke="#c0392b" stroke-width="2.2"/>
+<circle cx="782" cy="1005" r="3.6" fill="#c0392b"/>
+<rect x="830" y="998" width="44" height="14" rx="2" fill="#fff" stroke="#c0392b" stroke-width="1.6"/>
+<line x1="830" y1="1005" x2="874" y2="1005" stroke="#c0392b" stroke-width="1.6"/>
+<text x="830" y="991" font-size="10" font-weight="bold" fill="#c0392b" text-anchor="start">F8 slow-blow TBD, 18 AWG</text>
+<line x1="874" y1="1005" x2="960" y2="1005" stroke="#c0392b" stroke-width="2.2"/>
+<text x="892" y="1021" font-size="10" font-weight="normal" fill="#c0392b" text-anchor="start">+24V_F8</text>
+<rect x="960" y="983" width="290" height="76" rx="4" fill="#fff8e1" stroke="#c0392b" stroke-width="1.6"/>
+<text x="968" y="1000" font-size="12" font-weight="bold" fill="#111" text-anchor="start">24 V inductive sensors x10</text>
+<text x="968" y="1016" font-size="11" font-weight="normal" fill="#222" text-anchor="start">DP-18 Rollover sensor x7, DB-01 Scoop/hole,</text>
+<text x="968" y="1030" font-size="11" font-weight="normal" fill="#222" text-anchor="start">DB-03 Ball Trough, DB-04 Shooter lane ball-present.</text>
+<text x="968" y="1044" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Return path and outputs to Topedal inputs: TBD</text>
+<rect x="1380" y="100" width="400" height="340" rx="5" fill="#eaf0fb" stroke="#2c4a8a" stroke-width="1.6"/>
+<text x="1390" y="118" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-28A Topedal board</text>
+<text x="1390" y="132" font-size="10" font-weight="normal" fill="#222" text-anchor="start">Rev 1.1 (12 Jun 2026) as used; unique chain address (P-09)</text>
+<rect x="1390" y="146" width="165" height="52" rx="4" fill="#fff" stroke="#2c4a8a" stroke-width="1.6"/>
+<text x="1398" y="163" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Blue Pill STM32F103C8T6</text>
+<text x="1398" y="179" font-size="11" font-weight="normal" fill="#222" text-anchor="start">OPP firmware</text>
+<line x1="1528" y1="287" x2="1528" y2="323" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="287" x2="1536" y2="297" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="299" x2="1536" y2="311" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="313" x2="1536" y2="323" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="292" x2="1552" y2="292" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1552" y1="292" x2="1552" y2="275" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="318" x2="1552" y2="318" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1552" y1="318" x2="1552" y2="335" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="305" x2="1552" y2="305" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1528" y1="305" x2="1508" y2="305" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1380" y1="275" x2="1552" y2="275" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1380" cy="275" r="3.6" fill="#555"/>
+<text x="1388" y="269" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J2 solenoid drive x8</text>
+<text x="1585" y="296" font-size="10" font-weight="normal" fill="#222" text-anchor="start">Q1-Q8 IRLZ44NPbF x8</text>
+<text x="1585" y="309" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one channel shown)</text>
+<line x1="1552" y1="335" x2="1552" y2="349" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1552" y1="349" x2="1562" y2="349" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="1562,349 1569,340 1593,340 1593,358 1569,358" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="1572" y="353" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GND</text>
+<line x1="1490" y1="198" x2="1490" y2="305" stroke="#7b3fb0" stroke-width="1.6"/>
+<line x1="1490" y1="305" x2="1508" y2="305" stroke="#7b3fb0" stroke-width="1.6"/>
+<text x="1496" y="297" font-size="10" font-weight="normal" fill="#7b3fb0" text-anchor="start">sol0-7</text>
+<line x1="1420" y1="198" x2="1420" y2="220" stroke="#7b3fb0" stroke-width="1.6"/>
+<line x1="1420" y1="220" x2="1430" y2="220" stroke="#7b3fb0" stroke-width="1.6"/>
+<polygon points="1430,220 1437,211 1461,211 1461,229 1437,229" fill="#fff" stroke="#7b3fb0" stroke-width="1.4"/>
+<text x="1440" y="224" font-size="11" font-weight="bold" fill="#7b3fb0" text-anchor="start">USB</text>
+<line x1="1380" y1="382" x2="1358" y2="382" stroke="#1e7a34" stroke-width="2.0"/>
+<circle cx="1380" cy="382" r="3.6" fill="#1e7a34"/>
+<line x1="1358" y1="382" x2="1348" y2="382" stroke="#1e7a34" stroke-width="1.6"/>
+<polygon points="1348,382 1341,373 1317,373 1317,391 1341,391" fill="#fff" stroke="#1e7a34" stroke-width="1.4"/>
+<text x="1325" y="386" font-size="11" font-weight="bold" fill="#1e7a34" text-anchor="start">+5V</text>
+<text x="1388" y="386" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J4/J5 5 V in</text>
+<line x1="1380" y1="404" x2="1358" y2="404" stroke="#1a1a1a" stroke-width="2.0"/>
+<circle cx="1380" cy="404" r="3.6" fill="#1a1a1a"/>
+<line x1="1358" y1="404" x2="1348" y2="404" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="1348,404 1341,395 1317,395 1317,413 1341,413" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="1325" y="408" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GND</text>
+<text x="1388" y="408" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J3 GND return</text>
+<line x1="1380" y1="426" x2="1358" y2="426" stroke="#1a1a1a" stroke-width="2.0"/>
+<circle cx="1380" cy="426" r="3.6" fill="#1a1a1a"/>
+<line x1="1358" y1="426" x2="1348" y2="426" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="1348,426 1341,417 1298,417 1298,435 1341,435" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="1306" y="430" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GNDREF</text>
+<text x="1388" y="430" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J9 GNDREF</text>
+<line x1="1262" y1="275" x2="1380" y2="275" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1262" cy="275" r="3.6" fill="#555"/>
+<line x1="1780" y1="160" x2="1815" y2="160" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1780" cy="160" r="3.6" fill="#7b3fb0"/>
+<circle cx="1815" cy="160" r="3.6" fill="#7b3fb0"/>
+<text x="1772" y="156" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J1 direct switch inputs</text>
+<line x1="1780" y1="188" x2="1815" y2="188" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1780" cy="188" r="3.6" fill="#7b3fb0"/>
+<circle cx="1815" cy="188" r="3.6" fill="#7b3fb0"/>
+<text x="1772" y="184" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J7/J8 matrix, or 16 more direct inputs</text>
+<line x1="1780" y1="228" x2="1815" y2="228" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1780" cy="228" r="3.6" fill="#7b3fb0"/>
+<circle cx="1815" cy="228" r="3.6" fill="#7b3fb0"/>
+<text x="1772" y="224" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J6 Neopixel out (via U2 level shifter)</text>
+<rect x="1380" y="460" width="400" height="340" rx="5" fill="#eaf0fb" stroke="#2c4a8a" stroke-width="1.6"/>
+<text x="1390" y="478" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-28B Topedal board</text>
+<text x="1390" y="492" font-size="10" font-weight="normal" fill="#222" text-anchor="start">Rev 1.1 (12 Jun 2026) as used; unique chain address (P-09)</text>
+<rect x="1390" y="506" width="165" height="52" rx="4" fill="#fff" stroke="#2c4a8a" stroke-width="1.6"/>
+<text x="1398" y="523" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Blue Pill STM32F103C8T6</text>
+<text x="1398" y="539" font-size="11" font-weight="normal" fill="#222" text-anchor="start">OPP firmware</text>
+<line x1="1528" y1="647" x2="1528" y2="683" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="647" x2="1536" y2="657" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="659" x2="1536" y2="671" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="673" x2="1536" y2="683" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="652" x2="1552" y2="652" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1552" y1="652" x2="1552" y2="635" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="678" x2="1552" y2="678" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1552" y1="678" x2="1552" y2="695" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="665" x2="1552" y2="665" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1528" y1="665" x2="1508" y2="665" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1380" y1="635" x2="1552" y2="635" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1380" cy="635" r="3.6" fill="#555"/>
+<text x="1388" y="629" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J2 solenoid drive x8</text>
+<text x="1585" y="656" font-size="10" font-weight="normal" fill="#222" text-anchor="start">Q1-Q8 IRLZ44NPbF x8</text>
+<text x="1585" y="669" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one channel shown)</text>
+<line x1="1552" y1="695" x2="1552" y2="709" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1552" y1="709" x2="1562" y2="709" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="1562,709 1569,700 1593,700 1593,718 1569,718" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="1572" y="713" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GND</text>
+<line x1="1490" y1="558" x2="1490" y2="665" stroke="#7b3fb0" stroke-width="1.6"/>
+<line x1="1490" y1="665" x2="1508" y2="665" stroke="#7b3fb0" stroke-width="1.6"/>
+<text x="1496" y="657" font-size="10" font-weight="normal" fill="#7b3fb0" text-anchor="start">sol0-7</text>
+<line x1="1420" y1="558" x2="1420" y2="580" stroke="#7b3fb0" stroke-width="1.6"/>
+<line x1="1420" y1="580" x2="1430" y2="580" stroke="#7b3fb0" stroke-width="1.6"/>
+<polygon points="1430,580 1437,571 1461,571 1461,589 1437,589" fill="#fff" stroke="#7b3fb0" stroke-width="1.4"/>
+<text x="1440" y="584" font-size="11" font-weight="bold" fill="#7b3fb0" text-anchor="start">USB</text>
+<line x1="1380" y1="742" x2="1358" y2="742" stroke="#1e7a34" stroke-width="2.0"/>
+<circle cx="1380" cy="742" r="3.6" fill="#1e7a34"/>
+<line x1="1358" y1="742" x2="1348" y2="742" stroke="#1e7a34" stroke-width="1.6"/>
+<polygon points="1348,742 1341,733 1317,733 1317,751 1341,751" fill="#fff" stroke="#1e7a34" stroke-width="1.4"/>
+<text x="1325" y="746" font-size="11" font-weight="bold" fill="#1e7a34" text-anchor="start">+5V</text>
+<text x="1388" y="746" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J4/J5 5 V in</text>
+<line x1="1380" y1="764" x2="1358" y2="764" stroke="#1a1a1a" stroke-width="2.0"/>
+<circle cx="1380" cy="764" r="3.6" fill="#1a1a1a"/>
+<line x1="1358" y1="764" x2="1348" y2="764" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="1348,764 1341,755 1317,755 1317,773 1341,773" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="1325" y="768" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GND</text>
+<text x="1388" y="768" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J3 GND return</text>
+<line x1="1380" y1="786" x2="1358" y2="786" stroke="#1a1a1a" stroke-width="2.0"/>
+<circle cx="1380" cy="786" r="3.6" fill="#1a1a1a"/>
+<line x1="1358" y1="786" x2="1348" y2="786" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="1348,786 1341,777 1298,777 1298,795 1341,795" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="1306" y="790" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GNDREF</text>
+<text x="1388" y="790" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J9 GNDREF</text>
+<line x1="1262" y1="635" x2="1380" y2="635" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1262" cy="635" r="3.6" fill="#555"/>
+<line x1="1780" y1="520" x2="1815" y2="520" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1780" cy="520" r="3.6" fill="#7b3fb0"/>
+<circle cx="1815" cy="520" r="3.6" fill="#7b3fb0"/>
+<text x="1772" y="516" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J1 direct switch inputs</text>
+<line x1="1780" y1="548" x2="1815" y2="548" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1780" cy="548" r="3.6" fill="#7b3fb0"/>
+<circle cx="1815" cy="548" r="3.6" fill="#7b3fb0"/>
+<text x="1772" y="544" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J7/J8 matrix, or 16 more direct inputs</text>
+<line x1="1780" y1="588" x2="1815" y2="588" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1780" cy="588" r="3.6" fill="#7b3fb0"/>
+<circle cx="1815" cy="588" r="3.6" fill="#7b3fb0"/>
+<text x="1772" y="584" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J6 Neopixel out (via U2 level shifter)</text>
+<rect x="1380" y="820" width="400" height="340" rx="5" fill="#eaf0fb" stroke="#2c4a8a" stroke-width="1.6"/>
+<text x="1390" y="838" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-28C Topedal board</text>
+<text x="1390" y="852" font-size="10" font-weight="normal" fill="#222" text-anchor="start">Rev 1.1 (12 Jun 2026) as used; unique chain address (P-09)</text>
+<rect x="1390" y="866" width="165" height="52" rx="4" fill="#fff" stroke="#2c4a8a" stroke-width="1.6"/>
+<text x="1398" y="883" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Blue Pill STM32F103C8T6</text>
+<text x="1398" y="899" font-size="11" font-weight="normal" fill="#222" text-anchor="start">OPP firmware</text>
+<line x1="1528" y1="1007" x2="1528" y2="1043" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="1007" x2="1536" y2="1017" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="1019" x2="1536" y2="1031" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="1033" x2="1536" y2="1043" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="1012" x2="1552" y2="1012" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1552" y1="1012" x2="1552" y2="995" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="1038" x2="1552" y2="1038" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1552" y1="1038" x2="1552" y2="1055" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1536" y1="1025" x2="1552" y2="1025" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1528" y1="1025" x2="1508" y2="1025" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1380" y1="995" x2="1552" y2="995" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1380" cy="995" r="3.6" fill="#555"/>
+<text x="1388" y="989" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J2 solenoid drive x8</text>
+<text x="1585" y="1016" font-size="10" font-weight="normal" fill="#222" text-anchor="start">Q1-Q8 IRLZ44NPbF x8</text>
+<text x="1585" y="1029" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one channel shown)</text>
+<line x1="1552" y1="1055" x2="1552" y2="1069" stroke="#1a1a1a" stroke-width="1.8"/>
+<line x1="1552" y1="1069" x2="1562" y2="1069" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="1562,1069 1569,1060 1593,1060 1593,1078 1569,1078" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="1572" y="1073" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GND</text>
+<line x1="1490" y1="918" x2="1490" y2="1025" stroke="#7b3fb0" stroke-width="1.6"/>
+<line x1="1490" y1="1025" x2="1508" y2="1025" stroke="#7b3fb0" stroke-width="1.6"/>
+<text x="1496" y="1017" font-size="10" font-weight="normal" fill="#7b3fb0" text-anchor="start">sol0-7</text>
+<line x1="1420" y1="918" x2="1420" y2="940" stroke="#7b3fb0" stroke-width="1.6"/>
+<line x1="1420" y1="940" x2="1430" y2="940" stroke="#7b3fb0" stroke-width="1.6"/>
+<polygon points="1430,940 1437,931 1461,931 1461,949 1437,949" fill="#fff" stroke="#7b3fb0" stroke-width="1.4"/>
+<text x="1440" y="944" font-size="11" font-weight="bold" fill="#7b3fb0" text-anchor="start">USB</text>
+<line x1="1380" y1="1102" x2="1358" y2="1102" stroke="#1e7a34" stroke-width="2.0"/>
+<circle cx="1380" cy="1102" r="3.6" fill="#1e7a34"/>
+<line x1="1358" y1="1102" x2="1348" y2="1102" stroke="#1e7a34" stroke-width="1.6"/>
+<polygon points="1348,1102 1341,1093 1317,1093 1317,1111 1341,1111" fill="#fff" stroke="#1e7a34" stroke-width="1.4"/>
+<text x="1325" y="1106" font-size="11" font-weight="bold" fill="#1e7a34" text-anchor="start">+5V</text>
+<text x="1388" y="1106" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J4/J5 5 V in</text>
+<line x1="1380" y1="1124" x2="1358" y2="1124" stroke="#1a1a1a" stroke-width="2.0"/>
+<circle cx="1380" cy="1124" r="3.6" fill="#1a1a1a"/>
+<line x1="1358" y1="1124" x2="1348" y2="1124" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="1348,1124 1341,1115 1317,1115 1317,1133 1341,1133" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="1325" y="1128" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GND</text>
+<text x="1388" y="1128" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J3 GND return</text>
+<line x1="1380" y1="1146" x2="1358" y2="1146" stroke="#1a1a1a" stroke-width="2.0"/>
+<circle cx="1380" cy="1146" r="3.6" fill="#1a1a1a"/>
+<line x1="1358" y1="1146" x2="1348" y2="1146" stroke="#1a1a1a" stroke-width="1.6"/>
+<polygon points="1348,1146 1341,1137 1298,1137 1298,1155 1341,1155" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
+<text x="1306" y="1150" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GNDREF</text>
+<text x="1388" y="1150" font-size="10" font-weight="bold" fill="#111" text-anchor="start">J9 GNDREF</text>
+<line x1="1262" y1="995" x2="1380" y2="995" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<circle cx="1262" cy="995" r="3.6" fill="#555"/>
+<line x1="1780" y1="880" x2="1815" y2="880" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1780" cy="880" r="3.6" fill="#7b3fb0"/>
+<circle cx="1815" cy="880" r="3.6" fill="#7b3fb0"/>
+<text x="1772" y="876" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J1 direct switch inputs</text>
+<line x1="1780" y1="908" x2="1815" y2="908" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1780" cy="908" r="3.6" fill="#7b3fb0"/>
+<circle cx="1815" cy="908" r="3.6" fill="#7b3fb0"/>
+<text x="1772" y="904" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J7/J8 matrix, or 16 more direct inputs</text>
+<line x1="1780" y1="948" x2="1815" y2="948" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1780" cy="948" r="3.6" fill="#7b3fb0"/>
+<circle cx="1815" cy="948" r="3.6" fill="#7b3fb0"/>
+<text x="1772" y="944" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J6 Neopixel out (via U2 level shifter)</text>
+<line x1="1262" y1="190" x2="1262" y2="995" stroke="#555" stroke-width="2.0" stroke-dasharray="6 4"/>
+<text x="1268" y="470" font-size="10" font-weight="bold" fill="#555" text-anchor="start">COIL_RET</text>
+<text x="1268" y="483" font-size="10" font-weight="normal" fill="#555" text-anchor="start">assignment TBD</text>
+<line x1="1815" y1="160" x2="1815" y2="948" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<text x="1823" y="964" font-size="10" font-weight="bold" fill="#7b3fb0" text-anchor="start">signals to/from the Topedal boards</text>
+<text x="1823" y="978" font-size="10" font-weight="normal" fill="#555" text-anchor="start">(device assignment TBD)</text>
+<rect x="1870" y="90" width="245" height="98" rx="4" fill="#f3e8fb" stroke="#7b3fb0" stroke-width="1.6"/>
+<text x="1878" y="107" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-27 Host computer</text>
+<text x="1878" y="123" font-size="11" font-weight="normal" fill="#222" text-anchor="start">x86_64, MPF + Godot Media Controller</text>
+<text x="1878" y="137" font-size="11" font-weight="normal" fill="#222" text-anchor="start">USB serial to each Topedal board</text>
+<text x="1878" y="151" font-size="11" font-weight="normal" fill="#222" text-anchor="start">(P-07: Blue Pill powered over USB)</text>
+<line x1="1910" y1="90" x2="1910" y2="76" stroke="#7b3fb0" stroke-width="1.6"/>
+<line x1="1910" y1="76" x2="1920" y2="76" stroke="#7b3fb0" stroke-width="1.6"/>
+<polygon points="1920,76 1927,67 1951,67 1951,85 1927,85" fill="#fff" stroke="#7b3fb0" stroke-width="1.4"/>
+<text x="1930" y="80" font-size="11" font-weight="bold" fill="#7b3fb0" text-anchor="start">USB</text>
+<rect x="1870" y="218" width="245" height="46" rx="4" fill="#f3e8fb" stroke="#7b3fb0" stroke-width="1.6"/>
+<text x="1878" y="235" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-25 Display monitor</text>
+<text x="1878" y="251" font-size="11" font-weight="normal" fill="#222" text-anchor="start">22-24 in, 1920x1080, HDMI input from host</text>
+<line x1="1990" y1="188" x2="1990" y2="218" stroke="#7b3fb0" stroke-width="1.8" marker-end="url(#m7b3fb0)"/>
+<text x="1996" y="207" font-size="10" font-weight="normal" fill="#7b3fb0" text-anchor="start">HDMI</text>
+<rect x="1870" y="292" width="245" height="44" rx="4" fill="#f2f2f2" stroke="#555" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="1878" y="309" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-26 Speakers</text>
+<text x="1878" y="325" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Part TBD</text>
+<text x="1870" y="354" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Mains supply to DP-27 / DP-25: not defined.</text>
+<rect x="1870" y="392" width="245" height="104" rx="4" fill="#f3e8fb" stroke="#7b3fb0" stroke-width="1.6"/>
+<text x="1878" y="409" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-31 to DP-41 Lights</text>
+<text x="1878" y="425" font-size="11" font-weight="normal" fill="#222" text-anchor="start">WS2812B addressable RGB LEDs, 103 in CAD</text>
+<text x="1878" y="439" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Neopixel data chain from Topedal J6</text>
+<text x="1878" y="453" font-size="11" font-weight="normal" fill="#222" text-anchor="start">(via U2 level shifter)</text>
+<text x="1878" y="467" font-size="11" font-weight="normal" fill="#222" text-anchor="start">+5 V: P-06 supply (rail assignment TBD)</text>
+<line x1="1930" y1="496" x2="1930" y2="510" stroke="#1e7a34" stroke-width="1.8"/>
+<line x1="1930" y1="510" x2="1940" y2="510" stroke="#1e7a34" stroke-width="1.6"/>
+<polygon points="1940,510 1947,501 1971,501 1971,519 1947,519" fill="#fff" stroke="#1e7a34" stroke-width="1.4"/>
+<text x="1950" y="514" font-size="11" font-weight="bold" fill="#1e7a34" text-anchor="start">+5V</text>
+<rect x="1870" y="540" width="245" height="90" rx="4" fill="#f3e8fb" stroke="#7b3fb0" stroke-width="1.6"/>
+<text x="1878" y="557" font-size="12" font-weight="bold" fill="#111" text-anchor="start">Switch inputs</text>
+<text x="1878" y="573" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Generic switch input (DP-09, DP-12, DP-20,</text>
+<text x="1878" y="587" font-size="11" font-weight="normal" fill="#222" text-anchor="start">DP-21, DP-24) and sensor outputs -&gt;</text>
+<text x="1878" y="601" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Topedal J1 / J7 / J8 (assignment TBD)</text>
+<rect x="1870" y="670" width="245" height="62" rx="4" fill="#e8f5e9" stroke="#1e7a34" stroke-width="1.6"/>
+<text x="1878" y="687" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DC-05/06/07 Hall sensor boards</text>
+<text x="1878" y="703" font-size="11" font-weight="normal" fill="#222" text-anchor="start">5 V from P-06 (DP-30 5 V supply)</text>
+<text x="1878" y="717" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Hall outputs -&gt; Topedal inputs (TBD)</text>
+<line x1="1930" y1="732" x2="1930" y2="746" stroke="#1e7a34" stroke-width="1.8"/>
+<line x1="1930" y1="746" x2="1940" y2="746" stroke="#1e7a34" stroke-width="1.6"/>
+<polygon points="1940,746 1947,737 1971,737 1971,755 1947,755" fill="#fff" stroke="#1e7a34" stroke-width="1.4"/>
+<text x="1950" y="750" font-size="11" font-weight="bold" fill="#1e7a34" text-anchor="start">+5V</text>
+<line x1="1815" y1="444" x2="1870" y2="444" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1815" cy="444" r="3.6" fill="#7b3fb0"/>
+<line x1="1815" y1="585" x2="1870" y2="585" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1815" cy="585" r="3.6" fill="#7b3fb0"/>
+<line x1="1815" y1="701" x2="1870" y2="701" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
+<circle cx="1815" cy="701" r="3.6" fill="#7b3fb0"/>
+<text x="30" y="1215" font-size="12" font-weight="bold" fill="#111" text-anchor="start">Net table</text>
+<rect x="30" y="1225" width="985" height="18" rx="0" fill="#e9e9e9" stroke="#999" stroke-width="1"/>
+<text x="35" y="1238" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Net</text>
+<text x="145" y="1238" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Description</text>
+<text x="380" y="1238" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Connects</text>
+<rect x="30" y="1243" width="985" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1256" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">AC_IN</text>
+<text x="145" y="1256" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Mains AC input, fused (P-01)</text>
+<text x="380" y="1256" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Input terminal -&gt; P-01 fuse -&gt; DP-13</text>
+<rect x="30" y="1261" width="985" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1274" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">AC_SW</text>
+<text x="145" y="1274" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Switched mains</text>
+<text x="380" y="1274" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-13 -&gt; DP-29 and DP-30 inputs</text>
+<rect x="30" y="1279" width="985" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1292" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">+24V</text>
+<text x="145" y="1292" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">24 V rail from DP-29</text>
+<text x="380" y="1292" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-29 -&gt; P-03/P-04 bulk filter + bleeder -&gt; 24 V bus bar</text>
+<rect x="30" y="1297" width="985" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1310" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">+24V_F1..F7</text>
+<text x="145" y="1310" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Fused coil feeds, 18 AWG</text>
+<text x="380" y="1310" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Bus bar -&gt; F1..F7 -&gt; positive terminal of each solenoid</text>
+<rect x="30" y="1315" width="985" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1328" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">+24V_F8</text>
+<text x="145" y="1328" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Fused sensor feed, 18 AWG</text>
+<text x="380" y="1328" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Bus bar -&gt; F8 -&gt; 24 V inductive sensors x10</text>
+<rect x="30" y="1333" width="985" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">COIL_RET</text>
+<text x="145" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Solenoid returns, 18 AWG each</text>
+<text x="380" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Solenoid negative terminal -&gt; Topedal J2 driver (assignment TBD)</text>
+<rect x="30" y="1351" width="985" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">+5V</text>
+<text x="145" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">5.0 V, P-06</text>
+<text x="380" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-30 -&gt; Topedal J4/J5, Hall boards, WS2812B (rail assignment TBD)</text>
+<rect x="30" y="1369" width="985" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">GND</text>
+<text x="145" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">24 V return, coil ground</text>
+<text x="380" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-29 RTN, Topedal J3 (3 x 18 AWG per board), MOSFET sources -&gt; GND bar</text>
+<rect x="30" y="1387" width="985" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">GNDREF</text>
+<text x="145" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">3V3 / 5 V return</text>
+<text x="380" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-30 return, Topedal J9 -&gt; GND bar; tied to GND at the bar only (P-08)</text>
+<rect x="30" y="1405" width="985" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">USB</text>
+<text x="145" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Host to Blue Pill, power + serial</text>
+<text x="380" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-27 -&gt; each Topedal Blue Pill (P-07)</text>
+<rect x="30" y="1423" width="985" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">SIG (TBD)</text>
+<text x="145" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Switch, sensor, Hall, Neopixel signals</text>
+<text x="380" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Topedal J1, J7/J8, J6 &lt;-&gt; devices (assignment TBD)</text>
+<rect x="30" y="1441" width="985" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="35" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">HDMI</text>
+<text x="145" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Video</text>
+<text x="380" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-27 -&gt; DP-25</text>
+<text x="1090" y="1215" font-size="12" font-weight="bold" fill="#111" text-anchor="start">Parts table</text>
+<rect x="1090" y="1225" width="962" height="18" rx="0" fill="#e9e9e9" stroke="#999" stroke-width="1"/>
+<text x="1095" y="1238" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Ref</text>
+<text x="1175" y="1238" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Part</text>
+<text x="1455" y="1238" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Qty</text>
+<text x="1497" y="1238" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Value / status</text>
+<rect x="1090" y="1243" width="962" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1256" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">P-01</text>
+<text x="1175" y="1256" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Mains input fuse</text>
+<text x="1455" y="1256" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1</text>
+<text x="1497" y="1256" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Rating TBD</text>
+<rect x="1090" y="1261" width="962" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1274" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-13</text>
+<text x="1175" y="1274" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Master power switch</text>
+<text x="1455" y="1274" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1</text>
+<text x="1497" y="1274" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Mains-rated toggle, visible shutoff; ratings TBD</text>
+<rect x="1090" y="1279" width="962" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1292" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-29</text>
+<text x="1175" y="1292" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">24 V coil supply (P-02)</text>
+<text x="1455" y="1292" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1</text>
+<text x="1497" y="1292" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">24 V DC; current rating TBD</text>
+<rect x="1090" y="1297" width="962" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1310" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-30</text>
+<text x="1175" y="1310" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">5 V supply (P-06)</text>
+<text x="1455" y="1310" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1</text>
+<text x="1497" y="1310" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">5.0 V regulated, fused; no series diodes; rating TBD</text>
+<rect x="1090" y="1315" width="962" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1328" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">P-03</text>
+<text x="1175" y="1328" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Bulk filter capacitor bank</text>
+<text x="1455" y="1328" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1</text>
+<text x="1497" y="1328" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Across 24 V rail; value TBD</text>
+<rect x="1090" y="1333" width="962" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">P-04</text>
+<text x="1175" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Bleeder resistor + charge LED</text>
+<text x="1455" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1</text>
+<text x="1497" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Values TBD; LED on = charged; posted wait-time label</text>
+<rect x="1090" y="1351" width="962" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Bus bar</text>
+<text x="1175" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">24 V bus bar + fuse block</text>
+<text x="1455" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1</text>
+<text x="1497" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Distribution point</text>
+<rect x="1090" y="1369" width="962" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">F1-F8</text>
+<text x="1175" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Slow-blow fuses, 18 AWG feeds</text>
+<text x="1455" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">8</text>
+<text x="1497" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Ratings TBD</text>
+<rect x="1090" y="1387" width="962" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">D</text>
+<text x="1175" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Flyback diode, 1N400x-class</text>
+<text x="1455" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">18</text>
+<text x="1497" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">One per solenoid, across its coil; band toward +24 V</text>
+<rect x="1090" y="1405" width="962" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">L</text>
+<text x="1175" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Solenoids</text>
+<text x="1455" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">18</text>
+<text x="1497" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">F1 3, F2 2, F3 1, F4 3, F5 2, F6 3, F7 4</text>
+<rect x="1090" y="1423" width="962" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-28A-C</text>
+<text x="1175" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Topedal boards, Rev 1.1 (12 Jun 2026)</text>
+<text x="1455" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">3</text>
+<text x="1497" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">8 solenoid drivers, direct switch inputs, Neopixel out per board</text>
+<rect x="1090" y="1441" width="962" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Q1-Q8</text>
+<text x="1175" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">IRLZ44NPbF MOSFET</text>
+<text x="1455" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">24</text>
+<text x="1497" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">8 per board; 18 used by the coils above</text>
+<rect x="1090" y="1459" width="962" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1472" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Blue Pill</text>
+<text x="1175" y="1472" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">STM32F103C8T6</text>
+<text x="1455" y="1472" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">3</text>
+<text x="1497" y="1472" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1 per board; OPP firmware</text>
+<rect x="1090" y="1477" width="962" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1490" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">U2</text>
+<text x="1175" y="1490" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">3.3 V / 5 V logic level converter module</text>
+<text x="1455" y="1490" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">3</text>
+<text x="1497" y="1490" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1 per board, Neopixel output</text>
+<rect x="1090" y="1495" width="962" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1508" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Sensors</text>
+<text x="1175" y="1508" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">24 V inductive sensors</text>
+<text x="1455" y="1508" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">10</text>
+<text x="1497" y="1508" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-18 x7, DB-01, DB-03, DB-04 (on F8)</text>
+<rect x="1090" y="1513" width="962" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1526" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-31..41</text>
+<text x="1175" y="1526" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">WS2812B addressable RGB LED</text>
+<text x="1455" y="1526" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">103</text>
+<text x="1497" y="1526" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Count per CAD; +5 V rail assignment TBD</text>
+<rect x="1090" y="1531" width="962" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
+<text x="1095" y="1544" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">GND bar</text>
+<text x="1175" y="1544" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Single tie of GND and GNDREF (P-08)</text>
+<text x="1455" y="1544" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1</text>
+<text x="1497" y="1544" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Location TBD</text>
+<text x="30" y="1577" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Sources: system/drawings/draft_electrical_block_diagram.svg; devices/controllers_power READMEs (DP-13, DP-28, DP-29, DP-30). Device-level circuits (Topedal board, Hall boards, coil boards) are in their own device folders.</text>
+<text x="30" y="1591" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Not defined and therefore not drawn: mains supply to DP-27 / DP-25, GND bar location, all TBD ratings and values, coil-to-driver and switch-to-input assignments, sensor return path and output type, charge LED drive.</text>
+<text x="30" y="1605" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Open source conflict: DP-28 README states 8 direct switch inputs per board; the block diagram states J1 = 7 direct inputs. Count left off this drawing. 18 coils use 18 of the 24 driver channels (3 boards x 8).</text>
+</svg>
