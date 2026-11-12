@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Test date | 2026-10-12 |
-| Revision date | 2026-11-05 |
+| Revision date | 2026-11-12 |
 | Original ID | TR-20261012-03 |
 | Tester | Scott |
 | Devices | DC-05 Drop target bank (7 side-by-side), DC-06 Drop target (single), DC-07 Drop target bank (4 inline) (blade-position sensor) |
@@ -83,4 +83,4 @@ Figure 1 — Single-blade 12 V bench circuit (drawn from the Setup text of the o
 
 ## Supersedes
 
-- pmdd_test_20261012-03_us5781_detect_distance (Test TR-20261012-03): renamed to include Hall effect; data and interpretation unchanged; bench schematic, net and parts tables, Deviations table and standard section layout added; reference to the superseded drop-target schematic removed.
+- rev 20261012-03 (Test TR-20261012-03): renamed to include Hall effect; data and interpretation unchanged; bench schematic, net and parts tables, Deviations table and standard section layout added; reference to the superseded drop-target schematic removed.

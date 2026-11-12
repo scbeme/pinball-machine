@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Test date | 2026-10-31 |
-| Revision date | 2026-11-05 |
+| Revision date | 2026-11-12 |
 | Tester | Scott |
 | Devices | DC-07 Drop target bank (4 inline) |
 
@@ -69,4 +69,4 @@ Figure 1 — 4-blade 5 V bench circuit (drawn from the drop target Hall board sc
 
 ## Supersedes
 
-- pmdd_test_20261031-02_hall_4x4_magnet_detect: data unchanged; circuit identified as the 4-blade 5 V circuit (replaces "1-blade module" wording); bench schematic, net and parts tables and Deviations table added. Complements pmdd_test_20261105-02_single_blade_hall_sensor (6×2mm magnet, 12 V).
+- rev 20261031-02: data unchanged; circuit identified as the 4-blade 5 V circuit (replaces "1-blade module" wording); bench schematic, net and parts tables and Deviations table added. Complements test_single_blade_hall_sensor (6×2mm magnet, 12 V).

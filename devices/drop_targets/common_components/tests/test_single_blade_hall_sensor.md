@@ -5,7 +5,7 @@
 | Field | Value |
 |---|---|
 | Test date | 2026-10-14 |
-| Revision date | 2026-11-05 |
+| Revision date | 2026-11-12 |
 | Tester | Scott |
 | Devices | DC-05 Drop target bank (7 side-by-side), DC-06 Drop target (single), DC-07 Drop target bank (4 inline) (single-blade prototype) |
 
@@ -65,4 +65,4 @@ Figure 1 — Single-blade 12 V bench circuit (same circuit as test_us5781_hall_e
 
 ## Supersedes
 
-- pmdd_test_20261014-01_single_blade_hall_sensor: data and interpretation unchanged; supply (12 V), bench schematic, net and parts tables and Deviations table added.
+- rev 20261014-01: data and interpretation unchanged; supply (12 V), bench schematic, net and parts tables and Deviations table added.
