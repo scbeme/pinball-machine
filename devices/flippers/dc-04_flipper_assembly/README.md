@@ -1,6 +1,6 @@
 # DC-04 Flipper assembly (L/R/Upper-L)
 
-**Revision:** 20261106-01 · **Devices covered:** DC-04 Flipper assembly, DP-09 Flipper buttons (see [DP-09](../dp-09_flipper_buttons/README.md)), DP-10 Flipper coil/driver · **CAD base name:** flipper
+**Revision:** 20261112-01 · **Devices covered:** DC-04 Flipper assembly, DP-09 Flipper buttons (see [DP-09](../dp-09_flipper_buttons/README.md)) · **CAD base name:** flipper
 
 ## 1. Requirements
 
@@ -8,7 +8,6 @@
 |---|---|---|---|---|
 | DC-04 | Flipper assembly (L/R/Upper-L) | Composite Mech | 3 | **Function:** Player-controlled paddle, strikes ball to keep in play<br>**Switch:** Player pushbutton L/R + upper-L; left fires lower-left + upper-left simultaneously, right fires lower-right only<br>**Actuator:** Pull/push-pull, 12 V, 25 N, 10 mm stroke<br>**Driver:** N-channel, VDS ≥ 55 V, RDS(on) specified at VGS ≤ 4.5 V, ≥ 10 A, TO-220<br>**Protection:** External flyback diode, band toward positive<br>**Coil count:** One coil per flipper; center-pinned lever arm; mechanism per CAD<br>**Body:** Player-actuated paddle, pivots to strike ball<br>**Rubber:** Resilient material along flipper paddle contact edge, replaceable |
 | DP-09 | Flipper buttons (L/R) | Primitive | 2 | See [DP-09](../dp-09_flipper_buttons/README.md) |
-| DP-10 | Flipper coil/driver | Primitive | 3 | See DC-04 |
 
 ## 2. Mechanical
 
