@@ -104,7 +104,7 @@
 <text x="1038" y="107" font-size="11" fill="#333"></text>
 <text x="1038" y="121" font-size="11" fill="#333">J2: 8 low-side coil drivers</text>
 <text x="1038" y="135" font-size="11" fill="#333">    (MOSFET IRLZ44NPbF)</text>
-<text x="1038" y="149" font-size="11" fill="#333">J1: 7 direct switch inputs</text>
+<text x="1038" y="149" font-size="11" fill="#333">J1: 8 direct switch inputs</text>
 <text x="1038" y="163" font-size="11" fill="#333">J7/J8: matrix or 16 more direct inputs</text>
 <text x="1038" y="177" font-size="11" fill="#333">J6: Neopixel out (via level shifter)</text>
 <text x="1038" y="191" font-size="11" fill="#333">J4/J5: 5 V in · J3: GND return</text>
@@ -118,7 +118,7 @@
 <text x="1038" y="347" font-size="11" fill="#333"></text>
 <text x="1038" y="361" font-size="11" fill="#333">J2: 8 low-side coil drivers</text>
 <text x="1038" y="375" font-size="11" fill="#333">    (MOSFET IRLZ44NPbF)</text>
-<text x="1038" y="389" font-size="11" fill="#333">J1: 7 direct switch inputs</text>
+<text x="1038" y="389" font-size="11" fill="#333">J1: 8 direct switch inputs</text>
 <text x="1038" y="403" font-size="11" fill="#333">J7/J8: matrix or 16 more direct inputs</text>
 <text x="1038" y="417" font-size="11" fill="#333">J6: Neopixel out (via level shifter)</text>
 <text x="1038" y="431" font-size="11" fill="#333">J4/J5: 5 V in · J3: GND return</text>
@@ -132,7 +132,7 @@
 <text x="1038" y="587" font-size="11" fill="#333"></text>
 <text x="1038" y="601" font-size="11" fill="#333">J2: 8 low-side coil drivers</text>
 <text x="1038" y="615" font-size="11" fill="#333">    (MOSFET IRLZ44NPbF)</text>
-<text x="1038" y="629" font-size="11" fill="#333">J1: 7 direct switch inputs</text>
+<text x="1038" y="629" font-size="11" fill="#333">J1: 8 direct switch inputs</text>
 <text x="1038" y="643" font-size="11" fill="#333">J7/J8: matrix or 16 more direct inputs</text>
 <text x="1038" y="657" font-size="11" fill="#333">J6: Neopixel out (via level shifter)</text>
 <text x="1038" y="671" font-size="11" fill="#333">J4/J5: 5 V in · J3: GND return</text>
