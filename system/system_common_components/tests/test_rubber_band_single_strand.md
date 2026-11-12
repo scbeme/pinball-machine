@@ -10,7 +10,7 @@
 | Item | Value |
 |---|---|
 | Band form | Single strand (not looped) |
-| Dimensions | Not restated at test time; presumed same material class as the dual-strand loop band characterized separately in session notes |
+| Dimensions | Not restated at test time; presumed same material class as the dual-strand loop band |
 | Measurement | Force vs stretch, in tension; stretch measured from slack (0 mm = 0 force) |
 | Units as provided | Weight in oz; stretch in inches |
 
