@@ -53,7 +53,7 @@ SYSTEM_ITEMS = {
     "Playfield layout with IDs": ("file", "system/drawings/device_registry.svg"),
     "Device registry table": ("section", "system/machine_master.md", "Device Register"),
     "Block diagram": ("file", "system/drawings/electrical_block_diagram.svg"),
-    "Schematic": ("file", "devices/controllers_power/dp-28_topedal_board/schematic.svg"),
+    "Schematic": ("file", "system/drawings/system_electrical_schematic.svg"),
     "I/O map": ("section", "system/electrical_master.md", "I/O map"),
     "Cable + harness layout": ("file", "system/interface_harness_list.md"),
     "State machine diagram": ("file", "system/drawings/state_machine_diagram.svg"),
