@@ -1,0 +1,21 @@
+name: Check names and links
+# Runs the same scan that gates the Pages deploy, on every pull request, so a broken
+# link or uppercase path is found before merge. Builds the site to a scratch folder and
+# deploys nothing. Production deploys only from main (pages.yml).
+on:
+  pull_request:
+    branches: [main]
+    paths: ["dashboard/**", "system/**", "devices/**", ".github/workflows/*.yml"]
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: check-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v6
+      - name: Check names and links, derive status, assemble site (no deploy)
+        run: python3 dashboard/scan.py --root . --site _site --sha "$GITHUB_SHA"
