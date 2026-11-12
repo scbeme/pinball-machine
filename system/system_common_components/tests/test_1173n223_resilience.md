@@ -10,7 +10,6 @@
 | Tester | Scott Carson |
 | Subject | McMaster-Carr 1173N223 silicone O-ring, resilience characterization via ball bounce test |
 | Related devices | DC-02 (slingshot) material characterization |
-| Related session notes | pinball_session_notes_20261018-01 |
 
 ## Setup
 

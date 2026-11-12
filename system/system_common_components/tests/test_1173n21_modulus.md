@@ -10,7 +10,6 @@
 | Tester | Scott Carson |
 | Subject | McMaster-Carr 1173N21 silicone O-ring, Young's modulus characterization via force-vs-stretch |
 | Related devices | MD-01 (playfield post rings) and DC-02 (slingshot) material characterization |
-| Related session notes | pinball_session_notes_20261018-01 |
 
 ## Setup
 

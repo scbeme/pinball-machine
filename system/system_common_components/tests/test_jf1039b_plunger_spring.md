@@ -50,4 +50,4 @@
 | Scale resolution | Not recorded |
 | First-engagement interpretation | 0 force at 23 mm shaft inferred to mean spring just contacts its seat at that position; does not change the shape of the curve above engagement |
 | 10 mm vs 7 mm | Scott's note "16 mm = 10 mm full stroke position" implies plunger rest shaft length ~26 mm (not measured); the 7 mm range measured here is 3 mm into the stroke from rest |
-| Earlier mis-attribution | This data was initially recorded in session notes 20261012-02 under a heading labeling it as rubber band single strand data; mis-attribution corrected 2026-10-12 |
+| Earlier mis-attribution | This data was initially recorded under a heading labeling it as rubber band single strand data; mis-attribution corrected 2026-10-12 |
