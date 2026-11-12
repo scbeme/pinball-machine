@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 800" width="1100" height="800" font-family="Arial, Helvetica, sans-serif" font-size="12">
+<rect width="1100" height="800" fill="#fff"/>
+<text x="20" y="28" font-size="15" font-weight="bold" fill="#1a1a1a">Single WS2812B LED node (DP-31 to DP-41 lights) — DRAFT for review</text>
+<text x="20" y="46" font-size="11" fill="#555">Pinout and typical application circuit per Worldsemi WS2812B datasheet (pins 1 VDD, 2 DOUT, 3 VSS, 4 DIN; one 100 nF capacitor per LED)</text>
+<rect x="380" y="160" width="240" height="150" fill="#eaf0fa" stroke="#2b4b7a" stroke-width="1.5"/>
+<text x="500" y="206" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a1a1a">U1 WS2812B</text>
+<text x="500" y="254" text-anchor="middle" font-size="10" fill="#1a1a1a">addressable RGB LED</text>
+<text x="500" y="268" text-anchor="middle" font-size="10" fill="#1a1a1a">BTF-LIGHTING 10 mm 5 V disk</text>
+<line x1="500" y1="160" x2="500" y2="100" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+<text x="508" y="176" font-size="11" fill="#1a1a1a" dx="0">1 VDD</text>
+<line x1="500" y1="310" x2="500" y2="380" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+<text x="508" y="302" font-size="11" fill="#1a1a1a">3 VSS</text>
+<line x1="300" y1="225" x2="380" y2="225" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+<text x="386" y="229" font-size="11" fill="#1a1a1a">4 DIN</text>
+<line x1="620" y1="225" x2="700" y2="225" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+<text x="614" y="229" text-anchor="end" font-size="11" fill="#1a1a1a">2 DOUT</text>
+<line x1="360" y1="100" x2="820" y2="100" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+<circle cx="500" cy="100" r="2.5" fill="#1a1a1a"/>
+<polygon points="360,100 352,92 317,92 317,108 352,108" fill="#fff6c8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="336.5" y="104" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a1a">+5V</text>
+<line x1="360" y1="380" x2="820" y2="380" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+<circle cx="500" cy="380" r="2.5" fill="#1a1a1a"/>
+<polygon points="360,380 352,372 296,372 296,388 352,388" fill="#fff6c8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="326.0" y="384" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a1a">GNDREF</text>
+<circle cx="800" cy="100" r="2.5" fill="#1a1a1a"/><circle cx="800" cy="380" r="2.5" fill="#1a1a1a"/>
+<line x1="800" y1="100" x2="800" y2="232" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+<line x1="789" y1="232" x2="811" y2="232" stroke="#1a1a1a" stroke-width="2.5"/><line x1="789" y1="240" x2="811" y2="240" stroke="#1a1a1a" stroke-width="2.5"/>
+<line x1="800" y1="240" x2="800" y2="380" stroke="#1a1a1a" stroke-width="1.5" fill="none"/>
+<text x="818" y="240" font-size="11" fill="#1a1a1a">C1 100 nF</text>
+<polygon points="300,225 292,217 257,217 257,233 292,233" fill="#fff6c8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="276.5" y="229" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a1a">DIN</text>
+<polygon points="700,225 708,217 750,217 750,233 708,233" fill="#fff6c8" stroke="#1a1a1a" stroke-width="1.2"/>
+<text x="727.0" y="229" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a1a">DOUT</text>
+<text x="300" y="252" text-anchor="end" font-size="10" fill="#555">from previous LED DOUT</text>
+<text x="300" y="265" text-anchor="end" font-size="10" fill="#555">or Topedal Neo5</text>
+<text x="700" y="252" font-size="10" fill="#555">to next LED DIN</text>
+<text x="20" y="450" font-size="13" font-weight="bold" fill="#1a1a1a">Net table</text>
+<text x="30" y="472" font-size="12" font-weight="bold" fill="#1a1a1a">+5V</text><text x="120" y="472" font-size="12" fill="#1a1a1a">U1 pin 1 (VDD), C1 +; 5 V rail (Topedal +5V)</text>
+<text x="30" y="490" font-size="12" font-weight="bold" fill="#1a1a1a">GNDREF</text><text x="120" y="490" font-size="12" fill="#1a1a1a">U1 pin 3 (VSS), C1 −; ground reference</text>
+<text x="30" y="508" font-size="12" font-weight="bold" fill="#1a1a1a">DIN</text><text x="120" y="508" font-size="12" fill="#1a1a1a">U1 pin 4; previous LED DOUT, or Topedal Neopixel output Neo5 for the first LED in the chain</text>
+<text x="30" y="526" font-size="12" font-weight="bold" fill="#1a1a1a">DOUT</text><text x="120" y="526" font-size="12" fill="#1a1a1a">U1 pin 2; next LED DIN (open at the last LED in the chain)</text>
+<text x="20" y="570" font-size="13" font-weight="bold" fill="#1a1a1a">Parts table</text>
+<text x="30" y="592" font-size="11" font-weight="bold" fill="#1a1a1a">Ref</text>
+<text x="100" y="592" font-size="11" font-weight="bold" fill="#1a1a1a">Part</text>
+<text x="300" y="592" font-size="11" font-weight="bold" fill="#1a1a1a">Value</text>
+<text x="420" y="592" font-size="11" font-weight="bold" fill="#1a1a1a">Note</text>
+<text x="30" y="612" font-size="11" fill="#1a1a1a">U1</text><text x="100" y="612" font-size="11" fill="#1a1a1a">WS2812B, 10 mm 5 V disk</text><text x="300" y="612" font-size="11" fill="#1a1a1a">VDD 3.5–5.3 V</text>
+<text x="420" y="612" font-size="11" fill="#1a1a1a">BTF-LIGHTING; pins 1 VDD, 2 DOUT, 3 VSS, 4 DIN (Worldsemi)</text>
+<text x="420" y="627" font-size="11" fill="#1a1a1a">Disk board pads are duplicated: 5V/5V, Din/Dout, GND/GND</text>
+<text x="30" y="649" font-size="11" fill="#1a1a1a">C1</text><text x="100" y="649" font-size="11" fill="#1a1a1a">Ceramic capacitor</text><text x="300" y="649" font-size="11" fill="#1a1a1a">100 nF</text>
+<text x="420" y="649" font-size="11" fill="#1a1a1a">Datasheet typical circuit, one per LED, VDD to VSS</text>
+<text x="420" y="664" font-size="11" fill="#1a1a1a">Whether the disk board includes it: Not recorded</text>
+<text x="30" y="686" font-size="11" fill="#1a1a1a">—</text><text x="100" y="686" font-size="11" fill="#1a1a1a">Data-line series resistor</text><text x="300" y="686" font-size="11" fill="#1a1a1a">Not recorded</text>
+<text x="420" y="686" font-size="11" fill="#1a1a1a">Not shown; not defined in the design</text>
+<text x="20" y="728" font-size="11" fill="#555">Source: Worldsemi WS2812B datasheet (pin configuration; typical application circuit with C1 104 = 100 nF).</text>
+</svg>

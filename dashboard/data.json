@@ -31,7 +31,7 @@
  "shared": {
   "sw-schematic": {
    "name": "Schematic",
-   "label": "Generic switch input: DP-09, DP-12, DP-20, DP-21, DP-24"
+   "label": "Generic switch input: DP-01, DP-09, DP-12, DP-19, DP-20, DP-21, DP-24"
   },
   "led-schematic": {
    "name": "Schematic",
@@ -460,7 +460,11 @@
         "name": "3D print files"
        }
       ],
-      "elec": [],
+      "elec": [
+       {
+        "ref": "sw-schematic"
+       }
+      ],
       "fw": [],
       "it": [
        {
@@ -486,7 +490,11 @@
         "name": "3D print files"
        }
       ],
-      "elec": [],
+      "elec": [
+       {
+        "ref": "sw-schematic"
+       }
+      ],
       "fw": [],
       "it": [
        {
