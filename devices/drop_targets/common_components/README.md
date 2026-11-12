@@ -20,7 +20,7 @@
 | Mounting | 3D-printed one-piece bracket; lip ledge sloped 15° to match lip underside, high corner radiused |
 | Return spring (catalog data) | McMaster-Carr 9665K84 cut-to-length extension spring: 302 stainless steel, 0.25" OD, 0.015" wire, 20" stock; catalog minimum load 0.04 lb, rate 0.004 lbf/in at 20". Cut length per device |
 | Spring attachment | 3D-printed cutout pegs; spring end loops slip over the pegs; peg positions follow the actual spring length |
-| Forward bias | Cable tie per DP-01 Standup targets (side-by-side), cantilever flexure acting on blade near lip height; target 0.03–0.05 lbf forward force |
+| Forward bias | [Stainless cable tie](../../../system/system_common_components/houocon_stainless_cable_tie.md), cantilever flexure acting on blade near lip height; target 0.03–0.05 lbf forward force |
 | Protection | 1N4007, one per solenoid, across its own coil on the coil board; band toward +24 V |
 | Coil termination | Coil board at the solenoid end of the bracket, away from the Hall board; one terminal connector, type TBD (TERM 1 = +24 V shared by all solenoids; TERM 2 onward = one DRAIN terminal per solenoid, each to the drain of that solenoid's own MOSFET); solenoid circuits (solenoid, diode, DRAIN terminal) are added or removed to match the device |
 
