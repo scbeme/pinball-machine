@@ -585,6 +585,22 @@
    "name": "Lights",
    "devices": [
     {
+     "id": "FAMILY",
+     "name": "Common components",
+     "family": true,
+     "cells": {
+      "fdi": [
+       {
+        "name": "Functions, constraints, parameters"
+       }
+      ],
+      "mech": [],
+      "elec": [],
+      "fw": [],
+      "it": []
+     }
+    },
+    {
      "id": "DP-31",
      "name": "Bonus rack lights",
      "cells": {
