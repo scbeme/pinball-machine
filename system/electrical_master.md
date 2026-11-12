@@ -1,6 +1,6 @@
 # Electrical Master
 
-**Revision:** 20261110-03 · **Date:** 2026-11-10
+**Revision:** 20261112-01 · **Date:** 2026-11-12
 
 ## Block diagram
 
@@ -8,6 +8,6 @@
 
 ## Schematic
 
-![DP-28 Topedal board schematic](../devices/controllers_power/dp-28_topedal_board/draft_schematic.svg)
+![System electrical schematic](drawings/draft_system_electrical_schematic.svg)
 
-System-level schematic: not yet created. It includes the pin assignments and is blocked until the device-to-driver and device-to-input assignments are decided.
+First draft. Supplies, bus bar, fused feeds F1 to F8, GND bar, Topedal boards and device blocks. Pin assignments (device-to-driver, device-to-input) are not decided and are not drawn. The Topedal board circuit is the DP-28 device schematic: [draft_schematic.svg](../devices/controllers_power/dp-28_topedal_board/draft_schematic.svg).
