@@ -335,7 +335,7 @@
 <line x1="1780" y1="160" x2="1815" y2="160" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
 <circle cx="1780" cy="160" r="3.6" fill="#7b3fb0"/>
 <circle cx="1815" cy="160" r="3.6" fill="#7b3fb0"/>
-<text x="1772" y="156" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J1 direct switch inputs</text>
+<text x="1772" y="156" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J1 8 direct switch inputs</text>
 <line x1="1780" y1="188" x2="1815" y2="188" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
 <circle cx="1780" cy="188" r="3.6" fill="#7b3fb0"/>
 <circle cx="1815" cy="188" r="3.6" fill="#7b3fb0"/>
@@ -399,7 +399,7 @@
 <line x1="1780" y1="520" x2="1815" y2="520" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
 <circle cx="1780" cy="520" r="3.6" fill="#7b3fb0"/>
 <circle cx="1815" cy="520" r="3.6" fill="#7b3fb0"/>
-<text x="1772" y="516" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J1 direct switch inputs</text>
+<text x="1772" y="516" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J1 8 direct switch inputs</text>
 <line x1="1780" y1="548" x2="1815" y2="548" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
 <circle cx="1780" cy="548" r="3.6" fill="#7b3fb0"/>
 <circle cx="1815" cy="548" r="3.6" fill="#7b3fb0"/>
@@ -463,7 +463,7 @@
 <line x1="1780" y1="880" x2="1815" y2="880" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
 <circle cx="1780" cy="880" r="3.6" fill="#7b3fb0"/>
 <circle cx="1815" cy="880" r="3.6" fill="#7b3fb0"/>
-<text x="1772" y="876" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J1 direct switch inputs</text>
+<text x="1772" y="876" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J1 8 direct switch inputs</text>
 <line x1="1780" y1="908" x2="1815" y2="908" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
 <circle cx="1780" cy="908" r="3.6" fill="#7b3fb0"/>
 <circle cx="1815" cy="908" r="3.6" fill="#7b3fb0"/>
@@ -638,7 +638,7 @@
 <text x="1095" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-28A-C</text>
 <text x="1175" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Topedal boards, Rev 1.1 (12 Jun 2026)</text>
 <text x="1455" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">3</text>
-<text x="1497" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">8 solenoid drivers, direct switch inputs, Neopixel out per board</text>
+<text x="1497" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">8 solenoid drivers, 8 direct switch inputs, Neopixel out per board</text>
 <rect x="1090" y="1441" width="962" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
 <text x="1095" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Q1-Q8</text>
 <text x="1175" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">IRLZ44NPbF MOSFET</text>
@@ -671,5 +671,5 @@
 <text x="1497" y="1544" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Location TBD</text>
 <text x="30" y="1577" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Sources: system/drawings/draft_electrical_block_diagram.svg; devices/controllers_power READMEs (DP-13, DP-28, DP-29, DP-30). Device-level circuits (Topedal board, Hall boards, coil boards) are in their own device folders.</text>
 <text x="30" y="1591" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Not defined and therefore not drawn: mains supply to DP-27 / DP-25, GND bar location, all TBD ratings and values, coil-to-driver and switch-to-input assignments, sensor return path and output type, charge LED drive.</text>
-<text x="30" y="1605" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Open source conflict: DP-28 README states 8 direct switch inputs per board; the block diagram states J1 = 7 direct inputs. Count left off this drawing. 18 coils use 18 of the 24 driver channels (3 boards x 8).</text>
+<text x="30" y="1605" font-size="10" font-weight="normal" fill="#555" text-anchor="start">18 coils use 18 of the 24 driver channels (3 boards x 8).</text>
 </svg>
