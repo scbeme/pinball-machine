@@ -1,6 +1,6 @@
 # Test — 1173N223 O-Ring Resilience (Bounce Test)
 
-**Test doc:** pmdd_test_20261018-01_1173N223_resilience
+**Test doc:** test_1173n223_resilience
 
 ## Header
 
@@ -62,4 +62,4 @@ None — first revision of this test.
 - μ_k (plywood-steel kinetic friction) is estimated at ~0.2–0.3, not measured. Shifts back-calculated R by ±0.15.
 - Measurement precision: Scott's visual estimate ±10 mm; back-calculated R uncertainty ±0.10.
 - Rolling-ball analysis assumes ball collides with ring at equator (no induced torque); valid for midspan strikes.
-- Modulus characterization in companion test pmdd_test_20261018-02_1173N21_modulus — related measurement using 1173N21 ring, independent of this resilience result.
+- Modulus characterization in companion test test_1173n21_modulus.md — related measurement using 1173N21 ring, independent of this resilience result.

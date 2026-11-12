@@ -4,7 +4,6 @@
 
 | Field | Value |
 |---|---|
-| File | pmdd_test_20261031-01_drop_target_single_blade_solenoid.md |
 | Date | 2026-10-31 |
 | Tester | Scott |
 | Devices | DC-07 (1-blade module prototype of the 4-blade inline drop target; 1.3" module width) |
@@ -38,4 +37,4 @@
 
 ## Supersedes
 
-- None. Configuration differs from pmdd_test_20261023-01_drop_target_solenoid_voltage (OEM plunger spring retained, 55mm return spring, 7–10 V range); that doc remains the record for its configuration.
+- None. Configuration differs from test_drop_target_solenoid_voltage.md (OEM plunger spring retained, 55mm return spring, 7–10 V range); that doc remains the record for its configuration.

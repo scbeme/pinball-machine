@@ -4,7 +4,6 @@
 
 | Field | Value |
 |---|---|
-| File | pmdd_test_20261105-01_us5781_hall_effect_detect_distance.md |
 | Test date | 2026-10-12 |
 | Revision date | 2026-11-05 |
 | Original ID | TR-20261012-03 |

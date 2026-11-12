@@ -4,7 +4,6 @@
 
 | Field | Value |
 |---|---|
-| File | pmdd_test_20261105-02_single_blade_hall_sensor.md |
 | Test date | 2026-10-14 |
 | Revision date | 2026-11-05 |
 | Tester | Scott |
@@ -22,7 +21,7 @@
 
 ### Bench circuit
 
-Figure 1 — Single-blade 12 V bench circuit (same circuit as pmdd_test_20261105-01_us5781_hall_effect_detect_distance, per Scott, 2026-11-05: the first single-blade circuit with the 6×2 magnet used a 12 V supply).
+Figure 1 — Single-blade 12 V bench circuit (same circuit as test_us5781_hall_effect_detect_distance.md, per Scott, 2026-11-05: the first single-blade circuit with the 6×2 magnet used a 12 V supply).
 
 ![Bench circuit: US5781 Hall switch, single blade, 12 V supply](us5781_single_blade_12v_bench_circuit.svg)
 

@@ -4,7 +4,6 @@
 
 | Field | Value |
 |---|---|
-| File | pmdd_test_20261105-03_hall_4x4_magnet_detect.md |
 | Test date | 2026-10-31 |
 | Revision date | 2026-11-05 |
 | Tester | Scott |
@@ -21,7 +20,7 @@
 
 ### Bench circuit
 
-Figure 1 — 4-blade 5 V bench circuit (drawn from the Hall board schematic in pmdd_drop-target §3 cut to 4 channels; 4-blade circuit and 5 V supply per Scott, 2026-11-05).
+Figure 1 — 4-blade 5 V bench circuit (drawn from the drop target Hall board schematic cut to 4 channels; 4-blade circuit and 5 V supply per Scott, 2026-11-05).
 
 ![Bench circuit: US5781 Hall switch, 4 blades, 5 V supply](hall_4x4_bench_circuit.svg)
 
