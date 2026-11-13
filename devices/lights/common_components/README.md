@@ -1,6 +1,6 @@
 # Lights — common components (DP-31 to DP-41)
 
-**Revision:** 20261113-01 · **CAD base name:** light (variants: light-recessed, light-post)
+**Revision:** 20261113-02 · **CAD base name:** light (variants: light-recessed, light-post)
 
 ## 1. Requirements
 
@@ -21,7 +21,8 @@ TBD, defined by CAD.
 |---|---|
 | LED | BTF-LIGHTING WS2812B, 10 mm, 5 V disk |
 | Connection | Female-header connector |
-| Data in / out | DIN from the previous LED's DOUT (first LED from the Topedal board Neopixel output, 5 V via the board's level shifter); DOUT to the next LED's DIN |
+| Data in / out | DIN from the previous LED's DOUT (first LED of each group from its Topedal board Neopixel output, 5 V via the board's level shifter); DOUT to the next LED's DIN |
+| Data topology | 3 LED groups, one per Topedal board (the design uses 3 Topedal boards). Each group is one daisy chain on that board's Neopixel output (PB15 to J6) |
 | Schematic | [draft_schematic.svg](draft_schematic.svg) (single WS2812B LED) |
 
 **WS2812B part specifications (Worldsemi datasheet)**
@@ -77,8 +78,13 @@ Source: seller listing and drawings (Amazon, "2.54mm 0.1" Pitch PCB Mount Screw 
 | Current entering a segment | LEDs downstream × 60 mA design value (for example 30 LEDs = 1.8 A) | Unverified |
 | LEDs downstream of any terminal | 30 or fewer, so pass-through current stays at or below the 2 A design limit per pin | Unverified |
 | Segment limit, 22 AWG | 2.4 A·m for the 0.25 V drop budget | Unverified |
-| 5V feed points and feeder wire size | TBD (an 18 AWG feeder cannot share an opening with a second wire) | TBD |
-| LED group size and chain order | TBD | TBD |
+| Group count | 3, one per Topedal board | Scott |
+| LEDs per group | About 34 (101 to 103 LEDs divided by 3); exact balance TBD | Unverified |
+| 5V feed points per group | At least 2: a head feed plus one mid-group injection, so no segment carries more than 30 LEDs downstream (34 LEDs at 60 mA is 2.04 A, over the 2 A per-pin design limit). Feed locations TBD | Unverified |
+| Feeder wire size | TBD (an 18 AWG feeder cannot share an opening with a second wire) | TBD |
+| Group-to-board assignment | TBD (each group to be a physical region; assignment by device group DP-31 to DP-41 TBD) | TBD |
+| Chain order within each group | TBD | TBD |
+| MPF/OPP light numbering across 3 boards | TBD (forum examples show card-based numbering such as 1-0-0; not verified against OPP documentation) | Unverified |
 | Firmware brightness cap | TBD | TBD |
 
 ## 4. Software
