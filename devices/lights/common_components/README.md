@@ -1,6 +1,6 @@
 # Lights — common components (DP-31 to DP-41)
 
-**Revision:** 20261113-02 · **CAD base name:** light (variants: light-recessed, light-post)
+**Revision:** 20261114-01 · **CAD base name:** light (variants: light-recessed, light-post)
 
 ## 1. Requirements
 
@@ -13,7 +13,14 @@
 
 ## 2. Mechanical
 
-TBD, defined by CAD.
+Geometry is defined by CAD (Scott's STEP export, 2026-11-14; not stored in the repository). Values below are read from that export unless marked.
+
+| Item | Value |
+|---|---|
+| Assembly envelope | 28.000 mm × 19.642 mm (X × Y); about 6.9 mm in Z |
+| Assembly parts | WS2812B disk (Ø9.5 mm, 2.6 mm thick, on 1.2 mm PCB), 2 ea. 3-position 0.1" terminal block, 0.1 µF capacitor, bracket |
+| Mounting | Bracket to the underside of the playfield; LED center on the light's playfield hole |
+| Fastener | #2 × 5/8" sheet metal screw, 0.0635 pilot (inches assumed); McMaster-Carr 92470A101 (Scott; unverified) |
 
 ## 3. Electrical
 
@@ -41,7 +48,7 @@ TBD, defined by CAD.
 | Input voltage VI, absolute maximum | −0.5 V to VDD + 0.5 V (Worldsemi V1.0, Jan 2016 datasheet; unverified for the BTF disk) |
 | Per-LED current at full white | 60 mA design value (unverified). Worldsemi V1.0 lists 16 mA for the red channel; green and blue values TBD |
 | Data-line series resistor | Not recorded |
-| Per-LED decoupling capacitor | Datasheet typical circuit: 100 nF (C1) per LED; whether the disk board includes it: Not recorded |
+| Per-LED decoupling capacitor | 0.1 µF per assembly (Scott; part number and type not recorded). Datasheet typical circuit: 100 nF (C1) per LED; whether the disk board includes it: Not recorded |
 
 **LED wiring terminal block (generic 2.54 mm screw terminal, 4 positions: 5V, GND, DIN, DOUT)**
 

@@ -10,4 +10,10 @@
 | Quantity | 32 |
 | Type | Post (LED with dome cover) |
 | Instance IDs | DP-41-01 to DP-41-32 (Machine Master Device Register) |
+| Design input | Even glow with low to moderate brightness, providing background lighting that doesn't wash out gameplay lighting (Scott, from experience with commercial dome lights) |
+| Light effect | TBD, pending bench test of printed stem and dome |
+| LED | WS2812B assembly, same as all lights (see common components) |
+| Playfield thickness | 12 mm (Scott) |
+| Playfield hole | Ø10 mm through, no recess (Scott) |
+| Stem and dome | Printed; design TBD. Stem length follows the playfield thickness |
 | Chain index | Wiring attribute in the Electrical Master I/O map, not part of the instance ID |
