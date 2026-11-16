@@ -1,6 +1,6 @@
 # Machine Master
 
-**Revision:** 20261110-02 · **Date:** 2026-11-10
+**Revision:** 20261116-01 · **Date:** 2026-11-16
 
 ## System overview
 
@@ -26,7 +26,7 @@
 
 | # | Item | Description |
 |---|---|---|
-| 1 | Time-critical devices | All solenoid firing runs through the Topedal board's Blue Pill firmware (fire pulse, then PWM hold where used); no hardware autofire (safety). The switches for DC-01 Pop bumpers, DC-02 Slingshots and DC-04 Flipper Assembly are on the same Topedal board as their coils |
+| 1 | Time-critical devices | All solenoid firing runs through the firmware of the board that owns the coil (fire pulse, then PWM hold where used). No hardware autofire (safety): no switch-to-driver path that bypasses board firmware. Local switch-triggered firing by the board's own firmware is permitted. The switches for DC-01 Pop bumpers, DC-02 Slingshots and DC-04 Flipper Assembly are on the same Topedal board as their coils |
 | 2 | Non-time-critical devices | Digital switches connected via Topedal board's onboard direct/matrix switch inputs |
 | 3 | Rules engine & asset management | Computer supporting MPF + Godot Media Controller (GMC) running Mission Pinball Framework (MPF) — game logic, scoring, game scenarios; GMC for audio/video/monitor display |
 | 4 | Comm bus | USB serial between host and Topedal board(s) |
@@ -40,6 +40,18 @@
 | 2 | Game scenarios | A game scenario is defined by populating a Game Scenario Framework — requires no firmware changes |
 | 3 | Playing field devices | <b>Primitive</b> — single physical switch/coil/sensor, no sub-components, assigned unique ID.<br><b>Composite</b> — 2 or more primitives combined to perform one coordinated physical action, e.g., button + coil + EOS sensor = flipper assembly.<br><b>Ball-state Device</b> — tracks ongoing ball location/count/presence as persistent state, e.g., scoop, ball lock, or trough |
 | 4 | Game setup | Players select game preferences before starting a game. Setup parameters include standard parameters applicable to all scenarios + scenario-specific parameters |
+
+
+### Terms
+
+| Term | Definition |
+|---|---|
+| Host | DP-27 Host computer, running MPF + Godot Media Controller (GMC) |
+| Controller | DP-28A Topedal board: the primary board (lowest chain address) |
+| Node | DP-28B Topedal board and DP-28C Topedal board: the additional smart boards |
+| Board | Any DP-28 Topedal board (controller or node); rules written for a board apply to every board |
+
+Hardware and firmware are identical on all boards; controller and node are roles by chain address only. Each board has its own USB link to the host.
 
 
 ## Requirements
