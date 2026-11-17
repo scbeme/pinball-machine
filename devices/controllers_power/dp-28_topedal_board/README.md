@@ -1,6 +1,6 @@
 # DP-28 Topedal board
 
-**Revision:** 20261106-02 · **Source:** Topedal OPP Solenoid, Neopixel & Switches Board, Rev 1.1 (12 Jun 2026), as used · 3 identical boards (DP-28A to DP-28C)
+**Revision:** 20261117-01 · **Source:** Topedal OPP Solenoid, Neopixel & Switches Board, Rev 1.1 (12 Jun 2026), as used · 3 identical boards (DP-28A to DP-28C)
 
 ## 1. Requirements
 
@@ -38,6 +38,20 @@ No flyback diode on the board: each solenoid has an external 1N400x-class diode.
 ## 4. Software
 
 Blue Pill firmware and driver map: Software Master. Fire and hold times: Control and Timing Table. No hardware autofire; all solenoid firing runs through the board firmware.
+
+### 4.1 Bench programming setup
+
+Diagrams: [ST-Link SWD wiring](interim_bench_stlink_wiring.svg), [USB power chain](interim_bench_usb_power.svg).
+
+| Item | Setup |
+|---|---|
+| Programmer | ST-Link V2 clone, SWD: SWCLK (pin 2) and SWDIO (pin 4) from the bottom row (2-4-6-8-10), GND on the top row; GND pin and wire colors TBD |
+| Wrong row | Signals on the top row 1-3-5-7-9 (RST / SWIM) give "unable to connect to the target" |
+| 3.3V wire | Not connected. The Blue Pill is powered from USB only |
+| Boot jumpers | BOOT0 = 0, BOOT1 = 0 |
+| USB chain | Mac USB-C port, USB-C to USB-A adapter at the Mac, USB-A to USB-C cable to the Blue Pill. Adapter at the Blue Pill end gives 0 V |
+| First connect | Approve "Allow accessory to connect" on the Mac. Board appears as `/dev/cu.usbmodem...` (not in Finder) |
+| Tools | VS Code with PlatformIO, ARM-native toolchain override `toolchain-gccarmnoneeabi@~1.120301.0` (Apple Silicon) |
 
 ## 5. Acceptance Criteria
 

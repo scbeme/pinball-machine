@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 420" font-family="Helvetica, Arial, sans-serif" font-size="14">
+<rect width="760" height="420" fill="#fff"/>
+<text x="20" y="28" font-size="18" font-weight="bold">Bench: ST-Link V2 to Blue Pill (SWD) wiring</text>
+<text x="20" y="48" font-size="12" fill="#555">Interim drawing, not a deliverable. Wire colors and exact GND pin: TBD (Scott to confirm)</text>
+<rect x="30" y="80" width="250" height="250" rx="8" fill="#eef3fb" stroke="#345"/>
+<text x="45" y="105" font-weight="bold">ST-Link V2 clone</text>
+<text x="45" y="124" font-size="12">2x5 header, white rectangle on silkscreen marks pin 1</text>
+<g stroke="#345" fill="#fff">
+<rect x="60" y="150" width="130" height="64"/></g>
+<g font-size="12" text-anchor="middle">
+<text x="75" y="170">1</text><text x="100" y="170">3</text><text x="125" y="170">5</text><text x="150" y="170">7</text><text x="175" y="170">9</text>
+<text x="75" y="204">2</text><text x="100" y="204">4</text><text x="125" y="204">6</text><text x="150" y="204">8</text><text x="175" y="204">10</text></g>
+<text x="200" y="171" font-size="12">TOP row (label side): 1-3-5-7-9</text>
+<text x="200" y="204" font-size="12">BOTTOM row: 2-4-6-8-10</text>
+<text x="45" y="240" font-size="12">TOP row 1/3/5/7 = RST / SWIM / GND / 3.3V</text>
+<text x="45" y="258" font-size="12">BOTTOM row 2/4/6/8 = SWCLK / SWDIO / GND / 3.3V</text>
+<rect x="45" y="272" width="220" height="44" fill="#fdecea" stroke="#b33"/>
+<text x="52" y="290" font-size="12" fill="#b33" font-weight="bold">Signals must come from the BOTTOM row.</text>
+<text x="52" y="306" font-size="12" fill="#b33">Signals on the RST/SWIM row: no connection.</text>
+<rect x="470" y="80" width="260" height="250" rx="8" fill="#eef7ee" stroke="#353"/>
+<text x="485" y="105" font-weight="bold">Blue Pill (STM32F103C8T6)</text>
+<text x="485" y="124" font-size="12">4-pin SWD header</text>
+<text x="485" y="160">SWCLK  (PA14)</text><text x="485" y="195">SWDIO  (PA13)</text><text x="485" y="230">GND</text><text x="485" y="265">3V3</text>
+<text x="485" y="305" font-size="12">BOOT0 = 0, BOOT1 = 0 (both jumpers at 0)</text>
+<g stroke-width="3" fill="none">
+<path d="M190 204 C 330 204 330 156 470 156" stroke="#c60"/>
+<path d="M190 204 C 330 204 330 191 470 191" stroke="#06c" stroke-opacity="0"/>
+</g>
+<g stroke-width="3" fill="none">
+<path d="M100 214 L100 232" stroke="#06c" stroke-opacity="0"/>
+<line x1="280" y1="160" x2="470" y2="156" stroke="#c60"/>
+<line x1="280" y1="195" x2="470" y2="191" stroke="#06c"/>
+<line x1="280" y1="230" x2="470" y2="226" stroke="#222"/>
+</g>
+<text x="290" y="150" font-size="12" fill="#c60">SWCLK (pin 2)</text>
+<text x="290" y="185" font-size="12" fill="#06c">SWDIO (pin 4)</text>
+<text x="290" y="220" font-size="12">GND (top row; pin TBD)</text>
+<line x1="280" y1="265" x2="470" y2="261" stroke="#b33" stroke-width="3" stroke-dasharray="8 6"/>
+<text x="300" y="285" font-size="12" fill="#b33" font-weight="bold">3.3V: NOT connected</text>
+<rect x="30" y="350" width="700" height="52" fill="#fff8e1" stroke="#a80"/>
+<text x="40" y="370" font-size="12">Power the Blue Pill from USB only (see interim_bench_usb_power.svg). Never power from USB and the ST-Link 3.3V wire together.</text>
+<text x="40" y="390" font-size="12">Never put 5V on the Blue Pill 3V3 pin.</text>
+</svg>
