@@ -12,7 +12,7 @@
 
 **Supersedes:** none (earlier revisions were local drafts, never published)
 
-**Circuit:** `test_ws2812b_dome_baseline_circuit.svg`
+**Circuit:** `test_ws2812b_dome_baseline_circuit.svg` (Setup A: 2-diode, 3.8 V, as tested 2026-11-18. Setup B: 74AHCT125N, 5.0 V, added 2026-11-18, not yet built; once Setup B is verified Setup A can likely be deleted)
 
 **Firmware:** [test_ws2812b_dome_baseline_main.c](test_ws2812b_dome_baseline_main.c), tag `fw-ws2812b-test-20261118-01` (PlatformIO, STM32Cube HAL)
 
@@ -74,7 +74,7 @@ Results are entered by Scott (observations as reported in session, by eye). Pass
 | 5 Direct 3.3 V data at 5 V supply | No wrong colors or flicker at level 7 over 5 minutes | Not run. Level shifter decision (Scott, 2026-11-18): 74AHCT125N; the 5 V supply check is Test 8 | |
 | 6 Supply current at color 1, level 7 (optional, meter in the 5 V lead) | Record value for the 2 disks | | |
 | 7 Dome baseline | Record the color # and level # chosen for D1 under the dome, and how it compares with bare D2 | Scott's decision: baseline default post-light setting = color 1 (pure white, 255,255,255) at level 7 (scale 255, maximum brightness). Dome-vs-bare comparison not recorded. Observed at 3.8 V LED supply (see Brightness condition); to be re-confirmed at 5.0 V in Test 8. | |
-| 8 Baseline at 5.0 V with 74AHCT125N | LED supply 5.0 V, data from the Blue Pill through a 74AHCT125N (5 V supply, OE tied low). Record the brightness of color 1 at level 7 against the 3.8 V observation; no wrong colors or flicker over 5 minutes | Not run. To be run when the 74AHCT125N is received (Scott to order) | |
+| 8 Baseline at 5.0 V with 74AHCT125N (circuit Setup B) | LED supply 5.0 V, data from the Blue Pill through a 74AHCT125N (5 V supply, OE tied low). Record the brightness of color 1 at level 7 against the 3.8 V observation; no wrong colors or flicker over 5 minutes | Not run. To be run when the 74AHCT125N is received (Scott to order) | |
 
 ## Deviations from the final design
 
