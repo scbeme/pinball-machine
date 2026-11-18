@@ -1,6 +1,6 @@
 # Lights — common components (DP-31 to DP-41)
 
-**Revision:** 20261114-01 · **CAD base name:** light (variants: light-recessed, light-post)
+**Revision:** 20261118-01 · **CAD base name:** light (variants: light-recessed, light-post)
 
 ## 1. Requirements
 
@@ -49,6 +49,26 @@ Geometry is defined by CAD (Scott's STEP export, 2026-11-14; not stored in the r
 | Per-LED current at full white | 60 mA design value (unverified). Worldsemi V1.0 lists 16 mA for the red channel; green and blue values TBD |
 | Data-line series resistor | Not recorded |
 | Per-LED decoupling capacitor | 0.1 µF per assembly (Scott; part number and type not recorded). Datasheet typical circuit: 100 nF (C1) per LED; whether the disk board includes it: Not recorded |
+
+**BTF-LIGHTING WS2812B disk: seller listing (Amazon, ASIN B01DC0J0WS)**
+
+Source: seller listing "Product information" screenshot supplied by Scott, 2026-11-18. No BTF-LIGHTING datasheet has been supplied or found. Every value below is a seller claim and is **unverified**.
+
+| Parameter | Value | Status |
+|---|---|---|
+| Brand / manufacturer | BTF-LIGHTING / BTF-LIGHTING Technology Co., Limited | Unverified |
+| Model / manufacturer part number | WS2812BLEDW-W100pcs | Unverified |
+| ASIN / UPC | B01DC0J0WS / 602938070492 | Unverified |
+| Pack size | 100 (listing: Number of Light Sources 100, Unit Count 100) | Unverified |
+| LED type | WS2812B RGB, individually addressable, DIY use | Unverified |
+| Supply | DC 5 V | Unverified |
+| Included | 1 × 3-pin SM male connector; no power supply or controller | Unverified |
+| Item dimensions / weight | 4.72 × 3.94 × 0.59 in / 1.06 oz. The listing does not say what is measured (disk or pack) | Unverified |
+| Indoor / outdoor | Outdoor. No IP rating given | Unverified |
+| Light color | "Black, White". Meaning not stated | Unverified |
+| White brightness | 1750 lumens. Basis not stated; not used in the design | Unverified |
+
+Not in the listing: per-LED current, data timing, VIH, disk diameter and thickness (CAD uses Ø9.5 mm × 2.6 mm), connector pinout and wire length, and whether the board carries a decoupling capacitor. The Worldsemi table above remains the only electrical source and is unverified for this disk. The listing's Controller Type (Amazon Alexa), Control Method (App), Connectivity (Wi-Fi) and Bulb Shape (T) fields are generic listing-template entries and do not apply to this part; they are not recorded here.
 
 **LED wiring terminal block (generic 2.54 mm screw terminal, 4 positions: 5V, GND, DIN, DOUT)**
 
