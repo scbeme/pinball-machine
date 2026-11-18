@@ -2,7 +2,7 @@
 
 **Test ID:** 20261118-02
 
-**Revision:** 20261118-01
+**Revision:** 20261118-02
 
 **Date:** 2026-11-18
 
@@ -10,7 +10,7 @@
 
 **Tester:** Scott
 
-**Supersedes:** none
+**Supersedes:** 20261118-01 (administrative: bench project layout and firmware-switching rules added from the retired firmware status record; no test content changed)
 
 **Tooling files:** [platformio.ini](test_bluepill_usb_bootloader_platformio.ini), [flash script](test_bluepill_usb_bootloader_flash.py), [DFU upload script](test_bluepill_usb_bootloader_dfu_upload.py), [linker script](test_bluepill_usb_bootloader_app2000.ld)
 
@@ -49,6 +49,25 @@ Load firmware onto the Blue Pill over its USB-C port, without an ST-Link, as a m
 | 2 | Select env `bluepill_usb`, click Build, then click Upload (it waits for the device) |
 | 3 | Plug the USB-C in; the upload completes in about 15 s |
 | 4 | Press reset to start the application |
+
+**Bench project environments** (PlatformIO project `pio-bluepill`, on Scott's MacBook Air only)
+
+| Env | Purpose |
+|---|---|
+| `usb_boot_flash` | One-time ST-Link flash of the USB bootloader |
+| `bluepill_usb` | Normal workflow: application at 0x08002000, uploaded over USB-C. Default env |
+| `bluepill_f103c8` | Application at 0x08000000 through the ST-Link; overwrites the bootloader |
+| `opp_flash` | Flash the prebuilt OPP image (bootloader at 0x08000000, application at 0x08001000, see `system/software/opp/README.md`) through the ST-Link; overwrites the USB bootloader |
+
+**Switching between test firmware and OPP**
+
+| Rule | Definition |
+|---|---|
+| Test firmware to test firmware | USB upload overwrites the application only; the bootloader stays |
+| Test firmware to OPP | Not an overwrite: the ST-Link flashes the whole chip with the OPP bootloader and application (env `opp_flash`) |
+| OPP back to test firmware | Repeat the one-time bootloader install above, then upload over USB |
+| Before every test | Upload that test's firmware (Step 0 in its test card); the chip has no version string and its flash cannot be read back |
+| History | The OPP image that was on the bench board was erased by the mass erase in Test 2 on 2026-11-18 |
 
 ## Results
 

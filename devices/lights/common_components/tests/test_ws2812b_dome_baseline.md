@@ -2,7 +2,7 @@
 
 **Test ID:** 20261118-01
 
-**Revision:** 20261118-05
+**Revision:** 20261118-06
 
 **Date:** 2026-11-18
 
@@ -10,11 +10,11 @@
 
 **Tester:** Scott
 
-**Supersedes:** none (earlier revisions were local drafts, never published)
+**Supersedes:** 20261118-05 (administrative: Step 0 added, firmware tag wording removed; no test content changed)
 
 **Circuit:** `test_ws2812b_dome_baseline_circuit.svg` (Setup A: 2-diode, 3.8 V, as tested 2026-11-18. Setup B: 74AHCT125N, 5.0 V, added 2026-11-18, not yet built; once Setup B is verified Setup A can likely be deleted)
 
-**Firmware:** [test_ws2812b_dome_baseline_main.c](test_ws2812b_dome_baseline_main.c), tag `fw-ws2812b-test-20261118-01` (PlatformIO, STM32Cube HAL)
+**Firmware:** [test_ws2812b_dome_baseline_main.c](test_ws2812b_dome_baseline_main.c) (PlatformIO, STM32Cube HAL). This file is the only firmware record; upload it before every run (Step 0)
 
 **Bench tooling:** [test_bluepill_usb_bootloader.md](../../../../system/system_common_components/tests/test_bluepill_usb_bootloader.md) (USB bootloader, upload procedure, platformio.ini)
 
@@ -24,6 +24,8 @@
 2. Identify a baseline color and brightness for the post lights behind the 3D-printed dome.
 
 ## Test setup
+
+**Step 0 (before every test run):** upload this test's firmware (section "Reloading this test firmware"). Do not assume the board still holds it: the chip has no version string and its flash cannot be read back. Uploading over the same firmware simply overwrites it. If the board holds OPP or other firmware, first reinstall the USB bootloader (bench tooling card).
 
 | Item | Setup |
 |---|---|
@@ -109,4 +111,4 @@ Results are entered by Scott (observations as reported in session, by eye). Pass
 | 1 | Clone the repository and copy `test_ws2812b_dome_baseline_main.c` to `src/main.c` of the Blue Pill bench project (setup in the bench tooling card) |
 | 2 | Build env `bluepill_usb` (PlatformIO) |
 | 3 | Unplug the Blue Pill USB-C, click Upload, plug the USB-C in, then press reset |
-| 4 | Confirm: power-up shows both LEDs white at level 4 and the short and long presses behave as in the Controls table. The chip has no version string, so the firmware tag is recorded in the session notes |
+| 4 | Confirm: power-up shows both LEDs white at level 4 and the short and long presses behave as in the Controls table. The chip has no version string, so this check is the only confirmation that the firmware is loaded |
