@@ -34,7 +34,7 @@ Geometry is defined by CAD (Scott's STEP export, 2026-11-14; not stored in the r
 
 **WS2812B disk specifications (BTF-LIGHTING WS2812BLEDW-W100pcs)**
 
-Source: Amazon listing "Product information" (ASIN B01DC0J0WS), screenshot supplied by Scott 2026-11-18, and retailer pages that repeat the listing (country of origin, package size). No BTF-LIGHTING datasheet has been supplied or found. Every value below is a seller claim and is **unverified**. The Worldsemi WS2812B chip datasheet values were removed 2026-11-18 at Scott's direction because they describe the chip, not the disk as sold; Git history holds them.
+Source: Amazon listing "Product information" and "Parameter Table" (ASIN B01DC0J0WS), two screenshots supplied by Scott 2026-11-18, and retailer pages that repeat the listing (country of origin, package size). No BTF-LIGHTING datasheet has been supplied or found. Every value below is a seller claim and is **unverified**. The Worldsemi WS2812B chip datasheet values were removed 2026-11-18 at Scott's direction because they describe the chip, not the disk as sold; Git history holds them.
 
 | Parameter | Value | Status |
 |---|---|---|
@@ -42,18 +42,24 @@ Source: Amazon listing "Product information" (ASIN B01DC0J0WS), screenshot suppl
 | Model / manufacturer part number | WS2812BLEDW-W100pcs | Unverified |
 | ASIN / UPC | B01DC0J0WS / 602938070492 | Unverified |
 | Country of origin | China | Unverified (retailer page) |
-| LED type | WS2812B RGB, individually addressable, DIY use | Unverified |
-| Pack size | 100 (listing: Number of Light Sources 100, Unit Count 100) | Unverified |
-| Supply | DC 5 V | Unverified |
+| LED type / IC | WS2812B RGB LED pixel, WS2812B IC, 5050SMD lamp bead, individually addressable, DIY use | Unverified |
+| Color | Full color, 24-bit | Unverified |
+| Color order | GRB (not RGB) | Unverified |
+| Wavelength | Red 620–630 nm; green 515–530 nm; blue 465–475 nm | Unverified |
+| FPCB board color | Black or white (listing offers both; which was ordered: not recorded) | Unverified |
+| Pack size | 100 (listing: Number of Light Sources 100, Unit Count 100; Parameter Table: 100 pcs / 200 pcs) | Unverified |
+| Supply | Input voltage DC 5 V; supply range not stated | Unverified |
+| Recommended power supply | DC 5 V, 6 A; supply and controller not included. The listing does not say for how many LEDs | Unverified |
+| Operating temperature | −20 to +40 °C (−4 to 104 °F) | Unverified |
 | Included | 1 × 3-pin SM male connector; no power supply or controller | Unverified |
 | Package size / weight | 4.72 × 3.94 × 0.59 in (12 × 10 × 1.5 cm, retailer page) / 1.06 oz. The listing does not say whether this is the pack or the disk; the figures match a pack of 100 | Unverified |
-| Indoor / outdoor | Outdoor. No IP rating given | Unverified |
-| Light color | "Black, White". Meaning not stated | Unverified |
+| Indoor / outdoor | Header says Outdoor; Parameter Table says waterproof level IP30. The two conflict; not resolved | Unverified |
+| Connection | Solder only (Parameter Table notice) | Unverified |
 | White brightness | 1750 lumens. Basis not stated; not used in the design | Unverified |
 | Per-LED current at full white | 60 mA design value (not from the listing) | Unverified |
 | Per-LED decoupling capacitor | 0.1 µF per assembly (Scott; part number and type not recorded). Whether the disk board includes one: Not recorded | Unverified |
 | Data-line series resistor | Not recorded | TBD |
-| Supply voltage range, data input thresholds, data rate and format, bit timing, reset time, absolute maximum input voltage, operating temperature | Not in the listing | TBD |
+| Supply voltage range, data input thresholds, data rate, bit timing, reset time, absolute maximum input voltage | Not in the listing | TBD |
 | Disk diameter and thickness | Not in the listing (CAD uses Ø9.5 mm × 2.6 mm on a 1.2 mm PCB) | TBD |
 
 Listing fields that do not apply to this part and are not recorded: Controller Type (Amazon Alexa), Control Method (App), Connectivity (Wi-Fi), Bulb Shape (T).
