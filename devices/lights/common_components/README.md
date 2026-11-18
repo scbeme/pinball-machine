@@ -32,43 +32,31 @@ Geometry is defined by CAD (Scott's STEP export, 2026-11-14; not stored in the r
 | Data topology | 3 LED groups, one per Topedal board (the design uses 3 Topedal boards). Each group is one daisy chain on that board's Neopixel output (PB15 to J6) |
 | Schematic | [draft_schematic.svg](draft_schematic.svg) (single WS2812B LED) |
 
-**WS2812B part specifications (Worldsemi datasheet)**
+**WS2812B disk specifications (BTF-LIGHTING WS2812BLEDW-W100pcs)**
 
-| Spec | Value |
-|---|---|
-| Supply VDD | 3.5–5.3 V |
-| Data input high, VIH | 0.7 × VDD |
-| Data input low, VIL | 0.3 × VDD |
-| Data rate | 800 kbps |
-| Data format | 24-bit, GRB order, MSB first |
-| T0H / T0L | 0.4 µs / 0.85 µs (±150 ns) |
-| T1H / T1L | 0.8 µs / 0.45 µs (±150 ns) |
-| Reset time | >50 µs |
-| Operating temperature | −25 to +80 °C |
-| Input voltage VI, absolute maximum | −0.5 V to VDD + 0.5 V (Worldsemi V1.0, Jan 2016 datasheet; unverified for the BTF disk) |
-| Per-LED current at full white | 60 mA design value (unverified). Worldsemi V1.0 lists 16 mA for the red channel; green and blue values TBD |
-| Data-line series resistor | Not recorded |
-| Per-LED decoupling capacitor | 0.1 µF per assembly (Scott; part number and type not recorded). Datasheet typical circuit: 100 nF (C1) per LED; whether the disk board includes it: Not recorded |
-
-**BTF-LIGHTING WS2812B disk: seller listing (Amazon, ASIN B01DC0J0WS)**
-
-Source: seller listing "Product information" screenshot supplied by Scott, 2026-11-18. No BTF-LIGHTING datasheet has been supplied or found. Every value below is a seller claim and is **unverified**.
+Source: Amazon listing "Product information" (ASIN B01DC0J0WS), screenshot supplied by Scott 2026-11-18, and retailer pages that repeat the listing (country of origin, package size). No BTF-LIGHTING datasheet has been supplied or found. Every value below is a seller claim and is **unverified**. The Worldsemi WS2812B chip datasheet values were removed 2026-11-18 at Scott's direction because they describe the chip, not the disk as sold; Git history holds them.
 
 | Parameter | Value | Status |
 |---|---|---|
 | Brand / manufacturer | BTF-LIGHTING / BTF-LIGHTING Technology Co., Limited | Unverified |
 | Model / manufacturer part number | WS2812BLEDW-W100pcs | Unverified |
 | ASIN / UPC | B01DC0J0WS / 602938070492 | Unverified |
-| Pack size | 100 (listing: Number of Light Sources 100, Unit Count 100) | Unverified |
+| Country of origin | China | Unverified (retailer page) |
 | LED type | WS2812B RGB, individually addressable, DIY use | Unverified |
+| Pack size | 100 (listing: Number of Light Sources 100, Unit Count 100) | Unverified |
 | Supply | DC 5 V | Unverified |
 | Included | 1 × 3-pin SM male connector; no power supply or controller | Unverified |
-| Item dimensions / weight | 4.72 × 3.94 × 0.59 in / 1.06 oz. The listing does not say what is measured (disk or pack) | Unverified |
+| Package size / weight | 4.72 × 3.94 × 0.59 in (12 × 10 × 1.5 cm, retailer page) / 1.06 oz. The listing does not say whether this is the pack or the disk; the figures match a pack of 100 | Unverified |
 | Indoor / outdoor | Outdoor. No IP rating given | Unverified |
 | Light color | "Black, White". Meaning not stated | Unverified |
 | White brightness | 1750 lumens. Basis not stated; not used in the design | Unverified |
+| Per-LED current at full white | 60 mA design value (not from the listing) | Unverified |
+| Per-LED decoupling capacitor | 0.1 µF per assembly (Scott; part number and type not recorded). Whether the disk board includes one: Not recorded | Unverified |
+| Data-line series resistor | Not recorded | TBD |
+| Supply voltage range, data input thresholds, data rate and format, bit timing, reset time, absolute maximum input voltage, operating temperature | Not in the listing | TBD |
+| Disk diameter and thickness | Not in the listing (CAD uses Ø9.5 mm × 2.6 mm on a 1.2 mm PCB) | TBD |
 
-Not in the listing: per-LED current, data timing, VIH, disk diameter and thickness (CAD uses Ø9.5 mm × 2.6 mm), connector pinout and wire length, and whether the board carries a decoupling capacitor. The Worldsemi table above remains the only electrical source and is unverified for this disk. The listing's Controller Type (Amazon Alexa), Control Method (App), Connectivity (Wi-Fi) and Bulb Shape (T) fields are generic listing-template entries and do not apply to this part; they are not recorded here.
+Listing fields that do not apply to this part and are not recorded: Controller Type (Amazon Alexa), Control Method (App), Connectivity (Wi-Fi), Bulb Shape (T).
 
 **LED wiring terminal block (generic 2.54 mm screw terminal, 4 positions: 5V, GND, DIN, DOUT)**
 
@@ -101,7 +89,7 @@ Source: seller listing and drawings (Amazon, "2.54mm 0.1" Pitch PCB Mount Screw 
 | Terminal use | One 4-position block per LED node. The 5V position takes both the incoming and outgoing 5V wires; the GND position takes both the incoming and outgoing GND wires | Scott |
 | Wire size at the terminal | 22 AWG for 5V and GND (largest that fits two per opening) | Unverified, pending test fit |
 | DIN / DOUT wire | 24–26 AWG | Unverified |
-| Drop budget | 0.25 V round trip from the 5.0 V rail to any LED. Reason: VI maximum is VDD + 0.5 V and the 74AHCT125N drives data at 5.0 V | Unverified |
+| Drop budget | 0.25 V round trip from the 5.0 V rail to any LED. Reason: the VDD + 0.5 V input limit came from the removed Worldsemi table; basis for the disk TBD. The 74AHCT125N drives data at 5.0 V | Unverified |
 | Current entering a segment | LEDs downstream × 60 mA design value (for example 30 LEDs = 1.8 A) | Unverified |
 | LEDs downstream of any terminal | 30 or fewer, so pass-through current stays at or below the 2 A design limit per pin | Unverified |
 | Segment limit, 22 AWG | 2.4 A·m for the 0.25 V drop budget | Unverified |
@@ -123,5 +111,5 @@ TBD
 | Item | Requirement |
 |---|---|
 | Quantity | 103 (per CAD) |
-| Supply | 5 V (VDD 3.5–5.3 V) |
+| Supply | 5 V (listing: DC 5 V; supply voltage range TBD) |
 | Terminal two-wire fit | Two 22 AWG wires fit in one terminal opening and pass a pull test. Result: TBD |
