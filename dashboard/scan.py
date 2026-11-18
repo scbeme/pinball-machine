@@ -8,6 +8,8 @@ Run by .github/workflows/pages.yml on every deploy; no dependencies.
    no device ID matches two folders. Any error exits 1, so the deploy stops and the live site stays.
 2. Derives status from the repository contents (rules in dashboard.md terms):
    item absent = not_started; draft_ prefix = in_progress; present = complete; na stays na.
+   A "no_baseline" directory rule (Firmware code) ignores README.md and files with "baseline" in
+   the name: a folder holding only open-source baseline references is in_progress, not complete.
 3. Assembles the site: dashboard app, the .md/.svg/.png files under system/ and devices/, status.json.
    CAD, print and other files are never published.
 """
@@ -57,7 +59,7 @@ SYSTEM_ITEMS = {
     "I/O map": ("section", "system/electrical_master.md", "I/O map"),
     "Cable + harness layout": ("file", "system/interface_harness_list.md"),
     "State machine diagram": ("file", "system/drawings/state_machine_diagram.svg"),
-    "Firmware code": ("dir", "system/software"),
+    "Firmware code": ("dir", "system/software", "no_baseline"),
     "Drawings": None,
     "Tests + results table": ("dir", "system/tests"),
 }
@@ -109,7 +111,9 @@ class Repo:
         if kind == "dir":
             pre = f"{base}/{rule[1]}/"
             inside = [f for f in self.files if f.startswith(pre)]
-            real = [f for f in inside if not os.path.basename(f).startswith("draft_")]
+            skip = len(rule) > 2 and rule[2] == "no_baseline"
+            isb = lambda f: os.path.basename(f) == "README.md" or "baseline" in os.path.basename(f)
+            real = [f for f in inside if not os.path.basename(f).startswith("draft_") and not (skip and isb(f))]
             return ("complete", pre[:-1], "dir") if real else ("in_progress", pre[:-1], "dir") if inside else ("not_started", None, "dir")
         if kind == "section":  # a heading inside a document
             p = f"{base}/{rule[1]}"
@@ -202,7 +206,7 @@ def main():
                 sec = rule[2]
             elif rule[0] == "dir":
                 base, name = rule[1].rsplit("/", 1)
-                st, p, k = R.derive(base, ("dir", name))
+                st, p, k = R.derive(base, ("dir", name) + tuple(rule[2:]))
                 sec = None
             else:
                 base, name = rule[1].rsplit("/", 1)

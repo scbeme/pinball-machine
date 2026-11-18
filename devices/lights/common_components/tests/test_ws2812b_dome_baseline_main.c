@@ -1,8 +1,8 @@
 /*
  * WS2812B dome baseline test, test 20261118-01
  * File: test_ws2812b_dome_baseline_main.c (copy to src/main.c of the Blue Pill PlatformIO project)
- * Firmware tag: fw-ws2812b-test-20261118-01 (built for env bluepill_usb, uploaded 2026-11-18)
- * On-chip version string: none (the tag is recorded in the test card and session notes only).
+ * Build: env bluepill_usb. Upload this file before every test run (test card, Step 0); the chip
+ * has no version string and its flash cannot be read back, so never assume it is already loaded.
  * STM32F103C8T6 Blue Pill, STM32Cube HAL, PlatformIO.
  *
  * Pins (Topedal Rev 1.1 assignments, PMDD Table 5.3-5):
