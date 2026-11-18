@@ -2,7 +2,7 @@
 
 **Test ID:** 20261118-01
 
-**Revision:** 20261118-04
+**Revision:** 20261118-05
 
 **Date:** 2026-11-18
 
@@ -63,21 +63,25 @@ Power-up state: color 1, level 4.
 
 Results are entered by Scott (observations as reported in session, by eye). Pass / Fail left blank for Scott. Tests 3 to 6 not run; Test 7 holds Scott's baseline decision.
 
+**Brightness condition:** the brightness observed in this card, including the Test 7 baseline, was at the reduced LED supply of 3.8 V (two series 1N4007), not the final 5.0 V. Scott's expectation is that LED brightness will increase significantly at 5.0 V; this is not measured. Test 8 repeats the baseline at 5.0 V.
+
 | Test | Requirement | Result | Pass / Fail |
 |---|---|---|---|
 | 1 Both disks light at power-up (color 1, level 4) | D1 and D2 both lit, same color, no flicker | Run A (2.25 MHz SPI timing): D1 green-tinted, D2 white; unchanged with disks swapped, diode added, supply 3.8 V. Run B (4.5 MHz SPI timing, 0-bit 0.22 us / 1-bit 0.67 us): both white. Flicker not reported. Reported by Scott. | |
 | 2 Color order | Each preset shows its named hue on both disks (confirms GRB order) | Run A: D1 pale green on red, pale blue on blue, D2 correct. Run B: color 2 white with slight tint shift on both; color 3 both red, 4 both green, 5 both blue. Colors 6 to 8 not tested. Reported by Scott. | |
 | 3 Brightness steps | 7 distinct steps, D2 tracks D1, no flicker at any step | | |
 | 4 Switch and readout | Short press changes level, long press changes color, readout blink counts equal the state | | |
-| 5 Direct 3.3 V data at 5 V supply | No wrong colors or flicker at level 7 over 5 minutes | | |
+| 5 Direct 3.3 V data at 5 V supply | No wrong colors or flicker at level 7 over 5 minutes | Not run. Level shifter decision (Scott, 2026-11-18): 74AHCT125N; the 5 V supply check is Test 8 | |
 | 6 Supply current at color 1, level 7 (optional, meter in the 5 V lead) | Record value for the 2 disks | | |
-| 7 Dome baseline | Record the color # and level # chosen for D1 under the dome, and how it compares with bare D2 | Scott's decision: baseline default post-light setting = color 1 (pure white, 255,255,255) at level 7 (scale 255, maximum brightness). Dome-vs-bare comparison not recorded. | |
+| 7 Dome baseline | Record the color # and level # chosen for D1 under the dome, and how it compares with bare D2 | Scott's decision: baseline default post-light setting = color 1 (pure white, 255,255,255) at level 7 (scale 255, maximum brightness). Dome-vs-bare comparison not recorded. Observed at 3.8 V LED supply (see Brightness condition); to be re-confirmed at 5.0 V in Test 8. | |
+| 8 Baseline at 5.0 V with 74AHCT125N | LED supply 5.0 V, data from the Blue Pill through a 74AHCT125N (5 V supply, OE tied low). Record the brightness of color 1 at level 7 against the 3.8 V observation; no wrong colors or flicker over 5 minutes | Not run. To be run when the 74AHCT125N is received (Scott to order) | |
 
 ## Deviations from the final design
 
 | Item | Rig | Final design | Reason |
 |---|---|---|---|
-| Data level | 3.3 V direct, no level shifter; LED supply lowered to 3.8 V with two series 1N4007 | Level shifted to 5 V | Simplest rig; keep the data-high threshold (0.7 x VDD) near 2.7 V |
+| Data level | 3.3 V direct, no level shifter; LED supply lowered to 3.8 V with two series 1N4007 | Level shifted to 5 V with a 74AHCT125N (Scott, 2026-11-18) | Simplest rig; keep the data-high threshold (0.7 x VDD) near 2.7 V |
+| LED supply and brightness | 3.8 V at the disks; brightness observed at 3.8 V | 5.0 V (P-06); brightness expected to be significantly higher (Scott; not measured) | Lowered so 3.3 V data stays within the data-high threshold; see Test 8 |
 | Programming | USB DFU bootloader (STM32duino generic_boot20_pc13) | OPP firmware / bootloader | Scott's USB-programming preference |
 | SPI timing | 4.5 MHz, 5 SPI bits per WS2812B bit (0 = 10000, 1 = 11100) | n/a | Removed D1 color error seen at 2.25 MHz (3 bits per WS bit) |
 | Series resistor, added capacitors | None | Values TBD in lights README | Simplest rig |
@@ -96,6 +100,7 @@ Results are entered by Scott (observations as reported in session, by eye). Pass
 | Cause of the Run A D1 error | Not established: not the disk (persisted with disks swapped), not the dome, not supply level alone (persisted at 3.8 V). Cleared by the SPI timing change. Not checked with an oscilloscope |
 | USB current | Per-LED current is TBD in the lights README; 2 disks are expected to be a small load (estimate, not measured) |
 | Disk pad marks and on-board capacitor | Not verified on the BTF-LIGHTING disk |
+| LED brightness at 5.0 V | Not measured. Observed at 3.8 V only; Scott expects a significant increase at 5.0 V (Test 8) |
 
 ## Reloading this test firmware
 
