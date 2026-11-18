@@ -34,7 +34,7 @@ Geometry is defined by CAD (Scott's STEP export, 2026-11-14; not stored in the r
 
 **WS2812B disk specifications (BTF-LIGHTING WS2812BLEDW-W100pcs)**
 
-Source: Amazon listing "Product information" and "Parameter Table" (ASIN B01DC0J0WS), two screenshots supplied by Scott 2026-11-18, and retailer pages that repeat the listing (country of origin, package size). No BTF-LIGHTING datasheet has been supplied or found. Every value below is a seller claim and is **unverified**. The Worldsemi WS2812B chip datasheet values were removed 2026-11-18 at Scott's direction because they describe the chip, not the disk as sold; Git history holds them.
+Source: Amazon listing "Product information" and "Parameter Table" (ASIN B01DC0J0WS), two screenshots supplied by Scott 2026-11-18, and retailer pages that repeat the listing (country of origin, package size). No BTF-LIGHTING datasheet has been supplied or found. Every value below is a seller claim and is **unverified**. The Worldsemi chip datasheet values are kept separately in the chip reference below because they describe the chip, not the disk as sold.
 
 | Parameter | Value | Status |
 |---|---|---|
@@ -63,6 +63,25 @@ Source: Amazon listing "Product information" and "Parameter Table" (ASIN B01DC0J
 | Disk diameter and thickness | Not in the listing (CAD uses Ø9.5 mm × 2.6 mm on a 1.2 mm PCB) | TBD |
 
 Listing fields that do not apply to this part and are not recorded: Controller Type (Amazon Alexa), Control Method (App), Connectivity (Wi-Fi), Bulb Shape (T).
+
+**WS2812B chip reference (Worldsemi datasheet V1.0, Jan 2016): chip values, not the BTF disk**
+
+Reference only. These describe the Worldsemi chip and are unverified for the BTF-LIGHTING disk above; the disk table controls. Restored 2026-11-18 at Scott's direction.
+
+| Spec | Value |
+|---|---|
+| Supply VDD | 3.5–5.3 V |
+| Data input high, VIH | 0.7 × VDD |
+| Data input low, VIL | 0.3 × VDD |
+| Data rate | 800 kbps |
+| Data format | 24-bit, GRB order, MSB first |
+| T0H / T0L | 0.4 µs / 0.85 µs (±150 ns) |
+| T1H / T1L | 0.8 µs / 0.45 µs (±150 ns) |
+| Reset time | >50 µs |
+| Operating temperature | −25 to +80 °C |
+| Input voltage VI, absolute maximum | −0.5 V to VDD + 0.5 V |
+| Current, red channel | 16 mA (green and blue values TBD) |
+| Typical circuit decoupling | 100 nF (C1) per LED |
 
 **LED wiring terminal block (generic 2.54 mm screw terminal, 4 positions: 5V, GND, DIN, DOUT)**
 
@@ -95,7 +114,7 @@ Source: seller listing and drawings (Amazon, "2.54mm 0.1" Pitch PCB Mount Screw 
 | Terminal use | One 4-position block per LED node. The 5V position takes both the incoming and outgoing 5V wires; the GND position takes both the incoming and outgoing GND wires | Scott |
 | Wire size at the terminal | 22 AWG for 5V and GND (largest that fits two per opening) | Unverified, pending test fit |
 | DIN / DOUT wire | 24–26 AWG | Unverified |
-| Drop budget | 0.25 V round trip from the 5.0 V rail to any LED. Reason: the VDD + 0.5 V input limit came from the removed Worldsemi table; basis for the disk TBD. The 74AHCT125N drives data at 5.0 V | Unverified |
+| Drop budget | 0.25 V round trip from the 5.0 V rail to any LED. Reason: VI maximum is VDD + 0.5 V (Worldsemi chip reference; unverified for the disk). The 74AHCT125N drives data at 5.0 V | Unverified |
 | Current entering a segment | LEDs downstream × 60 mA design value (for example 30 LEDs = 1.8 A) | Unverified |
 | LEDs downstream of any terminal | 30 or fewer, so pass-through current stays at or below the 2 A design limit per pin | Unverified |
 | Segment limit, 22 AWG | 2.4 A·m for the 0.25 V drop budget | Unverified |
@@ -117,5 +136,5 @@ TBD
 | Item | Requirement |
 |---|---|
 | Quantity | 103 (per CAD) |
-| Supply | 5 V (listing: DC 5 V; supply voltage range TBD) |
+| Supply | 5 V (listing: DC 5 V; chip reference VDD 3.5–5.3 V, unverified for the disk) |
 | Terminal two-wire fit | Two 22 AWG wires fit in one terminal opening and pass a pull test. Result: TBD |
