@@ -2,15 +2,15 @@
 
 **Test ID:** 20261118-02
 
-**Revision:** 20261118-02
+**Revision:** 20261119-01
 
-**Date:** 2026-11-18
+**Date:** 2026-11-19
 
 **Device:** Blue Pill STM32F103C8T6 (USB-C board) bench controller (system common; not a machine device)
 
 **Tester:** Scott
 
-**Supersedes:** 20261118-01 (administrative: bench project layout and firmware-switching rules added from the retired firmware status record; no test content changed)
+**Supersedes:** 20261118-02 (correction, Scott 2026-11-19: OPP was never loaded on the bench board; the History row is corrected, no test content changed)
 
 **Tooling files:** [platformio.ini](test_bluepill_usb_bootloader_platformio.ini), [flash script](test_bluepill_usb_bootloader_flash.py), [DFU upload script](test_bluepill_usb_bootloader_dfu_upload.py), [linker script](test_bluepill_usb_bootloader_app2000.ld)
 
@@ -67,7 +67,7 @@ Load firmware onto the Blue Pill over its USB-C port, without an ST-Link, as a m
 | Test firmware to OPP | Not an overwrite: the ST-Link flashes the whole chip with the OPP bootloader and application (env `opp_flash`) |
 | OPP back to test firmware | Repeat the one-time bootloader install above, then upload over USB |
 | Before every test | Upload that test's firmware (Step 0 in its test card); the chip has no version string and its flash cannot be read back |
-| History | The OPP image that was on the bench board was erased by the mass erase in Test 2 on 2026-11-18 |
+| History | OPP has not been loaded on the bench board. No OPP flash or inventory result exists. Earlier records stating that OPP was flashed and erased were not observed and are corrected (Scott, 2026-11-19) |
 
 ## Results
 
