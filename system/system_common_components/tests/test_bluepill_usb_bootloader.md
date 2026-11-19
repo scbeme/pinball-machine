@@ -2,7 +2,7 @@
 
 **Test ID:** 20261118-02
 
-**Revision:** 20261119-01
+**Revision:** 20261119-02
 
 **Date:** 2026-11-19
 
@@ -10,7 +10,7 @@
 
 **Tester:** Scott
 
-**Supersedes:** 20261118-02 (correction, Scott 2026-11-19: OPP was never loaded on the bench board; the History row is corrected, no test content changed)
+**Supersedes:** 20261118-02 (administrative: History row states only what is recorded; no test content changed)
 
 **Tooling files:** [platformio.ini](test_bluepill_usb_bootloader_platformio.ini), [flash script](test_bluepill_usb_bootloader_flash.py), [DFU upload script](test_bluepill_usb_bootloader_dfu_upload.py), [linker script](test_bluepill_usb_bootloader_app2000.ld)
 
@@ -67,7 +67,7 @@ Load firmware onto the Blue Pill over its USB-C port, without an ST-Link, as a m
 | Test firmware to OPP | Not an overwrite: the ST-Link flashes the whole chip with the OPP bootloader and application (env `opp_flash`) |
 | OPP back to test firmware | Repeat the one-time bootloader install above, then upload over USB |
 | Before every test | Upload that test's firmware (Step 0 in its test card); the chip has no version string and its flash cannot be read back |
-| History | OPP has not been loaded on the bench board. No OPP flash or inventory result exists. Earlier records stating that OPP was flashed and erased were not observed and are corrected (Scott, 2026-11-19) |
+| History | No OPP flash or inventory result is recorded in a test card. Whether OPP was flashed on the bench board is not verified (the image and flash script are on the bench computer) |
 
 ## Results
 
