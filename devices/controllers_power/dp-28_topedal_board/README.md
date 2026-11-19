@@ -1,6 +1,6 @@
 # DP-28 Topedal board
 
-**Revision:** 20261117-01 · **Source:** Topedal OPP Solenoid, Neopixel & Switches Board, Rev 1.1 (12 Jun 2026), as used · 3 identical boards (DP-28A to DP-28C)
+**Revision:** 20261119-01 · **Source:** Topedal OPP Solenoid, Neopixel & Switches Board, Rev 1.1 (12 Jun 2026), as used · 3 identical boards (DP-28A to DP-28C)
 
 ## 1. Requirements
 
@@ -34,6 +34,32 @@ Schematic: [draft_schematic.svg](draft_schematic.svg) (driver channel map, pin m
 | J4, J5 / J6 / J9 | 2-pin / 3-pin / 4-pin | J9 is GNDREF only |
 
 No flyback diode on the board: each solenoid has an external 1N400x-class diode.
+
+### 3.1 Blue Pill board as purchased
+
+Source: Amazon vendor listing (ASIN B0G1S5M8YB), read 2026-11-19. The listing is the only documentation: no board schematic or datasheet exists, and the seller is a reseller, not the manufacturer. The chip is documented by ST (DS5319); the board is not. The seller may change or stop selling this board; the ASIN is not a controlled part source.
+
+| Item | Listing value |
+|---|---|
+| Seller / brand | EC Buying (ShenZhen EC Buyiing Technology Co). Reseller, not the manufacturer |
+| Pack | 3 boards (matches the 3 Topedal boards, DP-28A to DP-28C) |
+| MCU | STM32F103C8T6, ARM Cortex-M3, 72 MHz |
+| Memory | 64 KB flash, 20 KB SRAM |
+| Supply range (MCU) | 2.0 to 3.6 V |
+| Crystal | 4 to 16 MHz (MCU range; board crystal marked 8000 in the project photo, 8 MHz in the bench test card) |
+| Reset | POR / PDR |
+| USB | Type-C (the listing also says "Micro USB" in one feature bullet; the specification line and the bench board are Type-C) |
+| Debug | SWD, 3 wires |
+| Headers | 2.54 mm single-row pins, soldered (pins welded) |
+| Size / color | 53 mm x 22 mm, blue |
+
+| Not stated by the listing | Status |
+|---|---|
+| Regulator part and current rating | Unknown |
+| Diode between USB VBUS and the 5V pin | Unknown |
+| USB D+ pull-up resistor value | Unknown |
+| Flash size actually fitted (chip marking vs. 64 KB) | Not verified |
+| Whether later shipments match this board | No assurance |
 
 ## 4. Software
 
