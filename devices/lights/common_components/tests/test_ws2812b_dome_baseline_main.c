@@ -1,28 +1,69 @@
 /*
- * WS2812B dome baseline test, test 20261118-01
- * File: test_ws2812b_dome_baseline_main.c (copy to src/main.c of the Blue Pill PlatformIO project)
- * Build: env bluepill_usb. Upload this file before every test run (test card, Step 0); the chip
- * has no version string and its flash cannot be read back, so never assume it is already loaded.
- * STM32F103C8T6 Blue Pill, STM32Cube HAL, PlatformIO.
+ * ============================================================================
+ * File:       test_ws2812b_dome_baseline_main.c
+ *             (copy to src/main.c of the Blue Pill PlatformIO project)
+ * Revision:   20261120-01        Date: 2026-11-20
+ * Supersedes: version on main at 0e6fbc4 (no revision ID in its header)
+ * Test:       test 20261118-01, WS2812B dome baseline
+ *             (card: test_ws2812b_dome_baseline.md)
+ * Target:     STM32F103C8T6 Blue Pill, STM32Cube HAL, PlatformIO env
+ *             bluepill_usb (USB DFU bootloader; APP_VTOR_OFFSET relocates
+ *             the vector table)
  *
- * Pins (Topedal Rev 1.1 assignments, PMDD Table 5.3-5):
- *   PB15  Neo3, SPI2_MOSI -> LED1 DIN direct, 3.3 V (LED1 DOUT -> LED2 DIN)
- *   PB12  Sw1, tactile switch to GND, internal pull-up
- *   PC13  onboard LED, active low, readout (blink count)
+ * PURPOSE
+ *   Drive two daisy-chained WS2812B LEDs (LED1 under the dome, LED2 bare
+ *   reference) with identical color and brightness. SW1 selects color and
+ *   brightness; PC13 reports the selection.
  *
- * Controls (one switch):
- *   Short press (<1 s): next brightness level (wraps)
- *   Long press (>=1 s): next color preset (wraps; brightness kept)
- * After each change PC13 blinks the state number: first the color number,
- * a pause, then the brightness number (both 1-based).
- * LED1 and LED2 always show the same value. LED1 is under the dome,
- * LED2 is bare (reference).
+ * HARDWARE
+ *   Defined by test_ws2812b_dome_baseline_circuit.svg (74AHCT125N level
+ *   shifter, 5 V LED supply). The wiring, parts and net table are in that
+ *   drawing and are not repeated here.
+ *   Pins used by this code:
+ *     PB15  SPI2_MOSI, LED data out
+ *     PB12  SW1 to GND, internal pull-up
+ *     PC13  onboard LED, active low
  *
- * WS2812B data via SPI2: 4.5 MHz, 5 SPI bits per WS bit
- * (1 = 11100 -> 0.67 us high, 0 = 10000 -> 0.22 us high, bit period 1.11 us).
- * The earlier 2.25 MHz, 3-bit timing gave a color error on the first LED in this rig.
- * APP_VTOR_OFFSET (set by env bluepill_usb) relocates the vector table for the USB bootloader.
+ * CONTROLS (SW1)
+ *   Short press (< 1 s)  next brightness level (7 levels, wraps)
+ *   Long press (>= 1 s)  next color (8 presets, wraps; brightness kept)
+ *
+ * PC13 INDICATIONS
+ *   After the bootloader's rapid start flashes: 2 short blinks = this
+ *   firmware is running.
+ *   After each SW1 change: color number (1-8) blinks, 0.7 s pause, level
+ *   number (1-7) blinks. Each blink 150 ms on, 250 ms off.
+ *   Fast continuous flashing = CPU fault (HardFault).
+ *
+ * FUNCTIONAL NOTES
+ *   1. SW1 is NOT read while the PC13 report is blinking (up to about 6.7 s,
+ *      color 8 at level 7). A press during the report is ignored. Wait for
+ *      the blinks to finish before the next press.
+ *   2. The LED frame is resent every 100 ms, so a corrupted frame is
+ *      corrected within 100 ms.
+ *   3. Each frame has a low lead-in (48 bytes, about 85 us) and a low tail
+ *      (64 bytes, about 114 us); both exceed the 50 us reset time.
+ *   4. Data timing: SPI2 at 4.5 MHz, 5 SPI bits per WS bit, GRB order.
+ *      0 = 10000 (T0H 0.22 us), 1 = 11100 (T1H 0.67 us). The earlier 3-bit
+ *      encoding at 2.25 MHz gave a color error on LED1 in this rig.
+ *   5. Levels: 4, 8, 16, 32, 64, 128, 255 of 255 (1.6% to 100%). Start
+ *      state: color 1 (white), level 4. Levels 1 and 2 are barely visible.
+ *   6. Upload this firmware before every test run (test card Step 0). The
+ *      chip has no version string and its flash cannot be read back.
+ *
+ * KNOWN ISSUES
+ *   Intermittent no-start at power-up with the LED chain connected
+ *   (observed 2026-11-20, not reproduced, cause not identified). Symptom:
+ *   only the bootloader's rapid flashes, no 2-blink start-up banner. A
+ *   10 kOhm pull-down on 74AHCT125N pin 2 made no difference.
+ *
+ * REVISION HISTORY
+ *   20261120-01  Added 48-byte lead-in reset, 100 ms frame resend, start-up
+ *                banner and HardFault flash; header rewritten.
+ *   (earlier)    Single frame at start, no lead-in (main at 0e6fbc4).
+ * ============================================================================
  */
+
 #include "stm32f1xx_hal.h"
 #include <stdint.h>
 #include <string.h>
@@ -49,7 +90,8 @@ static const uint8_t levels[] = { 4, 8, 16, 32, 64, 128, 255 };
 #define NUM_LEVELS (sizeof(levels) / sizeof(levels[0]))
 
 static SPI_HandleTypeDef hspi2;
-static uint8_t txbuf[NUM_LEDS * 24 * 5 / 8 + 64]; /* data + >50 us low tail (~114 us at 4.5 MHz) */
+#define LEAD 48                                   /* >50 us low lead-in (48 bytes = ~85 us at 4.5 MHz) */
+static uint8_t txbuf[LEAD + NUM_LEDS * 24 * 5 / 8 + 64]; /* lead-in + data + >50 us low tail (~114 us) */
 
 static void SystemClock_Config(void) {
   RCC_OscInitTypeDef o = {0};
@@ -112,7 +154,7 @@ static uint8_t *enc_byte(uint8_t *p, uint8_t v) {
 }
 
 static void leds_show(rgb_t c, uint8_t scale) {
-  uint8_t *p = txbuf;
+  uint8_t *p = txbuf + LEAD;
   memset(txbuf, 0, sizeof(txbuf));
   for (int i = 0; i < NUM_LEDS; i++) {
     p = enc_byte(p, (uint8_t)((c.g * scale) / 255));      /* GRB order */
@@ -144,10 +186,22 @@ int main(void) {
   gpio_init();
   spi_init();
 
+  /* Start-up banner: 2 short PC13 blinks = app is running */
+  for (int i = 0; i < 2; i++) {
+    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_RESET); HAL_Delay(100);
+    HAL_GPIO_WritePin(GPIOC, GPIO_PIN_13, GPIO_PIN_SET);   HAL_Delay(200);
+  }
+  HAL_Delay(100);            /* Let LEDs and shifter settle after power-up */
+
   unsigned ci = 0, li = 3;   /* start: white, level 4 (scale 32) */
   leds_show(colors[ci], levels[li]);
+  uint32_t last = HAL_GetTick();
 
   for (;;) {
+    if (HAL_GetTick() - last >= 100) {          /* Resend the frame every 100 ms */
+      last = HAL_GetTick();
+      leds_show(colors[ci], levels[li]);
+    }
     if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) == GPIO_PIN_RESET) {
       HAL_Delay(30);                                      /* debounce */
       if (HAL_GPIO_ReadPin(GPIOB, GPIO_PIN_12) != GPIO_PIN_RESET) continue;
@@ -168,3 +222,11 @@ int main(void) {
 }
 
 void SysTick_Handler(void) { HAL_IncTick(); }
+
+/* A CPU fault flashes PC13 fast and continuously */
+void HardFault_Handler(void) {
+  for (;;) {
+    GPIOC->BSRR = GPIO_BSRR_BR13; for (volatile uint32_t i = 0; i < 1500000; i++) { }
+    GPIOC->BSRR = GPIO_BSRR_BS13; for (volatile uint32_t i = 0; i < 1500000; i++) { }
+  }
+}
