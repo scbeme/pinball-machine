@@ -1,11 +1,13 @@
 name: Check names and links
 # Runs the same scan that gates the Pages deploy, on every pull request, so a broken
 # link or uppercase path is found before merge. Builds the site to a scratch folder and
-# deploys nothing. Production deploys only from main (pages.yml).
+# deploys nothing. Production deploys only from main (pages.yml). No paths filter: this is a
+# required status check on main, so it must run on every pull request. Also checks Revision headers
+# against the base branch (label admin-no-bump skips the bump check for administrative-only edits).
 on:
   pull_request:
+    types: [opened, synchronize, reopened, labeled, unlabeled]
     branches: [main]
-    paths: ["dashboard/**", "system/**", "devices/**", ".github/workflows/*.yml"]
   workflow_dispatch:
 permissions:
   contents: read
@@ -17,5 +19,15 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - name: Check names and links, derive status, assemble site (no deploy)
-        run: python3 dashboard/scan.py --root . --site _site --sha "$GITHUB_SHA"
+        with:
+          fetch-depth: 0
+      - name: Check names, links and revision headers, derive status, assemble site (no deploy)
+        env:
+          BASE_REF: ${{ github.base_ref }}
+          PR_LABELS: ${{ join(github.event.pull_request.labels.*.name, ',') }}
+        run: |
+          if [ -n "$BASE_REF" ]; then
+            python3 dashboard/scan.py --root . --site _site --sha "$GITHUB_SHA" --base "origin/$BASE_REF" --labels "$PR_LABELS"
+          else
+            python3 dashboard/scan.py --root . --site _site --sha "$GITHUB_SHA"
+          fi

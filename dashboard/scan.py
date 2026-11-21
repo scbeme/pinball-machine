@@ -10,10 +10,14 @@ Run by .github/workflows/pages.yml on every deploy; no dependencies.
    item absent = not_started; draft_ prefix = in_progress; present = complete; na stays na.
    A "no_baseline" directory rule (Firmware code) ignores README.md and files with "baseline" in
    the name: a folder holding only open-source baseline references is in_progress, not complete.
+   Revision headers: every design .md under system/ and devices/ carries a first-occurrence line
+   "**Revision:** yyyymmdd-##". With --base <ref> (pull requests) an edited document must raise its ID
+   above the base copy, unless the PR carries the label admin-no-bump (--labels) or the change is a pure
+   rename (100 % similarity). Legacy test cards without a header are exempt only while unchanged.
 3. Assembles the site: dashboard app, the .md/.svg/.png files under system/ and devices/, status.json.
    CAD, print and other files are never published.
 """
-import argparse, json, os, re, shutil, sys, datetime
+import argparse, json, os, re, shutil, subprocess, sys, datetime
 
 PUBLISH = (".md", ".svg", ".png")
 TEXT = (".js", ".html", ".json")
@@ -76,6 +80,64 @@ def href_for(path, kind, section=None):
 
 slug = lambda t: re.sub(r" ", "-", re.sub(r"[^\w\s-]", "", t.lower().strip()))
 
+# Pre-migration test cards without a Revision header (github_workflow section 10). Exempt while unchanged;
+# a PR that edits one must add the header.
+LEGACY_NO_HEADER = {
+    "devices/drop_targets/common_components/tests/test_k84_overextension.md",
+    "devices/drop_targets/common_components/tests/test_single_blade_hall_sensor.md",
+    "devices/drop_targets/common_components/tests/test_us5781_hall_effect_detect_distance.md",
+    "devices/drop_targets/dc-06_drop_target_single/tests/test_drop_target_solenoid_voltage.md",
+    "devices/drop_targets/dc-07_drop_target_bank_inline/tests/test_drop_target_single_blade_solenoid.md",
+    "devices/drop_targets/dc-07_drop_target_bank_inline/tests/test_hall_4x4_magnet_detect.md",
+    "system/system_common_components/tests/test_1173n21_modulus.md",
+    "system/system_common_components/tests/test_1173n223_resilience.md",
+    "system/system_common_components/tests/test_jf1039b_plunger_spring.md",
+    "system/system_common_components/tests/test_rubber_band_single_strand.md",
+    "system/system_common_components/tests/test_solenoid_heating.md",
+}
+REV_RE = re.compile(r"^\*\*Revision:\*\* (\d{8})-(\d{2,})", re.M)
+
+
+def rev_of(text):
+    m = REV_RE.search(text)
+    return (m.group(1), int(m.group(2))) if m else None
+
+
+def git(root, *args):
+    r = subprocess.run(["git", "-C", root, *args], capture_output=True, text=True)
+    return r.returncode, r.stdout
+
+
+def check_revisions(R, root, base, labels, errors):
+    design = sorted(f for f in R.files if f.endswith(".md") and f.startswith(("system/", "devices/")))
+    changed = {}  # path -> (status, old path)
+    if base:
+        rc, out = git(root, "diff", "--name-status", "-M", base + "...HEAD", "--", "system", "devices")
+        if rc != 0:
+            errors.append(f"revision check: cannot diff against {base}")
+        for line in out.splitlines():
+            parts = line.split("\t")
+            st = parts[0]
+            if st.startswith("R"):
+                changed[parts[2]] = ("R100" if st == "R100" else "R", parts[1])
+            elif st in ("A", "M"):
+                changed[parts[1]] = (st, parts[1])
+    for f in design:
+        text = open(os.path.join(root, f), encoding="utf-8").read()
+        cur = rev_of(text)
+        edited = f in changed and changed[f][0] != "R100"
+        if cur is None:
+            if f in LEGACY_NO_HEADER and not edited:
+                continue
+            errors.append(f"missing '**Revision:** yyyymmdd-##' header: {f}")
+            continue
+        if not edited or "admin-no-bump" in labels or changed[f][0] == "A":
+            continue
+        rc, old = git(root, "show", f"{base}:{changed[f][1]}")
+        prev = rev_of(old) if rc == 0 else None
+        if prev and not (cur[0], cur[1]) > prev:
+            errors.append(f"revision not raised ({prev[0]}-{prev[1]:02d} -> {cur[0]}-{cur[1]:02d}); edited document needs a higher ID, or label the PR admin-no-bump: {f}")
+
 
 class Repo:
     def __init__(self, root):
@@ -128,6 +190,8 @@ def main():
     ap.add_argument("--root", default=".")
     ap.add_argument("--site", help="assemble the site here")
     ap.add_argument("--sha", default="local")
+    ap.add_argument("--base", help="base ref for the revision-bump check (pull requests)")
+    ap.add_argument("--labels", default="", help="comma-separated PR labels")
     a = ap.parse_args()
 
     R = Repo(a.root)
@@ -143,6 +207,9 @@ def main():
     for d in sorted(R.dirs):
         if d != d.lower():
             errors.append(f"uppercase in folder: {d}")
+
+    # 1b. Revision headers
+    check_revisions(R, a.root, a.base, {x.strip() for x in a.labels.split(",") if x.strip()}, errors)
 
     # 2. Locate folders
     folders, common = {}, {}
