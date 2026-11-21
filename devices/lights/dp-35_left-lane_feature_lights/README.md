@@ -1,5 +1,7 @@
 # DP-35 Left-lane feature lights
 
+**Revision:** 20261121-01 · Header added 2026-11-21; content unchanged since migration
+
 **Common design:** see [Lights — Common Components](../common_components/README.md) (WS2812B LED, connection, data line, part specifications, schematic).
 
 ## Functions, constraints, parameters

@@ -1,5 +1,7 @@
 # Drop Targets — Common Components
 
+**Revision:** 20261121-01 · Header added 2026-11-21; content unchanged since migration
+
 **Applies to:** DC-05 Drop target bank (side-by-side), DC-06 Drop target (single), DC-07 Drop target bank (inline)
 
 **Rule:** Parameters shared by all three devices are held here once. Each device README holds only its differences.
