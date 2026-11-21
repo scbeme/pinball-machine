@@ -10,5 +10,8 @@ Scaled (82%) pinball machine. A portable hybrid machine: a static playing field 
 | `devices/<group>/<id>_<name>/` | One folder per device: `README.md` (functions, constraints, parameters), `schematic.svg`, `control_logic.md`, `tests/`, and `cad/` and `print/` at design freeze |
 | `devices/<group>/common_components/` | Design shared by every device in a group |
 | `dashboard/` | The dashboard app and `scan.py`, which checks names and links and derives status |
+| `.github/` | `github_workflow.md` (project workflow rules) and `workflows/` (GitHub Actions) |
 
 Names are lowercase with no spaces (only `README.md` keeps capitals). A `draft_` prefix on a file or folder means In Progress; an `interim_` prefix marks a drawing that is not a deliverable.
+
+Project workflow rules: [`.github/github_workflow.md`](.github/github_workflow.md)
