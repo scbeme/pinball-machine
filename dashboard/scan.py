@@ -10,7 +10,7 @@ Run by .github/workflows/pages.yml on every deploy; no dependencies.
    item absent = not_started; draft_ prefix = in_progress; present = complete; na stays na.
    A "no_baseline" directory rule (Firmware code) ignores README.md and files with "baseline" in
    the name: a folder holding only open-source baseline references is in_progress, not complete.
-   Revision headers: every design .md under system/ and devices/ carries a first-occurrence line
+   Revision headers: every design .md under system/ and devices/, and every .md directly in .github/, carries a first-occurrence line
    "**Revision:** yyyymmdd-##". With --base <ref> (pull requests) an edited document must raise its ID
    above the base copy, unless the PR carries the label admin-no-bump (--labels) or the change is a pure
    rename (100 % similarity). Legacy test cards without a header are exempt only while unchanged.
@@ -109,10 +109,10 @@ def git(root, *args):
 
 
 def check_revisions(R, root, base, labels, errors):
-    design = sorted(f for f in R.files if f.endswith(".md") and f.startswith(("system/", "devices/")))
+    design = sorted(f for f in R.files if f.endswith(".md") and (f.startswith(("system/", "devices/")) or (f.startswith(".github/") and f.count("/") == 1)))
     changed = {}  # path -> (status, old path)
     if base:
-        rc, out = git(root, "diff", "--name-status", "-M", base + "...HEAD", "--", "system", "devices")
+        rc, out = git(root, "diff", "--name-status", "-M", base + "...HEAD", "--", "system", "devices", ".github")
         if rc != 0:
             errors.append(f"revision check: cannot diff against {base}")
         for line in out.splitlines():
@@ -323,7 +323,7 @@ def main():
 
     # 4b. Relative links and images inside published .md files must resolve
     for f in sorted(R.files):
-        if f.split("/")[0] in ("system", "devices") and f.endswith(".md"):
+        if (f.split("/")[0] in ("system", "devices") or (f.startswith(".github/") and f.count("/") == 1)) and f.endswith(".md"):
             text = open(os.path.join(a.root, f), encoding="utf-8").read()
             for m in re.finditer(r"!?\[[^\]]*\]\(([^)\s]+)\)", text):
                 u = m.group(1).split("#")[0]
