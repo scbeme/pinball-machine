@@ -1,6 +1,6 @@
 # DC-07 Drop target 4-blade (inline)
 
-**Revision:** 20261122-01 · Header added 2026-11-21; specs and assembly sequence added 2026-11-22
+**Revision:** 20261122-02 · Header added 2026-11-21; specs and assembly sequence added 2026-11-22; solenoid count set to 2 (2026-11-22)
 
 **Common design:** see [Drop Targets — Common Components](../common_components/README.md) (supply, sensor, actuator, drive, lifter, blade, mounting, spring attachment, forward bias, protection, coil termination, schematics).
 
@@ -12,7 +12,7 @@
 | Targets (blades) | 4 |
 | Sequence | Targets must drop in order: target 1 (front) before 2, 2 before 3, 3 before 4 (rear). The mechanism must physically enforce and verify the order; sequencing detail TBD |
 | Magnet | Generic rare-earth 4×4 mm, COTS (Amazon), in the blade bottom tab; the only critical tolerance is magnet placement directly over the sensor |
-| Solenoid count | Determined by bench testing of the 4-blade prototype |
+| Solenoid count | 2, one at each end of the bank (locations 1 and 4); set by the 4-blade bench test (tests/test_drop_target_4blade_two_solenoid_lift.md) |
 | Module | One blade per repeated module; module width 1.3" (sensor pitch compatible with 0.1" perf-board hole spacing) |
 | Return spring | McMaster-Carr 9665K84 (catalog data in common components); cut to 38 mm free length (end loops excluded); 37 mm coil length with mounting loops |
 | Hall board | Up to 4 channels (common design) |
