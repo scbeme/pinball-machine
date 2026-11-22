@@ -1,5 +1,7 @@
 # Test — Hall Sensor with 4×4mm Magnet, Detect Distance (5 V, 4 Blades)
 
+**Revision:** 20261122-01
+
 ## Header
 
 | Field | Value |
@@ -7,7 +9,7 @@
 | Test date | 2026-10-31 |
 | Revision date | 2026-11-12 |
 | Tester | Scott |
-| Devices | DC-07 Drop target bank (4 inline) |
+| Devices | DC-07 Drop target 4-blade (inline) |
 
 ## Setup
 

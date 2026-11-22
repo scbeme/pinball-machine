@@ -1,11 +1,13 @@
 # Test Card — Solenoid Fire Modes and Heating (JF-1039B Bench Rig)
 
+**Revision:** 20261122-01
+
 ## Header
 
 | Field | Value |
 |---|---|
 | Test ID / name | Solenoid fire modes and heating |
-| Device ID and name | DC-04 Flipper assembly; DC-05 Drop target bank (side-by-side); DC-06 Drop target (single); DC-07 Drop target bank (inline); DC-02 Slingshots; DC-01 Pop bumpers; DC-03 Outlane save gate/deflector; DB-01 Scoop/hole; DB-03 Ball trough |
+| Device ID and name | DC-04 Flipper assembly; DC-05 Drop target bank (side-by-side); DC-06 Drop target (single); DC-07 Drop target 4-blade (inline); DC-02 Slingshots; DC-01 Pop bumpers; DC-03 Outlane save gate/deflector; DB-01 Scoop/hole; DB-03 Ball trough |
 | Date | 2026-11-11 |
 | Tester | Scott |
 | Status | Planned. Rig not built; firmware not written. No results recorded. |
@@ -19,7 +21,7 @@ One rig and one device-selectable STM32 (Blue Pill) firmware test the JF-1039B a
 | Category | Mode | Devices | Fire | Hold | Inputs not yet defined in the device docs |
 |---|---|---|---|---|---|
 | A: pulse + PWM hold | A1 | DC-04 Flipper assembly | Full power to end of stroke, 24 V | PWM hold while the button is held; ends on release | Fire pulse width, hold duty, PWM frequency, max-on timer, refire limit (this card sets them) |
-| A: pulse + PWM hold | A2 | DC-05 Drop target bank (side-by-side); DC-06 Drop target (single); DC-07 Drop target bank (inline) | Full power to end of stroke (plunger fully retracted), 24 V | PWM hold for a 25–30 ms dwell, then release; hold duty bench-tuned | Hold duty, reset rate |
+| A: pulse + PWM hold | A2 | DC-05 Drop target bank (side-by-side); DC-06 Drop target (single); DC-07 Drop target 4-blade (inline) | Full power to end of stroke (plunger fully retracted), 24 V | PWM hold for a 25–30 ms dwell, then release; hold duty bench-tuned | Hold duty, reset rate |
 | B: pulse only | B | DC-02 Slingshots; DC-01 Pop bumpers; DC-03 Outlane save gate/deflector; DB-01 Scoop/hole; DB-03 Ball trough | One firmware pulse per trigger, 24 V (DB-01 and DB-03: full-power eject) | None | Pulse width and maximum rate per device |
 
 Coil per device: JF-1039B for DC-04, DC-05, DC-06, DC-07, DC-02, DB-01, DB-03. DC-01 and DC-03: coil part TBD, so their rows run only if the part is a JF-1039B or the rig coil is changed. DB-02 Ball lock: design TBD, excluded.

@@ -21,7 +21,7 @@
 <text x="28" y="235" font-size="11" fill="#333" text-anchor="start">DB-01 Scoop/hole, DB-03 Ball Trough,</text>
 <text x="28" y="248" font-size="11" fill="#333" text-anchor="start">DB-04 Shooter lane ball-present sensor,</text>
 <text x="28" y="261" font-size="11" fill="#333" text-anchor="start">Hall sensors: DC-05 Drop target bank (side-by-side),</text>
-<text x="28" y="274" font-size="11" fill="#333" text-anchor="start">DC-06 Drop target (single), DC-07 Drop target bank (inline)</text>
+<text x="28" y="274" font-size="11" fill="#333" text-anchor="start">DC-06 Drop target (single), DC-07 Drop target 4-blade (inline)</text>
 <text x="28" y="287" font-size="11" fill="#333" text-anchor="start">Device switches: DC-01 Pop bumpers, DC-02 Slingshots,</text>
 <text x="28" y="300" font-size="11" fill="#333" text-anchor="start">DC-04 Flipper assembly</text>
 <rect x="20" y="322" width="330" height="118" rx="4" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
@@ -30,7 +30,7 @@
 <text x="28" y="370" font-size="11" fill="#333" text-anchor="start">DC-03 Outlane save gate/deflector,</text>
 <text x="28" y="384" font-size="11" fill="#333" text-anchor="start">DC-04 Flipper assembly, DC-06 Drop target (single),</text>
 <text x="28" y="398" font-size="11" fill="#333" text-anchor="start">DC-05 Drop target bank (side-by-side),</text>
-<text x="28" y="412" font-size="11" fill="#333" text-anchor="start">DC-07 Drop target bank (inline),</text>
+<text x="28" y="412" font-size="11" fill="#333" text-anchor="start">DC-07 Drop target 4-blade (inline),</text>
 <text x="28" y="426" font-size="11" fill="#333" text-anchor="start">DB-01 Scoop/hole, DB-03 Ball Trough ejects</text>
 <rect x="20" y="450" width="330" height="118" rx="4" fill="#eaf0fa" stroke="#2b4b7a" stroke-width="1.5"/>
 <text x="28" y="467" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Lights (WS2812B addressable RGB LEDs)</text>

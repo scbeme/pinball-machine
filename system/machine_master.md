@@ -128,7 +128,7 @@ Hardware and firmware are identical on all boards; controller and node are roles
 | DC-05F |  |  |  |  |
 | DC-05G |  |  |  |  |
 | DC-06 | Drop target (single) | Composite Mech | 1 | Y |
-| DC-07 | Drop target bank (inline) | Composite Mech | 4 | Y |
+| DC-07 | Drop target 4-blade (inline) | Composite Mech | 4 | Y |
 | DC-07A |  |  |  |  |
 | DC-07B |  |  |  |  |
 | DC-07C |  |  |  |  |

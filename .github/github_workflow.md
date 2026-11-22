@@ -47,7 +47,7 @@
 | 5 | Add the files at their stable lowercase paths on a development branch (no `data.json` status edit; status is derived, section 4), open the pull request, merge with a merge commit (section 14), then verify the repository, the Pages deployment and the production site. A migrated design document carries no source-document reference; a migrated non-design document (this file) carries a `Migrated from:` header line naming its source document and revision | Claude |
 | 6 | Authority moves to GitHub on merge. Apply the `ref-only_` prefix to the Project copy. Frozen copies of documents not yet migrated stay the working reference (section 1) | Claude |
 | Pace | One dashboard line at a time. Step 1 tags the existing documents that match the line's deliverables. Step 2 pulls the technical info still needed for the design | |
-| Pilot | Drop Targets: Common components, DC-05 Drop target bank (side-by-side), DC-06 Drop target (single), DC-07 Drop target bank (inline) | |
+| Pilot | Drop Targets: Common components, DC-05 Drop target bank (side-by-side), DC-06 Drop target (single), DC-07 Drop target 4-blade (inline) | |
 
 **Approved build sequence (2026-11-11)**
 
@@ -122,7 +122,7 @@ All names lowercase, no spaces. Only `README.md` keeps capitals (GitHub default)
 │  │  ├─ common_components
 │  │  ├─ dc-05_drop_target_bank_side-by-side
 │  │  ├─ dc-06_drop_target_single
-│  │  └─ dc-07_drop_target_bank_inline
+│  │  └─ dc-07_drop_target_4-blade_inline
 │  ├─ flippers/
 │  │  ├─ dc-04_flipper_assembly
 │  │  └─ dp-09_flipper_buttons

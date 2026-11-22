@@ -6125,7 +6125,7 @@
 <rect x="1009" y="-388" width="22" height="18" rx="4" fill="#333333"/>
 <text x="1044" y="-373" font-size="15" fill="#111"><tspan font-weight="700">DC-06</tspan>  Drop target (single): 1</text>
 <rect x="1009" y="-362" width="22" height="18" rx="4" fill="#a6761d"/>
-<text x="1044" y="-347" font-size="15" fill="#111"><tspan font-weight="700">DC-07</tspan>  Drop target bank (inline): 4</text>
+<text x="1044" y="-347" font-size="15" fill="#111"><tspan font-weight="700">DC-07</tspan>  Drop target 4-blade (inline): 4</text>
 <rect x="1009" y="-336" width="22" height="18" rx="4" fill="#1f78b4"/>
 <text x="1044" y="-321" font-size="15" fill="#111"><tspan font-weight="700">DP-01</tspan>  Standup targets (side-by-side): 6</text>
 <rect x="1009" y="-310" width="22" height="18" rx="4" fill="#333333"/>

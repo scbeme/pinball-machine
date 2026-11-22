@@ -1,5 +1,7 @@
 # Test — US5781 Hall Effect Switch Detection Distance (12 V, Single Blade, 6×2 mm Magnet)
 
+**Revision:** 20261122-01
+
 ## Header
 
 | Field | Value |
@@ -8,7 +10,7 @@
 | Revision date | 2026-11-12 |
 | Original ID | TR-20261012-03 |
 | Tester | Scott |
-| Devices | DC-05 Drop target bank (7 side-by-side), DC-06 Drop target (single), DC-07 Drop target bank (4 inline) (blade-position sensor) |
+| Devices | DC-05 Drop target bank (7 side-by-side), DC-06 Drop target (single), DC-07 Drop target 4-blade (inline) (blade-position sensor) |
 
 ## Setup
 
