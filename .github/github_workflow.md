@@ -122,7 +122,7 @@ All names lowercase, no spaces. Only `README.md` keeps capitals (GitHub default)
 │  │  ├─ common_components
 │  │  ├─ dc-05_drop_target_bank_side-by-side
 │  │  ├─ dc-06_drop_target_single
-│  │  └─ dc-07_drop_target_4-blade_inline
+│  │  └─ dc-07_drop_target_bank_inline
 │  ├─ flippers/
 │  │  ├─ dc-04_flipper_assembly
 │  │  └─ dp-09_flipper_buttons
