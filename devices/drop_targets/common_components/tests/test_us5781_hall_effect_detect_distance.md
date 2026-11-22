@@ -1,5 +1,7 @@
 # Test — US5781 Hall Effect Switch Detection Distance (12 V, Single Blade, 6×2 mm Magnet)
 
+**Revision:** 20261122-01
+
 ## Header
 
 | Field | Value |

@@ -1,5 +1,7 @@
 # Test Card — Solenoid Fire Modes and Heating (JF-1039B Bench Rig)
 
+**Revision:** 20261122-01
+
 ## Header
 
 | Field | Value |

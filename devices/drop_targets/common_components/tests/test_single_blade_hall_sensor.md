@@ -1,5 +1,7 @@
 # Test — Single-Blade Prototype Hall Sensor (12 V, 6×2 mm Magnet)
 
+**Revision:** 20261122-01
+
 ## Header
 
 | Field | Value |

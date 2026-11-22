@@ -1,5 +1,7 @@
 # Test — Hall Sensor with 4×4mm Magnet, Detect Distance (5 V, 4 Blades)
 
+**Revision:** 20261122-01
+
 ## Header
 
 | Field | Value |
