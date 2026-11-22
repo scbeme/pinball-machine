@@ -322,7 +322,7 @@
     },
     {
      "id": "DC-07",
-     "name": "Drop target bank (inline)",
+     "name": "Drop target 4-blade (inline)",
      "cells": {
       "fdi": [
        {

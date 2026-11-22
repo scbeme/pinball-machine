@@ -1,4 +1,4 @@
-# DC-07 Drop target bank (inline)
+# DC-07 Drop target 4-blade (inline)
 
 **Revision:** 20261122-01 · Header added 2026-11-21; specs and assembly sequence added 2026-11-22
 

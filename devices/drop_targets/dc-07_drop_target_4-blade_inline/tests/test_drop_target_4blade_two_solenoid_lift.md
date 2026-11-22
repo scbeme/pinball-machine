@@ -7,7 +7,7 @@
 | Field | Value |
 |---|---|
 | Test ID / name | Drop target 4-blade lift test, 12 V bench, 1 vs 2 solenoids |
-| Device | DC-07 Drop target bank (inline) |
+| Device | DC-07 Drop target 4-blade (inline) |
 | Date | 2026-11-22 |
 | Tester | Scott |
 | Revision | 20261122-01 |

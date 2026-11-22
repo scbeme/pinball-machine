@@ -140,7 +140,7 @@
 <line x1="1002" y1="276" x2="1018" y2="276" stroke="#c0392b" stroke-width="2.4"/>
 <line x1="1010" y1="295" x2="1010" y2="315" stroke="#c0392b" stroke-width="1.8"/>
 <circle cx="1010" cy="255" r="3.6" fill="#c0392b"/>
-<text x="1030" y="261" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DC-07 Drop target bank (inline)</text>
+<text x="1030" y="261" font-size="11" font-weight="bold" fill="#111" text-anchor="start">DC-07 Drop target 4-blade (inline)</text>
 <text x="1030" y="275" font-size="10" font-weight="normal" fill="#222" text-anchor="start">2 coils, one flyback diode per coil</text>
 <text x="1030" y="288" font-size="10" font-weight="normal" fill="#222" text-anchor="start">(one coil shown; band to +24 V)</text>
 <line x1="960" y1="315" x2="1010" y2="315" stroke="#c0392b" stroke-width="2.2"/>

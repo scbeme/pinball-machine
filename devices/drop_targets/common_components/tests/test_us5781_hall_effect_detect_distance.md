@@ -8,7 +8,7 @@
 | Revision date | 2026-11-12 |
 | Original ID | TR-20261012-03 |
 | Tester | Scott |
-| Devices | DC-05 Drop target bank (7 side-by-side), DC-06 Drop target (single), DC-07 Drop target bank (4 inline) (blade-position sensor) |
+| Devices | DC-05 Drop target bank (7 side-by-side), DC-06 Drop target (single), DC-07 Drop target 4-blade (inline) (blade-position sensor) |
 
 ## Setup
 

@@ -56,7 +56,7 @@
 <line x1="940" y1="97" x2="950" y2="97" stroke="#c0392b" stroke-width="1.8"/>
 <rect x="610" y="148" width="330" height="70" rx="4" fill="#fff6c8" stroke="#8a6d00" stroke-width="1.5"/>
 <text x="618" y="165" font-weight="bold" fill="#111">F2 slow-blow fuse TBD · 18 AWG feed</text>
-<text x="618" y="181" font-size="11" fill="#333">DC-07 Drop target bank (inline)</text>
+<text x="618" y="181" font-size="11" fill="#333">DC-07 Drop target 4-blade (inline)</text>
 <text x="618" y="195" font-size="11" fill="#333">2 coils</text>
 <line x1="557" y1="183" x2="610" y2="183" stroke="#c0392b" stroke-width="1.8" marker-end="url(#ac0392b)"/>
 <line x1="940" y1="183" x2="950" y2="183" stroke="#c0392b" stroke-width="1.8"/>

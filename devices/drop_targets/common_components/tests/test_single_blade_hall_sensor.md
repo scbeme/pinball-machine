@@ -7,7 +7,7 @@
 | Test date | 2026-10-14 |
 | Revision date | 2026-11-12 |
 | Tester | Scott |
-| Devices | DC-05 Drop target bank (7 side-by-side), DC-06 Drop target (single), DC-07 Drop target bank (4 inline) (single-blade prototype) |
+| Devices | DC-05 Drop target bank (7 side-by-side), DC-06 Drop target (single), DC-07 Drop target 4-blade (inline) (single-blade prototype) |
 
 ## Setup
 
