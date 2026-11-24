@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 680 470" width="680" height="470" font-family="Helvetica, Arial, sans-serif" role="img">
+<title>Bench test setup: DC-07 Drop target 4-blade (inline) Hall perf board v2</title>
+<desc>A 5 V bench supply feeds the 4-channel Hall board at J1-1 and J1-2. Each output OUT1 to OUT4 has a 10 kilohm pull-up to the 5 V rail. A multimeter on DC volts has COM on GND and its red lead on the output under test.</desc>
+<rect width="680" height="470" fill="#ffffff"/>
+<rect x="20" y="150" width="120" height="130" rx="8" fill="#F1EFE8" stroke="#5F5E5A" stroke-width="0.5"/>
+<text x="80" y="176" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#2C2C2A">Bench supply</text>
+<text x="76" y="226" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#444441">5.0 V</text>
+<text x="76" y="244" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#444441">limit 50 mA</text>
+<text x="130" y="200" text-anchor="end" dominant-baseline="central" font-size="12" fill="#444441">+</text>
+<text x="130" y="255" text-anchor="end" dominant-baseline="central" font-size="12" fill="#444441">−</text>
+<rect x="220" y="100" width="200" height="250" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+<text x="320" y="122" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#085041">Hall board (4 ch)</text>
+<text x="320" y="140" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#0F6E56">D1, R1/LED1, C1–C4, U1–U4</text>
+<g font-size="12" fill="#0F6E56" dominant-baseline="central">
+<text x="230" y="200">J1-1 +5 V</text>
+<text x="230" y="325">J1-2 GND</text>
+<text x="412" y="175" text-anchor="end">OUT1 · J1-3</text>
+<text x="412" y="222" text-anchor="end">OUT2 · J1-4</text>
+<text x="412" y="269" text-anchor="end">OUT3 · J1-5</text>
+<text x="412" y="316" text-anchor="end">OUT4 · J1-6</text>
+</g>
+<text x="385" y="56" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#444441">+5 V to all four pull-ups</text>
+<polyline points="144,200 216,200" fill="none" stroke="#BA7517" stroke-width="1.5"/>
+<polyline points="180,200 180,70 590,70 590,316" fill="none" stroke="#BA7517" stroke-width="1.5"/>
+<polyline points="144,255 185,255 185,325 216,325" fill="none" stroke="#2C2C2A" stroke-width="1.5"/>
+<polyline points="185,325 185,412 406,412" fill="none" stroke="#2C2C2A" stroke-width="1.5"/>
+<g fill="none" stroke-width="1.5">
+<circle cx="140" cy="200" r="4" stroke="#BA7517"/>
+<circle cx="140" cy="255" r="4" stroke="#2C2C2A"/>
+<circle cx="220" cy="200" r="4" stroke="#BA7517"/>
+<circle cx="220" cy="325" r="4" stroke="#2C2C2A"/>
+</g>
+<circle cx="180" cy="200" r="3" fill="#BA7517"/>
+<circle cx="185" cy="325" r="3" fill="#2C2C2A"/>
+<g stroke="#2C2C2A" stroke-width="1.5" fill="none">
+<line x1="424" y1="175" x2="480" y2="175"/><line x1="536" y1="175" x2="590" y2="175"/>
+<line x1="424" y1="222" x2="480" y2="222"/><line x1="536" y1="222" x2="590" y2="222"/>
+<line x1="424" y1="269" x2="480" y2="269"/><line x1="536" y1="269" x2="590" y2="269"/>
+<line x1="424" y1="316" x2="480" y2="316"/><line x1="536" y1="316" x2="590" y2="316"/>
+<circle cx="420" cy="175" r="4"/><circle cx="420" cy="222" r="4"/><circle cx="420" cy="269" r="4"/><circle cx="420" cy="316" r="4"/>
+</g>
+<g fill="#BA7517"><circle cx="590" cy="175" r="3"/><circle cx="590" cy="222" r="3"/><circle cx="590" cy="269" r="3"/><circle cx="590" cy="316" r="3"/></g>
+<g fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5">
+<rect x="480" y="166" width="56" height="18" rx="3"/><rect x="480" y="213" width="56" height="18" rx="3"/>
+<rect x="480" y="260" width="56" height="18" rx="3"/><rect x="480" y="307" width="56" height="18" rx="3"/>
+</g>
+<g font-size="12" fill="#444441" text-anchor="middle" dominant-baseline="central">
+<text x="508" y="157">10 kΩ</text><text x="508" y="204">10 kΩ</text><text x="508" y="251">10 kΩ</text><text x="508" y="298">10 kΩ</text>
+</g>
+<line x1="440" y1="351" x2="440" y2="320" stroke="#E24B4A" stroke-width="1.5" stroke-dasharray="5 3"/>
+<circle cx="440" cy="316" r="3" fill="#E24B4A"/>
+<text x="448" y="338" dominant-baseline="central" font-size="12" fill="#444441">Red lead: OUTn</text>
+<rect x="410" y="355" width="210" height="75" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+<text x="520" y="392" text-anchor="middle" dominant-baseline="central" font-size="14" font-weight="bold" fill="#633806">Multimeter, DCV 20 V</text>
+<text x="520" y="410" text-anchor="middle" dominant-baseline="central" font-size="12" fill="#854F0B">off ≈ 5 V · on ≈ 0 V</text>
+<text x="450" y="369" dominant-baseline="central" font-size="12" fill="#854F0B">VΩ</text>
+<text x="418" y="425" dominant-baseline="central" font-size="12" fill="#854F0B">COM</text>
+<circle cx="440" cy="355" r="4" fill="none" stroke="#E24B4A" stroke-width="1.5"/>
+<circle cx="410" cy="412" r="4" fill="none" stroke="#2C2C2A" stroke-width="1.5"/>
+<text x="200" y="400" dominant-baseline="central" font-size="12" fill="#444441">Black lead: GND</text>
+<rect x="40" y="444" width="14" height="14" rx="3" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+<text x="62" y="451" dominant-baseline="central" font-size="12" fill="#444441">Added for the bench test</text>
+</svg>
