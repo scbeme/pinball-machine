@@ -1,6 +1,6 @@
 # Drop Targets — Common Components
 
-**Revision:** 20261121-01 · Header added 2026-11-21; content unchanged since migration
+**Revision:** 20261124-01 · Header added 2026-11-21; A3144 alternate Hall sensor design added 2026-11-24 (Scott approved in chat)
 
 **Applies to:** DC-05 Drop target bank (side-by-side), DC-06 Drop target (single), DC-07 Drop target 4-blade (inline)
 
@@ -12,7 +12,7 @@
 |---|---|
 | Function | Target drops on a ball hit; resets via a solenoid-driven lifter arm |
 | Supply | Sensors 5 V (P-06) through the Hall board; solenoids 24 V (P-02) |
-| Sensor | Melexis US5781LUA-AAA-000-BU Hall-effect switch (TO-92), one per blade, in the bracket floor; ~2 mm nominal flush gap; one Hall board design serves DC-05 (7 channels), DC-06 (1) and DC-07 (up to 4) |
+| Sensor | Melexis US5781LUA-AAA-000-BU Hall-effect switch (TO-92), one per blade, in the bracket floor; ~2 mm nominal flush gap; one Hall board design serves DC-05 (7 channels), DC-06 (1) and DC-07 (up to 4). The US5781 design is the preferred design; a generic A3144 alternate design is defined under Alternate Hall sensor design (A3144). Both designs use the 5 V supply (P-06) |
 | Magnet position | In the blade bottom tab, south pole toward the sensor branded face |
 | Actuator | JF-1039B, 12 V-rated, 10 mm stroke, push-pull; solenoids lift through one common rod and share the load equally |
 | Plunger spring | None. OEM plunger spring and C-clip removed on all drop targets |
@@ -44,6 +44,33 @@
 | South pole facing the branded face, field above BOP | Pulled to GND (VDSon 0.3 / 0.5 V typ / max at 20 mA) |
 | Magnet away, field below BRP | Open |
 
+## Alternate Hall sensor design (A3144)
+
+The US5781 design above (D1 = 1N4007) is the preferred design. The alternate design uses a generic A3144 Hall-effect switch (TO-92, Amazon) with D1 = 1N5817. Both designs use the 5 V supply (P-06). The circuit, pin assignment, J1 and all other parts are identical.
+
+| Item | US5781 design (preferred) | A3144 alternate design |
+|---|---|---|
+| Sensor | Melexis US5781LUA-AAA-000-BU | Generic A3144 (Amazon, ALLECIN ALL-3144) |
+| D1 | 1N4007, band toward the sensors | 1N5817, band toward the sensors |
+| Supply | 5 V (P-06) | 5 V (P-06) |
+| D1 drop | About 0.7 V | 0.32 V or less at 0.1 A (onsemi 1N5817-1N5819 datasheet, maximum) |
+| VDD at the sensors | About 4.3 V | 4.68 V or more on a 5.0 V rail (5.0 V minus the 0.32 V maximum; excludes rail tolerance, fuse and wiring drops) |
+| Sensor minimum supply | 3.5 V | 4.5 V |
+| Reverse-polarity protection | D1 blocks a reversed supply | D1 blocks a reversed supply (1N5817 VRRM 20 V) |
+
+Reason for the different D1: the A3144 operating supply minimum is 4.5 V, above the 4.3 V that the 1N4007 leaves at the sensors.
+
+| A3144 spec | Value |
+|---|---|
+| Supply voltage VCC, operating | 4.5–24 V (Allegro A3141–A3144 datasheet) |
+| Absolute maximum | VCC 28 V; reverse battery −35 V; output OFF voltage 28 V; continuous output current 25 mA (Allegro) |
+| Supply current ICC, output OFF | 4.4 mA typ, 9.0 mA max, VCC = 8 V (Allegro); output-ON supply current not tabulated |
+| Output saturation VOUT(SAT) | 175 mV typ, 400 mV max at IOUT = 20 mA (Allegro) |
+| Operate point BOP | 70–350 G (7–35 mT) at 25 °C; 35–450 G (3.5–45 mT) over temperature (Allegro) |
+| Release point BRP | 50–330 G (5–33 mT) at 25 °C; 25–430 G (2.5–43 mT) over temperature (Allegro) |
+| Pins, viewed from the branded face | 1 = VCC, 2 = GND, 3 = OUT (open collector); same as the US5781 (Allegro) |
+| Source note | The Amazon part is a generic part; conformance to the Allegro datasheet is not verified. Allegro lists the A3144 as discontinued (status change 31 Oct 2005) |
+
 ## Parts
 
 | Part | Number | Supplier | Datasheet |
@@ -54,6 +81,8 @@
 | Solenoid | JF-1039B, coil about 5.2–5.4 Ω | Not recorded | None; no manufacturer datasheet |
 | Return spring | McMaster-Carr 9665K84 | McMaster-Carr | [9665K84](https://www.mcmaster.com/9665K84/) |
 | Diode (coil board D, Hall board D1) | 1N4007 (1N4001 acceptable substitute on the Hall board) | Not recorded | [Vishay 1N4001–1N4007](https://www.vishay.com/docs/88503/1n4001.pdf) |
+| Hall-effect switch (A3144 alternate design) | Generic A3144 (TO-92); ALLECIN ALL-3144 | Amazon | [Allegro A3141–A3144](https://www.allegromicro.com/~/media/Files/Datasheets/A3141-2-3-4-Datasheet.ashx) (manufacturer datasheet for the A3144 device type; the generic part is not verified against it) |
+| Diode (Hall board D1, A3144 alternate design) | 1N5817 (DO-41, 20 V) | Not recorded | [onsemi 1N5817–1N5819](https://www.onsemi.com/pdf/datasheet/1n5817-d.pdf) |
 | Hall board connector J1 | 9-position screw terminal, 5.08 mm pitch | Not recorded | None |
 | Coil board connector TERM | Type TBD | — | — |
 
@@ -83,6 +112,8 @@ One board design serves DC-05 (7 channels), DC-06 (1) and DC-07 (up to 4). Chann
 | R1 | 1 | 330 Ω, ¼ W | LED current limit, about 7 mA at 4.3 V |
 | LED1 | 1 | Green | Power-on indicator; Vf about 2 V; anode toward R1 |
 | J1 | 1 | 9-position screw terminal, 5.08 mm pitch | 1 = +5V, 2 = GND, 3–9 = OUT1–OUT7 |
+
+Alternate A3144 design: U1–U7 are A3144 sensors (same pins) and D1 is a 1N5817 (band on the sensor side); everything else is unchanged. The interim drawing above shows the preferred US5781 design.
 
 ### Coil board (generic)
 

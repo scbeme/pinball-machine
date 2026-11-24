@@ -1,6 +1,6 @@
 # DC-07 Drop target 4-blade (inline)
 
-**Revision:** 20261122-02 · Header added 2026-11-21; specs and assembly sequence added 2026-11-22; solenoid count set to 2 (2026-11-22)
+**Revision:** 20261124-01 · Header added 2026-11-21; specs and assembly sequence added 2026-11-22; solenoid count set to 2 (2026-11-22); A3144 alternate Hall design noted (2026-11-24)
 
 **Common design:** see [Drop Targets — Common Components](../common_components/README.md) (supply, sensor, actuator, drive, lifter, blade, mounting, spring attachment, forward bias, protection, coil termination, schematics).
 
@@ -15,7 +15,7 @@
 | Solenoid count | 2, one at each end of the bank (locations 1 and 4); set by the 4-blade bench test (tests/test_drop_target_4blade_two_solenoid_lift.md) |
 | Module | One blade per repeated module; module width 1.3" (sensor pitch compatible with 0.1" perf-board hole spacing) |
 | Return spring | McMaster-Carr 9665K84 (catalog data in common components); cut to 38 mm free length (end loops excluded); 37 mm coil length with mounting loops |
-| Hall board | Up to 4 channels (common design) |
+| Hall board | Up to 4 channels (common design; US5781 preferred, A3144 alternate design in common components) |
 | Coil board | Solenoid circuits set to the solenoid count |
 | Lifter axle | 3 mm dia stainless steel rod, 150 mm long |
 | Solenoid mounting screws | M3 × 10 mm (M3 × 12 mm with 2 M3 washers substituted) |

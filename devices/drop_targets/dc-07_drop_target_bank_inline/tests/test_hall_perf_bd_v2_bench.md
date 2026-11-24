@@ -17,12 +17,12 @@
 | Item | Value |
 |---|---|
 | Unit | Hall effect sensor perf board labeled v2 (4 channels), bench tested stand-alone; no blades or solenoids |
-| Sensors | Generic A3144 Hall effect sensor, Amazon (ALLECIN, model ALL-3144, ASIN B0CZ6QXMZ2), 4 each. Not the US5781 specified for the Hall board (see Deviations) |
+| Sensors | Generic A3144 Hall effect sensor, Amazon (ALLECIN, model ALL-3144, ASIN B0CZ6QXMZ2), 4 each. A3144 alternate design sensor; the preferred design uses the US5781 (see Deviations) |
 | Magnet | Generic rare-earth 4×4mm (COTS, Amazon) |
-| Supply | Bench supply, 5 V |
+| Supply | Bench supply, 5 V, through D1 (1N4007); VDD at the sensors 4.3 V (Scott, 2026-11-24) |
 | Circuit | Bench circuit below; setup matches the drawing (Scott) |
 | Test method | Magnet moved toward each sensor face; output observed with the multimeter on DC volts (OUTn to GND) |
-| Not recorded | Measured VDD at the sensors, pole orientation, per-sensor distances, how the 7mm distance was measured |
+| Not recorded | Pole orientation, per-sensor distances, how the 7mm distance was measured |
 
 ### Bench circuit
 
@@ -39,7 +39,7 @@ Figure 1 — Bench test setup: 5 V supply, Hall perf board v2, one 10 kΩ pull-u
 
 | Ref | Qty | Value | Notes |
 |---|---|---|---|
-| Hall perf board v2 | 1 | 4 channels | D1 1N4007, R1 with green LED1, C1–C4 100 nF, U1–U4 A3144, 6-position 0.1" terminal block (photos below) |
+| Hall perf board v2 | 1 | 4 channels | D1 1N4007 (as tested), R1 with green LED1, C1–C4 100 nF, U1–U4 A3144, 6-position 0.1" terminal block (photos below) |
 | Pull-up | 4 | 10 kΩ, ¼ W | Test fixture, one per output (open-drain/open-collector output needs a pull-up for the meter reading) |
 | Multimeter | 1 | DC volts, 20 V range | Off ≈ 5 V, on ≈ 0 V expected |
 
@@ -47,7 +47,8 @@ Figure 1 — Bench test setup: 5 V supply, Hall perf board v2, one 10 kΩ pull-u
 
 | Item | Bench circuit | Final design (Hall board, drop-target §3) | Reason |
 |---|---|---|---|
-| Sensor | Generic A3144 (Amazon) | US5781 ("US5781 or comparable part", per the DC-05 CAD annotation) | Generic sensor from Amazon, per Scott, 2026-11-24 |
+| Sensor | Generic A3144 (Amazon) | US5781 (preferred); A3144 is the alternate design (common components) | Generic sensor from Amazon; v2 board built with it (Scott, 2026-11-24) |
+| D1 | 1N4007 | A3144 alternate design: 1N5817 | 1N4007 leaves 4.3 V at the sensors, below the A3144 4.5 V minimum; 1N5817 swap not yet fitted or tested |
 | Output | 10 kΩ pull-up to +5 V, read with a multimeter | OUT to a Topedal direct input (pin assignment not yet defined in the PMDD Assignment Table) | Bench observation |
 | Supply | Bench supply, 5 V | P-06 fused 5 V supply | Bench testing uses a bench supply until the machine supply is complete |
 | Magnet and blade | Hand-held 4×4mm magnet, no blade | Magnet in the blade bottom tab | Sensor-only test |
@@ -61,7 +62,7 @@ Figure 1 — Bench test setup: 5 V supply, Hall perf board v2, one 10 kΩ pull-u
 | Sensor 3 triggers with the 4×4mm magnet | Same | Triggered at approximately 7 mm from the sensor face | PASS |
 | Sensor 4 triggers with the 4×4mm magnet | Same | Triggered at approximately 7 mm from the sensor face | PASS |
 
-Outcome: all four sensors PASS. The Hall effect sensor perf board labeled v2 passed the bench test.
+Result obtained with VDD at the sensors 4.3 V, below the A3144 operating minimum of 4.5 V (Allegro). Outcome: all four sensors PASS. The Hall effect sensor perf board labeled v2 passed the bench test.
 
 ## Sensor reference: generic A3144 (Amazon listing)
 

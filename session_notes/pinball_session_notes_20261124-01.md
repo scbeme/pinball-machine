@@ -11,11 +11,15 @@
 
 ## 2. Session scope
 
-DC-07 Drop target 4-blade (inline): added the bench test card for the Hall effect sensor perf board v2 (generic A3144 sensors, 4×4mm magnet, 5 V) with the bench setup drawing, board photos and layouts, and the A3144 listing reference. No design document edited.
+DC-07 Drop target 4-blade (inline): added the bench test card for the Hall effect sensor perf board v2 (generic A3144 sensors, 4×4mm magnet, 5 V) with the bench setup drawing, board photos and layouts, and the A3144 listing reference. Design documents revised (D14): drop targets common components README (rev 20261124-01) and DC-07 README (rev 20261124-01).
 
 ## 3. Decisions
 
-None. Test result recorded: all four sensors PASS (trigger at approximately 7 mm from the sensor face).
+| ID | Decision |
+|---|---|
+| D14 | Drop target Hall board: the US5781 design (D1 = 1N4007) stays the preferred design. A3144 added as an alternate design with D1 = 1N5817 (VDD 4.68 V or more against the A3144 4.5 V minimum). Both designs use the 5 V supply (P-06). More US5781 sensors to be ordered from Mouser (Scott) |
+
+Test result recorded: all four sensors PASS (trigger at approximately 7 mm from the sensor face).
 
 ## 4. Work done
 
@@ -28,5 +32,5 @@ None. Test result recorded: all four sensors PASS (trigger at approximately 7 mm
 | Item | Detail |
 |---|---|
 | Sensor | The v2 board uses generic A3144 sensors (Amazon), not the US5781 in the Hall board design; recorded as a Deviation |
-| Operating voltage | Allegro A3144 datasheet lists 4.5 to 24 V operating supply; D1 drops the 5 V supply to about 4.3 V at the sensors (calculated in test_hall_4x4_magnet_detect, not measured). Measured VDD not recorded in this test |
+| Operating voltage | A3144 operating supply minimum 4.5 V (Allegro); the v2 board as tested (D1 = 1N4007) has 4.3 V at the sensors, so the PASS was obtained below that minimum. The 1N5817 swap (D14) is not yet fitted or tested |
 | Requirement | Numeric pass criterion not stated by Scott; card cites the 2mm designed gap |
