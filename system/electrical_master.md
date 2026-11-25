@@ -1,6 +1,6 @@
 # Electrical Master
 
-**Revision:** 20261125-01 · **Date:** 2026-11-25
+**Revision:** 20261125-02 · **Date:** 2026-11-25
 
 ## Block diagram
 
@@ -45,3 +45,14 @@ One fused feed per circuit. All ratings are set during the power-supply and coil
 | F_5V_LED | 2 | 5 V lighting rail (WS2812B addressable LEDs, ~103) | — | TBD |
 
 Coils on F1–F7 total 18 (power-budget counts; the DC-05 and DC-07 coil counts are confirmed by bench test). F8 carries no coils. K1 cuts only the 24 V coil rail; the F8 sensor feed is separate.
+
+## Grounding architecture
+
+![System grounding architecture](drawings/draft_grounding_architecture.svg)
+
+Single-point **star ground** at the GND bar (P-08). Return classes are kept separate until they meet at the star, and the system bonds to earth at one point.
+
+- **Return classes to the star:** 24 V coil returns (heavy, 18 AWG per coil), LED 5 V return (heavy, ~6 A), per-device gate return (GNDREF), logic GNDREF (clean), and the 24 V sensor returns. 24 V GND, GNDREF and LED GND meet only at GND★.
+- **Single earth bond:** GND★ bonds to chassis / mains protective earth (PE) at one point; GFCI protection depends on this bond.
+- **Per-device gate return:** each co-located driver's gate reference (GNDREF) is a dedicated wire to the star, separate from its 4.5 A coil return, so the coil-return drop cannot shift the MOSFET gate reference.
+- **Host ground:** the host PC is mains-earthed and powers the Blue Pills over USB (P-07), so its USB ground ties logic GNDREF to the same earth reference. If a ground loop appears, add a USB isolator.

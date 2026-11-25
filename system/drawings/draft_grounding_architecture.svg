@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 540" width="1000" height="540" font-family="Arial, Helvetica, sans-serif" font-size="12"><rect width="1000" height="540" fill="#fff"/>
+<text x="20" y="28" font-size="16" font-weight="bold" fill="#111">System Grounding Architecture — single-point star ground</text>
+<defs><marker id="ga" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1a1a1a"/></marker><marker id="ge" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#2e7d32"/></marker></defs>
+<text x="20" y="54" font-size="11" fill="#333">Return classes (kept separate until the star)</text>
+<rect x="30" y="64" width="180" height="64" rx="4" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="120" y="92" text-anchor="middle" font-weight="bold" fill="#111">24 V coil returns</text>
+<text x="120" y="110" text-anchor="middle" font-size="11" fill="#333">heavy · 18 AWG/coil</text>
+<rect x="230" y="64" width="180" height="64" rx="4" fill="#e8f6ea" stroke="#1a7a2e" stroke-width="1.5"/>
+<text x="320" y="92" text-anchor="middle" font-weight="bold" fill="#111">LED 5 V return</text>
+<text x="320" y="110" text-anchor="middle" font-size="11" fill="#333">heavy · ~6 A</text>
+<rect x="430" y="64" width="200" height="64" rx="4" fill="#eaf0fa" stroke="#2b4b7a" stroke-width="1.5"/>
+<text x="530" y="92" text-anchor="middle" font-weight="bold" fill="#111">Per-device gate return</text>
+<text x="530" y="110" text-anchor="middle" font-size="11" fill="#333">GNDREF · dedicated wire</text>
+<rect x="650" y="64" width="150" height="64" rx="4" fill="#eaf0fa" stroke="#2b4b7a" stroke-width="1.5"/>
+<text x="725" y="92" text-anchor="middle" font-weight="bold" fill="#111">Logic GNDREF</text>
+<text x="725" y="110" text-anchor="middle" font-size="11" fill="#333">clean</text>
+<rect x="820" y="64" width="150" height="64" rx="4" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="895" y="92" text-anchor="middle" font-weight="bold" fill="#111">Sensor 24 V return</text>
+<line x1="120" y1="128" x2="120" y2="238" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#ga)"/>
+<line x1="320" y1="128" x2="320" y2="238" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#ga)"/>
+<line x1="530" y1="128" x2="530" y2="238" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#ga)"/>
+<line x1="725" y1="128" x2="725" y2="238" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#ga)"/>
+<line x1="895" y1="128" x2="895" y2="238" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#ga)"/>
+<rect x="30" y="240" width="940" height="60" rx="4" fill="#f2f2f2" stroke="#333" stroke-width="1.8"/>
+<text x="500" y="268" text-anchor="middle" font-weight="bold" fill="#111">GND★ — single-point star bus bar (P-08)</text>
+<text x="500" y="286" text-anchor="middle" font-size="11" fill="#333">24 V GND + GNDREF + LED GND meet here, and ONLY here</text>
+<rect x="30" y="360" width="180" height="64" rx="4" fill="#fdecea" stroke="#c0392b" stroke-width="1.5"/>
+<text x="120" y="388" text-anchor="middle" font-weight="bold" fill="#111">24 V supply (−)</text>
+<text x="120" y="406" text-anchor="middle" font-size="11" fill="#333">DP-29</text>
+<rect x="230" y="360" width="180" height="64" rx="4" fill="#e8f6ea" stroke="#1a7a2e" stroke-width="1.5"/>
+<text x="320" y="388" text-anchor="middle" font-weight="bold" fill="#111">5 V supply (−)</text>
+<text x="320" y="406" text-anchor="middle" font-size="11" fill="#333">DP-30</text>
+<rect x="490" y="360" width="230" height="64" rx="4" fill="#efe6f8" stroke="#7a3fb0" stroke-width="1.5"/>
+<text x="605" y="388" text-anchor="middle" font-weight="bold" fill="#111">Host PC (mains-earthed)</text>
+<text x="605" y="406" text-anchor="middle" font-size="11" fill="#333">USB gnd → controller GNDREF</text>
+<rect x="790" y="360" width="180" height="64" rx="4" fill="#f2f2f2" stroke="#2e7d32" stroke-width="1.5"/>
+<text x="880" y="388" text-anchor="middle" font-weight="bold" fill="#111">Chassis / mains PE</text>
+<text x="880" y="406" text-anchor="middle" font-size="11" fill="#333">(earth)</text>
+<line x1="120" y1="360" x2="120" y2="302" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#ga)"/>
+<line x1="320" y1="360" x2="320" y2="302" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#ga)"/>
+<line x1="605" y1="360" x2="605" y2="302" stroke="#1a1a1a" stroke-width="1.8" marker-end="url(#ga)"/>
+<text x="613" y="334" font-size="10" fill="#333">USB gnd</text>
+<line x1="880" y1="360" x2="880" y2="302" stroke="#2e7d32" stroke-width="2.4" marker-end="url(#ge)"/>
+<text x="872" y="334" text-anchor="end" font-size="10" fill="#2e7d32" font-weight="bold">single earth bond</text>
+<text x="30" y="462" font-size="11" fill="#333">One earth reference: GND★ bonds to PE at a single point. Each coil's gate return (GNDREF) is a dedicated wire, separate from its 4.5 A coil return.</text>
+<text x="30" y="482" font-size="11" fill="#333">If a host-to-machine ground loop appears, add a USB isolator.</text>
+</svg>
