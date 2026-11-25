@@ -1,6 +1,6 @@
 # Machine Master
 
-**Revision:** 20261116-01 · **Date:** 2026-11-16
+**Revision:** 20261125-01 · **Date:** 2026-11-25
 
 ## System overview
 
@@ -30,6 +30,7 @@
 | 2 | Non-time-critical devices | Digital switches connected via Topedal board's onboard direct/matrix switch inputs |
 | 3 | Rules engine & asset management | Computer supporting MPF + Godot Media Controller (GMC) running Mission Pinball Framework (MPF) — game logic, scoring, game scenarios; GMC for audio/video/monitor display |
 | 4 | Comm bus | USB serial between host and Topedal board(s) |
+| 5 | Coil driver location | Production coil drivers are co-located with each device (MOSFET, gate network, flyback at the coil), gated over a wire from the controller board; the DP-28 Topedal board is the reference. See Electrical Master, Board architecture |
 
 
 ### Software
@@ -170,7 +171,7 @@ Hardware and firmware are identical on all boards; controller and node are roles
 | DP-26A |  |  |  |  |
 | DP-26B |  |  |  |  |
 | DP-27 | Host computer | System | 1 | Y |
-| DP-28 | Topedal board | System | 3 | Y |
+| DP-28 | Topedal board (reference; production co-locates coil drivers — see Electrical Master) | System | 3 | Y |
 | DP-28A |  |  |  |  |
 | DP-28B |  |  |  |  |
 | DP-28C |  |  |  |  |

@@ -1,6 +1,6 @@
 # Test — Drop Target 4-Blade Hall Perf Board v2, Bench Test (5 V, A3144 Sensors, 4×4mm Magnet)
 
-**Revision:** 20261124-01
+**Revision:** 20261125-01
 
 ## Header
 
@@ -10,7 +10,7 @@
 | Device | DC-07 Drop target 4-blade (inline) |
 | Date | 2026-11-24 (reported by Scott; bench test date not stated) |
 | Tester | Scott |
-| Revision | 20261124-01 |
+| Revision | 20261125-01 |
 
 ## Test Setup
 
@@ -48,7 +48,7 @@ Figure 1 — Bench test setup: 5 V supply, Hall perf board v2, one 10 kΩ pull-u
 | Item | Bench circuit | Final design (Hall board, drop-target §3) | Reason |
 |---|---|---|---|
 | Sensor | Generic A3144 (Amazon) | US5781 (preferred); A3144 is the alternate design (common components) | Generic sensor from Amazon; v2 board built with it (Scott, 2026-11-24) |
-| D1 | 1N4007 | A3144 alternate design: 1N5817 | 1N4007 leaves 4.3 V at the sensors, below the A3144 4.5 V minimum; 1N5817 swap not yet fitted or tested |
+| D1 | 1N4007 | A3144 alternate design: 1N5817 | 1N4007 leaves 4.3 V at the sensors, below the A3144 4.5 V minimum; the 1N5817 (Schottky) swap was fitted and measured a 0.3 V drop → 4.7 V at the sensors, within the 4.5 V minimum (Scott, 2026-11-25) |
 | Output | 10 kΩ pull-up to +5 V, read with a multimeter | OUT to a Topedal direct input (pin assignment not yet defined in the PMDD Assignment Table) | Bench observation |
 | Supply | Bench supply, 5 V | P-06 fused 5 V supply | Bench testing uses a bench supply until the machine supply is complete |
 | Magnet and blade | Hand-held 4×4mm magnet, no blade | Magnet in the blade bottom tab | Sensor-only test |
@@ -61,8 +61,9 @@ Figure 1 — Bench test setup: 5 V supply, Hall perf board v2, one 10 kΩ pull-u
 | Sensor 2 triggers with the 4×4mm magnet | Same | Triggered at approximately 7 mm from the sensor face | PASS |
 | Sensor 3 triggers with the 4×4mm magnet | Same | Triggered at approximately 7 mm from the sensor face | PASS |
 | Sensor 4 triggers with the 4×4mm magnet | Same | Triggered at approximately 7 mm from the sensor face | PASS |
+| D1 = 1N5817 (Schottky): sensor VDD | ≥ 4.5 V (A3144 operating minimum, Allegro) | 4.7 V (5 V − 0.3 V measured diode drop) (Scott, 2026-11-25) | PASS |
 
-Result obtained with VDD at the sensors 4.3 V, below the A3144 operating minimum of 4.5 V (Allegro). Outcome: all four sensors PASS. The Hall effect sensor perf board labeled v2 passed the bench test.
+Original result obtained with D1 = 1N4007, VDD 4.3 V — below the A3144 operating minimum of 4.5 V (Allegro) — yet all four sensors triggered (PASS). Replacing D1 with a 1N5817 Schottky (measured 0.3 V drop) raises VDD to 4.7 V, within the 4.5 V minimum (Scott, 2026-11-25). The Hall effect sensor perf board labeled v2 passed the bench test, and the 1N5817 brings the sensor supply into specification.
 
 ## Sensor reference: generic A3144 (Amazon listing)
 
@@ -92,4 +93,4 @@ Allegro A3141, A3142, A3143 and A3144 datasheet (manufacturer): supply voltage o
 
 ## Supersedes
 
-- None. Complements test_hall_4x4_magnet_detect (US5781 sensors, 4×4mm magnet, approximately 10 mm detect range) and test_drop_target_4blade_two_solenoid_lift (Hall perf board attached to the 4-blade prototype).
+- Supersedes 20261124-01 (added the 1N5817 sensor-VDD measurement, 2026-11-25). Complements test_hall_4x4_magnet_detect (US5781 sensors, 4×4mm magnet, approximately 10 mm detect range) and test_drop_target_4blade_two_solenoid_lift (Hall perf board attached to the 4-blade prototype).

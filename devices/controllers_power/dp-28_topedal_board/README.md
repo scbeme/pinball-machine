@@ -1,6 +1,8 @@
 # DP-28 Topedal board
 
-**Revision:** 20261119-01 · **Source:** Topedal OPP Solenoid, Neopixel & Switches Board, Rev 1.1 (12 Jun 2026), as used · 3 identical boards (DP-28A to DP-28C)
+**Revision:** 20261125-01 · **Source:** Topedal OPP Solenoid, Neopixel & Switches Board, Rev 1.1 (12 Jun 2026), as used · 3 identical boards (DP-28A to DP-28C)
+
+> **Architecture note (2026-11-25):** this Topedal board is retained as the bench/reference board. For production, coil drivers are co-located with each device on per-device [coil driver boards](../../../system/system_common_components/coil_driver_board.md); the controller function (Blue Pill + I/O + Neopixel + gate outputs) moves to a new controller board. Topedal and Cobrapin are the reference designs. See Electrical Master, Board architecture.
 
 ## 1. Requirements
 

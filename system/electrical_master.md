@@ -1,6 +1,6 @@
 # Electrical Master
 
-**Revision:** 20261125-02 · **Date:** 2026-11-25
+**Revision:** 20261125-03 · **Date:** 2026-11-25
 
 ## Block diagram
 
@@ -56,3 +56,12 @@ Single-point **star ground** at the GND bar (P-08). Return classes are kept sepa
 - **Single earth bond:** GND★ bonds to chassis / mains protective earth (PE) at one point; GFCI protection depends on this bond.
 - **Per-device gate return:** each co-located driver's gate reference (GNDREF) is a dedicated wire to the star, separate from its 4.5 A coil return, so the coil-return drop cannot shift the MOSFET gate reference.
 - **Host ground:** the host PC is mains-earthed and powers the Blue Pills over USB (P-07), so its USB ground ties logic GNDREF to the same earth reference. If a ground loop appears, add a USB isolator.
+
+## Board architecture
+
+Coil drivers are **co-located with their device**, not on a shared controller board. The DP-28 Topedal board (one Blue Pill + 8 on-board drivers + I/O + Neopixel) is superseded for production by two board types:
+
+- **Controller board** — Blue Pill (STM32F103, OPP firmware), switch/matrix inputs, Neopixel output + level shifter, 5 V distribution, GNDREF star tie, and one gate-drive output per coil channel.
+- **Per-device coil-driver board** — co-located at each coil: MOSFET (IRLZ44N), gate network (100 Ω series + 10 kΩ pulldown), flyback diode, screw terminals ([coil_driver_board.md](system_common_components/coil_driver_board.md)). The gate signal runs from the controller board; the coil-return and the gate-return (GNDREF) run separately to the GND★ star.
+
+Firing still runs through controller-board firmware (the gate is firmware-driven), so the no-hardware-autofire rule (Machine Master, Electrical) is preserved. The Topedal board (DP-28) and the Cobrapin board are the reference designs for the custom PCBs; both board types are to be designed, and **DC-06 Drop target (single) is the first prototype**. The block diagram above still shows the 3-Topedal layout and will be redrawn once the controller board is defined.
