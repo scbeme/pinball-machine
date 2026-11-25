@@ -1,6 +1,6 @@
 # System common components
 
-**Revision:** 20261112-01 · **Date:** 2026-11-12
+**Revision:** 20261125-01 · **Date:** 2026-11-25
 
 **Rule:** A part used by two or more device groups is specified once, here. Device READMEs link to it and do not copy it.
 
@@ -10,6 +10,7 @@
 |---|---|---|
 | GoHz M12 inductive proximity sensor | DP-18 Rollover sensor, DB-01 Scoop/hole, DB-03 Ball trough, DB-04 Shooter lane ball-present sensor | [gohz_m12_inductive_sensor.md](gohz_m12_inductive_sensor.md) |
 | Houocon stainless steel cable tie | DP-01 Standup targets, DP-19 Standup target (single), DC-05, DC-06 and DC-07 drop targets, DP-09 Flipper buttons | [houocon_stainless_cable_tie.md](houocon_stainless_cable_tie.md) |
+| Coil driver board (co-located) | Every coil device — DC-01, DC-02, DC-03, DC-04, DC-05, DC-06, DC-07, DB-01, DB-03 | [coil_driver_board.md](coil_driver_board.md) |
 
 **Listed as system common, no specification file yet** (audit result, pending Scott's confirmation): JF-1039B solenoid, 1N400x-class diode, McMaster-Carr 1173N O-rings, cable-tie leaf switch.
 
