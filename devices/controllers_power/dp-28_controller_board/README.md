@@ -1,8 +1,8 @@
-# DP-28 Topedal board
+# DP-28 controller board
 
-**Revision:** 20261125-01 · **Source:** Topedal OPP Solenoid, Neopixel & Switches Board, Rev 1.1 (12 Jun 2026), as used · 3 identical boards (DP-28A to DP-28C)
+**Revision:** 20261125-01 · **Source:** OPP Solenoid, Neopixel & Switches reference board, Rev 1.1 (12 Jun 2026), as used · 3 identical boards (DP-28A to DP-28C)
 
-> **Architecture note (2026-11-25):** this Topedal board is retained as the bench/reference board. For production, coil drivers are co-located with each device on per-device [coil driver boards](../../../system/system_common_components/coil_driver_board.md); the controller function (Blue Pill + I/O + Neopixel + gate outputs) moves to a new controller board. Topedal and Cobrapin are the reference designs. See Electrical Master, Board architecture.
+> **Architecture note (2026-11-25):** this is the DP-28 controller board, kept as the OPP reference/bench board (8 on-board drivers). For production the coil drivers are co-located with each device on per-device [coil driver boards](../../../system/system_common_components/coil_driver_board.md), and the controller board keeps the Blue Pill + I/O + Neopixel + per-channel gate outputs. The OPP reference board and the Cobrapin board are the design references. See Electrical Master, Board architecture.
 
 ## 1. Requirements
 
@@ -44,7 +44,7 @@ Source: Amazon vendor listing (ASIN B0G1S5M8YB), read 2026-11-19. The listing is
 | Item | Listing value |
 |---|---|
 | Seller / brand | EC Buying (ShenZhen EC Buyiing Technology Co). Reseller, not the manufacturer |
-| Pack | 3 boards (matches the 3 Topedal boards, DP-28A to DP-28C) |
+| Pack | 3 boards (matches the 3 controller boards, DP-28A to DP-28C) |
 | MCU | STM32F103C8T6, ARM Cortex-M3, 72 MHz |
 | Memory | 64 KB flash, 20 KB SRAM |
 | Supply range (MCU) | 2.0 to 3.6 V |

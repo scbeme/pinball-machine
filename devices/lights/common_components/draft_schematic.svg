@@ -32,12 +32,12 @@
 <polygon points="700,225 708,217 750,217 750,233 708,233" fill="#fff6c8" stroke="#1a1a1a" stroke-width="1.2"/>
 <text x="727.0" y="229" text-anchor="middle" font-size="11" font-weight="bold" fill="#1a1a1a">DOUT</text>
 <text x="300" y="252" text-anchor="end" font-size="10" fill="#555">from previous LED DOUT</text>
-<text x="300" y="265" text-anchor="end" font-size="10" fill="#555">or Topedal Neo5</text>
+<text x="300" y="265" text-anchor="end" font-size="10" fill="#555">or controller-board Neo5</text>
 <text x="700" y="252" font-size="10" fill="#555">to next LED DIN</text>
 <text x="20" y="450" font-size="13" font-weight="bold" fill="#1a1a1a">Net table</text>
-<text x="30" y="472" font-size="12" font-weight="bold" fill="#1a1a1a">+5V</text><text x="120" y="472" font-size="12" fill="#1a1a1a">U1 pin 1 (VDD), C1 +; 5 V rail (Topedal +5V)</text>
+<text x="30" y="472" font-size="12" font-weight="bold" fill="#1a1a1a">+5V</text><text x="120" y="472" font-size="12" fill="#1a1a1a">U1 pin 1 (VDD), C1 +; 5 V rail (controller-board +5V)</text>
 <text x="30" y="490" font-size="12" font-weight="bold" fill="#1a1a1a">GNDREF</text><text x="120" y="490" font-size="12" fill="#1a1a1a">U1 pin 3 (VSS), C1 −; ground reference</text>
-<text x="30" y="508" font-size="12" font-weight="bold" fill="#1a1a1a">DIN</text><text x="120" y="508" font-size="12" fill="#1a1a1a">U1 pin 4; previous LED DOUT, or Topedal Neopixel output Neo5 for the first LED in the chain</text>
+<text x="30" y="508" font-size="12" font-weight="bold" fill="#1a1a1a">DIN</text><text x="120" y="508" font-size="12" fill="#1a1a1a">U1 pin 4; previous LED DOUT, or controller-board Neopixel output Neo5 for the first LED in the chain</text>
 <text x="30" y="526" font-size="12" font-weight="bold" fill="#1a1a1a">DOUT</text><text x="120" y="526" font-size="12" fill="#1a1a1a">U1 pin 2; next LED DIN (open at the last LED in the chain)</text>
 <text x="20" y="570" font-size="13" font-weight="bold" fill="#1a1a1a">Parts table</text>
 <text x="30" y="592" font-size="11" font-weight="bold" fill="#1a1a1a">Ref</text>

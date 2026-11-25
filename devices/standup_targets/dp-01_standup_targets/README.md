@@ -24,7 +24,7 @@ Geometry and positions: CAD (`standup-target`).
 | Item | Design solution |
 |---|---|
 | Switch | SPST, normally open; the leaf contacts close on target deflection |
-| Interface | Closes a Topedal switch input to ground; generic switch-input circuit shared with the other switch devices (pins per the Electrical Master I/O map) |
+| Interface | Closes a controller-board switch input to ground; generic switch-input circuit shared with the other switch devices (pins per the Electrical Master I/O map) |
 
 ## 4. Software
 

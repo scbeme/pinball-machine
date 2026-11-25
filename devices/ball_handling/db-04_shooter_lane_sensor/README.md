@@ -16,7 +16,7 @@ Geometry and positions: CAD (`ball-handling`). Mounting: 3D-printed bracket.
 
 | Item | Design solution |
 |---|---|
-| Sensor | [GoHz M12 inductive proximity sensor](../../../system/system_common_components/gohz_m12_inductive_sensor.md); 24 V; NPN output to a Topedal direct input; at the ready-to-shoot position |
+| Sensor | [GoHz M12 inductive proximity sensor](../../../system/system_common_components/gohz_m12_inductive_sensor.md); 24 V; NPN output to a controller-board direct input; at the ready-to-shoot position |
 
 ## 4. Software
 

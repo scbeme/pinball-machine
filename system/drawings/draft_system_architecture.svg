@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 740" width="1500" height="740" font-family="Arial, Helvetica, sans-serif" font-size="12"><rect width="1500" height="740" fill="#fff"/>
 <defs><marker id="m7a3fb0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#7a3fb0"/></marker><marker id="mc0392b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#c0392b"/></marker><marker id="m555555" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#555555"/></marker><marker id="m1a1a1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#1a1a1a"/></marker></defs>
-<text x="20" y="24" font-size="15" fill="#111" text-anchor="start" font-weight="bold">System Architecture — controls, playfield devices, Topedal boards, host computer, monitor</text>
+<text x="20" y="24" font-size="15" fill="#111" text-anchor="start" font-weight="bold">System Architecture — controls, playfield devices, controller boards, host computer, monitor</text>
 <text x="20" y="48" font-size="11" fill="#111" text-anchor="start" font-weight="bold">Legend:</text>
 <line x1="75" y1="44" x2="115" y2="44" stroke="#7a3fb0" stroke-width="2" marker-end="url(#m7a3fb0)"/>
 <text x="120" y="48" font-size="11" fill="#333" text-anchor="start">signal / data</text>
@@ -44,13 +44,13 @@
 <rect x="20" y="581" width="330" height="100" rx="4" fill="#ffffff" stroke="#2b4b7a" stroke-width="1.5"/>
 <text x="28" y="598" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Terms</text>
 <text x="28" y="615" font-size="10" fill="#333" text-anchor="start">Host: DP-27 Host computer (runs MPF + GMC)</text>
-<text x="28" y="627" font-size="10" fill="#333" text-anchor="start">Controller: DP-28A Topedal board (primary board,</text>
+<text x="28" y="627" font-size="10" fill="#333" text-anchor="start">Controller: DP-28A controller board (primary board,</text>
 <text x="28" y="639" font-size="10" fill="#333" text-anchor="start">   lowest chain address)</text>
-<text x="28" y="651" font-size="10" fill="#333" text-anchor="start">Node: DP-28B Topedal board, DP-28C Topedal board</text>
-<text x="28" y="663" font-size="10" fill="#333" text-anchor="start">Board: any DP-28 Topedal board (controller or node);</text>
+<text x="28" y="651" font-size="10" fill="#333" text-anchor="start">Node: DP-28B controller board, DP-28C controller board</text>
+<text x="28" y="663" font-size="10" fill="#333" text-anchor="start">Board: any DP-28 controller board (controller or node);</text>
 <text x="28" y="675" font-size="10" fill="#333" text-anchor="start">   rules apply to every board</text>
 <rect x="470" y="70" width="340" height="540" rx="6" fill="#f6f8fc" stroke="#2b4b7a" stroke-width="2"/>
-<text x="480" y="86" font-size="12" fill="#111" text-anchor="start" font-weight="bold">DP-28 Topedal boards (3 identical)</text>
+<text x="480" y="86" font-size="12" fill="#111" text-anchor="start" font-weight="bold">DP-28 controller boards (3 identical)</text>
 <text x="480" y="100" font-size="11" fill="#333" text-anchor="start">DP-28A Controller, DP-28B Node, DP-28C Node</text>
 <rect x="490" y="110" width="300" height="125" rx="4" fill="#eaf0fa" stroke="#2b4b7a" stroke-width="1.5"/>
 <text x="498" y="127" font-size="12" fill="#111" text-anchor="start" font-weight="bold">Switch inputs</text>

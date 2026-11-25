@@ -55,7 +55,7 @@ Figure 1 — Single-blade 12 V bench circuit (drawn from the Setup text of the o
 | R1 | 1 kΩ | 330 Ω | Sized for 12 V |
 | LED | Output indicator: R1 from +12 V to OUT, lit when OUT is low | Power-on indicator: R1 from VDD to GND | Detection read-out |
 | Channels | 1 | 7 (DC-05), 1 (DC-06), up to 4 (DC-07) | Single-blade prototype |
-| Output | LED; not read by a controller | OUT to a Topedal direct input (pin assignment not yet defined in the PMDD Assignment Table) | Bench observation |
+| Output | LED; not read by a controller | OUT to a controller-board direct input (pin assignment not yet defined in the PMDD Assignment Table) | Bench observation |
 | Magnet | 6×2 mm SRENMSMT | 6×2 mm for DC-05 and DC-06; 4×4 mm for DC-07 | Not a deviation for DC-05 and DC-06 |
 
 ## Data

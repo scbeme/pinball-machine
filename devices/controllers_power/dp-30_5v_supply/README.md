@@ -6,7 +6,7 @@
 
 | Item | Requirement |
 |---|---|
-| Function | Separate fused 5 V DC supply to Topedal J4/J5 and J6 (level shifter, Neopixel strip) and the Hall sensor boards (DC-05, DC-06, DC-07) |
+| Function | Separate fused 5 V DC supply to controller-board J4/J5 and J6 (level shifter, Neopixel strip) and the Hall sensor boards (DC-05, DC-06, DC-07) |
 | Regulation | 5.0 V (WS2812B maximum 5.3 V) |
 | Rail | No series diodes on the rail |
 | Rating | TBD |

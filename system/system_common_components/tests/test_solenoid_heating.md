@@ -36,7 +36,7 @@ Coil per device: JF-1039B for DC-04, DC-05, DC-06, DC-07, DC-02, DB-01, DB-03. D
 | Controller | Blue Pill STM32F103C8T6 (USB-C board), powered from USB |
 | Toolchain | PlatformIO on the MacBook Air |
 | Trigger path | Blue Pill firmware drives the MOSFET gate (fire pulse, then PWM hold in category A; fire pulse only in category B). Hold PWM on TIM1_CH1 (PA8): 5 kHz primary, 2 kHz secondary, 20 kHz optional with a Q1 heat sink |
-| Channel assignment | Channel 1 = Topedal Drv7 (PA8, J100 pin 5, J2-8) with Sw1 (PB12). Channel 2 = Topedal Drv6 (PA9, J100 pin 6, J2-7) with Sw2 (PB13), DNP |
+| Channel assignment | Channel 1 = controller-board Drv7 (PA8, J100 pin 5, J2-8) with Sw1 (PB12). Channel 2 = controller-board Drv6 (PA9, J100 pin 6, J2-7) with Sw2 (PB13), DNP |
 | Solenoid | JF-1039B, 5.2–5.4 Ω bench resistance; plunger return spring and C-clip removed (default drop-target configuration; configuration per run to be recorded) |
 | Temperature | NTC bead RT1 (10 kΩ, B3950, MF52B style) taped to the coil winding; logging only (no thermal cutoff) |
 | Current | RS1 shunt to PA0 (logged); Fluke 177 in series with the coil at JT1 (DC average) |
@@ -59,7 +59,7 @@ Coil per device: JF-1039B for DC-04, DC-05, DC-06, DC-07, DC-02, DB-01, DB-03. D
 | FUSE_LED | R11, D5 anode; D5 cathode to GND (lit while F1 is intact) |
 | COIL_LO1 / COIL_LO2 | L1 / L2 bottom terminal, JT1 / JT2 terminal 1 |
 | DRAIN1 / DRAIN2 | JT1 / JT2 terminal 2, Q1 / Q2 pin 2 (D), D1 / D2 anode, and R8 on DRAIN1 |
-| SOL1 / SOL2 | U1 PA8 / PA9 (Topedal net sol1 / sol2), R1 / R4 (U1 side), R2 / R5 top, R3 / R6 top |
+| SOL1 / SOL2 | U1 PA8 / PA9 (controller-board net sol1 / sol2), R1 / R4 (U1 side), R2 / R5 top, R3 / R6 top |
 | GATE1 / GATE2 | R1 / R4 (Q side), Q1 / Q2 pin 1 (G) |
 | LED1 / LED2 | R3 / R6 bottom, D3 / D4 anode; cathode to GND |
 | N_SH | Q1 pin 3 (S), Q2 pin 3 (S, DNP), RS1 top, R7 |
@@ -80,11 +80,11 @@ Coil per device: JF-1039B for DC-04, DC-05, DC-06, DC-07, DC-02, DB-01, DB-03. D
 | Q1 | IRLZ44NPbF, TO-220 | 55 V | 1 | Required | Pins 1 G, 2 D, 3 S; RDS(on) max 0.035 Ω at 4 V (21 A), 0.025 Ω at 5 V, 0.022 Ω at 10 V; VGS(th) 1.0–2.0 V; Qg 48 nC, Qgd 25 nC; RθJA 62 °C/W. Not specified at a 3.3 V gate (T2 measures it). With RS1 in the source path, VGS is about 3.08 V at 4.5 A (3.3 V − 4.5 A × 0.05 Ω; calculated, ignores output sag) |
 | L1 | JF-1039B solenoid | 5.2–5.4 Ω | 1 | Required | No manufacturer datasheet; reseller duty under 2 s per activation |
 | D1 | 1N4007 | 1000 V, 1 A | 1 | Required | Flyback across L1, band = cathode. trr about 1.5 µs typ (Diotec) to 2 µs max (Vishay). UF4007 is the fallback if T1/T6 show a recovery problem |
-| R1 | Resistor | 100 Ω | 1 | Required | Gate series, mirrors Topedal Rg. A 3.3 V step across 100 Ω is about 33 mA peak; the GPIO output impedance limits it to about 20 mA, under the 25 mA per-pin absolute maximum (STM32F103x8/xB Table 37 output levels) |
-| R2 | Resistor | 10 kΩ | 1 | Required | Gate pulldown (Topedal Rp) |
-| R3 | Resistor | 1 kΩ | 1 | Required | Gate LED series (Topedal Rd) |
-| D3 | LED, 3 mm white | — | 1 | Required | Gate indicator (Topedal Dd) |
-| SW1 | Pushbutton | — | 1 | Required | Fire/arm input, PB12 (Topedal Sw1) |
+| R1 | Resistor | 100 Ω | 1 | Required | Gate series, mirrors controller-board Rg. A 3.3 V step across 100 Ω is about 33 mA peak; the GPIO output impedance limits it to about 20 mA, under the 25 mA per-pin absolute maximum (STM32F103x8/xB Table 37 output levels) |
+| R2 | Resistor | 10 kΩ | 1 | Required | Gate pulldown (controller-board Rp) |
+| R3 | Resistor | 1 kΩ | 1 | Required | Gate LED series (controller-board Rd) |
+| D3 | LED, 3 mm white | — | 1 | Required | Gate indicator (controller-board Dd) |
+| SW1 | Pushbutton | — | 1 | Required | Fire/arm input, PB12 (controller-board Sw1) |
 | F1 | Slow-blow fuse, Littelfuse 218 series (004.), 5×20 mm, with holder | 4 A | 1 | Required | Nominal melting I²t 69.1 A²s (test condition not stated); the datasheet gives no DC current rating; fire-pulse I²t at most 1.0 A²s (4.5² × 0.05); about 3.2 A RMS at a 100 ms refire interval (calculated). Does not protect the coil in a stuck-on fault. Channel 2 stays DNP, so F1 stays 4 A |
 | C1 | Electrolytic | 2200 µF 50 V | 1 | Required | Supply decoupling only; the 4.5 A × 50 ms fire pulse comes from the bench supply (2200 µF alone would droop about 100 V over the pulse). Candidate: Rubycon YXJ 50YXJ2200M16X35.5 — 16 mm diameter, 7.5 mm lead spacing, 37.5 mm max seated height, ripple 3150 mA rms at 105 °C / 100 kHz (Rubycon sheet RYXJ-1039-1; DigiKey) |
 | RS1 | Power resistor | 0.05 Ω 5 W | 1 | Required | Source shunt for current logging. 0.05 Ω instead of 0.1 Ω: 0.1 Ω drops 0.45 V at 4.5 A and cuts VGS from 3.3 V to about 2.85 V. Shunt resolution about 16 mA per count (calculated) |
@@ -109,7 +109,7 @@ Coil per device: JF-1039B for DC-04, DC-05, DC-06, DC-07, DC-02, DB-01, DB-03. D
 | D2 | 1N4007 | — | 1 | DNP | |
 | R4 / R5 / R6 | Resistors | 100 Ω / 10 kΩ / 1 kΩ | 1 each | DNP | Gate network, channel 2 |
 | D4 | LED, 3 mm white | — | 1 | DNP | |
-| SW2 | Pushbutton | — | 1 | DNP | PB13 (Topedal Sw2) |
+| SW2 | Pushbutton | — | 1 | DNP | PB13 (controller-board Sw2) |
 | JT2 | 2-position screw terminal | — | 1 | DNP | Same as JT1 |
 
 ### Deviations from the final design
@@ -124,12 +124,12 @@ Coil per device: JF-1039B for DC-04, DC-05, DC-06, DC-07, DC-02, DB-01, DB-03. D
 | F1 | 4 A on the +24 V rail | Flipper feed fuse, rating TBD | Bench protection |
 | C1 | 2200 µF decoupling at the rig | Bulk filter, value TBD | Supply decoupling |
 | D5 / R11 | Fuse-good LED | None | Indication; optional |
-| CN1 / CN2 | PA13/PA14 for SWD, PA2/PA3 for USART2 | PA13 is Drv8, PA14 is C0, PA2/PA3 are C6/C7 (Topedal pin assignment) | Programming and logging; USART1 pins PA9/PA10 are Drv6/Drv5 and are not used |
-| PA0, PA1, PA4 | Analog inputs for shunt, drain divider and NTC | C4, C5, R0 matrix pins (Topedal pin assignment) | Instrumentation; these pins are 3.3 V only |
+| CN1 / CN2 | PA13/PA14 for SWD, PA2/PA3 for USART2 | PA13 is Drv8, PA14 is C0, PA2/PA3 are C6/C7 (controller-board pin assignment) | Programming and logging; USART1 pins PA9/PA10 are Drv6/Drv5 and are not used |
+| PA0, PA1, PA4 | Analog inputs for shunt, drain divider and NTC | C4, C5, R0 matrix pins (controller-board pin assignment) | Instrumentation; these pins are 3.3 V only |
 | Grounds | GND and GNDREF are one net, tied at the RS1 bottom | Separate nets, tied at the GND bar | Single-supply rig |
 | Load | Bench coil with plunger load per run | Device mechanism (flipper lever, drop-target lifter, kicker, eject) | Heating depends on the coil's electrical power; mechanical load per device is not on the rig |
 
-Not deviations (mirror the final design): Blue Pill firmware trigger; IRLZ44NPbF low-side driver; gate network (GPIO net → 100 Ω → gate; 10 kΩ pulldown and 1 kΩ + white LED on the GPIO side); external flyback diode across the coil (the Topedal board has none); Drv7/PA8 and Drv6/PA9 with Sw1/PB12 and Sw2/PB13.
+Not deviations (mirror the final design): Blue Pill firmware trigger; IRLZ44NPbF low-side driver; gate network (GPIO net → 100 Ω → gate; 10 kΩ pulldown and 1 kΩ + white LED on the GPIO side); external flyback diode across the coil (the controller board has none); Drv7/PA8 and Drv6/PA9 with Sw1/PB12 and Sw2/PB13.
 
 ### Rig limits (starting values; firmware settings)
 
@@ -174,7 +174,7 @@ fire_ms, hold_pct, freq (Hz), max_on_s, mode (A1, A2 or B), hold_ms (A2 dwell), 
 | C1 candidate | Rubycon YXJ 50YXJ2200M16X35.5: ripple 3150 mA rms at 105 °C / 100 kHz; impedance 0.019 Ω at 20 °C; 10,000 h at 105 °C; 16 mm × 35.5 mm nominal | Rubycon sheet RYXJ-1039-1; DigiKey |
 | JT1 | Phoenix MKDS 1,5/2-5,08: 17.5 A nominal, UL 10 A, AWG 30–14 | Phoenix Contact datasheet |
 
-Not covered by any datasheet: RDS(on) at a 3.3 V gate; 1N4007 and UF4007 trr at 0.75–4.5 A; the 24/8 mH inductance baseline; the hold-duty and 4 W dissipation estimates; Topedal/OPP hold-PWM frequency capability and OPP behaviour on PA13/PA14/PA15/PB3/PB4.
+Not covered by any datasheet: RDS(on) at a 3.3 V gate; 1N4007 and UF4007 trr at 0.75–4.5 A; the 24/8 mH inductance baseline; the hold-duty and 4 W dissipation estimates; controller-board/OPP hold-PWM frequency capability and OPP behaviour on PA13/PA14/PA15/PB3/PB4.
 
 ## Test Results Table
 

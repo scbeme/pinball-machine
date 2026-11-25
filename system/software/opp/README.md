@@ -2,7 +2,7 @@
 
 **Revision:** 20261119-02 · **Date:** 2026-11-19
 
-Controller firmware for the DP-28 Topedal boards (identical firmware on every board, `machine_master.md` Software item 1). This folder holds the open-source baseline only; no project configuration has been applied. When a configured or modified build exists, its files are added here and this page is updated. The folder always holds the latest version, so no other firmware record is kept.
+Controller firmware for the DP-28 controller boards (identical firmware on every board, `machine_master.md` Software item 1). This folder holds the open-source baseline only; no project configuration has been applied. When a configured or modified build exists, its files are added here and this page is updated. The folder always holds the latest version, so no other firmware record is kept.
 
 | Item | Value |
 |---|---|

@@ -26,18 +26,18 @@
 
 | # | Item | Description |
 |---|---|---|
-| 1 | Time-critical devices | All solenoid firing runs through the firmware of the board that owns the coil (fire pulse, then PWM hold where used). No hardware autofire (safety): no switch-to-driver path that bypasses board firmware. Local switch-triggered firing by the board's own firmware is permitted. The switches for DC-01 Pop bumpers, DC-02 Slingshots and DC-04 Flipper Assembly are on the same Topedal board as their coils |
-| 2 | Non-time-critical devices | Digital switches connected via Topedal board's onboard direct/matrix switch inputs |
+| 1 | Time-critical devices | All solenoid firing runs through the firmware of the board that owns the coil (fire pulse, then PWM hold where used). No hardware autofire (safety): no switch-to-driver path that bypasses board firmware. Local switch-triggered firing by the board's own firmware is permitted. The switches for DC-01 Pop bumpers, DC-02 Slingshots and DC-04 Flipper Assembly are on the same controller board as their coils |
+| 2 | Non-time-critical devices | Digital switches connected via controller board's onboard direct/matrix switch inputs |
 | 3 | Rules engine & asset management | Computer supporting MPF + Godot Media Controller (GMC) running Mission Pinball Framework (MPF) — game logic, scoring, game scenarios; GMC for audio/video/monitor display |
-| 4 | Comm bus | USB serial between host and Topedal board(s) |
-| 5 | Coil driver location | Production coil drivers are co-located with each device (MOSFET, gate network, flyback at the coil), gated over a wire from the controller board; the DP-28 Topedal board is the reference. See Electrical Master, Board architecture |
+| 4 | Comm bus | USB serial between host and controller board(s) |
+| 5 | Coil driver location | Production coil drivers are co-located with each device (MOSFET, gate network, flyback at the coil), gated over a wire from the controller board; the DP-28 controller board is the reference. See Electrical Master, Board architecture |
 
 
 ### Software
 
 | # | Item | Description |
 |---|---|---|
-| 1 | Firmware | Identical OPP firmware flashed to all Topedal boards (same STM32F103 processor as standard OPP), distinguished by board address; MPF config (not firmware) defines game scenario behavior |
+| 1 | Firmware | Identical OPP firmware flashed to all controller boards (same STM32F103 processor as standard OPP), distinguished by board address; MPF config (not firmware) defines game scenario behavior |
 | 2 | Game scenarios | A game scenario is defined by populating a Game Scenario Framework — requires no firmware changes |
 | 3 | Playing field devices | <b>Primitive</b> — single physical switch/coil/sensor, no sub-components, assigned unique ID.<br><b>Composite</b> — 2 or more primitives combined to perform one coordinated physical action, e.g., button + coil + EOS sensor = flipper assembly.<br><b>Ball-state Device</b> — tracks ongoing ball location/count/presence as persistent state, e.g., scoop, ball lock, or trough |
 | 4 | Game setup | Players select game preferences before starting a game. Setup parameters include standard parameters applicable to all scenarios + scenario-specific parameters |
@@ -48,9 +48,9 @@
 | Term | Definition |
 |---|---|
 | Host | DP-27 Host computer, running MPF + Godot Media Controller (GMC) |
-| Controller | DP-28A Topedal board: the primary board (lowest chain address) |
-| Node | DP-28B Topedal board and DP-28C Topedal board: the additional smart boards |
-| Board | Any DP-28 Topedal board (controller or node); rules written for a board apply to every board |
+| Controller | DP-28A controller board: the primary board (lowest chain address) |
+| Node | DP-28B controller board and DP-28C controller board: the additional smart boards |
+| Board | Any DP-28 controller board (controller or node); rules written for a board apply to every board |
 
 Hardware and firmware are identical on all boards; controller and node are roles by chain address only. Each board has its own USB link to the host.
 
@@ -171,7 +171,7 @@ Hardware and firmware are identical on all boards; controller and node are roles
 | DP-26A |  |  |  |  |
 | DP-26B |  |  |  |  |
 | DP-27 | Host computer | System | 1 | Y |
-| DP-28 | Topedal board (reference; production co-locates coil drivers — see Electrical Master) | System | 3 | Y |
+| DP-28 | controller board (reference; production co-locates coil drivers — see Electrical Master) | System | 3 | Y |
 | DP-28A |  |  |  |  |
 | DP-28B |  |  |  |  |
 | DP-28C |  |  |  |  |

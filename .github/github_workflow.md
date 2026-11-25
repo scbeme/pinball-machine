@@ -104,7 +104,7 @@ All names lowercase, no spaces. Only `README.md` keeps capitals (GitHub default)
 │  ├─ controllers_power/
 │  │  ├─ common_components
 │  │  ├─ dp-13_master_power_switch
-│  │  ├─ dp-28_topedal_board
+│  │  ├─ dp-28_controller_board
 │  │  ├─ dp-29_24v_coil_supply
 │  │  └─ dp-30_5v_supply
 │  ├─ controls_tilt/
@@ -214,13 +214,14 @@ Group-level common_components folders exist only where design is shared (Drop Ta
 | `Dashboard/`, `System/`, `Devices/` | `dashboard/`, `system/`, `devices/` |
 | `System/Machine_Master.md`, `Electrical_Master.md` | `system/machine_master.md`, `system/electrical_master.md` |
 | `System/Device_Registry.svg`, `System_Architecture.svg`, `Electrical_Block_Diagram.svg` | `system/drawings/device_registry.svg`, `system_architecture.svg`, `electrical_block_diagram.svg` |
-| `Devices/Controllers_Power/DP-28_Topedal_Board/Topedal_Schematic.svg` | `devices/controllers_power/dp-28_topedal_board/draft_schematic.svg` |
+| `Devices/Controllers_Power/DP-28_Controller_Board/Controller_Schematic.svg` | `devices/controllers_power/dp-28_controller_board/draft_schematic.svg` |
 
 ## 4. Dashboard rules
 
 | Rule | Definition |
 |---|---|
 | Links | Device names and Common components rows link to their repository folder (`/tree/main/<folder>`). A link exists only when the folder exists. Deliverables in device rows show status only, with no link |
+| New-file link check | When a document or drawing is added, renamed or moved, verify its dashboard row surfaces the intended current file before publishing: run `scan.py` (its link check fails on a broken link) and confirm the derived route/link resolves to the new file, not a superseded one. A superseded diagram is replaced in place at the same path so its dashboard link always points to the current version |
 | System documents | System documents and diagrams keep direct links to their files |
 | Status source | Derived at deploy time by `dashboard/scan.py` from the folder contents. Nothing is hand-set |
 | Status rule | Item absent = Not Started. File or folder with a `draft_` prefix = In Progress. Item present on `main` = Complete. N/A is set once in `data.json` |
@@ -269,7 +270,7 @@ Group-level common_components folders exist only where design is shared (Drop Ta
 | Tests | Test cards of a shared part live with the common components folder. 11 existing test cards are placed by subject; component-level cards (JF-1039B, 1173N O-ring, rubber band) go to `system_common_components/tests/` |
 | System list | Audit result, not yet confirmed by Scott: JF-1039B solenoid, 1N400x diode, GoHz M12 inductive sensor, McMaster 1173N O-rings, cable-tie leaf switch. Approved 2026-11-11: the generic switch-input schematic is system common for DP-09, DP-12, DP-20, DP-21, DP-24. DP-01 and DP-19 were added on `main` (PR #16) |
 | Lights | WS2812B is used only by Lights, so it is group common (`devices/lights/common_components/`); its tests and test firmware go in `devices/lights/common_components/tests/` |
-| Controllers and Power | Common components hold the power schematic and the bottom shelf layout. The DP-28 Topedal board schematic is DP-28's own device schematic (`dp-28_topedal_board/`). The system-level electrical schematic (supplies, bus bar, fused feeds, Topedal boards, device blocks) is a separate System item in the Electrical Master. Power budget, I/O map and timing point to the System documents |
+| Controllers and Power | Common components hold the power schematic and the bottom shelf layout. The DP-28 controller board schematic is DP-28's own device schematic (`dp-28_controller_board/`). The system-level electrical schematic (supplies, bus bar, fused feeds, controller boards, device blocks) is a separate System item in the Electrical Master. Power budget, I/O map and timing point to the System documents |
 
 ## 7. CAD, size and GitHub limits
 

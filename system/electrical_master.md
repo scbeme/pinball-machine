@@ -10,7 +10,7 @@
 
 ![System electrical schematic](drawings/draft_system_electrical_schematic.svg)
 
-First draft. Supplies, bus bar, fused feeds F1 to F8, GND bar, Topedal boards and device blocks. Pin assignments (device-to-driver, device-to-input) are not decided and are not drawn. The Topedal board circuit is the DP-28 device schematic: [draft_schematic.svg](../devices/controllers_power/dp-28_topedal_board/draft_schematic.svg).
+First draft. Supplies, bus bar, fused feeds F1 to F8, GND bar, controller boards and device blocks. Pin assignments (device-to-driver, device-to-input) are not decided and are not drawn. The controller board circuit is the DP-28 device schematic: [draft_schematic.svg](../devices/controllers_power/dp-28_controller_board/draft_schematic.svg).
 
 ## Safety architecture
 
@@ -41,7 +41,7 @@ One fused feed per circuit. All ratings are set during the power-supply and coil
 | F6 | 2 | DC-01 Pop bumpers | 3 | TBD |
 | F7 | 2 | DC-03 Outlane save gate/deflector + DB-01 Scoop/hole, DB-03 Ball Trough ejects | 4 | TBD |
 | F8 | 2 | 24 V inductive sensors x10 (DP-18 x7, DB-01, DB-03, DB-04) | — | TBD |
-| F_5V_LOGIC | 2 | 5 V logic rail (DP-28 Topedal boards, Hall boards, switch inputs) | — | TBD |
+| F_5V_LOGIC | 2 | 5 V logic rail (DP-28 controller boards, Hall boards, switch inputs) | — | TBD |
 | F_5V_LED | 2 | 5 V lighting rail (WS2812B addressable LEDs, ~103) | — | TBD |
 
 Coils on F1–F7 total 18 (power-budget counts; the DC-05 and DC-07 coil counts are confirmed by bench test). F8 carries no coils. K1 cuts only the 24 V coil rail; the F8 sensor feed is separate.
@@ -59,9 +59,9 @@ Single-point **star ground** at the GND bar (P-08). Return classes are kept sepa
 
 ## Board architecture
 
-Coil drivers are **co-located with their device**, not on a shared controller board. The DP-28 Topedal board (one Blue Pill + 8 on-board drivers + I/O + Neopixel) is superseded for production by two board types:
+Coil drivers are **co-located with their device**, not on a shared controller board. The DP-28 controller board (one Blue Pill + 8 on-board drivers + I/O + Neopixel) is superseded for production by two board types:
 
 - **Controller board** — Blue Pill (STM32F103, OPP firmware), switch/matrix inputs, Neopixel output + level shifter, 5 V distribution, GNDREF star tie, and one gate-drive output per coil channel.
 - **Per-device coil-driver board** — co-located at each coil: MOSFET (IRLZ44N), gate network (100 Ω series + 10 kΩ pulldown), flyback diode, screw terminals ([coil_driver_board.md](system_common_components/coil_driver_board.md)). The gate signal runs from the controller board; the coil-return and the gate-return (GNDREF) run separately to the GND★ star.
 
-Firing still runs through controller-board firmware (the gate is firmware-driven), so the no-hardware-autofire rule (Machine Master, Electrical) is preserved. The Topedal board (DP-28) and the Cobrapin board are the reference designs for the custom PCBs; both board types are to be designed, and **DC-06 Drop target (single) is the first prototype**. The block diagram above still shows the 3-Topedal layout and will be redrawn once the controller board is defined.
+Firing still runs through controller-board firmware (the gate is firmware-driven), so the no-hardware-autofire rule (Machine Master, Electrical) is preserved. The DP-28 OPP reference board and the Cobrapin board are the design references for the custom PCBs; both board types are to be designed, and **DC-06 Drop target (single) is the first prototype**.

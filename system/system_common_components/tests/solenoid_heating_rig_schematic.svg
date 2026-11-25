@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1340 830" width="1340" height="830" font-family="Arial, Helvetica, sans-serif" font-size="11">
 <rect width="1340" height="830" fill="#fff"/>
-<text x="20" y="22" text-anchor="start" font-size="13" fill="#1a1a1a" font-weight="bold">Figure 1 — JF-1039B solenoid bench rig: Topedal-style channel (Blue Pill trigger, no hardware autofire). Channel 1 populated; channel 2 provisioned, DNP (dashed).</text>
+<text x="20" y="22" text-anchor="start" font-size="13" fill="#1a1a1a" font-weight="bold">Figure 1 — JF-1039B solenoid bench rig: controller-board-style channel (Blue Pill trigger, no hardware autofire). Channel 1 populated; channel 2 provisioned, DNP (dashed).</text>
 <rect x="905" y="75" width="430" height="400" fill="#f4f4f4" stroke="#888" stroke-width="1" stroke-dasharray="6 4"/>
 <text x="1090" y="92" text-anchor="middle" font-size="11" fill="#555" font-weight="bold">CHANNEL 2 — DNP (second coil test)</text>
 <circle cx="60" cy="60" r="4" fill="#fff" stroke="#1a1a1a" stroke-width="1.5"/>
