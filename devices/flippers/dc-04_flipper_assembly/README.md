@@ -17,9 +17,9 @@ Geometry and positions: CAD (`flipper`). Mechanical sub-parts (body, rubber, lev
 
 | Item | Design solution |
 |---|---|
-| Trigger | Blue Pill firmware: the button closes a Blue Pill input on the same Topedal board as the coils; firmware drives the Topedal driver with a fixed-duration fire pulse (about 30–40 ms estimated, no end-of-stroke sensor), then PWM hold; firmware ends drive on button release. No hardware autofire |
+| Trigger | Blue Pill firmware: the button closes a Blue Pill input on the same controller board as the coils; firmware drives the controller-board driver with a fixed-duration fire pulse (about 30–40 ms estimated, no end-of-stroke sensor), then PWM hold; firmware ends drive on button release. No hardware autofire |
 | Actuator | JF-1039B, 12 V-rated, 25 N, 10 mm stroke, push-pull type; coil resistance 5.2–5.4 Ω (bench-measured); driven at 24 V (2× overdrive) |
-| Driver | IRLZ44NPbF: VDS 55 V, RDS(on) 22 mΩ typ. (VGS = 4 V/10 V), 47 A, TO-220; the Topedal board's own Rev 1.1 part |
+| Driver | IRLZ44NPbF: VDS 55 V, RDS(on) 22 mΩ typ. (VGS = 4 V/10 V), 47 A, TO-220; the controller board's own Rev 1.1 part |
 | Protection | 1N400x-class diode, one per solenoid; flipper feed fuse (rating TBD); firmware protections in the control logic. No separate thermal control |
 | Body | PETG-printed, embedded COTS hex-key (Allen wrench) shaft, hex-to-round printed adapter sleeve, 2× ball bearing support, grub-screw shaft capture with heat-set brass inserts, removable back-side rubber capture plate with heat-set brass inserts |
 | Rubber | McMaster-Carr Silicone Rubber Bumper Strip, P/N 8780N116: 1/2" width × 1/8" thick × 24" length, 50A durometer, red, plain backing; single strip wrapped around paddle edge, clamped under capture plate |

@@ -2,7 +2,7 @@
 <rect width="2150" height="1650" fill="#fff"/>
 <defs><marker id="mc0392b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#c0392b"/></marker><marker id="m1e7a34" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1e7a34"/></marker><marker id="m1a1a1a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#1a1a1a"/></marker><marker id="m7b3fb0" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#7b3fb0"/></marker></defs>
 <text x="20" y="26" font-size="16" font-weight="bold" fill="#111" text-anchor="start">System Electrical Schematic - DRAFT (first draft, not reviewed)</text>
-<text x="20" y="44" font-size="11" font-weight="normal" fill="#555" text-anchor="start">Power distribution, coil feeds, Topedal boards and device blocks. Nothing here is a new design decision: values marked TBD are TBD in the source documents.</text>
+<text x="20" y="44" font-size="11" font-weight="normal" fill="#555" text-anchor="start">Power distribution, coil feeds, controller boards and device blocks. Nothing here is a new design decision: values marked TBD are TBD in the source documents.</text>
 <line x1="20" y1="66" x2="60" y2="66" stroke="#c0392b" stroke-width="2.2"/>
 <text x="68" y="70" font-size="11" font-weight="normal" fill="#111" text-anchor="start">24 V power</text>
 <line x1="156.0" y1="66" x2="196.0" y2="66" stroke="#1e7a34" stroke-width="2.2"/>
@@ -75,7 +75,7 @@
 <text x="388" y="503" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Single tie point of GND (24 V</text>
 <text x="388" y="517" font-size="11" font-weight="normal" fill="#222" text-anchor="start">return) and GNDREF (3V3/5 V</text>
 <text x="388" y="531" font-size="11" font-weight="normal" fill="#222" text-anchor="start">return), P-08. Location TBD.</text>
-<text x="388" y="545" font-size="11" font-weight="normal" fill="#222" text-anchor="start">3 x 18 AWG per Topedal board</text>
+<text x="388" y="545" font-size="11" font-weight="normal" fill="#222" text-anchor="start">3 x 18 AWG per controller board</text>
 <line x1="610" y1="575" x2="620" y2="575" stroke="#1a1a1a" stroke-width="1.6"/>
 <polygon points="620,575 627,566 651,566 651,584 627,584" fill="#fff" stroke="#1a1a1a" stroke-width="1.4"/>
 <text x="630" y="579" font-size="11" font-weight="bold" fill="#1a1a1a" text-anchor="start">GND</text>
@@ -279,9 +279,9 @@
 <text x="968" y="1000" font-size="12" font-weight="bold" fill="#111" text-anchor="start">24 V inductive sensors x10</text>
 <text x="968" y="1016" font-size="11" font-weight="normal" fill="#222" text-anchor="start">DP-18 Rollover sensor x7, DB-01 Scoop/hole,</text>
 <text x="968" y="1030" font-size="11" font-weight="normal" fill="#222" text-anchor="start">DB-03 Ball Trough, DB-04 Shooter lane ball-present.</text>
-<text x="968" y="1044" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Return path and outputs to Topedal inputs: TBD</text>
+<text x="968" y="1044" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Return path and outputs to controller-board inputs: TBD</text>
 <rect x="1380" y="100" width="400" height="340" rx="5" fill="#eaf0fb" stroke="#2c4a8a" stroke-width="1.6"/>
-<text x="1390" y="118" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-28A Topedal board</text>
+<text x="1390" y="118" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-28A controller board</text>
 <text x="1390" y="132" font-size="10" font-weight="normal" fill="#222" text-anchor="start">Rev 1.1 (12 Jun 2026) as used; unique chain address (P-09)</text>
 <rect x="1390" y="146" width="165" height="52" rx="4" fill="#fff" stroke="#2c4a8a" stroke-width="1.6"/>
 <text x="1398" y="163" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Blue Pill STM32F103C8T6</text>
@@ -345,7 +345,7 @@
 <circle cx="1815" cy="228" r="3.6" fill="#7b3fb0"/>
 <text x="1772" y="224" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J6 Neopixel out (via U2 level shifter)</text>
 <rect x="1380" y="460" width="400" height="340" rx="5" fill="#eaf0fb" stroke="#2c4a8a" stroke-width="1.6"/>
-<text x="1390" y="478" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-28B Topedal board</text>
+<text x="1390" y="478" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-28B controller board</text>
 <text x="1390" y="492" font-size="10" font-weight="normal" fill="#222" text-anchor="start">Rev 1.1 (12 Jun 2026) as used; unique chain address (P-09)</text>
 <rect x="1390" y="506" width="165" height="52" rx="4" fill="#fff" stroke="#2c4a8a" stroke-width="1.6"/>
 <text x="1398" y="523" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Blue Pill STM32F103C8T6</text>
@@ -409,7 +409,7 @@
 <circle cx="1815" cy="588" r="3.6" fill="#7b3fb0"/>
 <text x="1772" y="584" font-size="10" font-weight="bold" fill="#222" text-anchor="end">J6 Neopixel out (via U2 level shifter)</text>
 <rect x="1380" y="820" width="400" height="340" rx="5" fill="#eaf0fb" stroke="#2c4a8a" stroke-width="1.6"/>
-<text x="1390" y="838" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-28C Topedal board</text>
+<text x="1390" y="838" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-28C controller board</text>
 <text x="1390" y="852" font-size="10" font-weight="normal" fill="#222" text-anchor="start">Rev 1.1 (12 Jun 2026) as used; unique chain address (P-09)</text>
 <rect x="1390" y="866" width="165" height="52" rx="4" fill="#fff" stroke="#2c4a8a" stroke-width="1.6"/>
 <text x="1398" y="883" font-size="11" font-weight="bold" fill="#111" text-anchor="start">Blue Pill STM32F103C8T6</text>
@@ -476,12 +476,12 @@
 <text x="1268" y="470" font-size="10" font-weight="bold" fill="#555" text-anchor="start">COIL_RET</text>
 <text x="1268" y="483" font-size="10" font-weight="normal" fill="#555" text-anchor="start">assignment TBD</text>
 <line x1="1815" y1="160" x2="1815" y2="948" stroke="#555" stroke-width="1.8" stroke-dasharray="6 4"/>
-<text x="1823" y="964" font-size="10" font-weight="bold" fill="#7b3fb0" text-anchor="start">signals to/from the Topedal boards</text>
+<text x="1823" y="964" font-size="10" font-weight="bold" fill="#7b3fb0" text-anchor="start">signals to/from the controller boards</text>
 <text x="1823" y="978" font-size="10" font-weight="normal" fill="#555" text-anchor="start">(device assignment TBD)</text>
 <rect x="1870" y="90" width="245" height="98" rx="4" fill="#f3e8fb" stroke="#7b3fb0" stroke-width="1.6"/>
 <text x="1878" y="107" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-27 Host computer</text>
 <text x="1878" y="123" font-size="11" font-weight="normal" fill="#222" text-anchor="start">x86_64, MPF + Godot Media Controller</text>
-<text x="1878" y="137" font-size="11" font-weight="normal" fill="#222" text-anchor="start">USB serial to each Topedal board</text>
+<text x="1878" y="137" font-size="11" font-weight="normal" fill="#222" text-anchor="start">USB serial to each controller board</text>
 <text x="1878" y="151" font-size="11" font-weight="normal" fill="#222" text-anchor="start">(P-07: Blue Pill powered over USB)</text>
 <line x1="1910" y1="90" x2="1910" y2="76" stroke="#7b3fb0" stroke-width="1.6"/>
 <line x1="1910" y1="76" x2="1920" y2="76" stroke="#7b3fb0" stroke-width="1.6"/>
@@ -499,7 +499,7 @@
 <rect x="1870" y="392" width="245" height="104" rx="4" fill="#f3e8fb" stroke="#7b3fb0" stroke-width="1.6"/>
 <text x="1878" y="409" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DP-31 to DP-41 Lights</text>
 <text x="1878" y="425" font-size="11" font-weight="normal" fill="#222" text-anchor="start">WS2812B addressable RGB LEDs, 103 in CAD</text>
-<text x="1878" y="439" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Neopixel data chain from Topedal J6</text>
+<text x="1878" y="439" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Neopixel data chain from controller-board J6</text>
 <text x="1878" y="453" font-size="11" font-weight="normal" fill="#222" text-anchor="start">(via U2 level shifter)</text>
 <text x="1878" y="467" font-size="11" font-weight="normal" fill="#222" text-anchor="start">+5 V: P-06 supply (rail assignment TBD)</text>
 <line x1="1930" y1="496" x2="1930" y2="510" stroke="#1e7a34" stroke-width="1.8"/>
@@ -510,11 +510,11 @@
 <text x="1878" y="557" font-size="12" font-weight="bold" fill="#111" text-anchor="start">Switch inputs</text>
 <text x="1878" y="573" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Generic switch input (DP-09, DP-12, DP-20,</text>
 <text x="1878" y="587" font-size="11" font-weight="normal" fill="#222" text-anchor="start">DP-21, DP-24) and sensor outputs -&gt;</text>
-<text x="1878" y="601" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Topedal J1 / J7 / J8 (assignment TBD)</text>
+<text x="1878" y="601" font-size="11" font-weight="normal" fill="#222" text-anchor="start">controller-board J1 / J7 / J8 (assignment TBD)</text>
 <rect x="1870" y="670" width="245" height="62" rx="4" fill="#e8f5e9" stroke="#1e7a34" stroke-width="1.6"/>
 <text x="1878" y="687" font-size="12" font-weight="bold" fill="#111" text-anchor="start">DC-05/06/07 Hall sensor boards</text>
 <text x="1878" y="703" font-size="11" font-weight="normal" fill="#222" text-anchor="start">5 V from P-06 (DP-30 5 V supply)</text>
-<text x="1878" y="717" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Hall outputs -&gt; Topedal inputs (TBD)</text>
+<text x="1878" y="717" font-size="11" font-weight="normal" fill="#222" text-anchor="start">Hall outputs -&gt; controller-board inputs (TBD)</text>
 <line x1="1930" y1="732" x2="1930" y2="746" stroke="#1e7a34" stroke-width="1.8"/>
 <line x1="1930" y1="746" x2="1940" y2="746" stroke="#1e7a34" stroke-width="1.6"/>
 <polygon points="1940,746 1947,737 1971,737 1971,755 1947,755" fill="#fff" stroke="#1e7a34" stroke-width="1.4"/>
@@ -553,27 +553,27 @@
 <rect x="30" y="1333" width="985" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
 <text x="35" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">COIL_RET</text>
 <text x="145" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Solenoid returns, 18 AWG each</text>
-<text x="380" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Solenoid negative terminal -&gt; Topedal J2 driver (assignment TBD)</text>
+<text x="380" y="1346" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Solenoid negative terminal -&gt; controller-board J2 driver (assignment TBD)</text>
 <rect x="30" y="1351" width="985" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
 <text x="35" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">+5V</text>
 <text x="145" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">5.0 V, P-06</text>
-<text x="380" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-30 -&gt; Topedal J4/J5, Hall boards, WS2812B (rail assignment TBD)</text>
+<text x="380" y="1364" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-30 -&gt; controller-board J4/J5, Hall boards, WS2812B (rail assignment TBD)</text>
 <rect x="30" y="1369" width="985" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
 <text x="35" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">GND</text>
 <text x="145" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">24 V return, coil ground</text>
-<text x="380" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-29 RTN, Topedal J3 (3 x 18 AWG per board), MOSFET sources -&gt; GND bar</text>
+<text x="380" y="1382" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-29 RTN, controller-board J3 (3 x 18 AWG per board), MOSFET sources -&gt; GND bar</text>
 <rect x="30" y="1387" width="985" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
 <text x="35" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">GNDREF</text>
 <text x="145" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">3V3 / 5 V return</text>
-<text x="380" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-30 return, Topedal J9 -&gt; GND bar; tied to GND at the bar only (P-08)</text>
+<text x="380" y="1400" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-30 return, controller-board J9 -&gt; GND bar; tied to GND at the bar only (P-08)</text>
 <rect x="30" y="1405" width="985" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
 <text x="35" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">USB</text>
 <text x="145" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Host to Blue Pill, power + serial</text>
-<text x="380" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-27 -&gt; each Topedal Blue Pill (P-07)</text>
+<text x="380" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-27 -&gt; each controller-board Blue Pill (P-07)</text>
 <rect x="30" y="1423" width="985" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
 <text x="35" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">SIG (TBD)</text>
 <text x="145" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Switch, sensor, Hall, Neopixel signals</text>
-<text x="380" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Topedal J1, J7/J8, J6 &lt;-&gt; devices (assignment TBD)</text>
+<text x="380" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">controller-board J1, J7/J8, J6 &lt;-&gt; devices (assignment TBD)</text>
 <rect x="30" y="1441" width="985" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
 <text x="35" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">HDMI</text>
 <text x="145" y="1454" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Video</text>
@@ -636,7 +636,7 @@
 <text x="1497" y="1418" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">F1 3, F2 2, F3 1, F4 3, F5 2, F6 3, F7 4</text>
 <rect x="1090" y="1423" width="962" height="18" rx="0" fill="#fff" stroke="#ccc" stroke-width="0.8"/>
 <text x="1095" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">DP-28A-C</text>
-<text x="1175" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Topedal boards, Rev 1.1 (12 Jun 2026)</text>
+<text x="1175" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">controller boards, Rev 1.1 (12 Jun 2026)</text>
 <text x="1455" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">3</text>
 <text x="1497" y="1436" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">8 solenoid drivers, 8 direct switch inputs, Neopixel out per board</text>
 <rect x="1090" y="1441" width="962" height="18" rx="0" fill="#f7f7f7" stroke="#ccc" stroke-width="0.8"/>
@@ -669,7 +669,7 @@
 <text x="1175" y="1544" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Single tie of GND and GNDREF (P-08)</text>
 <text x="1455" y="1544" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">1</text>
 <text x="1497" y="1544" font-size="10.5" font-weight="normal" fill="#111" text-anchor="start">Location TBD</text>
-<text x="30" y="1577" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Sources: system/drawings/draft_electrical_block_diagram.svg; devices/controllers_power READMEs (DP-13, DP-28, DP-29, DP-30). Device-level circuits (Topedal board, Hall boards, coil boards) are in their own device folders.</text>
+<text x="30" y="1577" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Sources: system/drawings/draft_electrical_block_diagram.svg; devices/controllers_power READMEs (DP-13, DP-28, DP-29, DP-30). Device-level circuits (controller board, Hall boards, coil boards) are in their own device folders.</text>
 <text x="30" y="1591" font-size="10" font-weight="normal" fill="#555" text-anchor="start">Not defined and therefore not drawn: mains supply to DP-27 / DP-25, GND bar location, all TBD ratings and values, coil-to-driver and switch-to-input assignments, sensor return path and output type, charge LED drive.</text>
 <text x="30" y="1605" font-size="10" font-weight="normal" fill="#555" text-anchor="start">18 coils use 18 of the 24 driver channels (3 boards x 8).</text>
 </svg>

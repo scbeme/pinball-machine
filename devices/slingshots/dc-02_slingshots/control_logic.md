@@ -4,6 +4,6 @@
 
 | Item | Definition |
 |---|---|
-| Trigger | Leaf switch closes on ring deflection; the Topedal board firmware fires the solenoid. No hardware autofire |
+| Trigger | Leaf switch closes on ring deflection; the controller board firmware fires the solenoid. No hardware autofire |
 | MPF | `slingshot` device, standard config; MPF receives the switch event for scoring |
 | Fire pulse width and maximum rate | TBD |

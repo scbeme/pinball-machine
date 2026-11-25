@@ -48,7 +48,7 @@ Figure 1 — 4-blade 5 V bench circuit (drawn from the drop target Hall board sc
 |---|---|---|---|
 | Supply | Regulated bench supply, 5 V | P-06 fused 5 V supply | Bench testing uses a regulated bench supply until the machine supply is complete (Scott, 2026-10-31) |
 | Channels | 4 | 7 (DC-05), 1 (DC-06), up to 4 (DC-07) | 4-blade circuit; matches DC-07 |
-| Output | Observation method not provided | OUT to a Topedal direct input (pin assignment not yet defined in the PMDD Assignment Table) | Bench observation |
+| Output | Observation method not provided | OUT to a controller-board direct input (pin assignment not yet defined in the PMDD Assignment Table) | Bench observation |
 | Connector | Not provided | 9-position screw terminal J1 | Bench wiring |
 
 ## Data

@@ -28,8 +28,8 @@ Geometry is defined by CAD (Scott's STEP export, 2026-11-14; not stored in the r
 |---|---|
 | LED | BTF-LIGHTING WS2812B, 10 mm, 5 V disk |
 | Connection | Female-header connector |
-| Data in / out | DIN from the previous LED's DOUT (first LED of each group from its Topedal board Neopixel output, 5 V via the board's level shifter); DOUT to the next LED's DIN |
-| Data topology | 3 LED groups, one per Topedal board (the design uses 3 Topedal boards). Each group is one daisy chain on that board's Neopixel output (PB15 to J6) |
+| Data in / out | DIN from the previous LED's DOUT (first LED of each group from its controller board Neopixel output, 5 V via the board's level shifter); DOUT to the next LED's DIN |
+| Data topology | 3 LED groups, one per controller board (the design uses 3 controller boards). Each group is one daisy chain on that board's Neopixel output (PB15 to J6) |
 | Schematic | [draft_schematic.svg](draft_schematic.svg) (single WS2812B LED) |
 
 **WS2812B disk specifications (BTF-LIGHTING WS2812BLEDW-W100pcs)**
@@ -118,7 +118,7 @@ Source: seller listing and drawings (Amazon, "2.54mm 0.1" Pitch PCB Mount Screw 
 | Current entering a segment | LEDs downstream × 60 mA design value (for example 30 LEDs = 1.8 A) | Unverified |
 | LEDs downstream of any terminal | 30 or fewer, so pass-through current stays at or below the 2 A design limit per pin | Unverified |
 | Segment limit, 22 AWG | 2.4 A·m for the 0.25 V drop budget | Unverified |
-| Group count | 3, one per Topedal board | Scott |
+| Group count | 3, one per controller board | Scott |
 | LEDs per group | About 34 (101 to 103 LEDs divided by 3); exact balance TBD | Unverified |
 | 5V feed points per group | At least 2: a head feed plus one mid-group injection, so no segment carries more than 30 LEDs downstream (34 LEDs at 60 mA is 2.04 A, over the 2 A per-pin design limit). Feed locations TBD | Unverified |
 | Feeder wire size | TBD (an 18 AWG feeder cannot share an opening with a second wire) | TBD |

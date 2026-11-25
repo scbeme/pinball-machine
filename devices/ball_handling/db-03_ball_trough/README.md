@@ -20,7 +20,7 @@ Geometry and positions: CAD (`ball-handling`).
 
 | Item | Design solution |
 |---|---|
-| Sensor | [GoHz M12 inductive proximity sensor](../../../system/system_common_components/gohz_m12_inductive_sensor.md); 24 V; NPN output to a Topedal direct input. Single sensor for ball detection; ball count is tracked digitally, so no sensor per ball |
+| Sensor | [GoHz M12 inductive proximity sensor](../../../system/system_common_components/gohz_m12_inductive_sensor.md); 24 V; NPN output to a controller-board direct input. Single sensor for ball detection; ball count is tracked digitally, so no sensor per ball |
 | Actuator | JF-1039B, 12 V-rated, 10 mm stroke, push-pull; driven at 24 V; solenoid eject to shooter lane. Ball retention in the shooter lane at full-power eject: TBD |
 | Protection | 1N400x-class diode |
 

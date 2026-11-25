@@ -6,7 +6,7 @@
 
 | ID | Device | Tier | Qty | Requirements |
 |---|---|---|---|---|
-| DC-02 | Slingshots | Composite Mech | 2 | **Function:** Ball strikes stretched o-ring → integrated leaf switch closes → board firmware fires the solenoid → solenoid drives kicker arm → kicker pushes ring segment outward → ring deflection kicks ball back into play. All solenoid firing runs through the Topedal board's STM firmware; no hardware autofire |
+| DC-02 | Slingshots | Composite Mech | 2 | **Function:** Ball strikes stretched o-ring → integrated leaf switch closes → board firmware fires the solenoid → solenoid drives kicker arm → kicker pushes ring segment outward → ring deflection kicks ball back into play. All solenoid firing runs through the controller board's STM firmware; no hardware autofire |
 
 ## 2. Mechanical
 
@@ -27,10 +27,10 @@ Geometry and positions: CAD (`slingshot`).
 
 | Sub-component | Design solution |
 |---|---|
-| Switch | Integrated DIY leaf switch (see Section 2); input on the same Topedal board as its coil; the board firmware fires the solenoid (no hardware autofire) |
+| Switch | Integrated DIY leaf switch (see Section 2); input on the same controller board as its coil; the board firmware fires the solenoid (no hardware autofire) |
 | Actuator | Heyiarbeit JF-1039B DC push-pull solenoid (nominal 12 V, 25 N, 0.4 A, 4.8 W, 10 mm stroke). Operating voltage: **24 V DC**. 12 V is inadequate for the scaled dynamic kick (ball Δv 0.9 m/s vs scaled target 1.8–2.7 m/s) |
-| Driver | Topedal board onboard solenoid driver: low-side IRLZ44NPbF MOSFET switching |
-| Protection | External 1N400x-class flyback diode, one per solenoid (the Topedal board has none; same as DC-04 Flipper assembly) |
+| Driver | controller board onboard solenoid driver: low-side IRLZ44NPbF MOSFET switching |
+| Protection | External 1N400x-class flyback diode, one per solenoid (the controller board has none; same as DC-04 Flipper assembly) |
 | Fusing | Slow-blow fuse per coil bank, ratings TBD |
 
 ## 4. Software

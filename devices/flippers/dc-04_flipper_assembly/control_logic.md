@@ -9,5 +9,5 @@
 | Max-duty clamp | Firmware limit on commanded hold duty. Value TBD |
 | Stuck-on detection | Firmware shuts off drive if coil current stays above the commanded hold level. Threshold and time TBD |
 | IWDG | Independent watchdog enabled; a firmware hang ends drive |
-| Gate pulldown | Topedal gate pulldown holds the MOSFET off when the Blue Pill output floats |
+| Gate pulldown | controller-board gate pulldown holds the MOSFET off when the Blue Pill output floats |
 | Shorted driver | A shorted MOSFET is not covered by firmware; the flipper feed fuse rating (TBD) covers it |

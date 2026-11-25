@@ -2,7 +2,7 @@
 
 **Revision:** 20261125-01 · **Used by:** every coil device — DC-01 Pop bumpers, DC-02 Slingshots, DC-03 Outlane save gate/deflector, DC-04 Flipper assembly, DC-05/DC-06/DC-07 Drop targets, DB-01 Scoop/hole, DB-03 Ball trough ejects
 
-Co-located coil driver, mounted at the coil (device-level), one driver per coil. The low-side MOSFET switches the coil; its gate is driven over a wire from the controller board (firmware-gated — no hardware autofire). Concept design, to be built as a custom perf board / PCB. The DP-28 Topedal board and the Cobrapin board are the reference designs.
+Co-located coil driver, mounted at the coil (device-level), one driver per coil. The low-side MOSFET switches the coil; its gate is driven over a wire from the controller board (firmware-gated — no hardware autofire). Concept design, to be built as a custom perf board / PCB. The DP-28 OPP reference board and the Cobrapin board are the design references.
 
 | Element | Value | Note |
 |---|---|---|

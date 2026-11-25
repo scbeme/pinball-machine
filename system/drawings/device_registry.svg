@@ -6159,7 +6159,7 @@
 <rect x="1009" y="54" width="22" height="18" rx="4" fill="#333333"/>
 <text x="1044" y="69" font-size="15" fill="#111"><tspan font-weight="700">DP-27</tspan>  Host computer: 1</text>
 <rect x="1009" y="80" width="22" height="18" rx="4" fill="#8c510a"/>
-<text x="1044" y="95" font-size="15" fill="#111"><tspan font-weight="700">DP-28</tspan>  Topedal board: 3</text>
+<text x="1044" y="95" font-size="15" fill="#111"><tspan font-weight="700">DP-28</tspan>  controller board: 3</text>
 <rect x="1009" y="106" width="22" height="18" rx="4" fill="#333333"/>
 <text x="1044" y="121" font-size="15" fill="#111"><tspan font-weight="700">DP-29</tspan>  24 V coil supply: 1</text>
 <rect x="1009" y="132" width="22" height="18" rx="4" fill="#333333"/>

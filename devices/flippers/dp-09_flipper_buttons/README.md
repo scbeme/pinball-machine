@@ -9,4 +9,4 @@
 | Button | Pinball Life PBL-100-0081-00-XX or comparable: opaque cabinet button, 1-1/8" shaft with spring (Williams/Bally A-16883-x and Data East/Stern 500-5026-xx equivalents) |
 | Nut | PAL nut, Williams/Bally 02-3000 |
 | Switch | SPST. The button's internal rod pushes on a [stainless cable tie](../../../system/system_common_components/houocon_stainless_cable_tie.md), either as an integral leaf of a leaf switch (commercial design, same construction as the standup targets DP-01 and DP-19) or as a spring leaf (flexure for the commercial button feel) with the electrical switch implemented as a microswitch. Choice TBD; actuation and gap per CAD |
-| Interface | Closes a Blue Pill input on the Topedal board; firmware drives the coil (see DC-04) |
+| Interface | Closes a Blue Pill input on the controller board; firmware drives the coil (see DC-04) |

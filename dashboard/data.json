@@ -1649,7 +1649,7 @@
    "devices": [
     {
      "id": "DP-28",
-     "name": "Topedal board",
+     "name": "controller board",
      "cells": {
       "fdi": [
        {

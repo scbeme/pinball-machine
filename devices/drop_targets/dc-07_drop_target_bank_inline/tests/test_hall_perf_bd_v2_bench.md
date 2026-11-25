@@ -49,7 +49,7 @@ Figure 1 — Bench test setup: 5 V supply, Hall perf board v2, one 10 kΩ pull-u
 |---|---|---|---|
 | Sensor | Generic A3144 (Amazon) | US5781 (preferred); A3144 is the alternate design (common components) | Generic sensor from Amazon; v2 board built with it (Scott, 2026-11-24) |
 | D1 | 1N4007 | A3144 alternate design: 1N5817 | 1N4007 leaves 4.3 V at the sensors, below the A3144 4.5 V minimum; the 1N5817 (Schottky) swap was fitted and measured a 0.3 V drop → 4.7 V at the sensors, within the 4.5 V minimum (Scott, 2026-11-25) |
-| Output | 10 kΩ pull-up to +5 V, read with a multimeter | OUT to a Topedal direct input (pin assignment not yet defined in the PMDD Assignment Table) | Bench observation |
+| Output | 10 kΩ pull-up to +5 V, read with a multimeter | OUT to a controller-board direct input (pin assignment not yet defined in the PMDD Assignment Table) | Bench observation |
 | Supply | Bench supply, 5 V | P-06 fused 5 V supply | Bench testing uses a bench supply until the machine supply is complete |
 | Magnet and blade | Hand-held 4×4mm magnet, no blade | Magnet in the blade bottom tab | Sensor-only test |
 
