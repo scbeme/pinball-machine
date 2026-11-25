@@ -1,6 +1,6 @@
 # Electrical Master
 
-**Revision:** 20261125-03 · **Date:** 2026-11-25
+**Revision:** 20261125-04 · **Date:** 2026-11-25
 
 ## Block diagram
 
@@ -52,9 +52,9 @@ Coils on F1–F7 total 18 (power-budget counts; the DC-05 and DC-07 coil counts 
 
 Single-point **star ground** at the GND bar (P-08). Return classes are kept separate until they meet at the star, and the system bonds to earth at one point.
 
-- **Return classes to the star:** 24 V coil returns (heavy, 18 AWG per coil), LED 5 V return (heavy, ~6 A), per-device gate return (GNDREF), logic GNDREF (clean), and the 24 V sensor returns. 24 V GND, GNDREF and LED GND meet only at GND★.
+- **Return classes to the star:** 24 V coil returns (heavy, 18 AWG per coil), LED 5 V return (heavy, ~6 A), logic GNDREF (clean, carries the per-device gate returns), and the 24 V sensor returns. 24 V GND, GNDREF and LED GND meet only at GND★.
 - **Single earth bond:** GND★ bonds to chassis / mains protective earth (PE) at one point; GFCI protection depends on this bond.
-- **Per-device gate return:** each co-located driver's gate reference (GNDREF) is a dedicated wire to the star, separate from its 4.5 A coil return, so the coil-return drop cannot shift the MOSFET gate reference.
+- **Per-device gate return:** each co-located driver's gate reference (GNDREF) pairs with its gate wire back to the controller board and joins the controller's logic GNDREF; the controller makes the single GNDREF tie to the star (conventional remote gate drive). The gate return is kept a separate conductor from the 4.5 A coil return — joined only through that controller tie — so the coil-return drop cannot shift the MOSFET gate reference. (Refines the 2026-11-25 D17 decision, which had GNDREF as a per-device dedicated wire to the star; applies to all co-located drivers.)
 - **Host ground:** the host PC is mains-earthed and powers the Blue Pills over USB (P-07), so its USB ground ties logic GNDREF to the same earth reference. If a ground loop appears, add a USB isolator.
 
 ## Board architecture
@@ -62,6 +62,6 @@ Single-point **star ground** at the GND bar (P-08). Return classes are kept sepa
 Coil drivers are **co-located with their device**, not on a shared controller board. The DP-28 controller board (one Blue Pill + 8 on-board drivers + I/O + Neopixel) is superseded for production by two board types:
 
 - **Controller board** — Blue Pill (STM32F103, OPP firmware), switch/matrix inputs, Neopixel output + level shifter, 5 V distribution, GNDREF star tie, and one gate-drive output per coil channel.
-- **Per-device coil-driver board** — co-located at each coil: MOSFET (IRLZ44N), gate network (100 Ω series + 10 kΩ pulldown), flyback diode, screw terminals ([coil_driver_board.md](system_common_components/coil_driver_board.md)). The gate signal runs from the controller board; the coil-return and the gate-return (GNDREF) run separately to the GND★ star.
+- **Per-device coil-driver board** — co-located at each coil: MOSFET (IRLZ44N), gate network (100 Ω series + 10 kΩ pulldown-to-GNDREF + 100 kΩ pulldown-to-source backup), flyback diode, screw terminals ([coil_driver_board.md](system_common_components/coil_driver_board.md)). The gate signal runs from the controller board; the coil-return runs its own wire to the GND★ star, while the gate-return (GNDREF) pairs with the gate wire back to the controller board (conventional remote gate drive) and joins the star only through the controller's single logic-GNDREF tie.
 
 Firing still runs through controller-board firmware (the gate is firmware-driven), so the no-hardware-autofire rule (Machine Master, Electrical) is preserved. The DP-28 OPP reference board and the Cobrapin board are the design references for the custom PCBs; both board types are to be designed, and **DC-06 Drop target (single) is the first prototype**.
