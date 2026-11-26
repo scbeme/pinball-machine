@@ -1,6 +1,6 @@
 # DP-28 controller board
 
-**Revision:** 20261125-01 · **Source:** OPP Solenoid, Neopixel & Switches reference board, Rev 1.1 (12 Jun 2026), as used · 3 identical boards (DP-28A to DP-28C)
+**Revision:** 20261126-01 · **Source:** OPP Solenoid, Neopixel & Switches reference board, Rev 1.1 (12 Jun 2026), as used · 3 identical boards (DP-28A to DP-28C)
 
 > **Architecture note (2026-11-25):** this is the DP-28 controller board, kept as the OPP reference/bench board (8 on-board drivers). For production the coil drivers are co-located with each device on per-device [coil driver boards](../../../system/system_common_components/coil_driver_board.md), and the controller board keeps the Blue Pill + I/O + Neopixel + per-channel gate outputs. The OPP reference board and the Cobrapin board are the design references. See Electrical Master, Board architecture.
 
@@ -40,6 +40,8 @@ No flyback diode on the board: each solenoid has an external 1N400x-class diode.
 ### 3.1 Blue Pill board as purchased
 
 Source: Amazon vendor listing (ASIN B0G1S5M8YB), read 2026-11-19. The listing is the only documentation: no board schematic or datasheet exists, and the seller is a reseller, not the manufacturer. The chip is documented by ST (DS5319); the board is not. The seller may change or stop selling this board; the ASIN is not a controlled part source.
+
+Photo of the board as used: [bluepill_board_top.png](bluepill_board_top.png)
 
 | Item | Listing value |
 |---|---|
