@@ -8,6 +8,7 @@ Run by .github/workflows/pages.yml on every deploy; no dependencies.
    no device ID matches two folders. Any error exits 1, so the deploy stops and the live site stays.
 2. Derives status from the repository contents (rules in dashboard.md terms):
    item absent = not_started; draft_ prefix = in_progress; present = complete; na stays na.
+   A document section holding a "Not assigned" subheading = in_progress.
    A "no_baseline" directory rule (Firmware code) ignores README.md and files with "baseline" in
    the name: a folder holding only open-source baseline references is in_progress, not complete.
    Revision headers: every design .md under system/ and devices/, and every .md directly in .github/, carries a first-occurrence line
@@ -157,6 +158,23 @@ class Repo:
         with open(os.path.join(self.root, path), encoding="utf-8") as fh:
             return {slug(m.group(2)) for l in fh if (m := re.match(r"^(#{1,6})\s+(.*)", l))}
 
+    def section_open(self, path, title):
+        """True when the section headed `title` holds a "Not assigned" subheading."""
+        level = None  # heading level of the section, once found
+        with open(os.path.join(self.root, path), encoding="utf-8") as fh:
+            for l in fh:
+                m = re.match(r"^(#{1,6})\s+(.*)", l)
+                if not m:
+                    continue
+                n, s = len(m.group(1)), slug(m.group(2))
+                if level is None:
+                    level = n if s == slug(title) else None
+                elif n <= level:
+                    return False
+                elif s == "not-assigned":
+                    return True
+        return False
+
     def children(self, d):
         return sorted({f[len(d) + 1:].split("/")[0] for f in self.files if f.startswith(d + "/")})
 
@@ -180,7 +198,7 @@ class Repo:
         if kind == "section":  # a heading inside a document
             p = f"{base}/{rule[1]}"
             if p in self.files and slug(rule[2]) in self.headings(p):
-                return ("complete", p, "section")
+                return ("in_progress" if self.section_open(p, rule[2]) else "complete", p, "section")
             return ("not_started", None, "section")
         raise ValueError(rule)
 
