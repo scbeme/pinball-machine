@@ -1,6 +1,6 @@
 # Electrical Master
 
-**Revision:** 20261125-04 · **Date:** 2026-11-25
+**Revision:** 20261126-01 · **Date:** 2026-11-26
 
 ## Block diagram
 
@@ -10,7 +10,7 @@
 
 ![System electrical schematic](drawings/draft_system_electrical_schematic.svg)
 
-First draft. Supplies, bus bar, fused feeds F1 to F8, GND bar, controller boards and device blocks. Pin assignments (device-to-driver, device-to-input) are not decided and are not drawn. The controller board circuit is the DP-28 device schematic: [draft_schematic.svg](../devices/controllers_power/dp-28_controller_board/draft_schematic.svg).
+First draft. Supplies, bus bar, fused feeds F1 to F8, GND bar, controller boards and device blocks. Pin assignments are not drawn; see [I/O map](#io-map). The controller board circuit is the DP-28 device schematic: [draft_schematic.svg](../devices/controllers_power/dp-28_controller_board/draft_schematic.svg).
 
 ## Safety architecture
 
@@ -65,3 +65,110 @@ Coil drivers are **co-located with their device**, not on a shared controller bo
 - **Per-device coil-driver board** — co-located at each coil: MOSFET (IRLZ44N), gate network (100 Ω series + 10 kΩ pulldown-to-GNDREF + 100 kΩ pulldown-to-source backup), flyback diode, screw terminals ([coil_driver_board.md](system_common_components/coil_driver_board.md)). The gate signal runs from the controller board; the coil-return runs its own wire to the GND★ star, while the gate-return (GNDREF) pairs with the gate wire back to the controller board (conventional remote gate drive) and joins the star only through the controller's single logic-GNDREF tie.
 
 Firing still runs through controller-board firmware (the gate is firmware-driven), so the no-hardware-autofire rule (Machine Master, Electrical) is preserved. The DP-28 OPP reference board and the Cobrapin board are the design references for the custom PCBs; both board types are to be designed, and **DC-06 Drop target (single) is the first prototype**.
+
+## I/O map
+
+Controller boards DP-28A, DP-28B, DP-28C; OPP firmware; Blue Pill pins as printed on the board silkscreen. ▶n = coil gate output, OPP solenoid number. Pin = DP-28 controller board J100 pin number.
+
+| Pin | Silk | OPP bit | DP-28A Controller board (lower) | DP-28B Controller board (top) | DP-28C Controller board (right) |
+|---|---|---|---|---|---|
+| **Header 1** | | | | | |
+| 1 | B12 | 1 | DP-09L Flipper button L | DC-01A Pop bumper switch | spare (in) |
+| 2 | B13 | 2 | DP-09R Flipper button R | DC-01B Pop bumper switch | spare (in) |
+| 3 | B14 | 3 | DP-12 Start button | DC-01C Pop bumper switch | DC-06 Drop target (single) Hall |
+| 4 | B15 | 4 | LED data out | LED data out | LED data out |
+| 5 | A8 | 5 | ▶1 DC-02A Slingshot L | ▶1 DC-01A Pop bumper | ▶1 DC-06 Drop target (single) |
+| 6 | A9 | 6 | ▶2 DC-02B Slingshot R | ▶2 DC-01B Pop bumper | spare (out ▶2) |
+| 7 | A10 | 7 | ▶3 DB-03 Ball trough eject | ▶3 DC-01C Pop bumper | spare (out ▶3) |
+| 8 | A11 | none | USB | USB | USB |
+| 9 | A12 | none | USB | USB | USB |
+| 10 | A15 | 8 | DC-02A-sw1 Slingshot L switch 1 | DP-24A Rebound switch | spare (in) |
+| 11 | B3 | 9 | DC-02A-sw2 Slingshot L switch 2 | DP-24B Rebound switch | spare (in) |
+| 12 | B4 | 10 | DC-02B-sw1 Slingshot R switch 1 | DP-19 Standup target (single) | spare (in) |
+| 13 | B5 | 11 | DC-02B-sw2 Slingshot R switch 2 | spare (in) | spare (in) |
+| 14 | B6 | 12 | ▶4 DC-04A Flipper upper-L | ▶4 DC-07 Drop target inline, coil 1 | ▶4 DC-05 Drop target bank, coil 1 |
+| 15 | B7 | 13 | ▶5 DC-04B Flipper lower-L | ▶5 DC-07 Drop target inline, coil 2 | ▶5 DC-05 Drop target bank, coil 2 |
+| 16 | B8 | 14 | ▶6 DC-04C Flipper lower-R | ▶6 DB-01 Scoop eject | ▶6 DC-05 Drop target bank, coil 3 |
+| 17 | B9 | 15 | spare (out ▶7) | spare (out ▶7) | spare (out ▶7) |
+| 18 | 5V | none | power | power | power |
+| 19 | G | none | ground | ground | ground |
+| 20 | 3.3 | none | power | power | power |
+| **Header 2** | | | | | |
+| 21 | VB | none | not assigned | not assigned | not assigned |
+| 22 | C13 | 17 | DP-21 Exit button | spare (in) | spare (in) |
+| 23 | C14 | 18 | spare (in) | spare (in) | spare (in) |
+| 24 | C15 | 19 | spare (in) | spare (in) | DP-01A Standup target |
+| 25 | A0 | 20 | ▶8 DC-03A Outlane save L | spare (in) | DP-01B Standup target |
+| 26 | A1 | 21 | ▶9 DC-03B Outlane save R | spare (in) | DP-01C Standup target |
+| 27 | A2 | 22 | spare (out ▶10) | spare (in) | DP-01D Standup target |
+| 28 | A3 | 23 | spare (out ▶11) | spare (in) | DP-01E Standup target |
+| 29 | A4 | 24 | DP-18D Rollover, L outlane | DC-07A Drop target inline Hall | DP-01F Standup target |
+| 30 | A5 | 25 | DP-18E Rollover, L inlane | DC-07B Drop target inline Hall | DC-05A Drop target bank Hall |
+| 31 | A6 | 26 | DP-18F Rollover, R inlane | DC-07C Drop target inline Hall | DC-05B Drop target bank Hall |
+| 32 | A7 | 27 | DP-18G Rollover, R outlane | DC-07D Drop target inline Hall | DC-05C Drop target bank Hall |
+| 33 | B0 | 28 | DB-03 Ball trough sensor | DP-18A Rollover, top | DC-05D Drop target bank Hall |
+| 34 | B1 | 29 | DB-04 Shooter lane sensor | DP-18B Rollover, top | DC-05E Drop target bank Hall |
+| 35 | B10 | 30 | DP-20L Programmable button L | DP-18C Rollover, top | DC-05F Drop target bank Hall |
+| 36 | B11 | 31 | DP-20R Programmable button R | DB-01 Scoop sensor | DC-05G Drop target bank Hall |
+| 37 | R | none | reset | reset | reset |
+| 38 | 3.3 | none | power | power | power |
+| 39 | G | none | ground | ground | ground |
+| 40 | G | none | ground | ground | ground |
+| **4-pin end header** | | | | | |
+| 41 | GND | none | ST-Link | ST-Link | ST-Link |
+| 42 | SWCLK | 16 | ST-Link | ST-Link | ST-Link |
+| 43 | SWIO | 0 (▶0) | ST-Link | ST-Link | ST-Link |
+| 44 | 3V3 | none | ST-Link | ST-Link | ST-Link |
+
+### Wing configuration
+
+OPP direction is set per wing.
+
+| Wing | Pins | DP-28A | DP-28B | DP-28C |
+|---|---|---|---|---|
+| W0 | SWIO, B12–B15, A8–A10 | NEO_SOL | NEO_SOL | NEO_SOL |
+| W1 | A15, B3–B9 | SOL | SOL | SOL |
+| W2 | SWCLK, C13–C15, A0–A3 | SOL | INP | INP |
+| W3 | A4–A7, B0, B1, B10, B11 | INP | INP | INP |
+
+### Firing links
+
+Input and coil are on the same controller board.
+
+| Input | Coil |
+|---|---|
+| DP-09L Flipper button L | DC-04A Flipper upper-L, DC-04B Flipper lower-L |
+| DP-09R Flipper button R | DC-04C Flipper lower-R |
+| DC-02A-sw1, -sw2 Slingshot L switches | DC-02A Slingshot L |
+| DC-02B-sw1, -sw2 Slingshot R switches | DC-02B Slingshot R |
+| DC-01A, B, C Pop bumper switches | Matching DC-01A, B, C Pop bumper |
+
+### Spare pins
+
+| Board | Spare inputs | Spare outputs |
+|---|---|---|
+| DP-28A | C14, C15 (2) | B9 ▶7, A2 ▶10, A3 ▶11 (3) |
+| DP-28B | B5, C13, C14, C15, A0–A3 (8) | B9 ▶7 (1) |
+| DP-28C | B12, B13, A15, B3, B4, B5, C13, C14 (8) | A9 ▶2, A10 ▶3, B9 ▶7 (3) |
+| Total | 18 | 7 |
+
+### Not assigned
+
+| Item | Reason |
+|---|---|
+| DP-03 Spinner | Sensor undefined |
+| DP-04 Tilt sensor | Sensor undefined; no analog wing type |
+| DB-02 Ball lock | Quantity 0–1 |
+| K1 coil-rail cutoff, 24 V rail-current detect | No pins assigned; no matching OPP wing type found |
+| DP-22 Volume control, DP-23 Monitor menu joystick | To host |
+| DP-31 to DP-41 lights | LED chain index not assigned |
+
+### Open notes
+
+- Assumption: one switch per DC-01 Pop bumpers unit.
+- Assumption: three coils on DC-05 Drop target bank (side-by-side), from the circuit fuse table; bench test confirms.
+- Device-to-board allocation is based on device registry positions.
+- Wiring is not bench tested.
+- C13 (onboard LED) and C14, C15 (32.768 kHz crystal) are untested as switch inputs; DP-01A Standup target is on C15.
+- SWIO (OPP solenoid 0 output) and SWCLK (input) are configured by OPP firmware; leave them unwired to devices.
+- OPP disables SWD while running; ST-Link may need connect-under-reset (R pin) or BOOT0 = 1. Not bench tested.
